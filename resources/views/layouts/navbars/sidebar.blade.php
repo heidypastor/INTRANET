@@ -1,8 +1,42 @@
-<div class="sidebar">
+    @php
+    $colorsidebar="";
+    @endphp
+    @switch(Auth::user()->ColorUser)
+        @case(0)
+            @php
+            $colorsidebar="primary";
+            @endphp
+            @break
+        @case(1)
+            @php
+            $colorsidebar="blue";
+            @endphp
+            @break
+        @case(2)
+            @php
+            $colorsidebar="green";
+            @endphp
+            @break
+        @case(3)
+            @php
+            $colorsidebar="red";
+            @endphp
+            @break
+        @case(4)
+            @php
+            $colorsidebar="yellow";
+            @endphp
+            @break
+        @default
+            @php
+            $colorsidebar="green";
+            @endphp
+    @endswitch
+<div class="sidebar" data="{{$colorsidebar}}">
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="#" class="simple-text logo-mini">{{ __('WD') }}</a>
-            <a href="#" class="simple-text logo-normal">{{ __('White Dashboard') }}</a>
+            <a href="#" class="simple-text logo-mini">{{ __('IN') }}</a>
+            <a href="#" class="simple-text logo-normal">{{ __('INTRANET') }}</a>
         </div>
         <ul class="nav">
             <li @if ($pageSlug == 'dashboard') class="active " @endif>
