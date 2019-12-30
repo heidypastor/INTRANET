@@ -226,6 +226,11 @@
                         }
                     });
             });
+
+            Echo.channel(`channel-message`)
+                .listen('NewMessage', (e) => {
+                    console.log(e.message);
+            });
         </script>
         @stack('js')
     </body>
