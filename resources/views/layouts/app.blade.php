@@ -144,6 +144,8 @@
 
         <script src="{{ asset('white') }}/js/white-dashboard.min.js?v=1.0.0"></script>
         <script src="{{ asset('white') }}/js/theme.js"></script>
+        {{-- incluido el secript de app.js para el codigo de laravel echo --}}
+        <script src="{{ asset('js') }}/app.js"></script>
 
         @stack('js')
 
@@ -334,6 +336,33 @@
                         $('body').removeClass('white-content');
                     });
                 });
+            });
+        </script>
+        <script type="text/javascript">
+            // Echo.private('user-login').notification((notification) => {
+            //    console.log(notification.type);
+            // });
+            
+            Echo.private(`user-login`)
+                .listen('Userlogin', (e) => {
+                    console.log(e.user.name);
+                    $.notify({
+                        icon: "tim-icons icon-single-02",
+                        message: "El Usuario <b>"+e.user.name+" - "+e.user.email+"</b> - a ha iniciado sesión."
+
+                      }, {
+                        type: 'info',
+                        timer: 4000,
+                        placement: {
+                          from: 'top',
+                          align: 'left'
+                        }
+                      });
+            });
+
+            Echo.channel(`channel-message`)
+                .listen('NewMessage', (e) => {
+                    console.log(e.message);
             });
         </script>
 

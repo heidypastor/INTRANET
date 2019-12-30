@@ -373,9 +373,9 @@
 
 @push('js')
     <script src="{{ asset('white') }}/js/plugins/chartjs.min.js"></script>
-    <script>
+    {{-- <script>
         $(document).ready(function() {
           demo.initDashboardPageCharts();
         });
-    </script>
+    </script> --}}
 @endpush
