@@ -30,7 +30,7 @@ class UsersTableSeeder extends Seeder
         $admin->assignRole('admin');
 
         $admin = new User();
-        $admin->name = 'Heydi';
+        $admin->name = 'Heidy';
         $admin->email = 'Sistemas2@prosarc.com.co';
         $admin->email_verified_at = now();
         $admin->password = bcrypt('secret');
