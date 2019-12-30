@@ -14,7 +14,7 @@ class CreateIndicatorsTable extends Migration
     public function up()
     {
         Schema::create('indicators', function (Blueprint $table) {
-            $table->bigIncrements('Id_Ind');
+            $table->bigIncrements('id');
             $table->timestamps();
             $table->string('IndName'); /*Nombre del indicador*/
             $table->string('IndObjective'); /*Objetivo del indicador*/
@@ -24,10 +24,10 @@ class CreateIndicatorsTable extends Migration
             $table->string('IndAnalysis'); /*Analisis mensual o por periodos*/
             $table->date('IndDateFrom'); /*Desde cuando se tomaron los datos*/
             $table->date('IndDateUntil'); /*Hasta cuando se tomaron los datos*/
-            $table->softDeletes(0); 
+            $table->softDeletes(); 
             $table->unsignedBigInteger('user_id');  /*Relación con la tabla usuarios*/
             $table->foreign('user_id')->references('id')->on('users'); 
-            $table->unsignedBigInteger('area_id');  /*Relación con la tabla areas*/
+            $table->unsignedBigInteger('area_id');  /*Relación con la tabla areas a la que pertenece el indicador*/
             $table->foreign('area_id')->references('id')->on('areas');
             $table->engine = 'InnoDB';
             $table->charset = 'utf8';
