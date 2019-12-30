@@ -15224,6 +15224,24 @@ table.tablesorter thead tr .headerSortDown {
   background: linear-gradient(0deg, #3358f4 0%, #1d8cf8 100%);
 }
 
+.sidebar[data="red"],
+.off-canvas-sidebar[data="red"] {
+  background: #FD0101;
+  background: -webkit-linear-gradient(0deg, #FD0101 0%, #e3342f 100%);
+  background: -o-linear-gradient(0deg, #FD0101 0%, #e3342f 100%);
+  background: -moz-linear-gradient(0deg, #FD0101 0%, #e3342f 100%);
+  background: linear-gradient(0deg, #FD0101 0%, #e3342f 100%);
+}
+
+.sidebar[data="yellow"],
+.off-canvas-sidebar[data="yellow"] {
+  background: #F7BA05;
+  background: -webkit-linear-gradient(0deg, #F7BA05 0%, #F99202 100%);
+  background: -o-linear-gradient(0deg, #F7BA05 0%, #F99202 100%);
+  background: -moz-linear-gradient(0deg, #F7BA05 0%, #F99202 100%);
+  background: linear-gradient(0deg, #F7BA05 0%, #F99202 100%);
+}
+
 .sidebar[data="green"],
 .off-canvas-sidebar[data="green"] {
   background: #0098f0;
@@ -15330,6 +15348,14 @@ table.tablesorter thead tr .headerSortDown {
 
 .main-panel[data="blue"] {
   border-top: 2px solid #1d8cf8;
+}
+
+.main-panel[data="red"] {
+  border-top: 2px solid #e3342f;
+}
+
+.main-panel[data="yellow"] {
+  border-top: 2px solid #ffd600;
 }
 
 .main-panel[data="green"] {
@@ -17625,7 +17651,7 @@ Copyright (c) 2015 Daniel Eden
   width: 250px;
 }
 
-.card-user .author .block.block-one {
+.card-user .author .block.block-one-primary {
   background: rgba(225, 78, 202, 0.6);
   background: -webkit-linear-gradient(to right, rgba(225, 78, 202, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
   background: -o-linear-gradient(to right, rgba(225, 78, 202, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
@@ -17641,7 +17667,7 @@ Copyright (c) 2015 Daniel Eden
   margin-left: -50px;
 }
 
-.card-user .author .block.block-two {
+.card-user .author .block.block-two-primary {
   background: rgba(225, 78, 202, 0.6);
   background: -webkit-linear-gradient(to right, rgba(225, 78, 202, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
   background: -o-linear-gradient(to right, rgba(225, 78, 202, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
@@ -17657,7 +17683,7 @@ Copyright (c) 2015 Daniel Eden
   margin-left: -100px;
 }
 
-.card-user .author .block.block-three {
+.card-user .author .block.block-three-primary {
   background: rgba(225, 78, 202, 0.6);
   background: -webkit-linear-gradient(to right, rgba(225, 78, 202, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
   background: -o-linear-gradient(to right, rgba(225, 78, 202, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
@@ -17673,12 +17699,268 @@ Copyright (c) 2015 Daniel Eden
   right: -45px;
 }
 
-.card-user .author .block.block-four {
+.card-user .author .block.block-four-primary {
   background: rgba(225, 78, 202, 0.6);
   background: -webkit-linear-gradient(to right, rgba(225, 78, 202, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
   background: -o-linear-gradient(to right, rgba(225, 78, 202, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
   background: -moz-linear-gradient(to right, rgba(225, 78, 202, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
   background: linear-gradient(to right, rgba(225, 78, 202, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  transform: rotate(150deg);
+  margin-top: -25px;
+  right: -45px;
+}
+
+.card-user .author .block.block-one-blue {
+  background: rgba(29, 184, 245, 0.6);
+  background: -webkit-linear-gradient(to right, rgba(29, 184, 245, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -o-linear-gradient(to right, rgba(29, 184, 245, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -moz-linear-gradient(to right, rgba(29, 184, 245, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: linear-gradient(to right, rgba(29, 184, 245, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  transform: rotate(150deg);
+  margin-top: -90px;
+  margin-left: -50px;
+}
+
+.card-user .author .block.block-two-blue {
+  background: rgba(29, 184, 245, 0.6);
+  background: -webkit-linear-gradient(to right, rgba(29, 184, 245, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -o-linear-gradient(to right, rgba(29, 184, 245, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -moz-linear-gradient(to right, rgba(29, 184, 245, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: linear-gradient(to right, rgba(29, 184, 245, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  transform: rotate(30deg);
+  margin-top: -40px;
+  margin-left: -100px;
+}
+
+.card-user .author .block.block-three-blue {
+  background: rgba(29, 184, 245, 0.6);
+  background: -webkit-linear-gradient(to right, rgba(29, 184, 245, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -o-linear-gradient(to right, rgba(29, 184, 245, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -moz-linear-gradient(to right, rgba(29, 184, 245, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: linear-gradient(to right, rgba(29, 184, 245, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+  -webkit-transform: rotate(170deg);
+  -moz-transform: rotate(170deg);
+  -ms-transform: rotate(170deg);
+  -o-transform: rotate(170deg);
+  transform: rotate(170deg);
+  margin-top: -70px;
+  right: -45px;
+}
+
+.card-user .author .block.block-four-blue {
+  background: rgba(29, 184, 245, 0.6);
+  background: -webkit-linear-gradient(to right, rgba(29, 184, 245, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -o-linear-gradient(to right, rgba(29, 184, 245, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -moz-linear-gradient(to right, rgba(29, 184, 245, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: linear-gradient(to right, rgba(29, 184, 245, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  transform: rotate(150deg);
+  margin-top: -25px;
+  right: -45px;
+}
+
+.card-user .author .block.block-one-green {
+  background: rgba(29, 245, 198, 0.6);
+  background: -webkit-linear-gradient(to right, rgba(29, 245, 198, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -o-linear-gradient(to right, rgba(29, 245, 198, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -moz-linear-gradient(to right, rgba(29, 245, 198, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: linear-gradient(to right, rgba(29, 245, 198, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  transform: rotate(150deg);
+  margin-top: -90px;
+  margin-left: -50px;
+}
+
+.card-user .author .block.block-two-green {
+  background: rgba(29, 245, 198, 0.6);
+  background: -webkit-linear-gradient(to right, rgba(29, 245, 198, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -o-linear-gradient(to right, rgba(29, 245, 198, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -moz-linear-gradient(to right, rgba(29, 245, 198, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: linear-gradient(to right, rgba(29, 245, 198, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  transform: rotate(30deg);
+  margin-top: -40px;
+  margin-left: -100px;
+}
+
+.card-user .author .block.block-three-green {
+  background: rgba(29, 245, 198, 0.6);
+  background: -webkit-linear-gradient(to right, rgba(29, 245, 198, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -o-linear-gradient(to right, rgba(29, 245, 198, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -moz-linear-gradient(to right, rgba(29, 245, 198, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: linear-gradient(to right, rgba(29, 245, 198, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+  -webkit-transform: rotate(170deg);
+  -moz-transform: rotate(170deg);
+  -ms-transform: rotate(170deg);
+  -o-transform: rotate(170deg);
+  transform: rotate(170deg);
+  margin-top: -70px;
+  right: -45px;
+}
+
+.card-user .author .block.block-four-green {
+  background: rgba(29, 245, 198, 0.6);
+  background: -webkit-linear-gradient(to right, rgba(29, 245, 198, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -o-linear-gradient(to right, rgba(29, 245, 198, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -moz-linear-gradient(to right, rgba(29, 245, 198, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: linear-gradient(to right, rgba(29, 245, 198, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  transform: rotate(150deg);
+  margin-top: -25px;
+  right: -45px;
+}
+
+.card-user .author .block.block-one-red {
+  background: rgba(252, 27, 31, 0.6);
+  background: -webkit-linear-gradient(to right, rgba(252, 27, 31, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -o-linear-gradient(to right, rgba(252, 27, 31, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -moz-linear-gradient(to right, rgba(252, 27, 31, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: linear-gradient(to right, rgba(252, 27, 31, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  transform: rotate(150deg);
+  margin-top: -90px;
+  margin-left: -50px;
+}
+
+.card-user .author .block.block-two-red {
+  background: rgba(252, 27, 31, 0.6);
+  background: -webkit-linear-gradient(to right, rgba(252, 27, 31, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -o-linear-gradient(to right, rgba(252, 27, 31, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -moz-linear-gradient(to right, rgba(252, 27, 31, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: linear-gradient(to right, rgba(252, 27, 31, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  transform: rotate(30deg);
+  margin-top: -40px;
+  margin-left: -100px;
+}
+
+.card-user .author .block.block-three-red {
+  background: rgba(252, 27, 31, 0.6);
+  background: -webkit-linear-gradient(to right, rgba(252, 27, 31, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -o-linear-gradient(to right, rgba(252, 27, 31, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -moz-linear-gradient(to right, rgba(252, 27, 31, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: linear-gradient(to right, rgba(252, 27, 31, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+  -webkit-transform: rotate(170deg);
+  -moz-transform: rotate(170deg);
+  -ms-transform: rotate(170deg);
+  -o-transform: rotate(170deg);
+  transform: rotate(170deg);
+  margin-top: -70px;
+  right: -45px;
+}
+
+.card-user .author .block.block-four-red {
+  background: rgba(252, 27, 31, 0.6);
+  background: -webkit-linear-gradient(to right, rgba(252, 27, 31, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -o-linear-gradient(to right, rgba(252, 27, 31, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -moz-linear-gradient(to right, rgba(252, 27, 31, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: linear-gradient(to right, rgba(252, 27, 31, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  transform: rotate(150deg);
+  margin-top: -25px;
+  right: -45px;
+}
+
+.card-user .author .block.block-one-yellow {
+  background: rgba(249, 179, 0, 0.6);
+  background: -webkit-linear-gradient(to right, rgba(249, 179, 0, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -o-linear-gradient(to right, rgba(249, 179, 0, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -moz-linear-gradient(to right, rgba(249, 179, 0, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: linear-gradient(to right, rgba(249, 179, 0, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  transform: rotate(150deg);
+  margin-top: -90px;
+  margin-left: -50px;
+}
+
+.card-user .author .block.block-two-yellow {
+  background: rgba(249, 179, 0, 0.6);
+  background: -webkit-linear-gradient(to right, rgba(249, 179, 0, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -o-linear-gradient(to right, rgba(249, 179, 0, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -moz-linear-gradient(to right, rgba(249, 179, 0, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: linear-gradient(to right, rgba(249, 179, 0, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  transform: rotate(30deg);
+  margin-top: -40px;
+  margin-left: -100px;
+}
+
+.card-user .author .block.block-three-yellow {
+  background: rgba(249, 179, 0, 0.6);
+  background: -webkit-linear-gradient(to right, rgba(249, 179, 0, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -o-linear-gradient(to right, rgba(249, 179, 0, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -moz-linear-gradient(to right, rgba(249, 179, 0, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: linear-gradient(to right, rgba(249, 179, 0, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
+  -webkit-transform: rotate(170deg);
+  -moz-transform: rotate(170deg);
+  -ms-transform: rotate(170deg);
+  -o-transform: rotate(170deg);
+  transform: rotate(170deg);
+  margin-top: -70px;
+  right: -45px;
+} 
+
+.card-user .author .block.block-four-yellow {
+  background: rgba(249, 179, 0, 0.6);
+  background: -webkit-linear-gradient(to right, rgba(249, 179, 0, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -o-linear-gradient(to right, rgba(249, 179, 0, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: -moz-linear-gradient(to right, rgba(249, 179, 0, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
+  background: linear-gradient(to right, rgba(249, 179, 0, 0.6) 0%, rgba(225, 78, 202, 0) 100%);
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=10);
   -webkit-transform: rotate(150deg);
   -moz-transform: rotate(150deg);
