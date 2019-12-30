@@ -357,18 +357,8 @@
                         },
                         success: function(res){
                             console.log(res);
-                            $("#subcategorycontainer").empty();
-                            var subcat = new Array();
-                            for(var i = res.length -1; i >= 0; i--){
-                                if ($.inArray(res[i].ID_SubCategoryRP, subcat) < 0) {
-                                    $("#subcategorycontainer").append(`<option value="${res[i].ID_SubCategoryRP}">${res[i].SubCategoryRpName}</option>`);
-                                    subcat.push(res[i].ID_SubCategoryRP);
-                                }
-                            }
                         },
                         complete: function(){
-                            $(".load").empty();
-                            $("#subcategorycontainer").prop('disabled', false);
                         }
                     });
                 @endauth
@@ -377,7 +367,6 @@
         </script>
         <script>
             $('#iconolapiz').on('click', function(){
-                console.log('si funciona');
                 $('#Avatar').click();
             });
         </script>

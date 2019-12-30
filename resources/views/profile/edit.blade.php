@@ -7,7 +7,7 @@
                 <div class="card-header">
                     <h5 class="title">{{ __('Edit Profile') }}</h5>
                 </div>
-                <form method="post" action="{{ route('profile.update') }}" autocomplete="off"enctype="multipart/form-data">
+                <form method="post" action="{{ route('profile.update') }}" autocomplete="off" enctype="multipart/form-data">
                     <div class="card-body">
                             @csrf
                             @method('put')
@@ -116,11 +116,7 @@
                             <div class="block block-four-{{$colorblock}}" id="colors4"></div>
                             
                                 <img class="avatar" style="width: 20em; height: 15em;" src="{{ auth()->user()->Avatar }}">
-
                             <a href="#">
-
-                                
-
                                 @auth
                                     @php
                                     $colormainpanel="";
@@ -159,7 +155,7 @@
                                 @endauth
                                 <i id="iconolapiz" class="tim-icons icon-pencil" style="background: {{$colormainpanel}}; border-radius: 50%; padding: 0.4em 0.4em 0.4em 0.4em; margin: 0em 0em 0em -1.5em; position: relative;"></i>
                                 {{--/images/{{$cita->usuario}}--}}
-                                
+                                <h5 class="title">{{ auth()->user()->name }}</h5>
                                 {{-- <h5 class="title">{{ auth()->user()->name }}</h5>
                                 <img class="avatar" src="{{ asset('black') }}/img/emilyz.jpg" alt="">
                                 <h5 class="title">{{ auth()->user()->name }}</h5> --}}

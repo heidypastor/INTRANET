@@ -26,6 +26,7 @@ class ProfileController extends Controller
      */
     public function update(ProfileRequest $request)
     {
+        // return $request;
         auth()->user()->update($request->except('Avatar'));
 
             if ($request->hasFile('Avatar')){
@@ -36,7 +37,7 @@ class ProfileController extends Controller
             auth()->user()->update(['Avatar' => '/images/'.$name]);
 
         /*auth()->user()->update($request->all());*/
-    }
+            }
 
             return back()->withStatus(__('Profile successfully updated.'));
     }
@@ -63,28 +64,30 @@ class ProfileController extends Controller
         //     return $request;
         //     return response()->json($municipio);
         // }
-        $user = User::where('id', $id)->first();
+        /*$user = User::where('id', $id)->first();*/
         switch ($color) {
             case 'primary':
-                $user->ColorUser = 0;
+                $NuevoColor = 0;
                 break;
             case 'blue':
-                $user->ColorUser = 1;
+                $NuevoColor = 1;
                 break;
             case 'green':
-                $user->ColorUser = 2;
+                $NuevoColor = 2;
                 break;
             case 'red':
-                $user->ColorUser = 3;
+                $NuevoColor = 3;
                 break;
             case 'yellow':
-                $user->ColorUser = 4;
+                $NuevoColor = 4;
                 break;
             default:
-                $user->ColorUser = 2;
+                $NuevoColor = 2;
                 break;
         }
-        $user->save();
+        /*$user->save();*/
+        auth()->user()->update(['ColorUser' => $NuevoColor]);
+
 
         return response()->json($user->ColorUser);
     }
