@@ -24,14 +24,52 @@
         @auth()
             <div class="wrapper">
                     @include('layouts.navbars.sidebar')
-                <div class="main-panel">
-                    @include('layouts.navbars.navbar')
+                    @php
+                    $colorsidebar="";
+                    @endphp
+                    @switch(Auth::user()->ColorUser)
+                        @case(0)
+                            @php
+                            $colormainpanel="primary";
+                            @endphp
+                            @break
+                        @case(1)
+                            @php
+                            $colormainpanel="blue";
+                            @endphp
+                            @break
+                        @case(2)
+                            @php
+                            $colormainpanel="green";
+                            @endphp
+                            @break
+                        @case(3)
+                            @php
+                            $colormainpanel="red";
+                            @endphp
+                            @break
+                        @case(4)
+                            @php
+                            $colormainpanel="yellow";
+                            @endphp
+                            @break
+                        @default
+                            @php
+                            $colormainpanel="green";
+                            @endphp
+                    @endswitch
 
-                    <div class="content">
-                        @yield('content')
+                <div class="wrapper">
+                        @include('layouts.navbars.sidebar')
+                    <div class="main-panel" data="{{$colormainpanel}}">
+                        @include('layouts.navbars.navbar')
+
+                        <div class="content">
+                            @yield('content')
+                        </div>
+
+                        @include('layouts.footer')
                     </div>
-
-                    @include('layouts.footer')
                 </div>
             </div>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -60,9 +98,15 @@
                 <li class="adjustments-line">
                     <a href="javascript:void(0)" class="switch-trigger background-color">
                     <div class="badge-colors text-center">
-                        <span class="badge filter badge-primary active" data-color="primary"></span>
-                        <span class="badge filter badge-info" data-color="blue"></span>
-                        <span class="badge filter badge-success" data-color="green"></span>
+                        <span class="badge filter badge-primary @auth {{ Auth::user()->ColorUser === 0 ? "active" : "" }} @endauth" data-color="primary"></span>
+
+                        <span class="badge filter badge-info @auth {{ Auth::user()->ColorUser === 1 ? "active" : "" }} @endauth" data-color="blue"></span>
+
+                        <span class="badge filter badge-success @auth {{ Auth::user()->ColorUser === 2 ? "active" : "" }} @endauth" data-color="green"></span>
+
+                        <span class="badge filter badge-danger @auth {{ Auth::user()->ColorUser === 3 ? "active" : "" }} @endauth" data-color="red"></span>
+
+                        <span class="badge filter badge-warning @auth {{ Auth::user()->ColorUser === 4 ? "active" : "" }} @endauth" data-color="yellow"></span>
                     </div>
                     <div class="clearfix"></div>
                     </a>
@@ -109,6 +153,11 @@
                     $main_panel = $('.main-panel');
 
                     $full_page = $('.full-page');
+                    $colors1 = $('#colors1');
+                    $colors2 = $('#colors2');
+                    $colors3 = $('#colors3');
+                    $colors4 = $('#colors4');
+                    $iconolapiz = $('#iconolapiz');
 
                     $sidebar_responsive = $('body > .navbar-collapse');
                     sidebar_mini_active = true;
@@ -149,7 +198,86 @@
                         if ($sidebar_responsive.length != 0) {
                             $sidebar_responsive.attr('data', new_color);
                         }
-                    });
+
+                        $colors1.removeClass(); 
+                        $colors1.addClass('block');
+                        $colors1.addClass('block-one-'+new_color);
+
+                        $colors2.removeClass(); 
+                        $colors2.addClass('block');
+                        $colors2.addClass('block-two-'+new_color);
+
+                        $colors3.removeClass(); 
+                        $colors3.addClass('block');
+                        $colors3.addClass('block-three-'+new_color);
+
+                        $colors4.removeClass(); 
+                        $colors4.addClass('block');
+                        $colors4.addClass('block-four-'+new_color);
+
+                        switch(new_color) {
+                            case "primary":
+                            $iconolapiz.css('background',"#fc4fff");
+                            break;
+                            case "blue":
+                            $iconolapiz.css('background',"#359fe9");
+                            break;
+                            case "green":
+                            $iconolapiz.css('background',"#42e7ab");
+                            break;
+                            case "red":
+                            $iconolapiz.css('background',"red");
+                            break;
+                            case "yellow":
+                            $iconolapiz.css('background',"orange");
+                            break;
+                          default:
+                            // code block
+                        }
+
+
+                        // if (new_color == "primary") {
+                        //     $iconolapiz.css('background',"pink");
+                        // }else{
+                        //     $iconolapiz.css('background',new_color);
+                        // }
+
+                        var colorespañol ="";
+
+                        switch(new_color) {
+                          case "primary":
+                            colorespañol ="lila";                                
+                            break;
+                          case "blue":
+                            colorespañol ="azul";
+                            break;
+                          case "green":
+                            colorespañol ="verde";                                
+                            break;
+                          case "red":
+                            colorespañol ="rojo";                                
+                            break;
+                          case "yellow":
+                            colorespañol ="amarillo";                                
+                            break;
+                          default:
+                            colorespañol ="";
+                        } 
+                        @auth
+                          $.notify({
+                            icon: "tim-icons icon-palette",
+                            message: "Su color a sido actualizado correctamente por el color "+colorespañol
+
+                          }, {
+                            type: 'info',
+                            timer: 8000,
+                            placement: {
+                              from: 'top',
+                              align: 'left'
+                            }
+                          });
+                        @endauth
+                    }); 
 
                     $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
                         var $btn = $(this);
@@ -206,6 +334,54 @@
                 });
             });
         </script>
+
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $(".fixed-plugin .background-color span").click(function(e){
+                var new_color = $(this).data('color');
+                console.log(new_color);
+                e.preventDefault();
+                $.ajaxSetup({
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                  }
+                });
+
+                @auth
+                    $.ajax({
+                        url: "{{url('/cambiodecolor')}}/"+{{Auth::user()->id}}+"/color/"+new_color,
+                        method: 'GET',
+                        data:{},
+                        beforeSend: function(){
+                            $(this).prop('disabled', true);
+                        },
+                        success: function(res){
+                            console.log(res);
+                            $("#subcategorycontainer").empty();
+                            var subcat = new Array();
+                            for(var i = res.length -1; i >= 0; i--){
+                                if ($.inArray(res[i].ID_SubCategoryRP, subcat) < 0) {
+                                    $("#subcategorycontainer").append(`<option value="${res[i].ID_SubCategoryRP}">${res[i].SubCategoryRpName}</option>`);
+                                    subcat.push(res[i].ID_SubCategoryRP);
+                                }
+                            }
+                        },
+                        complete: function(){
+                            $(".load").empty();
+                            $("#subcategorycontainer").prop('disabled', false);
+                        }
+                    });
+                @endauth
+            });
+        });
+        </script>
+        <script>
+            $('#iconolapiz').on('click', function(){
+                console.log('si funciona');
+                $('#Avatar').click();
+            });
+        </script>
+        
         @stack('js')
     </body>
 </html>

@@ -4,7 +4,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="card ">
-      <div class="card-header">
+      {{-- <div class="card-header">
         <h4 class="card-title"> Simple Table</h4>
       </div>
       <div class="card-body">
@@ -128,7 +128,7 @@
             </tbody>
           </table>
         </div>
-      </div>
+      </div> --}}
     </div>
   </div>
   <div class="col-md-12">
