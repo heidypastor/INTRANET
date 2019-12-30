@@ -348,15 +348,16 @@
                     console.log(e.user.name);
                     $.notify({
                         icon: "tim-icons icon-single-02",
-                        message: "El Usuario <b>"+e.user.name+" - "+e.user.email+"</b> - a ha iniciado sesión.",
-                        type: 'primary',
+                        message: "El Usuario <b>"+e.user.name+" - "+e.user.email+"</b> - a ha iniciado sesión."
+
+                      }, {
+                        type: 'info',
                         timer: 4000,
                         placement: {
                           from: 'top',
                           align: 'left'
-                        }, {
-
-                });
+                        }
+                      });
             });
 
             Echo.channel(`channel-message`)
