@@ -15,11 +15,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+// if (auth()->user()->hasRole('admin'))
+// {
+//     Auth::routes();
+// }
+// else
+// {
+// 	Auth::routes([
+//         'register' => false
+//     ]);
+// }
 
-Route::get('/home', 'HomeController@index')->name('home');
-Auth::routes();
 
+// Route::get('/home', 'HomeController@index')->name('home');
+// Auth::routes();
+
+Auth::routes([
+    'register' => false
+]);
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
