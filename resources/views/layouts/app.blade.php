@@ -98,6 +98,7 @@
 
         <script src="{{ asset('white') }}/js/white-dashboard.min.js?v=1.0.0"></script>
         <script src="{{ asset('white') }}/js/theme.js"></script>
+        {{-- incluido el secript de app.js para el codigo de laravel echo --}}
         <script src="{{ asset('js') }}/app.js"></script>
 
         @stack('js')
@@ -223,8 +224,9 @@
                         placement: {
                           from: 'top',
                           align: 'left'
-                        }
-                    });
+                        }, {
+
+                });
             });
 
             Echo.channel(`channel-message`)
