@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
+
 
 class UserController extends Controller
 {
@@ -28,7 +30,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $roles = Role::where('name', '!=', 'admin')->get();
+
+        return view('users.create', compact('roles'));
     }
 
     /**
@@ -38,9 +42,22 @@ class UserController extends Controller
      * @param  \App\User  $model
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(UserRequest $request, User $model)
+    public function store(UserRequest $request, User $user)
     {
-        $model->create($request->merge(['password' => Hash::make($request->get('password'))])->all());
+        $roles = Role::whereIn('name', $request->input('roles'))->get();
+        // return $roles;
+        $user = new User();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->email_verified_at = now();
+        $user->password= Hash::make($request->get('password'));
+        $user->ColorUser= 2;
+        $user->Avatar= 'images/robot400x400.gif';
+        $user->save();
+
+        // $user->create($request->merge(['password' => Hash::make($request->get('password'))])->except('roles'));
+
+        $user->assignRole($roles);
 
         return redirect()->route('user.index')->withStatus(__('User successfully created.'));
     }
@@ -57,7 +74,12 @@ class UserController extends Controller
             return redirect()->route('user.index');
         }
 
-        return view('users.edit', compact('user'));
+        $user->roles = $user->getRoleNames();
+
+        $roles = Role::where('name', '!=', 'admin')->get();
+        // $user->assignRole($roles);
+        // return $user;
+        return view('users.edit', compact(['user', 'roles']));
     }
 
     /**
@@ -69,11 +91,15 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, User  $user)
     {
+        // return $request;
         $hasPassword = $request->get('password');
         $user->update(
             $request->merge(['password' => Hash::make($request->get('password'))])
                 ->except([$hasPassword ? '' : 'password']
         ));
+
+        $user->syncRoles($request->input('roles'));
+
 
         return redirect()->route('user.index')->withStatus(__('User successfully updated.'));
     }
