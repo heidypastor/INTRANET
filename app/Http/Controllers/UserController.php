@@ -14,9 +14,11 @@ class UserController extends Controller
      * @param  \App\User  $model
      * @return \Illuminate\View\View
      */
-    public function index(User $model)
+    public function index(User $users)
     {
-        return view('users.index', ['users' => $model->paginate(15)]);
+        $users = User::with('roles')->paginate(10);
+        // return $users;
+        return view('users.index', ['users' => $users]);
     }
 
     /**

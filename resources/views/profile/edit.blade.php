@@ -5,7 +5,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">{{ __('Edit Profile') }}</h5>
+                    <h5 class="title pull-left">{{ __('Edit Profile') }}</h5>
+                    <button class="btn btn-primary pull-right">Editar roles</button>
                 </div>
                 <form method="post" action="{{ route('profile.update') }}" autocomplete="off" enctype="multipart/form-data">
                     <div class="card-body">
