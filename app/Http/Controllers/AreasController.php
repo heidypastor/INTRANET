@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Areas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AreasController extends Controller
 {
@@ -14,7 +15,11 @@ class AreasController extends Controller
      */
     public function index()
     {
-        //
+        /*$Areas = DB::table('areas')->get();*/
+        $Areas = Areas::with('users')->get();
+        /*$Areas = Areas::all();*/
+        return $Areas;
+        return view('areas.index', compact('Areas'));
     }
 
     /**

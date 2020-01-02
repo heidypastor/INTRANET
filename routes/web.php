@@ -43,6 +43,9 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('tables', ['as' => 'pages.tables', 'uses' => 'PageController@tables']);
 		Route::get('typography', ['as' => 'pages.typography', 'uses' => 'PageController@typography']);
 		Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'PageController@upgrade']);
+
+		Route::get('areas', ['as' => 'areas.index', 'uses' => 'AreasController@index']);
+		Route::get('indicators', ['as' => 'indicators.index', 'uses' => 'IndicatorsController@index']);
 });
 
 Route::group(['middleware' => 'auth'], function () {

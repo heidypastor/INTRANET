@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Areas extends Model
 {
-    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -31,7 +30,7 @@ class Areas extends Model
 
     public function users()
     {
-        return $this->hasMany('App\User','area_user');
+        return $this->hasMany('App\User');
         //Relación de la tabla areas y la tabla indicadores
     }
 
