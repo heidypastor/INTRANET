@@ -56,9 +56,9 @@
 	      <tbody>
 	      	@foreach($Areas as $Area)
 	          <tr>
-	            <td class="text-center">{{$Area->AreaName}}</td>
-	            <td class="text-center">{{$Area->AreaSede}}</td>
-	            <td class="text-center"><button onclick="actualizarArea({{$Area->id}}, {{$Area->AreaName}}, {{$Area->AreaSede}})" class="btn btn-fill btn-warning" data-toggle="modal" data-target="#editmodalarea">Editar</button></td>
+	            <td id="AreaName{{$Area->id}}" class="text-center">{{$Area->AreaName}}</td>
+	            <td id="AreaSede{{$Area->id}}" class="text-center">{{$Area->AreaSede}}</td>
+	            <td class="text-center"><button onclick="actualizarArea({{$Area->id}}" class="btn btn-fill btn-warning" data-toggle="modal" data-target="#editmodalarea">Editar</button></td>
 	          </tr>
 	        @endforeach
 

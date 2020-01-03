@@ -403,17 +403,14 @@
         </script>
 
         <script>
-            function actualizarArea(id, AreaName, AreaSede){
-                var txt1 = `"`+AreaName+`"`;
-                var txt2 = `"`+AreaSede+`"`;
+            function actualizarArea(id){
+                // var txt1 = `"`+areaname+`"`;
+                // var txt2 = `"`+areasede+`"`;
 
-                var aux = $('#nameedit').val();
-                var auxi = $('#sedeedit').val();
-                console.log(AreaName, AreaSede);
+                // var aux = $('#AreaName'+id).html();
+                // var auxi = $('#AreaSede'+id).html();
+                console.log('funciona');
                 $('#formulariodeedicion').attr('action','areas/'+id);
-                $('#nameedit').val(txt1);
-                $('#sedeedit').val(txt2);
-
 
             };
         </script>
