@@ -39,12 +39,12 @@
             <a href="#" class="simple-text logo-normal">{{ __('INTRANET') }}</a>
         </div>
         <ul class="nav">
-            <li @if ($pageSlug == 'dashboard') class="active " @endif>
+            {{-- <li @if ($pageSlug == 'dashboard') class="active " @endif>
                 <a href="{{ route('home') }}">
                     <i class="tim-icons icon-chart-pie-36"></i>
                     <p>{{ __('Dashboard') }}</p>
                 </a>
-            </li>
+            </li> --}}
             <li>
                 <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
                     <i class="fab fa-laravel" ></i>
@@ -81,13 +81,13 @@
                     <p>{{ __('Icons') }}</p>
                 </a>
             </li>
-            <li @if ($pageSlug == 'maps') class="active " @endif>
+            {{-- <li @if ($pageSlug == 'maps') class="active " @endif>
                 <a href="{{ route('pages.maps') }}">
                     <i class="tim-icons icon-pin"></i>
                     <p>{{ __('Maps') }}</p>
                 </a>
-            </li>
-            <li @if ($pageSlug == 'notifications') class="active " @endif>
+            </li> --}}
+            {{-- <li @if ($pageSlug == 'notifications') class="active " @endif>
                 <a href="{{ route('pages.notifications') }}">
                     <i class="tim-icons icon-bell-55"></i>
                     <p>{{ __('Notifications') }}</p>
@@ -104,17 +104,31 @@
                     <i class="tim-icons icon-align-center"></i>
                     <p>{{ __('Typography') }}</p>
                 </a>
-            </li>
+            </li> --}}
             {{-- <li @if ($pageSlug == 'rtl') class="active " @endif>
                 <a href="{{ route('pages.rtl') }}">
                     <i class="tim-icons icon-world"></i>
                     <p>{{ __('RTL Support') }}</p>
                 </a>
             </li> --}}
-            <li class=" {{ $pageSlug == 'upgrade' ? 'active' : '' }}">
+            {{-- <li class=" {{ $pageSlug == 'upgrade' ? 'active' : '' }}">
                 <a href="{{ route('pages.upgrade') }}">
                     <i class="tim-icons icon-spaceship"></i>
-                    <p>{{ __('Upgrade to PRO') }}</p>
+                    <p>{{ __('Upgrade to PRO') }}</p> 
+                </a>
+            </li> --}}
+
+            <li class=" {{ $pageSlug == 'areas' ? 'active' : '' }}">
+                <a href="{{ route('areas.index') }}">
+                    <i class="tim-icons icon-components"></i>
+                    <p>{{ __('Áreas') }}</p> 
+                </a>
+            </li>
+
+            <li class=" {{ $pageSlug == 'indicators' ? 'active' : '' }}">
+                <a href="{{ route('indicators.index') }}">
+                    <i class="tim-icons icon-chart-bar-32"></i>
+                    <p>{{ __('Indicators') }}</p> 
                 </a>
             </li>
         </ul>

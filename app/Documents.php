@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Documents extends Model
 {
-    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -16,6 +15,18 @@ class Documents extends Model
     protected $fillable = [
         'DocName', 'DocSrc', 'DocVersion', 'DocType', 'DocMime', 'DocOriginalName', 'DocSize', 'DocGeneral', 'DocPublisher',  
     ];
+
+    public function areas()
+    {
+        return $this->belongsToMany('App\Areas','area_document');
+        //Relación de la tabla areas y la tabla documentos 
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User','document_user');
+        //Relación de la tabla documentos y la tabla usuarios 
+    }
 
     /**
      * The attributes that should be hidden for arrays.

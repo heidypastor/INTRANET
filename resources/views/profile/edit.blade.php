@@ -166,12 +166,9 @@
                             </p>
                         </div>
                     </p>
-                    <div class="card-description">
-                        {{ __('Do not be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...') }}
-                    </div>
                 </div>
                 <div class="card-footer">
-                    <div class="button-container">
+                    {{-- <div class="button-container">
                         <button class="btn btn-icon btn-round btn-facebook">
                             <i class="fab fa-facebook"></i>
                         </button>
@@ -181,7 +178,7 @@
                         <button class="btn btn-icon btn-round btn-google">
                             <i class="fab fa-google-plus"></i>
                         </button>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

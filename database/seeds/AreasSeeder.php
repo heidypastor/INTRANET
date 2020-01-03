@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Areas;
 
 class AreasSeeder extends Seeder
 {
@@ -11,6 +12,9 @@ class AreasSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $area = new Areas();
+        $area->AreaName = 'Sistemas';
+        $area->AreaSede = 'Planta';
+        $area->save();        
     }
 }
