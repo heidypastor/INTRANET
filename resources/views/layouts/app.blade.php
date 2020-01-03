@@ -401,6 +401,13 @@
                 $('#Avatar').click();
             });
         </script>
+
+        {{-- <script type="text/javascript">
+            function actualizarArea(id){
+                console.log('funciona')
+                /*$('#formulariodeedicion').attr('areas/'+id);*/
+            };
+        </script> --}}
         
         @stack('js')
     </body>

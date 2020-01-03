@@ -25,10 +25,10 @@ class CreateIndicatorsTable extends Migration
             $table->date('IndDateFrom'); /*Desde cuando se tomaron los datos*/
             $table->date('IndDateUntil'); /*Hasta cuando se tomaron los datos*/
             $table->softDeletes(); 
-            $table->unsignedBigInteger('user_id');  /*Relación con la tabla usuarios*/
-            $table->foreign('user_id')->references('id')->on('users'); 
-            $table->unsignedBigInteger('area_id');  /*Relación con la tabla areas a la que pertenece el indicador*/
-            $table->foreign('area_id')->references('id')->on('areas');
+           /* $table->unsignedBigInteger('user_id');  /*Relación con la tabla usuarios*/
+           //  $table->foreign('user_id')->references('id')->on('users'); 
+           //  $table->unsignedBigInteger('area_id');  /*Relación con la tabla areas a la que pertenece el indicador*/
+           //  $table->foreign('area_id')->references('id')->on('areas');*/*/*/
             $table->engine = 'InnoDB';
             $table->charset = 'utf8';
             $table->collation = 'utf8_unicode_ci';

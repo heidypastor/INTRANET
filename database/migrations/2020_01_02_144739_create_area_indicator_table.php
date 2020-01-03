@@ -16,10 +16,10 @@ class CreateAreaIndicatorTable extends Migration
         Schema::create('area_indicator', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->unsignedBigInteger('area_id');  /*Relación con la tabla areas*/
-            $table->foreign('area_id')->references('id')->on('areas');
-            $table->unsignedBigInteger('indicator_id');  /*Relación con la tabla indicadores*/
-            $table->foreign('indicator_id')->references('id')->on('indicators');
+            $table->unsignedBigInteger('areas_id');  /*Relación con la tabla areas*/
+            $table->foreign('areas_id')->references('id')->on('areas');
+            $table->unsignedBigInteger('indicators_id');  /*Relación con la tabla indicadores*/
+            $table->foreign('indicators_id')->references('id')->on('indicators');
         });
     }
 

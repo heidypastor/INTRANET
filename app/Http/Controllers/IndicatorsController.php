@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Indicators;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class IndicatorsController extends Controller
 {
@@ -14,7 +15,10 @@ class IndicatorsController extends Controller
      */
     public function index()
     {
-       return view('indicators.index');
+        $Indicators = Indicators::with('areas')->get();
+        /*return $Indicators;*/
+        /*$Areas = Areas::with('users')->get();*/
+        return view('indicators.index', compact('Indicators'));
     }
 
     /**
