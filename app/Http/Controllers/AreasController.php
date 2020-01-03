@@ -80,7 +80,7 @@ class AreasController extends Controller
      */
     public function update(Request $request, Areas $areas)
     {
-        //
+        return $request;
     }
 
     /**
