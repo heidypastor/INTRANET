@@ -402,12 +402,21 @@
             });
         </script>
 
-        {{-- <script type="text/javascript">
-            function actualizarArea(id){
-                console.log('funciona')
-                /*$('#formulariodeedicion').attr('areas/'+id);*/
+        <script>
+            function actualizarArea(id, AreaName, AreaSede){
+                var txt1 = `"`+AreaName+`"`;
+                var txt2 = `"`+AreaSede+`"`;
+
+                var aux = $('#nameedit').val();
+                var auxi = $('#sedeedit').val();
+                console.log(AreaName, AreaSede);
+                $('#formulariodeedicion').attr('action','areas/'+id);
+                $('#nameedit').val(txt1);
+                $('#sedeedit').val(txt2);
+
+
             };
-        </script> --}}
+        </script>
         
         @stack('js')
     </body>
