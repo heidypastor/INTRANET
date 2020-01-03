@@ -44,7 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('typography', ['as' => 'pages.typography', 'uses' => 'PageController@typography']);
 		Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'PageController@upgrade']);
 
-		Route::get('areas', ['as' => 'areas.index', 'uses' => 'AreasController@index']);
+		/*Route::get('areas', ['as' => 'areas.index', 'uses' => 'AreasController@index']);*/
 		/*Route::resource('/areas','AreasController@create');*/
 		/*Route::resource('areas', ['as' => 'areas.create', 'uses' => 'AreasController@create']);*/
 
@@ -57,6 +57,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 	Route::get('/cambiodecolor/{id}/color/{color}','ProfileController@updatecolor');
-	Route::resource('/areas','AreasController');
+	Route::resource('areas','AreasController');
 });
 

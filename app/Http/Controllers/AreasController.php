@@ -78,9 +78,13 @@ class AreasController extends Controller
      * @param  \App\Areas  $areas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Areas $areas)
+    public function update(Request $request, Areas $area)
     {
-        return $request;
+        /*return $request;*/
+        /*$Area = Areas::where($id)->first();
+        $Area = new Areas();*/
+        $area->update($request->all());
+        return redirect()->route('areas.index');
     }
 
     /**
@@ -89,8 +93,10 @@ class AreasController extends Controller
      * @param  \App\Areas  $areas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Areas $areas)
+    public function destroy(Areas $area)
     {
-        //
+        return $area;
+        $area->delete();
+        return redirect()->route('areas.index');
     }
 }
