@@ -409,6 +409,12 @@
                 $('#sedeedit').val(sede);
             };
         </script>
+
+        <script>
+            function eliminarArea(id){
+                $('#eliminararea').attr('action','areas/'+id);
+            };
+        </script>
         
         @stack('js')
     </body>

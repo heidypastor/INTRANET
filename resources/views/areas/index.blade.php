@@ -99,14 +99,14 @@
 	                    </div>		          
 	              </div>
 	              <div class="modal-footer">
-	              	<form action="{{ route('areas.destroy') }}" method="POST" class="pull-right">
-	              		@method('DELETE')
-	              		@csrf
-	                	<button type="button" class="btn btn-danger">Eliminar</button>
-	                </form>
 	                <button type="submit" class="btn btn-fill btn-warning">Actualizar</button>
+	                </form>
+	                	<form id="eliminararea" action="" method="POST" class="pull-right">
+	                		@method('DELETE')
+	                		@csrf
+	                  	<button type="submit" class="btn btn-danger" onclick="eliminarArea({{$Area->id}})">Eliminar</button>
+	                  	</form>
 	              </div>
-	              </form>
 	            </div>
 	          </div>
 	        </div>

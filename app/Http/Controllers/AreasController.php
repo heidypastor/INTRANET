@@ -95,7 +95,7 @@ class AreasController extends Controller
      */
     public function destroy(Areas $area)
     {
-        return $area;
+        /*return $area;*/
         $area->delete();
         return redirect()->route('areas.index');
     }
