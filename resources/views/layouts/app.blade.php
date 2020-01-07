@@ -13,6 +13,12 @@
         <link rel="icon" type="image/png" href="{{ asset('white') }}/img/favicon.png">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+          
+        
+
+
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
         <!-- Icons -->
         <link href="{{ asset('white') }}/css/nucleo-icons.css" rel="stylesheet" />
@@ -134,6 +140,7 @@
         <script src="{{ asset('white') }}/js/core/popper.min.js"></script>
         <script src="{{ asset('white') }}/js/core/bootstrap.min.js"></script>
         <script src="{{ asset('white') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
         <!--  Google Maps Plugin    -->
         <!-- Place this tag in your head or just before your close body tag. -->
         {{-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> --}}
@@ -415,6 +422,34 @@
                 $('#eliminararea').attr('action','areas/'+id);
             };
         </script>
+
+        <script type="text/javascript">
+            $(document).ready( function () {
+                $('#tabledocuments').DataTable();
+            } );
+        </script>
+
+        {{-- <script type="text/javascript">
+            
+            $('#tabledocuments').DataTable({
+                responsive: true,
+                select: true,
+                dom: 'Bfrtip',
+                buttons: [
+                    botoncito, {
+                        extend: 'collection',
+                        text: 'Selector',
+                        buttons: ['selectRows', 'selectCells']
+                    }
+                ],
+                colReorder: true,
+                ordering: true,
+                autoWith: true,
+                searchHighlight: true,
+            });
+
+        </script> --}}
+        
         
         @stack('js')
     </body>

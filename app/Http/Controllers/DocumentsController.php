@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Documents;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DocumentsController extends Controller
 {
@@ -14,7 +15,8 @@ class DocumentsController extends Controller
      */
     public function index()
     {
-        //
+       $Documents = DB::table('documents')->get();
+       return view('documents.index', compact('Documents'));
     }
 
     /**

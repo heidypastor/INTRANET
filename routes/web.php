@@ -59,5 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 	Route::get('/cambiodecolor/{id}/color/{color}','ProfileController@updatecolor');
 	Route::resource('areas','AreasController');
+	Route::resource('documents','DocumentsController');
+
 });
 

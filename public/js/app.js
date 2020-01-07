@@ -29132,8 +29132,9 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   cluster: "mt1",
   forceTLS: false,
   wsHost: window.location.hostname,
-  wsPort: 6001 // wssPort: 6001,
-  // disableStats: true,
+  wsPort: 6001,
+  encrypted: false,
+  disableStats: true // wssPort: 6001,
 
 });
 
@@ -29157,8 +29158,8 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\INTRANET\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\INTRANET\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\intranet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\intranet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
