@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 
 class RoleController extends Controller
@@ -15,7 +16,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::all();
+        $roles = Role::with('permissions')->get();
         // return $roles;
 
         return view('roles.index', ['roles' => $roles]);
@@ -70,7 +71,9 @@ class RoleController extends Controller
             return redirect()->route('roles.index');
         }
 
-        return view('roles.edit', compact('role'));
+        $permissions = Permission::all();
+
+        return view('roles.edit', compact(['role', 'permissions']));
     }
 
     /**
@@ -83,7 +86,11 @@ class RoleController extends Controller
     public function update(Request $request, Role $role)
     {
 
-        $role->update($request->all());
+        // se actualiza el rol 
+        $role->update($request->except('permissions'));
+        
+        // se sincronizan los permisos del select multiple
+        $role->syncPermissions($request->input('permissions'));
 
         return redirect()->route('roles.index')->withStatus(__('Rol actualizado exitosamente.'));
     }
@@ -103,5 +110,23 @@ class RoleController extends Controller
         $role->delete();
 
         return redirect()->route('roles.index')->withStatus(__('Rol eliminado exitosamente.'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function permisosdelrol(Role $role)
+    {
+
+        $permissions = Permission::role($role->name);
+        return $permissions;
+        // $roles = Role::with('permissions');
+        // return $roles;
+
+        return view('permisos.index', ['permissions' => $permissions]);
     }
 }
