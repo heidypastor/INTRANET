@@ -403,15 +403,16 @@
         </script>
 
         <script>
-            function actualizarArea(id){
-                // var txt1 = `"`+areaname+`"`;
-                // var txt2 = `"`+areasede+`"`;
-
-                // var aux = $('#AreaName'+id).html();
-                // var auxi = $('#AreaSede'+id).html();
-                console.log('funciona');
+            function actualizarArea(id, area, sede){
                 $('#formulariodeedicion').attr('action','areas/'+id);
+                $('#nameedit').val(area);
+                $('#sedeedit').val(sede);
+            };
+        </script>
 
+        <script>
+            function eliminarArea(id){
+                $('#eliminararea').attr('action','areas/'+id);
             };
         </script>
         

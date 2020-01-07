@@ -33,7 +33,10 @@
 		              <label>Sede del Área</label>
 		            </div>
 		            <div class="box-body form-group">
-		              <input name="AreaSede" type="text" placeholder="Ej: Planta" class="text-center form-control" required="">
+		            	<select class="text-center form-control" required="" name="AreaSede" id="sedeedit">
+                    		<option value="Planta">Planta</option>
+                    		<option value="Bogota">Bogota</option>
+                    	</select>
 		            </div>		          
 		      </div>
 		      <div class="modal-footer">
@@ -56,9 +59,9 @@
 	      <tbody>
 	      	@foreach($Areas as $Area)
 	          <tr>
-	            <td id="AreaName{{$Area->id}}" class="text-center">{{$Area->AreaName}}</td>
-	            <td id="AreaSede{{$Area->id}}" class="text-center">{{$Area->AreaSede}}</td>
-	            <td class="text-center"><button onclick="actualizarArea({{$Area->id}}" class="btn btn-fill btn-warning" data-toggle="modal" data-target="#editmodalarea">Editar</button></td>
+	            <td class="text-center">{{$Area->AreaName}}</td>
+	            <td class="text-center">{{$Area->AreaSede}}</td>
+	            <td class="text-center"><button onclick="actualizarArea({{$Area->id}}, {{"'".$Area->AreaName."'"}}, {{"'".$Area->AreaSede."'"}})" class="btn btn-fill btn-warning" data-toggle="modal" data-target="#editmodalarea">Editar</button></td>
 	          </tr>
 	        @endforeach
 
@@ -89,14 +92,21 @@
 	                      <label>Sede del Área</label>
 	                    </div>
 	                    <div class="box-body form-group">
-	                      <input name="AreaSede" type="text" placeholder="Ej: Planta" id="sedeedit" value="" class="text-center form-control" required="">
+	                    	<select class="text-center form-control" required="" name="AreaSede" id="sedeedit">
+	                    		<option value="Planta">Planta</option>
+	                    		<option value="Bogota">Bogota</option>
+	                    	</select>
 	                    </div>		          
 	              </div>
 	              <div class="modal-footer">
-	                <button type="button" class="btn btn-danger" data-dismiss="modal">Eliminar</button>
 	                <button type="submit" class="btn btn-fill btn-warning">Actualizar</button>
+	                </form>
+	                	<form id="eliminararea" action="" method="POST" class="pull-right">
+	                		@method('DELETE')
+	                		@csrf
+	                  	<button type="submit" class="btn btn-danger" onclick="eliminarArea({{$Area->id}})">Eliminar</button>
+	                  	</form>
 	              </div>
-	              </form>
 	            </div>
 	          </div>
 	        </div>
