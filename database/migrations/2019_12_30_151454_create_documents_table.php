@@ -17,16 +17,16 @@ class CreateDocumentsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('DocName', 128); /*Nombre del documento*/
-            $table->string('DocSrc'); /*Archivo*/
+            $table->string('DocSrc')->default('/images/default_temporal.pdf'); /*Archivo*/
             $table->string('DocVersion', 32); /*Version del archivo*/
-            $table->string('DocType', 32); /*Tipo de documento*/
+            $table->string('DocType', 32); /*Tipo de documento: Manual, Procedimiento, Instructivo, Normas de trabajo, Formatos, Politicas y Reglamento*/
             $table->softDeletes(); 
-            $table->string('DocMime', 9); /*Extensión interna del documento .jpg*/
-            $table->string('DocOriginalName', 128); /*Nombre original del documento*/
-            $table->unsignedInteger('DocSize'); /*Tamaño del documento*/
-            $table->boolean('DocGeneral');/*Documento en general o restringido*/
+            $table->string('DocMime', 9)->default('PDF'); /*Extensión interna del documento .jpg*/
+            $table->string('DocOriginalName', 128)->default('test.pdf'); /*Nombre original del documento*/
+            $table->unsignedInteger('DocSize')->default(82); /*Tamaño del documento*/
+            $table->boolean('DocGeneral')->default(0);/*Documento en general o restringido  0=Restringido*/
             $table->boolean('DocPublisher'); /*Si es un borrador o publicado*/
-            $table->unsignedBigInteger('users_id'); /*relación con la tabla usuarios*/
+            $table->unsignedBigInteger('users_id')->default(3); /*relación con la tabla usuarios*/
             $table->foreign('users_id')->references('id')->on('users');
             $table->engine = 'InnoDB';
             $table->charset = 'utf8';

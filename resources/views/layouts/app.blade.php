@@ -449,6 +449,50 @@
             });
 
         </script> --}}
+
+        {{-- <script type="text/javascript">
+            $('.table').DataTable({
+                "dom": "<'row'<'col-md-3'l><'col-md-5'B><'col-md-4'f>>" +
+                    "<'row'<'col-md-12'tr>>" +
+                    "<'row'<'col-md-6'i><'col-md-6'p>>",
+                "scrollX": false,
+                "autoWidth": true,
+                // "select": true,
+                "colReorder": true,
+                "searchHighlight": true,
+                "responsive": true,
+                "keys": true,
+                "lengthChange": true,
+                "buttons": [
+                    botoncito,
+                ],
+                "language": {
+                    "sProcessing":     "Procesando...",
+                    "sLengthMenu":     "Mostrar _MENU_ registros",
+                    "sZeroRecords":    "No se encontraron resultados",
+                    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered":   "",
+                    "sInfoPostFix":    "",
+                    "sSearch":         "Buscar:",
+                    "sUrl":            "",
+                    "sInfoThousands":  ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst":    "Primero",
+                        "sLast":     "Último",
+                        "sNext":     "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "colvis": 'Ajouté au presse-papiers',
+                }
+            });
+        </script> --}}
         
         
         @stack('js')

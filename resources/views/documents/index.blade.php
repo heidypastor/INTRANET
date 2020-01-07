@@ -6,7 +6,11 @@
 	  <h4 class="card-title">Documentos</h4>
 	</div>
 
-	<div>
+	<div class="card-body text-left">
+	  <a href="{{ route('documents.create') }}" class="btn btn-fill btn-success">Crear</a>
+	</div>
+
+	<div class="card-body">
 		<div class="table-responsive table-upgrade">
 			<table class="table" id="tabledocuments">
 			  <thead>

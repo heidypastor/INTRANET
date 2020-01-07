@@ -37,7 +37,7 @@ class ProfileController extends Controller
             
             auth()->user()->update(['Avatar' => '/images/'.$name]);
 
-        /*auth()->user()->update($request->all());*/
+                /*auth()->user()->update($request->all());*/
             }
 
             return back()->withStatus(__('Profile successfully updated.'));

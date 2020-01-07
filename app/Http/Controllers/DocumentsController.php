@@ -26,7 +26,7 @@ class DocumentsController extends Controller
      */
     public function create()
     {
-        //
+        return view('documents.create');
     }
 
     /**
@@ -35,9 +35,38 @@ class DocumentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Documents $document)
     {
-        //
+        /*return $request;*/
+        // $Document = new Documents();
+        // $Document->DocName = $request->input('DocName');
+        // $Document->DocSrc = $request->input('DocSrc');
+        // $Document->DocVersion = $request->input('DocVersion');
+        // $Document->DocType = $request->input('DocType');
+        // $Document->DocPublisher = $request->input('DocPublisher');
+        // $Document->save();
+
+        $archivo = $request->file('DocSrc');
+        $mime = $archivo->getClientMimeType();
+        $nombreorigi = $archivo->getClientOriginalName();
+        $tamaño = ($archivo->getSize())/1024;
+        $valor = ceil($tamaño);
+        /*if ($valor) {
+            return "es numero";
+        }else{
+            return "no es número";
+        };*/
+        /*return $valor;*/
+        // Primero se guarda todo menos el campo del documento
+        $document->create($request->except(['DocSrc', 'DocMime', 'DocOriginalName', 'DocSize']));
+        // Despues el campo DocSrc se guarda en la variable $path y este se organiza según los nombres del input DocType
+        $path = $request->file('DocSrc')->store($request->input('DocType'));
+        // Finalmente a la variable $document se actualiza y se le agrega que el campo DocSrc Se le asignan los valores de $path es decir, se actualiza la ruta
+        $document->update(['DocSrc' => $path]);
+        $document->update(['DocMime' => $mime]);
+        $document->update(['DocOriginalName' => $nombreorigi]);
+        $document->update(['DocSize' => $valor]);
+        return redirect()->route('documents.index'); 
     }
 
     /**
