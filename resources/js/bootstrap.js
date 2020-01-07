@@ -26,7 +26,7 @@ window.Echo = new Echo({
     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
     // forceTLS: false,
 	wsHost: window.location.hostname,
-    wsPort: 6001,
+    wsPort: 6437,
     encrypted: false,
 	disableStats: true,
     enabledTransports: ['ws'],
