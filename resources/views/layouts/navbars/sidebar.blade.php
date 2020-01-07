@@ -66,6 +66,12 @@
                                 <p>{{ __('User Management') }}</p>
                             </a>
                         </li>
+                        <li @if ($pageSlug == 'roles') class="active " @endif>
+                            <a href="{{ route('roles.index')  }}">
+                                <i class="tim-icons icon-bullet-list-67"></i>
+                                <p>{{ __('Roles') }}</p>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </li>
