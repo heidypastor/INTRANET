@@ -135,9 +135,11 @@ class DocumentsController extends Controller
      * @param  \App\Documents  $documents
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Documents $document)
+    public function update(Request $request, Document $document)
     {
-        $document->update($request->all());
+        /*return $document;*/
+        /*$tratamiento = Tratamiento::find($id);*/
+        $Document->update($request->all());
         return redirect()->route('documents.index');
     }
 
@@ -149,6 +151,7 @@ class DocumentsController extends Controller
      */
     public function destroy(Documents $documents)
     {
-        //
+        $documents->delete();
+        return redirect()->route('documents.index');
     }
 }

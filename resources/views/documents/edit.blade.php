@@ -2,13 +2,19 @@
 
 @section('content')
 	<div class="card-body">
-		{{-- @php
-		$Documents = DB::table('documents')->get();
-		@endphp --}}
-		<form id="formudeediciondocu" role="form" method="POST" action="" enctype="multipart/form-data">
+		{{-- @foreach($Documents as $Document) --}}
+		<div class="text-right">
+			<form id="eliminardocument" action="/documents/{{$Document->id}}" method="POST" class="pull-right">
+				@method('DELETE')
+				@csrf
+		  		<button type="submit" class="btn btn-danger" onclick="eliminarDocument({{$Documents->id}})">Eliminar</button>
+		  	</form>
+	  	</div>
+
+		<form id="formudeediciondocu" role="form" method="POST" action="{{-- documents/{{$Documents->id}} --}}" enctype="multipart/form-data">
+		{{-- @endforeach --}}
 			@csrf
-			{{-- @method('PATCH') --}}
-			{{-- @foreach($Documents as $Document) --}}
+			@method('PUT')
 
 			<div class="box-body">
 			  <h3 class="card-title">Editar Documento</h3>

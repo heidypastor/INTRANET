@@ -48,7 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
 		/*Route::resource('/areas','AreasController@create');*/
 		/*Route::resource('areas', ['as' => 'areas.create', 'uses' => 'AreasController@create']);*/
 
-		Route::get('indicators', ['as' => 'indicators.index', 'uses' => 'IndicatorsController@index']);
+		// Route::get('indicators', ['as' => 'indicators.index', 'uses' => 'IndicatorsController@index']);
 });
 
 Route::group(['middleware' => 'auth'], function () {
@@ -60,6 +60,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/cambiodecolor/{id}/color/{color}','ProfileController@updatecolor');
 	Route::resource('areas','AreasController');
 	Route::resource('documents','DocumentsController');
+	Route::resource('indicators','IndicatorsController');
+
 
 });
 

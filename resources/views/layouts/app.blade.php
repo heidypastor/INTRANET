@@ -430,6 +430,12 @@
             };
         </script>
 
+        <script>
+            function eliminarDocument(id){
+                $('#eliminardocument').attr('action','documents/'+id);
+            };
+        </script>
+
         <script type="text/javascript">
             $(document).ready( function () {
                 $('#tabledocuments').DataTable();

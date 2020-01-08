@@ -48,9 +48,19 @@ class IndicatorsController extends Controller
      * @param  \App\Indicators  $indicators
      * @return \Illuminate\Http\Response
      */
-    public function show(Indicators $indicators)
+    public function show($id)
     {
-        //
+        /*$cita = Cita::where("slug","=",$slug)->firstOrFail();
+        return view("Citas.show", compact("cita"));*/
+
+
+       /* $Indicators = Indicators::where("id","=",$id)->firstOrFail();*/
+        $Indicators = Indicators::with('areas')->get();
+        // $Areas = DB::table('areas')->get();
+        /*$Indicators = DB::table('indicators')->get();*/
+
+        /*return $Indicators;*/
+        return view('indicators.show', compact('Indicators'));
     }
 
     /**
