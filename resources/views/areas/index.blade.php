@@ -8,6 +8,8 @@
 	<div>
 		<button type="submit" class="btn btn-fill btn-success" data-toggle="modal" data-target="#createmodalarea">Nueva</button>
 
+		{{-- Parate del documento de la creación de áreas --}}
+
 		<div class="modal fade" id="createmodalarea" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
@@ -48,6 +50,11 @@
 		  </div>
 		</div>
 	</div>
+
+
+	{{-- Parate del documento del index  --}}
+
+
 	<div class="card-body">
 	  <div class="table-responsive table-upgrade">
 	    <table class="table">
@@ -64,6 +71,10 @@
 	            <td class="text-center"><button onclick="actualizarArea({{$Area->id}}, {{"'".$Area->AreaName."'"}}, {{"'".$Area->AreaSede."'"}})" class="btn btn-fill btn-warning" data-toggle="modal" data-target="#editmodalarea">Editar</button></td>
 	          </tr>
 	        @endforeach
+
+
+
+	        {{-- Parate del documento de la edición de áreas --}}
 
 
 	        <div class="modal fade" id="editmodalarea" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -1,38 +1,40 @@
 @extends('layouts.app', ['page' => __('Documentos'), 'pageSlug' => 'documents'])
 
 @section('content')
-
 	<div class="card-body">
-		<form role="form" method="POST" action="{{ route('documents.store') }}" enctype="multipart/form-data">
-
+		{{-- @php
+		$Documents = DB::table('documents')->get();
+		@endphp --}}
+		<form id="formudeediciondocu" role="form" method="POST" action="" enctype="multipart/form-data">
 			@csrf
+			{{-- @method('PATCH') --}}
+			{{-- @foreach($Documents as $Document) --}}
 
 			<div class="box-body">
-			  <h3 class="card-title">Nuevo Documento </h3>
+			  <h3 class="card-title">Editar Documento</h3>
 			</div>
 			<div class="box-body form-group">
 			  <label>Nombre del documento</label>
 			</div>
 			<div class="box-body form-group">
-			  <input name="DocName" type="text" placeholder="" id="DocName" class="text-center form-control" required="">
+			  <input name="DocName" type="text" {{-- value="{{$Documents->DocName}}" --}} id="DocName" class="text-center form-control" required="">
 			</div>
 			<div class="box-body form-group">
 			  <label>Archivo</label>
 			</div>
 			<div class="box-body">
 				<div class="box-body form-group">
-					<input name="DocSrc" type="File" id="DocSrc" class="form-control" required="true">
+					<input name="DocSrc" type="File" id="DocSrc" class="form-control" required="true" placeholder="{{-- {{$Document->DocSrc}} --}}">
 					<input type="" class="form-control" name="Adjuntar" placeholder="Adjuntar archivo"></input>
 				</div>	
 			</div>
 			{{-- <div class="box-body form-group">
-			  
 			</div> --}}
 			<div class="box-body form-group">
 			  <label>Versión</label>
 			</div>
 			<div class="box-body form-group">
-				<input name="DocVersion" type="text" placeholder="" id="DocVersion" class="text-center form-control" required="">
+				<input name="DocVersion" type="text" placeholder="{{-- {{$Document->DocVersion}} --}}" id="DocVersion" class="text-center form-control" required="">
 			</div>
 			<div class="box-body form-group">
 			  <label>Tipo de documento</label>
@@ -49,7 +51,7 @@
 				</select>
 			</div>
 			<div class="box-body form-group">
-			  <label>Publico o borrador</label>
+			  <label>Público o borrador</label>
 			</div>
 			<div class="box-body form-group">
 				<select class="text-center form-control" required="" name="DocPublisher" id="DocPublisher">
@@ -58,8 +60,11 @@
 				</select>
 			</div>
 			<div class="box-body form-group">
-				<button type="submit" class="btn btn-fill btn-success">Crear</button>
+				<button type="submit" class="btn btn-fill btn-warning">Actualizar</button>
 			</div>
+
+			{{-- @endforeach --}}
 		</form>
 	</div>
+
 @endsection

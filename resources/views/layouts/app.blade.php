@@ -418,6 +418,13 @@
         </script>
 
         <script>
+            function actualizarDocument(id){
+                console.log(id);
+                $('#formudeediciondocu').attr('action','documents/'+id);
+            };
+        </script>
+
+        <script>
             function eliminarArea(id){
                 $('#eliminararea').attr('action','areas/'+id);
             };
