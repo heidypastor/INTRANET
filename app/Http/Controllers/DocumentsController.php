@@ -40,7 +40,7 @@ class DocumentsController extends Controller
     {
         /*return $request;*/
         // se almacena el archivo
-        $path = $request->file('DocSrc')->store($request->input('DocType'));
+        $path = $request->file('DocSrc')->store('public/'.$request->input('DocType'));
 
         // se extraen los metadotos
         $archivo = $request->file('DocSrc');

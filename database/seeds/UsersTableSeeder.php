@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
     {
 
         Role::create(['name' => 'user']);
-        Role::create(['name' => 'admin']);
+        Role::create(['name' => 'Super Admin']);
 
         $admin = new User();
         $admin->name = 'Luis';
@@ -27,7 +27,7 @@ class UsersTableSeeder extends Seeder
         $admin->Avatar = 'robot400x400.gif';
         $admin->ColorUser = 1;
         $admin->save();
-        $admin->assignRole('admin');
+        $admin->assignRole('Super Admin');
 
         $admin = new User();
         $admin->name = 'Heidy';
@@ -37,7 +37,7 @@ class UsersTableSeeder extends Seeder
         $admin->Avatar = 'robot400x400.gif';
         $admin->ColorUser = 1;
         $admin->save();
-        $admin->assignRole('admin');
+        $admin->assignRole('Super Admin');
 
         $admin = new User();
         $admin->name = 'usertest';
