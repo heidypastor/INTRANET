@@ -123,7 +123,7 @@
                     <p>{{ __('Upgrade to PRO') }}</p> 
                 </a>
             </li> --}}
-            @can('ver Areas')
+            @can('verAreas')
             <li class=" {{ $pageSlug == 'areas' ? 'active' : '' }}">
                 <a href="{{ route('areas.index') }}">
                     <i class="tim-icons icon-components"></i>
