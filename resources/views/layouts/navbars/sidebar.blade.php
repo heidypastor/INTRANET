@@ -72,6 +72,12 @@
                                 <p>{{ __('Roles') }}</p>
                             </a>
                         </li>
+                        <li @if ($pageSlug == 'permisos') class="active " @endif>
+                            <a href="{{ route('permissions.index')  }}">
+                                <i class="tim-icons icon-bullet-list-67"></i>
+                                <p>{{ __('Permisos') }}</p>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </li>
@@ -117,13 +123,14 @@
                     <p>{{ __('Upgrade to PRO') }}</p> 
                 </a>
             </li> --}}
-
+            @can('ver Areas')
             <li class=" {{ $pageSlug == 'areas' ? 'active' : '' }}">
                 <a href="{{ route('areas.index') }}">
                     <i class="tim-icons icon-components"></i>
                     <p>{{ __('Áreas') }}</p> 
                 </a>
             </li>
+            @endcan
 
             <li class=" {{ $pageSlug == 'indicators' ? 'active' : '' }}">
                 <a href="{{ route('indicators.index') }}">

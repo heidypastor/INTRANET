@@ -39,47 +39,29 @@ class DocumentsController extends Controller
     public function store(Request $request)
     {
         /*return $request;*/
+        // se almacena el archivo
         $path = $request->file('DocSrc')->store($request->input('DocType'));
-        
 
+        // se extraen los metadotos
         $archivo = $request->file('DocSrc');
-        /*$mime = Storage::mimeType($path);*/
         $mime = $archivo->getClientMimeType();
         $nombreorigi = $archivo->getClientOriginalName();
         $tamaño = ceil(($archivo->getClientSize())/1024);
 
-       /* return $mime;*/
-
-        /*$tamaño = ceil(($archivo->getSize())/1024);*/
-
-        /*if ($valor) {
-            return "es numero";
-        }else{
-            return "no es número";
-        };*/
-        /*return $valor;*/
-
-        
-        /*$document->create($request->except(['DocSrc', 'DocMime', 'DocOriginalName', 'DocSize']));*/
-
-
-        $Document = new Documents();
-        $Document->DocName = $request->input('DocName');
-        $Document->DocVersion = $request->input('DocVersion');
-        $Document->DocType = $request->input('DocType');
-        $Document->DocPublisher = $request->input('DocPublisher');
-        $Document->DocGeneral = $request->input('DocGeneral');
-        $Document->DocSrc = $path;
+        // se crea el registro del documento en la base de datos
+        $document = new Documents();
+        $document->DocName = $request->input('DocName');
+        $document->DocVersion = $request->input('DocVersion');
+        $document->DocType = $request->input('DocType');
+        $document->DocPublisher = $request->input('DocPublisher');
+        $document->DocGeneral = $request->input('DocGeneral');
+        $document->DocSrc = $path;
         $document->DocMime = $mime;
         $document->DocOriginalName = $nombreorigi;
         $document->DocSize = $tamaño;
-        $Document->save();
+        $document->save();
 
-
-        /*$document->update(['DocSrc' => $path]);
-        $document->update(['DocMime' => $mime]);
-        $document->update(['DocOriginalName' => $nombreorigi]);
-        $document->update(['DocSize' => $valor]);*/
+        // redireccionamiento al index de documentos
         return redirect()->route('documents.index'); 
     }
 
