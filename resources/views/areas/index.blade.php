@@ -8,6 +8,8 @@
 	<div>
 		<button type="submit" class="btn btn-fill btn-success" data-toggle="modal" data-target="#createmodalarea">Nueva</button>
 
+		{{-- Parate del documento de la creación de áreas --}}
+
 		<div class="modal fade" id="createmodalarea" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
@@ -40,7 +42,7 @@
 		            </div>		          
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 		        <button type="submit" class="btn btn-fill btn-success">Crear</button>
 		      </div>
 		      </form>
@@ -48,6 +50,11 @@
 		  </div>
 		</div>
 	</div>
+
+
+	{{-- Parate del documento del index  --}}
+
+
 	<div class="card-body">
 	  <div class="table-responsive table-upgrade">
 	    <table class="table">
@@ -61,9 +68,13 @@
 	          <tr>
 	            <td class="text-center">{{$Area->AreaName}}</td>
 	            <td class="text-center">{{$Area->AreaSede}}</td>
-	            <td class="text-center"><button onclick="actualizarArea({{$Area->id}}, {{"'".$Area->AreaName."'"}}, {{"'".$Area->AreaSede."'"}})" class="btn btn-fill btn-warning" data-toggle="modal" data-target="#editmodalarea">Editar</button></td>
+	            <td class="text-center"><button onclick="actualizarArea({{$Area->id}}, {{"'".$Area->AreaName."'"}}, {{"'".$Area->AreaSede."'"}})" class="btn btn-fill btn-warning tim-icons icon-pencil" data-toggle="modal" data-target="#editmodalarea"> Editar</button></td>
 	          </tr>
 	        @endforeach
+
+
+
+	        {{-- Parate del documento de la edición de áreas --}}
 
 
 	        <div class="modal fade" id="editmodalarea" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -99,12 +110,12 @@
 	                    </div>		          
 	              </div>
 	              <div class="modal-footer">
-	                <button type="submit" class="btn btn-fill btn-warning">Actualizar</button>
+	                <button type="submit" class="btn btn-fill btn-warning ">Actualizar</button>
 	                </form>
 	                	<form id="eliminararea" action="" method="POST" class="pull-right">
 	                		@method('DELETE')
 	                		@csrf
-	                  	<button type="submit" class="btn btn-danger" onclick="eliminarArea({{$Area->id}})">Eliminar</button>
+	                  	<button type="submit" class="btn btn-danger " onclick="eliminarArea({{$Area->id}})">Eliminar</button>
 	                  	</form>
 	              </div>
 	            </div>

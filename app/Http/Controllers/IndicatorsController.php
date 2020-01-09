@@ -28,7 +28,7 @@ class IndicatorsController extends Controller
      */
     public function create()
     {
-        //
+        return view('indicators.create');
     }
 
     /**
@@ -39,7 +39,35 @@ class IndicatorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*return $request;*/
+
+        $imagen = $request->file('IndGraphic');
+        $archivo = $request->file('IndTable');
+
+
+        $indicator->create($request->except(['IndGraphic', 'IndTable']));
+
+
+        $path = $request->file('IndGraphic')->store();
+
+        $pathimg = $request->file('IndTable')->store();
+
+        $indicator->update(['IndGraphic' => $path]);
+        $indicator->update(['IndTable' => $pathimg]);
+
+
+        /*$indicator = new Indicators();
+        $indicator->IndName = $request->input('IndName');
+        $indicator->IndObjective = $request->input('IndObjective');
+        $indicator->IndQueMide = $request->input('IndQueMide');
+        $indicator->IndGraphic = $request->input('IndGraphic');
+        $indicator->IndTable = $request->input('IndTable');
+        $indicator->IndAnalysis = $request->input('IndAnalysis');
+        $indicator->IndDateFrom = $request->input('IndDateFrom');
+        $indicator->IndDateUntil = $request->input('IndDateUntil');
+        $indicator->save();*/
+
+        return redirect()->route('indicators.index');
     }
 
     /**
@@ -48,9 +76,19 @@ class IndicatorsController extends Controller
      * @param  \App\Indicators  $indicators
      * @return \Illuminate\Http\Response
      */
-    public function show(Indicators $indicators)
+    public function show(Indicators $indicator)
     {
-        //
+        /*$cita = Cita::where("slug","=",$slug)->firstOrFail();
+        return view("Citas.show", compact("cita"));*/
+        /*return $indicator;*/
+
+        /* $Indicators = Indicators::where("id","=",$id)->firstOrFail();*/
+        /*$Indicators = Indicators::with('areas')->get();*/
+        // $Areas = DB::table('areas')->get();
+        /*$Indicators = DB::table('indicators')->get();*/
+
+        /*return $Indicators;*/
+        return view('indicators.show', compact('indicator'));
     }
 
     /**
