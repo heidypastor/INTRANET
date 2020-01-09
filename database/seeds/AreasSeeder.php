@@ -15,6 +15,16 @@ class AreasSeeder extends Seeder
         $area = new Areas();
         $area->AreaName = 'Sistemas';
         $area->AreaSede = 'Planta';
+        $area->save(); 
+
+        $area = new Areas();
+        $area->AreaName = 'Logistica';
+        $area->AreaSede = 'Planta';
+        $area->save(); 
+
+        $area = new Areas();
+        $area->AreaName = 'Óperaciones';
+        $area->AreaSede = 'Planta';
         $area->save();        
     }
 }

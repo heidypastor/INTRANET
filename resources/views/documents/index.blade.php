@@ -21,7 +21,6 @@
 			    <th class="text-center">Publicado</th>
 			    <th class="text-center">Tipo de documento</th>
 			    <th class="text-center">Editar</th>
-
 			  </thead>
 			  <tbody>
 			  	@foreach($Documents as $Document)
@@ -32,12 +31,11 @@
 		        	<th class="text-center">{{$Document->DocSize}}</th>
 		        	<th class="text-center">{{ $Document->DocPublisher === 0 ? "No Publicado" : "Publicado" }}</th>
 		        	<th class="text-center">{{$Document->DocType}}</th>
-		        	<th class="text-center"><a href="documents/{{$Document->id}}/edit" onclick="actualizarDocument({{$Document->id}})" class="btn btn-fill btn-warning">Editar</a></th>
+		        	<th class="text-center"><a href="documents/{{$Document->id}}/edit" onclick="actualizarDocument({{$Document->id}})" class="btn btn-fill btn-warning tim-icons icon-pencil"> Editar</a></th>
 			      </tr>
 			    @endforeach
 			  </tbody>
 			</table>
 		</div>
 	</div>
-
 @endsection

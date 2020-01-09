@@ -2,12 +2,11 @@
 
 @section('content')
 	<div class="card-body">
-		{{-- @foreach($Documents as $Document) --}}
 		<div class="text-right">
-			<form id="eliminardocument" action="/documents/{{$Document->id}}" method="POST" class="pull-right">
+			<form id="eliminardocument" action="/documents/{{$document->id}}" method="POST" class="pull-right">
 				@method('DELETE')
 				@csrf
-		  		<button type="submit" class="btn btn-danger" onclick="eliminarDocument({{$Documents->id}})">Eliminar</button>
+		  		<button type="submit" class="btn btn-danger" onclick="eliminarDocument({{$documents->id}})">Eliminar</button>
 		  	</form>
 	  	</div>
 
@@ -68,8 +67,6 @@
 			<div class="box-body form-group">
 				<button type="submit" class="btn btn-fill btn-warning">Actualizar</button>
 			</div>
-
-			{{-- @endforeach --}}
 		</form>
 	</div>
 
