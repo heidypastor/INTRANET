@@ -20,7 +20,7 @@
 						<tr>
 			      			<td></td>
 							<th class="text-center">Grafica</th>
-							<td class="text-center"><img src="{{$indicator->IndGraphic}}"></td>
+							<td class="text-center"><img src="{{Storage::url($indicator->IndGraphic)}}"></td>
 						</tr>
 					</tbody>
 				</table>
