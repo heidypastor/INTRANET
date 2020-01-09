@@ -88,7 +88,7 @@ class RoleController extends Controller
 
         // se actualiza el rol 
         $role->update($request->except('permissions'));
-        
+
         // se sincronizan los permisos del select multiple
         $role->syncPermissions($request->input('permissions'));
 
@@ -106,27 +106,10 @@ class RoleController extends Controller
         if ($role->name == 'admin') {
             return abort(403);
         }
+        $role->syncPermissions();
 
         $role->delete();
 
         return redirect()->route('roles.index')->withStatus(__('Rol eliminado exitosamente.'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function permisosdelrol(Role $role)
-    {
-
-        $permissions = Permission::role($role->name);
-        return $permissions;
-        // $roles = Role::with('permissions');
-        // return $roles;
-
-        return view('permisos.index', ['permissions' => $permissions]);
     }
 }

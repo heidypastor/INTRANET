@@ -97,8 +97,14 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Permission $permission)
     {
-        //
+        // se quitan la relacion con cada uno de los roles  
+            $permission->syncRoles();
+
+        // se elimina el permiso
+            $permission->delete();
+
+            return redirect()->route('permissions.index')->withStatus(__('Permiso eliminado exitosamente.')); 
     }
 }
