@@ -41,7 +41,7 @@ class IndicatorsController extends Controller
     {
         /*return $request;*/
 
-        $imagen = $request->file('IndGraphic');
+        /*$imagen = $request->file('IndGraphic');*/
         
         $archivo = $request->file('IndTable');
 
@@ -49,7 +49,8 @@ class IndicatorsController extends Controller
         /*$indicator->create($request->except(['IndGraphic', 'IndTable']));*/
         /*return $indicator;*/
 
-        /*$path = $request->file('IndGraphic')->store();*/
+        
+        $path = $request->file('IndGraphic')->store('Graphic');
 
         /*$pathimg = $request->file('IndTable')->store();*/
 
@@ -61,7 +62,7 @@ class IndicatorsController extends Controller
         $indicator->IndName = $request->input('IndName');
         $indicator->IndObjective = $request->input('IndObjective');
         $indicator->IndQueMide = $request->input('IndQueMide');
-        $indicator->IndGraphic = $imagen;
+        $indicator->IndGraphic = $path;
         $indicator->IndTable = $archivo;
         $indicator->IndAnalysis = $request->input('IndAnalysis');
         $indicator->IndDateFrom = $request->input('IndDateFrom');
