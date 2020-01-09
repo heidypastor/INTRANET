@@ -48,32 +48,25 @@ class DocumentsController extends Controller
         $nombreorigi = $archivo->getClientOriginalName();
         $tamaño = ceil(($archivo->getClientSize())/1024);
 
-       /* return $mime;*/
+        // return $tamaño;
 
         /*$tamaño = ceil(($archivo->getSize())/1024);*/
-
-        /*if ($valor) {
-            return "es numero";
-        }else{
-            return "no es número";
-        };*/
-        /*return $valor;*/
 
         
         /*$document->create($request->except(['DocSrc', 'DocMime', 'DocOriginalName', 'DocSize']));*/
 
 
-        $Document = new Documents();
-        $Document->DocName = $request->input('DocName');
-        $Document->DocVersion = $request->input('DocVersion');
-        $Document->DocType = $request->input('DocType');
-        $Document->DocPublisher = $request->input('DocPublisher');
-        $Document->DocGeneral = $request->input('DocGeneral');
-        $Document->DocSrc = $path;
+        $document = new Documents();
+        $document->DocName = $request->input('DocName');
+        $document->DocVersion = $request->input('DocVersion');
+        $document->DocType = $request->input('DocType');
+        $document->DocPublisher = $request->input('DocPublisher');
+        $document->DocGeneral = $request->input('DocGeneral');
+        $document->DocSrc = $path;
         $document->DocMime = $mime;
         $document->DocOriginalName = $nombreorigi;
         $document->DocSize = $tamaño;
-        $Document->save();
+        $document->save();
 
 
         /*$document->update(['DocSrc' => $path]);
