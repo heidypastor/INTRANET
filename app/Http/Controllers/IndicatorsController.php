@@ -102,9 +102,11 @@ class IndicatorsController extends Controller
      * @param  \App\Indicators  $indicators
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Indicators $indicators)
+    public function update(Request $request, Indicators $indicator)
     {
-        //
+        /*return $request;*/
+        $indicator->update($request->all());
+        return redirect()->route('indicators.index');
     }
 
     /**

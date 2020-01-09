@@ -7,8 +7,9 @@
 	</div>
 
     <div class="modal-body">
-        <form role="form" method="POST" action="indicator/{{$indicator->id}}" enctype="multipart/form-data">
-          	@csrf
+        <form role="form" method="POST" action="" enctype="multipart/form-data" id="formuediindi">
+          	@method('PUT')
+            @csrf
             <div class="box-body form-group">
               <label>Nombre del Indicador</label>
             </div>
@@ -59,7 +60,7 @@
             <div class="box-body form-group">
               <input name="IndDateUntil" type="date" placeholder="{{$indicator->IndDateUntil}}" class="text-center form-control" required>
             </div>
-              <button type="submit" class="btn btn-fill btn-success">Actualizar</button>
+              <button type="submit" class="btn btn-fill btn-success" onclick="actualizarArea({{$indicator->id}})">Actualizar</button>
         </form>
     </div>
 @endsection
