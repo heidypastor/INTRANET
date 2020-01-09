@@ -21,7 +21,7 @@ class CreateDocumentsTable extends Migration
             $table->string('DocVersion', 32); /*Version del archivo*/
             $table->string('DocType', 32); /*Tipo de documento: Manual, Procedimiento, Instructivo, Normas de trabajo, Formatos, Politicas y Reglamento*/
             $table->softDeletes(); 
-            $table->string('DocMime', 9)->default('PDF'); /*Extensión interna del documento .jpg*/
+            $table->string('DocMime', 16)->default('PDF'); /*Extensión interna del documento .jpg*/
             $table->string('DocOriginalName', 128)->default('test.pdf'); /*Nombre original del documento*/
             $table->unsignedInteger('DocSize')->default(82); /*Tamaño del documento*/
             $table->boolean('DocGeneral')->default(0);/*Documento en general o restringido  0=Restringido*/

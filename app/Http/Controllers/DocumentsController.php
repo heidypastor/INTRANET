@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Documents;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class DocumentsController extends Controller
 {
@@ -35,33 +36,21 @@ class DocumentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Documents $document)
+    public function store(Request $request)
     {
         /*return $request;*/
-        /*$Document = new Documents();
-        $Document->DocName = $request->input('DocName');
-        $Document->DocVersion = $request->input('DocVersion');
-        $Document->DocType = $request->input('DocType');
-        $Document->DocPublisher = $request->input('DocPublisher');
-        $Document->$request->file('DocSrc')->store($request->input('DocType'));
-        $document->$archivo->getClientMimeType();
-        $document->$archivo->getClientOriginalName();
-        $document->$tamaño = ceil(($archivo->getSize())/1024);
-        $Document->save();*/
-
-
-
+        $path = $request->file('DocSrc')->store($request->input('DocType'));
+        
 
         $archivo = $request->file('DocSrc');
+        /*$mime = Storage::mimeType($path);*/
         $mime = $archivo->getClientMimeType();
         $nombreorigi = $archivo->getClientOriginalName();
-        $tamaño = ($archivo->getSize())/1024;
-        $valor = ceil($tamaño);
+        $tamaño = ceil(($archivo->getClientSize())/1024);
+
+       /* return $mime;*/
 
         /*$tamaño = ceil(($archivo->getSize())/1024);*/
-
-
-
 
         /*if ($valor) {
             return "es numero";
@@ -69,36 +58,28 @@ class DocumentsController extends Controller
             return "no es número";
         };*/
         /*return $valor;*/
-        // Primero se guarda todo menos el campo del documento
+
+        
+        /*$document->create($request->except(['DocSrc', 'DocMime', 'DocOriginalName', 'DocSize']));*/
 
 
+        $Document = new Documents();
+        $Document->DocName = $request->input('DocName');
+        $Document->DocVersion = $request->input('DocVersion');
+        $Document->DocType = $request->input('DocType');
+        $Document->DocPublisher = $request->input('DocPublisher');
+        $Document->DocGeneral = $request->input('DocGeneral');
+        $Document->DocSrc = $path;
+        $document->DocMime = $mime;
+        $document->DocOriginalName = $nombreorigi;
+        $document->DocSize = $tamaño;
+        $Document->save();
 
 
-        $document->create($request->except(['DocSrc', 'DocMime', 'DocOriginalName', 'DocSize']));
-
-
-
-
-        // Despues el campo DocSrc se guarda en la variable $path y este se organiza según los nombres del input DocType
-
-
-
-
-        $path = $request->file('DocSrc')->store($request->input('DocType'));
-
-
-
-
-
-        // Finalmente a la variable $document se actualiza y se le agrega que el campo DocSrc Se le asignan los valores de $path es decir, se actualiza la ruta
-
-
-
-
-        $document->update(['DocSrc' => $path]);
+        /*$document->update(['DocSrc' => $path]);
         $document->update(['DocMime' => $mime]);
         $document->update(['DocOriginalName' => $nombreorigi]);
-        $document->update(['DocSize' => $valor]);
+        $document->update(['DocSize' => $valor]);*/
         return redirect()->route('documents.index'); 
     }
 
@@ -135,11 +116,11 @@ class DocumentsController extends Controller
      * @param  \App\Documents  $documents
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Document $document)
+    public function update(Request $request, Documents $document)
     {
         /*return $document;*/
         /*$tratamiento = Tratamiento::find($id);*/
-        $Document->update($request->all());
+        $document->update($request->all());
         return redirect()->route('documents.index');
     }
 

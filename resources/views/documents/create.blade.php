@@ -49,12 +49,21 @@
 				</select>
 			</div>
 			<div class="box-body form-group">
-			  <label>Publico o borrador</label>
+			  <label>Publicado o borrador</label>
 			</div>
 			<div class="box-body form-group">
 				<select class="text-center form-control" required="" name="DocPublisher" id="DocPublisher">
 					<option value="0">Borrador</option>
-					<option value="1">Publico</option>
+					<option value="1">Publicado</option>
+				</select>
+			</div>
+			<div class="box-body form-group">
+			  <label>General o Restringido</label>
+			</div>
+			<div class="box-body form-group">
+				<select class="text-center form-control" required="" name="DocGeneral" id="DocGeneral">
+					<option value="0">Restringido</option>
+					<option value="1">General</option>
 				</select>
 			</div>
 			<div class="box-body form-group">
