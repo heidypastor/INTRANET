@@ -82,13 +82,13 @@ class DocumentsController extends Controller
      * @param  \App\Documents  $documents
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Documents $document)
     {
         /*return $id;*/
         /*$Documents = Document::where($id)->first();*/
-        $Documents = DB::table('documents')->get();
+        /*$Documents = DB::table('documents')->get();*/
         /*return $Documents;*/
-        return view('documents.edit', compact('Documents'));
+        return view('documents.edit', compact('document'));
     }
 
     /**

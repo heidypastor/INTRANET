@@ -7,7 +7,7 @@
 	  <h4 class="card-title">INDICADORES</h4>
 	</div>
 	<div class="text-right">
-		<button class="btn btn-fill btn-success tim-icons icon-pencil"> Editar</button>
+		<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-success tim-icons icon-pencil"> Editar</a> 
 	</div>
 	<div class="card-body">
 	  <div class="table-responsive table-upgrade">
@@ -49,12 +49,12 @@
 				<tr>
 					<td></td>
 					<th class="text-center">Grafica</th>
-					<td class="text-center"><div class="col-md-12 text-center"><img style="width: 20em; height: 15em; margin: 1.5em 1.5em 1.5em 1.5em; width: 40em; height: 20em;" src="{{$indicator->IndGraphic}}"></div></td>
+					<td class="text-center"><div class="col-md-12 text-center"><img style="width: 20em; height: 15em; margin: 1.5em 1.5em 1.5em 1.5em; width: 40em; height: 20em;" src="{{Storage::url($indicator->IndGraphic)}}"></div></td>
 				</tr>
 				<tr>
 					<td></td>
 					<th class="text-center">Tabla</th>
-					<td class="text-center"><a href="{{$indicator->IndTable}}"><strong>Archivo</strong></a></td>
+					<td class="text-center"><a href="{{Storage::url($indicator->IndTable)}}"><strong>Archivo</strong></a></td>
 				</tr>
 				<tr>
 					<td></td>
