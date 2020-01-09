@@ -49,10 +49,10 @@ class IndicatorsController extends Controller
         /*$indicator->create($request->except(['IndGraphic', 'IndTable']));*/
         /*return $indicator;*/
 
-        
-        $path = $request->file('IndGraphic')->store('Graphic');
 
-        /*$pathimg = $request->file('IndTable')->store();*/
+        $path = $request->file('IndGraphic')->store('public/Graphic');
+
+        $pathimg = $request->file('IndTable')->store('public/Archivos');
 
         /*$indicator->update(['IndGraphic' => $path]);
         $indicator->update(['IndTable' => $pathimg]);*/
@@ -63,7 +63,7 @@ class IndicatorsController extends Controller
         $indicator->IndObjective = $request->input('IndObjective');
         $indicator->IndQueMide = $request->input('IndQueMide');
         $indicator->IndGraphic = $path;
-        $indicator->IndTable = $archivo;
+        $indicator->IndTable = $pathimg;
         $indicator->IndAnalysis = $request->input('IndAnalysis');
         $indicator->IndDateFrom = $request->input('IndDateFrom');
         $indicator->IndDateUntil = $request->input('IndDateUntil');
@@ -80,16 +80,6 @@ class IndicatorsController extends Controller
      */
     public function show(Indicators $indicator)
     {
-        /*$cita = Cita::where("slug","=",$slug)->firstOrFail();
-        return view("Citas.show", compact("cita"));*/
-        /*return $indicator;*/
-
-        /* $Indicators = Indicators::where("id","=",$id)->firstOrFail();*/
-        /*$Indicators = Indicators::with('areas')->get();*/
-        // $Areas = DB::table('areas')->get();
-        /*$Indicators = DB::table('indicators')->get();*/
-
-        /*return $Indicators;*/
         return view('indicators.show', compact('indicator'));
     }
 
@@ -99,9 +89,10 @@ class IndicatorsController extends Controller
      * @param  \App\Indicators  $indicators
      * @return \Illuminate\Http\Response
      */
-    public function edit(Indicators $indicators)
+    public function edit(Indicators $indicator)
     {
-        //
+        /*return $indicator;*/
+        return view('indicators.edit', compact('indicator'));
     }
 
     /**
@@ -111,9 +102,11 @@ class IndicatorsController extends Controller
      * @param  \App\Indicators  $indicators
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Indicators $indicators)
+    public function update(Request $request, Indicators $indicator)
     {
-        //
+        /*return $request;*/
+        $indicator->update($request->all());
+        return redirect()->route('indicators.index');
     }
 
     /**

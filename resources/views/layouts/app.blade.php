@@ -417,22 +417,17 @@
             };
         </script>
 
-        <script>
-            function actualizarDocument(id){
-                console.log(id);
-                $('#formudeediciondocu').attr('action','documents/'+id);
+        {{-- <script>
+            function actualizarArea(id, area, sede){
+                $('#formulariodeedicion').attr('action','areas/'+id);
+                $('#nameedit').val(area);
+                $('#sedeedit').val(sede);
             };
-        </script>
+        </script> --}}
 
         <script>
             function eliminarArea(id){
                 $('#eliminararea').attr('action','areas/'+id);
-            };
-        </script>
-
-        <script>
-            function eliminarDocument(id){
-                $('#eliminardocument').attr('action','documents/'+id);
             };
         </script>
 
