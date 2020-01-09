@@ -22,7 +22,7 @@
 			<div class="box-body">
 				<div class="box-body form-group">
 					<input name="DocSrc" type="File" id="DocSrc" class="form-control" required="true">
-					<input type="" class="form-control" name="Adjuntar" placeholder="Adjuntar archivo"></input>
+					<input type="" class="form-control" name="Adjuntar" placeholder="Adjuntar archivo">
 				</div>	
 			</div>
 			{{-- <div class="box-body form-group">

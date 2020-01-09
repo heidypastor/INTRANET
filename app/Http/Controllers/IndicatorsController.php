@@ -42,30 +42,31 @@ class IndicatorsController extends Controller
         /*return $request;*/
 
         $imagen = $request->file('IndGraphic');
+        
         $archivo = $request->file('IndTable');
 
 
-        $indicator->create($request->except(['IndGraphic', 'IndTable']));
+        /*$indicator->create($request->except(['IndGraphic', 'IndTable']));*/
+        /*return $indicator;*/
+
+        /*$path = $request->file('IndGraphic')->store();*/
+
+        /*$pathimg = $request->file('IndTable')->store();*/
+
+        /*$indicator->update(['IndGraphic' => $path]);
+        $indicator->update(['IndTable' => $pathimg]);*/
 
 
-        $path = $request->file('IndGraphic')->store();
-
-        $pathimg = $request->file('IndTable')->store();
-
-        $indicator->update(['IndGraphic' => $path]);
-        $indicator->update(['IndTable' => $pathimg]);
-
-
-        /*$indicator = new Indicators();
+        $indicator = new Indicators();
         $indicator->IndName = $request->input('IndName');
         $indicator->IndObjective = $request->input('IndObjective');
         $indicator->IndQueMide = $request->input('IndQueMide');
-        $indicator->IndGraphic = $request->input('IndGraphic');
-        $indicator->IndTable = $request->input('IndTable');
+        $indicator->IndGraphic = $imagen;
+        $indicator->IndTable = $archivo;
         $indicator->IndAnalysis = $request->input('IndAnalysis');
         $indicator->IndDateFrom = $request->input('IndDateFrom');
         $indicator->IndDateUntil = $request->input('IndDateUntil');
-        $indicator->save();*/
+        $indicator->save();
 
         return redirect()->route('indicators.index');
     }
