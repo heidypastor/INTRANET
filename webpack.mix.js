@@ -30,6 +30,9 @@ mix.js('resources/js/app.js', 'public/js')
     .combine([
     			'node_modules/datatables.net-plugins/features/searchHighlight/dataTables.searchHighlight.css'
     		], 'public/css/datatable-plugins.css')
+    .combine([
+                'resources/css/stilospersonalizados.css'
+            ], 'public/css/all.css')
 
     .scripts([
      			'node_modules/datatables.net/js/jquery.dataTables.js',

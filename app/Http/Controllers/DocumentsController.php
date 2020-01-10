@@ -101,8 +101,19 @@ class DocumentsController extends Controller
     public function update(Request $request, Documents $document)
     {
         /*return $document;*/
+        if ($request->hasFile('DocSrc')) {
+            $docActual = $document->DocSrc;
+            Storage::disk('local')->delete($docActual);
+
+            auth()->user()->update($request->except('Avatar'));
+            $document->update($request->except('DocSrc'));
+
+            $path = $request->file('DocSrc')->store('public/'.$request->input('DocType'));
+            auth()->user()->update(['Avatar' => $path]);
+        }else{
+            auth()->user()->update($request->all());
+        }
         /*$tratamiento = Tratamiento::find($id);*/
-        $document->update($request->all());
         return redirect()->route('documents.index');
     }
 
