@@ -46,7 +46,7 @@
               <label>Fecha Fin</label>
               <input name="IndDateUntil" type="date" value="{{$indicator->IndDateUntil}}" class="text-center form-control">
             </div>
-              <button type="submit" class="btn btn-fill btn-success" {{-- onclick="actualizarArea({{$indicator->id}})" --}}>Actualizar</button>
+              <button type="submit" class="fas fa-arrow-circle-up btn btn-fill btn-success"> Actualizar</button>
         </form>
     </div>
 @endsection

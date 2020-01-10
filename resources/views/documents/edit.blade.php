@@ -6,7 +6,7 @@
 			<form id="eliminardocument" action="/documents/{{$document->id}}" method="POST" class="pull-right">
 				@method('DELETE')
 				@csrf
-		  		<button type="submit" class="btn btn-danger">Eliminar</button>
+		  		<button type="submit" class="far fa-trash btn btn-danger"> Eliminar</button>
 		  	</form>
 	  	</div>
 
@@ -60,7 +60,7 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<button type="submit" class="btn btn-fill btn-warning">Actualizar</button>
+				<button type="submit" class="fas fa-arrow-circle-up btn btn-fill btn-warning"> Actualizar</button>
 			</div>
 		</form>
 	</div>

@@ -10,13 +10,13 @@
 	<div class="text-left">
 	  <form action="{{ route('indicators.destroy', $indicator) }}" method="POST" class="pull-right">
 	    @method('DELETE')
-	    @csrf
-	      <button type="submit" class="btn btn-danger">Eliminar</button>
+	    @csrf 
+	      <button type="submit" class="far fa-trash btn btn-danger"> Eliminar</button>
 	  </form>
 	</div>
 
 	<div class="text-right">
-		<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-success tim-icons icon-pencil"> Editar</a> 
+		<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-success far fa-edit"> Editar</a> 
 	</div>
 
 	

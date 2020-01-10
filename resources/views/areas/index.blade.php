@@ -6,7 +6,7 @@
 	  <h4 class="card-title">Listado de Áreas</h4>
 	</div>
 	<div>
-		<button type="submit" class="btn btn-fill btn-success" data-toggle="modal" data-target="#createmodalarea">Nueva</button>
+		<button type="submit" class="far fa-plus btn btn-fill btn-success" data-toggle="modal" data-target="#createmodalarea"> Crear</button>
 
 		{{-- Parate del documento de la creación de áreas --}}
 
@@ -64,7 +64,7 @@
 	          <tr>
 	            <td class="text-center">{{$Area->AreaName}}</td>
 	            <td class="text-center">{{$Area->AreaSede}}</td>
-	            <td class="text-center"><button onclick="actualizarArea({{$Area->id}}, {{"'".$Area->AreaName."'"}}, {{"'".$Area->AreaSede."'"}})" class="btn btn-fill btn-warning tim-icons icon-pencil" data-toggle="modal" data-target="#editmodalarea"> Editar</button></td>
+	            <td class="text-center"><button onclick="actualizarArea({{$Area->id}}, {{"'".$Area->AreaName."'"}}, {{"'".$Area->AreaSede."'"}})" class="btn btn-fill btn-warning far fa-edit" data-toggle="modal" data-target="#editmodalarea"> Editar</button></td>
 	          </tr>
 	        @endforeach
 
@@ -102,12 +102,12 @@
 	                    </div>		          
 	              </div>
 	              <div class="modal-footer">
-	                <button type="submit" class="btn btn-fill btn-warning ">Actualizar</button>
+	                <button type="submit" class="fas fa-arrow-circle-up btn btn-fill btn-warning "> Actualizar</button>
 	                </form>
 	                	<form id="eliminararea" action="" method="POST" class="pull-right">
 	                		@method('DELETE')
 	                		@csrf
-	                  	<button type="submit" class="btn btn-danger " onclick="eliminarArea({{$Area->id}})">Eliminar</button>
+	                  	<button type="submit" class="far fa-trash btn btn-danger " onclick="eliminarArea({{$Area->id}})"> Eliminar</button>
 	                  	</form>
 	              </div>
 	            </div>

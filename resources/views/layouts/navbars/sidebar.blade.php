@@ -122,7 +122,7 @@
                     <i class="tim-icons icon-spaceship"></i>
                     <p>{{ __('Upgrade to PRO') }}</p> 
                 </a>
-            </li> --}}
+            </li> --}} 
             @can('verAreas')
             <li class=" {{ $pageSlug == 'areas' ? 'active' : '' }}">
                 <a href="{{ route('areas.index') }}">
