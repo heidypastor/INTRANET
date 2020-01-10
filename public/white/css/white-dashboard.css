@@ -17343,7 +17343,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .card.card-white {
-  background: #ffffff;
+  background: #ffffff ;
 }
 
 .card.card-white .card-title {
@@ -18178,7 +18178,9 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .white-content .full-page {
-  background: #f5f6fa;
+  /*background-image: url("https://prosarc.com/wp-content/uploads/2018/03/camiones.png");*/
+  background-color: #FFFFFF;
+
 }
 
 .white-content .full-page h1,
@@ -18241,5 +18243,18 @@ Copyright (c) 2015 Daniel Eden
 .breadcrumb-item.active {
   color: rgba(34, 42, 66, 0.7);
 }
+
+.card-new {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.input-new {
+  /*background-color: rgba(215, 216, 216, 0.32);*/
+  border-color: red !important;
+  /*border: solid 1px;
+  border-radius: 15%;
+  width:100%*/;
+}
+
 
 /*# sourceMappingURL=dashboard-free.css.map */

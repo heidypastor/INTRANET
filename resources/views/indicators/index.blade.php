@@ -5,7 +5,7 @@
 	  <h4 class="card-title">INDICADORES</h4>
 	</div>
 	<div>
-		<a href="{{ route('indicators.create') }}" class="btn btn-fill btn-success">Crear</a>
+		<a href="{{ route('indicators.create') }}" class="far fa-plus btn btn-fill btn-success">   Crear</a>
 	</div>
 	<div class="row">
 		@foreach($Indicators as $indicator)
@@ -24,7 +24,7 @@
 						</tr>
 					</tbody>
 				</table>
-				<a method='GET' href="indicators/{{$indicator->id}}" class="btn btn-secondary">Ver Más.</a>
+				<a method='GET' href="indicators/{{$indicator->id}}" class="btn btn-secondary tim-icons icon-double-right"> Ver Más.</a>
 			</div>
 		@endforeach
 	</div>

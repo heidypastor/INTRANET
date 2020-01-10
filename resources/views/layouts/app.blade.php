@@ -13,12 +13,7 @@
         <link rel="icon" type="image/png" href="{{ asset('white') }}/img/favicon.png">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
-
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-          
-        
-
-
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
         <!-- Icons -->
         <link href="{{ asset('white') }}/css/nucleo-icons.css" rel="stylesheet" />
@@ -416,14 +411,6 @@
                 $('#sedeedit').val(sede);
             };
         </script>
-
-        {{-- <script>
-            function actualizarArea(id, area, sede){
-                $('#formulariodeedicion').attr('action','areas/'+id);
-                $('#nameedit').val(area);
-                $('#sedeedit').val(sede);
-            };
-        </script> --}}
 
         <script>
             function eliminarArea(id){
