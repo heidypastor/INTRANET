@@ -20,7 +20,7 @@
 		</div>
 		<div class="custom-input-file">
 			<label>Archivo</label>
-			<input name="DocSrc" type="file" id="DocSrc" class="form-control-file" required="true">
+			<input name="DocSrc" type="file" id="DocSrc" required="true">
 		</div>
 		<div class="form-group">
 			<label>Versión</label>
