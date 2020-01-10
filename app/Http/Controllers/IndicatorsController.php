@@ -43,7 +43,7 @@ class IndicatorsController extends Controller
 
         /*$imagen = $request->file('IndGraphic');*/
         
-        $archivo = $request->file('IndTable');
+        /*$archivo = $request->file('IndTable');*/
 
 
         /*$indicator->create($request->except(['IndGraphic', 'IndTable']));*/
@@ -104,8 +104,48 @@ class IndicatorsController extends Controller
      */
     public function update(Request $request, Indicators $indicator)
     {
-        /*return $request;*/
-        $indicator->update($request->all());
+       /* return $request;*/
+
+
+       /*if ($request->hasFile('Avatar')){
+       $file = $request->file('Avatar');
+       $name = time().$file->getClientOriginalName();
+       $file->move(public_path().'/images/', $name);
+       
+       auth()->user()->update(['Avatar' => '/images/'.$name]);
+
+       }*/
+
+
+
+        $indicator->update($request->except(['IndGraphic', 'IndTable']));
+
+
+        if ($request->hasFile('IndGraphic')){
+            $path = $request->file('IndGraphic')->store('public/Graphic');
+            $indicator->update(['IndGraphic' => $path]);
+        }else{
+            $indicator->IndGraphic = $request->input('IndGraphic');
+        }
+
+
+        if ($request->hasFile('IndTable')){
+            $pathimg = $request->file('IndTable')->store('public/Archivos');
+            $indicator->update(['IndTable' => $pathimg]);
+        }else{
+            $indicator->IndTable = $request->input('IndTable');
+        }
+
+
+        
+
+        /*$path = $request->file('IndGraphic')->store('public/Graphic');*/
+        /*$pathimg = $request->file('IndTable')->store('public/Archivos');*/
+
+
+        // $indicator->update(['IndGraphic' => $path]);
+        // $indicator->update(['IndTable' => $pathimg]);
+
         return redirect()->route('indicators.index');
     }
 
@@ -115,8 +155,9 @@ class IndicatorsController extends Controller
      * @param  \App\Indicators  $indicators
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Indicators $indicators)
+    public function destroy(Indicators $indicator)
     {
-        //
+        $indicator->delete();
+        return redirect()->route('indicators.index');
     }
 }

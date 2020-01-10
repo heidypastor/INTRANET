@@ -25,16 +25,12 @@
 		            <div class="box-body">
 		              <h3 class="card-title">Creación de Áreas</h3>
 		            </div>
-		            <div class="box-body form-group">
+		            <div class="form-group">
 		              <label>Nombre del Área</label>
-		            </div>
-		            <div class="box-body form-group">
 		              <input name="AreaName" type="text" placeholder="Ej: Sistemas" class="text-center form-control" required="">
 		            </div>
-		            <div class="box-body form-group">
-		              <label>Sede del Área</label>
-		            </div>
-		            <div class="box-body form-group">
+		            <div class="form-group">
+		                <label>Sede del Área</label>
 		            	<select class="text-center form-control" required="" name="AreaSede" id="sedeedit">
                     		<option value="Planta">Planta</option>
                     		<option value="Bogota">Bogota</option>
@@ -95,14 +91,10 @@
 	                    </div>
 	                    <div class="box-body form-group">
 	                      <label>Nombre del Área</label>
-	                    </div>
-	                    <div class="box-body form-group">
 	                      <input name="AreaName" type="text" placeholder="Ej: Sistemas" id="nameedit" value="" class="text-center form-control" required="">
 	                    </div>
 	                    <div class="box-body form-group">
-	                      <label>Sede del Área</label>
-	                    </div>
-	                    <div class="box-body form-group">
+	                        <label>Sede del Área</label>
 	                    	<select class="text-center form-control" required="" name="AreaSede" id="sedeedit">
 	                    		<option value="Planta">Planta</option>
 	                    		<option value="Bogota">Bogota</option>

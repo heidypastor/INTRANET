@@ -24,7 +24,7 @@
 						</tr>
 					</tbody>
 				</table>
-				<a method='GET' href="indicators/{{$indicator->id}}" class="btn btn-secondary">Ver Más.</a>
+				<a method='GET' href="indicators/{{$indicator->id}}" class="btn btn-secondary tim-icons icon-double-right"> Ver Más.</a>
 			</div>
 		@endforeach
 	</div>
