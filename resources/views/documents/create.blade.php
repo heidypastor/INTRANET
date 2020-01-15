@@ -14,12 +14,9 @@
 			  <label>Nombre del documento</label>
 			  <input name="DocName" type="text" placeholder="" id="DocName" class="text-center form-control" required="">
 			</div>
-			<div class="box-body">
-			    <label>Archivo</label>
-				<div class="form-group">
-					<input name="DocSrc" type="File" id="DocSrc" class="form-control" required="true">
-					<input type="" class="form-control" name="Adjuntar" placeholder="Adjuntar archivo">
-				</div>	
+			<div class="custom-input-file">
+				<label>Archivo</label>
+				<input name="DocSrc" type="file" id="DocSrc">
 			</div>
 			<div class="form-group">
 			    <label>Versión</label>

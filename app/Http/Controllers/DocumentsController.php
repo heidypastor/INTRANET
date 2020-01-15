@@ -101,8 +101,36 @@ class DocumentsController extends Controller
     public function update(Request $request, Documents $document)
     {
         /*return $document;*/
+        if ($request->hasFile('DocSrc')) {
+            $docActual = $document->DocSrc;
+            Storage::disk('local')->delete($docActual);
+
+            // $document->update($request->except('DocSrc'));
+
+            $path = $request->file('DocSrc')->store('public/'.$request->input('DocType'));
+
+            $archivo = $request->file('DocSrc');
+            $mime = $archivo->getClientMimeType();
+            $nombreorigi = $archivo->getClientOriginalName();
+            $tamaño = ceil(($archivo->getClientSize())/1024);
+
+            $document->update([
+                'DocName' => $request->input('DocName'), 
+                'DocSrc' => $path, 
+                'DocVersion' => $request->input('DocVersion'), 
+                'DocType' => $request->input('DocType'), 
+                'DocMime' => $mime, 
+                'DocOriginalName' => $nombreorigi, 
+                'DocSize' => $tamaño, 
+                'DocGeneral' => $request->input('DocGeneral'), 
+                'DocPublisher' => $request->input('DocPublisher'), 
+                'users_id' => auth()->user()->id,
+            ]);
+
+        }else{
+            $document->update($request->except('DocSrc'));
+        }
         /*$tratamiento = Tratamiento::find($id);*/
-        $document->update($request->all());
         return redirect()->route('documents.index');
     }
 
@@ -112,9 +140,11 @@ class DocumentsController extends Controller
      * @param  \App\Documents  $documents
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Documents $documents)
+    public function destroy(Documents $document)
     {
-        $documents->delete();
+        $docActual = $document->DocSrc;
+        Storage::disk('local')->delete($docActual);
+        $document->delete();
         return redirect()->route('documents.index');
     }
 }

@@ -26,7 +26,7 @@
 			  	@foreach($Documents as $Document)
 			      <tr>
 			        <td class="text-center">{{$Document->DocName}}</td>
-			        <td class="text-center"><a href="{{Storage::url($Document->DocSrc)}}">{{$Document->DocOriginalName}}</td>
+			        <td class="text-center"><a target="_blank" href="{{Storage::url($Document->DocSrc)}}">{{$Document->DocOriginalName}}</td>
 		        	<th class="text-center">{{$Document->DocVersion}}</th>
 		        	<th class="text-center">{{$Document->DocSize}}</th>
 		        	<th class="text-center">{{ $Document->DocPublisher === 0 ? "No Publicado" : "Publicado" }}</th>

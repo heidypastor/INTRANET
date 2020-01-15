@@ -48,22 +48,16 @@
             <li>
                 <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
                     <i class="fab fa-laravel" ></i>
-                    <span class="nav-link-text" >{{ __('Laravel Examples') }}</span>
+                    <span class="nav-link-text" >{{ __('Administración de usuarios') }}</span>
                     <b class="caret mt-1"></b>
                 </a>
 
-                <div class="collapse show" id="laravel-examples">
+                <div class="collapse" id="laravel-examples">
                     <ul class="nav pl-4">
-                        <li @if ($pageSlug == 'profile') class="active " @endif>
-                            <a href="{{ route('profile.edit')  }}">
-                                <i class="tim-icons icon-single-02"></i>
-                                <p>{{ __('User Profile') }}</p>
-                            </a>
-                        </li>
                         <li @if ($pageSlug == 'users') class="active " @endif>
                             <a href="{{ route('user.index')  }}">
                                 <i class="tim-icons icon-bullet-list-67"></i>
-                                <p>{{ __('User Management') }}</p>
+                                <p>{{ __('Lista de Usuarios') }}</p>
                             </a>
                         </li>
                         <li @if ($pageSlug == 'roles') class="active " @endif>
@@ -78,43 +72,23 @@
                                 <p>{{ __('Permisos') }}</p>
                             </a>
                         </li>
+                        @can('verAreas')
+                        <li class=" {{ $pageSlug == 'areas' ? 'active' : '' }}">
+                            <a href="{{ route('areas.index') }}">
+                                <i class="tim-icons icon-components"></i>
+                                <p>{{ __('Áreas') }}</p> 
+                            </a>
+                        </li>
+                        @endcan
                     </ul>
                 </div>
             </li>
-
-
-            {{-- <li>
-                <a data-toggle="collapse" href="#prosarc" aria-expanded="true">
-                    <i class="fab fa-laravel" ></i>
-                    <span class="nav-link-text" >{{ __('PROSARC') }}</span>
-                    <b class="caret mt-1"></b>
-                </a>
-
-                <div class="collapse show" id="prosarc">
-                    <ul class="nav pl-4">
-                        <li @if ($pageSlug == 'prosarc') class="active " @endif>
-                            <a href="{{ route('prosarc.infoProsarc')  }}">
-                                <i class="tim-icons icon-single-02"></i>
-                                <p>{{ __('Un poco más..') }}</p>
-                            </a>
-                        </li>
-                        <li @if ($pageSlug == 'users') class="active " @endif>
-                            <a href="{{ route('user.index')  }}">
-                                <i class="tim-icons icon-bullet-list-67"></i>
-                                <p>{{ __('User Management') }}</p>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </li> --}}
-
-
-            <li @if ($pageSlug == 'icons') class="active " @endif>
+            {{-- <li @if ($pageSlug == 'icons') class="active " @endif>
                 <a href="{{ route('pages.icons') }}">
                     <i class="tim-icons icon-atom"></i>
                     <p>{{ __('Icons') }}</p>
                 </a>
-            </li>
+            </li> --}}
             {{-- <li @if ($pageSlug == 'maps') class="active " @endif>
                 <a href="{{ route('pages.maps') }}">
                     <i class="tim-icons icon-pin"></i>
@@ -150,15 +124,8 @@
                     <i class="tim-icons icon-spaceship"></i>
                     <p>{{ __('Upgrade to PRO') }}</p> 
                 </a>
-            </li> --}} 
-            @can('verAreas')
-            <li class=" {{ $pageSlug == 'areas' ? 'active' : '' }}">
-                <a href="{{ route('areas.index') }}">
-                    <i class="tim-icons icon-components"></i>
-                    <p>{{ __('Áreas') }}</p> 
-                </a>
-            </li>
-            @endcan
+            </li> --}}
+            
 
             <li class=" {{ $pageSlug == 'indicators' ? 'active' : '' }}">
                 <a href="{{ route('indicators.index') }}">

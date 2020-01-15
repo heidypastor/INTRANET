@@ -3,6 +3,7 @@
     "/css/app.css": "/css/app.css",
     "/css/datatable-depen.css": "/css/datatable-depen.css",
     "/css/datatable-plugins.css": "/css/datatable-plugins.css",
+    "/css/all.css": "/css/all.css",
     "/js/datatable-depen.js": "/js/datatable-depen.js",
     "/js/datatable-plugins.js": "/js/datatable-plugins.js"
 }

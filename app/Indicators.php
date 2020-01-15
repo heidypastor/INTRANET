@@ -3,10 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Indicators extends Model
 {
-
+    use Searchable;
+    
     /**
      * The attributes that are mass assignable.
      *

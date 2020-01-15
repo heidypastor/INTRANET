@@ -20,6 +20,7 @@
         <!-- CSS -->
         <link href="{{ asset('white') }}/css/white-dashboard.css?v=1.0.0" rel="stylesheet" />
         <link href="{{ asset('white') }}/css/theme.css" rel="stylesheet" />
+        <link href="{{ asset('css') }}/all.css" rel="stylesheet" />
     </head>
     <body class="white-content {{ $class ?? '' }}">
         @auth()
@@ -480,7 +481,51 @@
             });
         </script> --}}
         
-        
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#searchallmodelinput").change(function(e){
+                    id=$("#searchallmodelinput").val();
+                    e.preventDefault();
+                    $.ajaxSetup({
+                      headers: {
+                          'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                      }
+                    });
+                    $.ajax({
+                        url: "{{url('search')}}/"+id,
+                        method: 'GET',
+                        data:{},
+                        beforeSend: function(){
+                            // $(".load").append('<i class="fas fa-sync-alt fa-spin"></i>');
+                            // $("#municipio").prop('disabled', true);
+                        },
+                        success: function(res){
+                            $("#resultList").empty();
+                            if (res['users'].length > 0||res['documents'].length > 0||res['indicators'].length > 0||res['releases'].length > 0) {
+                                for(var i = res['users'].length -1; i >= 0; i--){
+                                    $("#resultList").append(`<a class="dropdown-item" href="../../../user/`+res['users'][i].id+`/edit">${res['users'][i].name}</a>`);
+                                }
+                                for(var i = res['documents'].length -1; i >= 0; i--){
+                                    $("#resultList").append(`<a class="dropdown-item" href="../../../documents/`+res['documents'][i].id+`/edit">${res['documents'][i].DocName}</a>`);
+                                }
+                                for(var i = res['indicators'].length -1; i >= 0; i--){
+                                    $("#resultList").append(`<a class="dropdown-item" href="../../../indicators/`+res['indicators'][i].id+`">${res['indicators'][i].IndName}</a>`);
+                                }
+                                for(var i = res['releases'].length -1; i >= 0; i--){
+                                    $("#resultList").append(`<a class="dropdown-item" href="../../../releases/`+res['releases'][i].id+`">${res['releases'][i].RelName}</a>`);
+                                }
+                            }else{
+                                    $("#resultList").append(`<a class="list-group-item" value="">No se encontro información relacionada con este término de busqueda</li>`);
+                            }
+                        },
+                        complete: function(){
+                            // $(".load").empty();
+                            // $("#municipio").prop('disabled', false);
+                        }
+                    })
+                });
+            });
+        </script>
         @stack('js')
     </body>
 </html>
