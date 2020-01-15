@@ -11,22 +11,27 @@ class CreateComitesTable extends Migration
      *
      * @return void
      */
-    // public function up()
-    // {
-    //     Schema::create('comites', function (Blueprint $table) {
-    //         // $table->bigIncrements('id');
-    //         // $table->timestamps();
-    //         // $ComiName->string('');
-    //     });
-    // }
+    public function up()
+    {
+        Schema::create('comites', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->timestamps();
+            $table->string('ComiName');
+            $table->string('ComiSrc');
+            $table->string('ComiImage');
+            $table->string('ComiParaQueSirve');
+            $table->string('ComiTelefono');
+            $table->string('ComiEmail');
+        });
+    }
 
-    // /**
-    //  * Reverse the migrations.
-    //  *
-    //  * @return void
-    //  */
-    // public function down()
-    // {
-    //     Schema::dropIfExists('comites');
-    // }
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('comites');
+    }
 }
