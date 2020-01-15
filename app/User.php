@@ -7,13 +7,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\Access\Authorizable;
 use Spatie\Permission\Traits\HasRoles;
-use Laravel\Scout\Searchable;
+// use Laravel\Scout\Searchable;
 
 class User extends Authenticatable
 {
     use Notifiable;
     use HasRoles;
-    use Searchable;
+    // use Searchable;
     
     /**
      * The attributes that are mass assignable.

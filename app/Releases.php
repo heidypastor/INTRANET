@@ -3,11 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
+// use Laravel\Scout\Searchable;
 
 class Releases extends Model
 {
-    use Searchable;
+    // use Searchable;
     
     /**
      * The attributes that are mass assignable.
