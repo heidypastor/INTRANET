@@ -59,6 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('areas','AreasController');
 	Route::resource('documents','DocumentsController');
 	Route::resource('indicators','IndicatorsController');
+	Route::get('search/{search}','SearchController@searchAllModels');
 });
 
 
