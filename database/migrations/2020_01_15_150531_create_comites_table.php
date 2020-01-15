@@ -16,12 +16,16 @@ class CreateComitesTable extends Migration
         Schema::create('comites', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('ComiName');
-            $table->string('ComiSrc');
-            $table->string('ComiImage');
-            $table->string('ComiParaQueSirve');
-            $table->string('ComiTelefono');
-            $table->string('ComiEmail');
+            $table->string('ComiName'); /*Nombre del comite*/
+            $table->string('ComiSrc'); /*Imagen del comite que va a quedar en el home*/
+            $table->string('ComiImage');/*Imagen o foto que quieran agregar*/
+            $table->string('ComiParaQueSirve'); /*Para que sirve o cual es la función del comite*/
+            $table->string('ComiTelefono'); /*Telefono de contacto del comite*/
+            $table->string('ComiEmail'); /*Correo de contacto del comite*/
+            $table->softDeletes(); 
+            $table->engine = 'InnoDB';
+            $table->charset = 'utf8';
+            $table->collation = 'utf8_unicode_ci';
         });
     }
 
