@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comites;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ComitesController extends Controller
 {
@@ -14,7 +15,8 @@ class ComitesController extends Controller
      */
     public function index()
     {
-        //
+        $comites = DB::table('comites')->get();
+        return view('comites.index', compact('comites'));
     }
 
     /**
