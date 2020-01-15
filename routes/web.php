@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+    return view('auth/login');
+})->name('login');
 
 // if (auth()->user()->hasRole('admin'))
 // {
@@ -43,6 +43,13 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('tables', ['as' => 'pages.tables', 'uses' => 'PageController@tables']);
 		Route::get('typography', ['as' => 'pages.typography', 'uses' => 'PageController@typography']);
 		Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'PageController@upgrade']);
+
+
+		Route::get('nosotros', ['as' => 'prosarc.nosotros', 'uses' => 'ProsarcController@nosotros']);
+		Route::get('requiLegal', ['as' => 'prosarc.requiLegal', 'uses' => 'ProsarcController@requiLegal']);
+		Route::get('GHumana', ['as' => 'prosarc.GHumana', 'uses' => 'ProsarcController@GHumana']);
+		
+
 
 		/*Route::get('areas', ['as' => 'areas.index', 'uses' => 'AreasController@index']);*/
 		/*Route::resource('/areas','AreasController@create');*/

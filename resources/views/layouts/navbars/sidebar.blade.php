@@ -81,6 +81,34 @@
                     </ul>
                 </div>
             </li>
+
+
+            {{-- <li>
+                <a data-toggle="collapse" href="#prosarc" aria-expanded="true">
+                    <i class="fab fa-laravel" ></i>
+                    <span class="nav-link-text" >{{ __('PROSARC') }}</span>
+                    <b class="caret mt-1"></b>
+                </a>
+
+                <div class="collapse show" id="prosarc">
+                    <ul class="nav pl-4">
+                        <li @if ($pageSlug == 'prosarc') class="active " @endif>
+                            <a href="{{ route('prosarc.infoProsarc')  }}">
+                                <i class="tim-icons icon-single-02"></i>
+                                <p>{{ __('Un poco más..') }}</p>
+                            </a>
+                        </li>
+                        <li @if ($pageSlug == 'users') class="active " @endif>
+                            <a href="{{ route('user.index')  }}">
+                                <i class="tim-icons icon-bullet-list-67"></i>
+                                <p>{{ __('User Management') }}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li> --}}
+
+
             <li @if ($pageSlug == 'icons') class="active " @endif>
                 <a href="{{ route('pages.icons') }}">
                     <i class="tim-icons icon-atom"></i>
@@ -145,6 +173,13 @@
                     <p>{{ __('Documents') }}</p> 
                 </a>
             </li>
+
+            {{-- <li class=" {{ $pageSlug == 'documents' ? 'active' : '' }}">
+                <a href="{{ route('documents.index') }}">
+                    <i class="tim-icons icon-attach-87"></i>
+                    <p>{{ __('Documents') }}</p> 
+                </a>
+            </li> --}}
         </ul>
     </div>
 </div>

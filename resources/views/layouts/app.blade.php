@@ -80,6 +80,9 @@
             @include('layouts.navbars.navbar')
             <div class="wrapper wrapper-full-page">
                 <div class="full-page {{ $contentClass ?? '' }}">
+                    <div class="imagen-fondo col-lg-12 col-xs-1 col-md-12"></div>
+                    <div class="degradado col-lg-4 col-xs-12 col-md-12"></div>
+                    <div id="particles-js" class="col-lg-5 col-xs-12 col-md-12 ml-1"></div>
                     <div class="content">
                         <div class="container">
                             @yield('content')
@@ -89,6 +92,7 @@
                 </div>
             </div>
         @endauth
+        @auth()
         <div class="fixed-plugin">
             <div class="dropdown show-dropdown">
                 <a href="#" data-toggle="dropdown">
@@ -112,25 +116,10 @@
                     <div class="clearfix"></div>
                     </a>
                 </li>
-                <li>
-                </li>
-                {{-- <li class="button-container">
-                    <a href="https://www.creative-tim.com/product/white-dashboard-laravel" target="_blank" class="btn btn-primary btn-block btn-round">Download Now</a>
-                    <a href="https://white-dashboard-laravel.creative-tim.com/docs/getting-started/laravel-setup.html" target="_blank" class="btn btn-default btn-block btn-round">
-                    Documentation
-                    </a>
-                </li>
-                <li class="header-title">Thank you for 95 shares!</li>
-                <li class="button-container text-center">
-                    <button id="twitter" class="btn btn-round btn-info"><i class="fab fa-twitter"></i> &middot; 45</button>
-                    <button id="facebook" class="btn btn-round btn-info"><i class="fab fa-facebook-f"></i> &middot; 50</button>
-                    <br>
-                    <br>
-                    <a class="github-button" href="https://github.com/creativetimofficial/white-dashboard-laravel" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-                </li> --}}
                 </ul>
             </div>
         </div>
+        @endauth
         <script src="{{ asset('white') }}/js/core/jquery.min.js"></script>
         <script src="{{ asset('white') }}/js/core/popper.min.js"></script>
         <script src="{{ asset('white') }}/js/core/bootstrap.min.js"></script>
@@ -148,6 +137,8 @@
         <script src="{{ asset('white') }}/js/theme.js"></script>
         {{-- incluido el secript de app.js para el codigo de laravel echo --}}
         <script src="{{ asset('js') }}/app.js"></script>
+        <script src="{{ asset('js') }}/particles.js"></script>
+        <script src="{{ asset('js') }}/particulas.js"></script>
 
         @stack('js')
 

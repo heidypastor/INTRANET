@@ -1984,7 +1984,7 @@ textarea.form-control {
 }
 
 .form-check-input {
-  position: absolute;
+  /*position: absolute;*/
   margin-top: 0.3rem;
   margin-left: -1.25rem;
 }
@@ -6648,7 +6648,7 @@ button.bg-info:focus {
 }
 
 .bg-warning {
-  background-color: #ff8d72 !important;
+  background-color: #ffd472 !important;
 }
 
 a.bg-warning:hover,
@@ -18070,12 +18070,12 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .login-page .card-login .card-header .card-title {
-  position: relative;
+  /*position: relative;*/
   font-size: 5em;
   font-weight: 900;
   color: #222a42;
   text-transform: lowercase;
-  margin-left: -5px;
+  /*margin-left: -5px;*/
   z-index: 1;
 }
 
@@ -18178,8 +18178,15 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .white-content .full-page {
-  /*background-image: url("https://prosarc.com/wp-content/uploads/2018/03/camiones.png");*/
-  background-color: #FFFFFF;
+
+  z-index: 1 !important;
+  background-color: transparent;
+
+  /*background-image: linear-gradient(to right, #040404, #040404, transparent, transparent),
+   url("https://prosarc.com/wp-content/uploads/2018/03/camiones.png");
+  background-attachment: fixed;
+  background-size: cover;*/
+  /*background-color: #000000;*/
 
 }
 
@@ -18249,12 +18256,124 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .input-new {
-  /*background-color: rgba(215, 216, 216, 0.32);*/
-  border-color: red !important;
+ /* background-color: rgba(215, 216, 216, 0.32);*/
+  border-color: #FFFFFF !important;
   /*border: solid 1px;
   border-radius: 15%;
   width:100%*/;
 }
 
+.input-big {
+  background-color: rgba(215, 216, 216, 0.32);
+  border-radius: 7%;
+}
 
+#font-color {
+  color: #FFFFFF;
+  font: serif;
+  border-color: #000000;
+}
+
+#font-type {
+  font: 5em sans-serif;
+  color: #247bf7;
+  text-align: center;
+}
+
+.color-placeholder::placeholder {
+  color: #a1aec7 !important; 
+  font-weight: bold; 
+}
+
+#carousel {
+  /*margin: 3em 3em 5em 3em;*/
+  padding: 1em 4em 4em 4em;
+  width: 75%;
+  height: 75%;
+}
+
+#logo-prosarc {
+  margin: -2em 0em 0em 8em;
+}
+
+#text-carousel {
+  color: #FFFFFF;
+}
+
+.botones-conoce {
+  width: 15em;
+  height: 15em;
+  border-radius: 50%;
+  border: solid 3px black;
+  box-shadow: 5px;
+}
+
+.div-conoce-pro {
+  background-color: rgba(245, 238, 108, .3);
+  border-radius: 5em;
+  margin: 3em 3em 3em 3em;
+}
+
+.div-comites {
+  background-color: rgba(73, 254, 0, .3);
+  border-radius: 5em;
+  margin: 3em 3em 3em 3em;
+}
+
+.degradado {
+  background: linear-gradient(to right, #040404, #040404);
+  z-index: 3 !important;
+  position: absolute;
+  min-height: 100vh;
+}
+
+#particles-js {
+  width:100%;
+  height:100%;
+  position: absolute;
+  z-index: 4 !important;
+  background: transparent;
+}
+
+.position-login {
+  z-index: 5 !important;
+  display: block !important;
+  position: fixed;
+  background-image: radial-gradient(#040404, #040404, #040404, #040404, transparent, transparent);
+}
+
+.imagen-fondo {
+  background-image: linear-gradient(to right, #040404, #040404, transparent, transparent),
+   url("https://prosarc.com/wp-content/uploads/2018/03/camiones.png") !important;
+  /*background-attachment: fixed;*/
+  background-size: cover;
+  position: absolute !important;
+  z-index: 2 !important;
+  min-height: 100vh;
+}
+
+.mision {
+  padding: 3em 3em 3em 3em;
+  transform: rotate(-10deg);
+  border-radius: 5%;
+  margin: 3em 3em 3em 3em;
+}
+
+.vision {
+  padding: 3em 3em 3em 3em;
+  transform: rotate(10deg);
+  border-radius: 5%;
+  margin: 3em 3em 3em 3em;
+}
+
+.objetivos {
+  padding: 3em 3em 3em 3em;
+  border-radius: 5%;
+  margin: 3em 3em 3em 3em;
+}
+
+.imagen-prosarc {
+  border-radius: 5%;
+  margin: 0em 3em 5em 3em;
+}
 /*# sourceMappingURL=dashboard-free.css.map */
