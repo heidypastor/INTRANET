@@ -66,6 +66,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('areas','AreasController');
 	Route::resource('documents','DocumentsController');
 	Route::resource('indicators','IndicatorsController');
+	Route::resource('comites','ComitesController');
 	Route::get('search/{search}','SearchController@searchAllModels');
 });
 
