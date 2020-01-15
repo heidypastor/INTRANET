@@ -184,3 +184,10 @@
         </div>
     </div>
 @endsection
+@push('scripts')
+<script>
+    $('#iconolapiz').on('click', function(){
+        $('#Avatar').click();
+    });
+</script>
+@endpush

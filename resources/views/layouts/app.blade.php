@@ -390,32 +390,6 @@
             });
         });
         </script>
-        <script>
-            $('#iconolapiz').on('click', function(){
-                $('#Avatar').click();
-            });
-        </script>
-
-        <script>
-            function actualizarArea(id, area, sede){
-                $('#formulariodeedicion').attr('action','areas/'+id);
-                $('#nameedit').val(area);
-                $('#sedeedit').val(sede);
-            };
-        </script>
-
-        <script>
-            function eliminarArea(id){
-                $('#eliminararea').attr('action','areas/'+id);
-            };
-        </script>
-
-        <script type="text/javascript">
-            $(document).ready( function () {
-                $('#tabledocuments').DataTable();
-            } );
-        </script>
-
         {{-- <script type="text/javascript">
             
             $('#tabledocuments').DataTable({
@@ -527,5 +501,6 @@
             });
         </script>
         @stack('js')
+        @stack('scripts')
     </body>
 </html>

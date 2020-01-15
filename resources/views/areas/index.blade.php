@@ -118,3 +118,17 @@
 	  </div>
 	</div>
 @endsection
+@push('scripts')
+<script>
+    function actualizarArea(id, area, sede){
+        $('#formulariodeedicion').attr('action','areas/'+id);
+        $('#nameedit').val(area);
+        $('#sedeedit').val(sede);
+    };
+</script>
+<script>
+    function eliminarArea(id){
+        $('#eliminararea').attr('action','areas/'+id);
+    };
+</script>
+@endpush
