@@ -58,3 +58,9 @@ mix.js('resources/js/app.js', 'public/js')
      			// 'node_modules/datatables.net-plugins/filtering/row-based/range_numbers.js',
      			'node_modules/datatables.net-plugins/features/searchHighlight/dataTables.searchHighlight.js'
      		], 'public/js/datatable-plugins.js');
+    .combine([
+                'node_modules/@fortawesome/fontawesome-free/css/all.css'
+            ], 'public/css/all.css')
+    .scripts([
+                'node_modules/@fortawesome/fontawesome-free/js/all.js'
+            ], 'public/js/dependencias.js')

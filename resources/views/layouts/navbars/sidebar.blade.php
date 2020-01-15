@@ -140,6 +140,13 @@
                     <p>{{ __('Documents') }}</p> 
                 </a>
             </li>
+
+            {{-- <li class=" {{ $pageSlug == 'documents' ? 'active' : '' }}">
+                <a href="{{ route('documents.index') }}">
+                    <i class="tim-icons icon-attach-87"></i>
+                    <p>{{ __('Documents') }}</p> 
+                </a>
+            </li> --}}
         </ul>
     </div>
 </div>
