@@ -14,7 +14,7 @@
                       </ol>
                       <div class="carousel-inner">
                         <div class="carousel-item active">
-                          <img src="white/img/DJI_0123.jpg" class="d-block w-100" width="640" height="360">
+                          <img src="white/img/DJI_0125.jpg" class="d-block w-100" width="640" height="360">
                           <div class="carousel-caption d-none d-md-block">
                             <h5 id="text-carousel">Conoce Prosarc</h5>
                             <p id="text-carousel"></p>
@@ -52,8 +52,8 @@
       <h2 class="text-center">Conoce a Prosarc</h2>
       <table class="col-lg-12 text-center">
         <tr>
-          <td><a href="*"><img src="white/img/logo.png" class="botones-conoce"></a></td>
-          <td><a href="*"><img src="white/img/RL.jpg" class="botones-conoce"></a></td>
+          <td><a href="{{ route('prosarc.nosotros')  }}"><img src="white/img/logo.png" class="botones-conoce"></a></td>
+          <td><a href="{{ route('prosarc.requiLegal')  }}"><img src="white/img/RL.jpg" class="botones-conoce"></a></td>
         </tr>
         <tr>
           <td><h4>Nosotros</h4></td>
@@ -65,7 +65,7 @@
       <h2 class="text-center">Nuestra Gestión</h2>
       <table class="col-lg-12 text-center">
         <tr>
-          <td><a href="*"><img src="white/img/GH.jpg" class="botones-conoce"></a></td>
+          <td><a href="{{ route('prosarc.GHumana')  }}"><img src="white/img/GH.jpg" class="botones-conoce"></a></td>
           <td><a href="*"><img src="white/img/GA.jpg" class="botones-conoce"></a></td>
           <td><a href="*"><img src="white/img/GC.jpg" class="botones-conoce"></a></td>
           <td><a href="*"><img src="white/img/SST.jpg" class="botones-conoce"></a></td>
@@ -74,7 +74,7 @@
           <td><h4>Gestión Humana</h4></td>
           <td><h4>Gestión Ambiental</h4></td>
           <td><h4>Gestión de Calidad</h4></td>
-          <td><h4>Seguridad y salud en el trabajo</h4></td>
+          <td><h4>Seguridad y salud <br> en el trabajo</h4></td>
         </tr>
       </table>
     </div>

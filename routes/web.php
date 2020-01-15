@@ -45,7 +45,10 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'PageController@upgrade']);
 
 
-		Route::get('infoProsarc', ['as' => 'prosarc.infoProsarc', 'uses' => 'ProsarcController@infoProsarc']);
+		Route::get('nosotros', ['as' => 'prosarc.nosotros', 'uses' => 'ProsarcController@nosotros']);
+		Route::get('requiLegal', ['as' => 'prosarc.requiLegal', 'uses' => 'ProsarcController@requiLegal']);
+		Route::get('GHumana', ['as' => 'prosarc.GHumana', 'uses' => 'ProsarcController@GHumana']);
+		
 
 
 		/*Route::get('areas', ['as' => 'areas.index', 'uses' => 'AreasController@index']);*/

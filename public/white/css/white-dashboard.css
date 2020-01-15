@@ -6648,7 +6648,7 @@ button.bg-info:focus {
 }
 
 .bg-warning {
-  background-color: #ff8d72 !important;
+  background-color: #ffd472 !important;
 }
 
 a.bg-warning:hover,
@@ -18352,4 +18352,28 @@ Copyright (c) 2015 Daniel Eden
   min-height: 100vh;
 }
 
+.mision {
+  padding: 3em 3em 3em 3em;
+  transform: rotate(-10deg);
+  border-radius: 5%;
+  margin: 3em 3em 3em 3em;
+}
+
+.vision {
+  padding: 3em 3em 3em 3em;
+  transform: rotate(10deg);
+  border-radius: 5%;
+  margin: 3em 3em 3em 3em;
+}
+
+.objetivos {
+  padding: 3em 3em 3em 3em;
+  border-radius: 5%;
+  margin: 3em 3em 3em 3em;
+}
+
+.imagen-prosarc {
+  border-radius: 5%;
+  margin: 0em 3em 5em 3em;
+}
 /*# sourceMappingURL=dashboard-free.css.map */
