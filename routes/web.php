@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('auth/login');
-})->name('login');
+    return redirect('/home');
+});
 
 // if (auth()->user()->hasRole('admin'))
 // {
@@ -27,7 +27,6 @@ Route::get('/', function () {
 // }
 
 
-// Route::get('/home', 'HomeController@index')->name('home');
 // Auth::routes();
 
 Auth::routes([
@@ -67,6 +66,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('documents','DocumentsController');
 	Route::resource('indicators','IndicatorsController');
 	Route::resource('comites','ComitesController');
+
+
+	/*ruta para busceda en los modelos de la aplicacion*/
 	Route::get('search/{search}','SearchController@searchAllModels');
 });
 
