@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Comites;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ComitesController extends Controller
 {
@@ -26,7 +27,7 @@ class ComitesController extends Controller
      */
     public function create()
     {
-        //
+        return view('comites.create');
     }
 
     /**
@@ -37,7 +38,23 @@ class ComitesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $path = $request->file('ComiSrc')->store('public/Comites');
+
+        $pathimg = $request->file('ComiImage')->store('public/Comites');
+
+
+        /*return $request;*/
+        $comite = new Comites();
+        $comite->ComiName = $request->input('ComiName');
+        $comite->ComiSrc = $path;
+        $comite->ComiImage = $pathimg;
+        $comite->ComiParaQueSirve = $request->input('ComiParaQueSirve');
+        $comite->ComiTelefono = $request->input('ComiTelefono');
+        $comite->ComiEmail = $request->input('ComiEmail');
+        $comite->save();
+
+        return redirect()->route('comites.index');
     }
 
     /**
@@ -46,9 +63,9 @@ class ComitesController extends Controller
      * @param  \App\Comites  $comites
      * @return \Illuminate\Http\Response
      */
-    public function show(Comites $comites)
+    public function show(Comites $comite)
     {
-        //
+        return view('comites.show', compact('comite'));
     }
 
     /**
@@ -57,9 +74,9 @@ class ComitesController extends Controller
      * @param  \App\Comites  $comites
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comites $comites)
+    public function edit(Comites $comite)
     {
-        //
+        return view('comites.edit', compact('comite'));
     }
 
     /**
@@ -69,9 +86,28 @@ class ComitesController extends Controller
      * @param  \App\Comites  $comites
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comites $comites)
+    public function update(Request $request, Comites $comite)
     {
-        //
+
+        $comite->update($request->except(['ComiSrc', 'ComiImage']));
+
+
+        if ($request->hasFile('ComiSrc')){
+            $path = $request->file('ComiSrc')->store('public/Comites');
+            $comite->update(['ComiSrc' => $path]);
+        }else{
+           
+        }
+
+
+        if ($request->hasFile('ComiImage')){
+            $pathimg = $request->file('ComiImage')->store('public/Comites');
+            $comite->update(['ComiImage' => $pathimg]);
+        }else{
+            
+        }
+
+        return redirect()->route('comites.index');
     }
 
     /**
@@ -80,8 +116,15 @@ class ComitesController extends Controller
      * @param  \App\Comites  $comites
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comites $comites)
+    public function destroy(Comites $comite)
     {
-        //
+        $srcActual = $comite->ComiSrc;
+        Storage::disk('local')->delete($srcActual);
+        $imageActual = $comite->ComiImage;
+        Storage::disk('local')->delete($imageActual);
+        $comite->delete();
+
+        return redirect()->route('comites.index');
+
     }
 }

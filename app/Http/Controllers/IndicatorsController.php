@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Indicators;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class IndicatorsController extends Controller
 {
@@ -125,7 +126,7 @@ class IndicatorsController extends Controller
             $path = $request->file('IndGraphic')->store('public/Graphic');
             $indicator->update(['IndGraphic' => $path]);
         }else{
-            $indicator->IndGraphic = $request->input('IndGraphic');
+
         }
 
 
@@ -133,7 +134,7 @@ class IndicatorsController extends Controller
             $pathimg = $request->file('IndTable')->store('public/Archivos');
             $indicator->update(['IndTable' => $pathimg]);
         }else{
-            $indicator->IndTable = $request->input('IndTable');
+
         }
 
 
@@ -157,7 +158,14 @@ class IndicatorsController extends Controller
      */
     public function destroy(Indicators $indicator)
     {
+        /*$indicator->delete();*/
+
+        $graphicActual = $indicator->IndGraphic;
+        Storage::disk('local')->delete($graphicActual);
+        $tableActual = $indicator->IndTable;
+        Storage::disk('local')->delete($tableActual);
         $indicator->delete();
+
         return redirect()->route('indicators.index');
     }
 }
