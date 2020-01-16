@@ -139,8 +139,6 @@
         <script src="{{ asset('white') }}/js/theme.js"></script>
         {{-- incluido el secript de app.js para el codigo de laravel echo --}}
         <script src="{{ asset('js') }}/app.js"></script>
-        <script src="{{ asset('js') }}/particles.js"></script>
-        <script src="{{ asset('js') }}/particulas.js"></script>
 
         @stack('js')
 

@@ -41,3 +41,10 @@
         </form>
     </div>
 @endsection
+
+@push('js')
+        <script src="{{ asset('js') }}/particles.js"></script>
+@endpush
+@push('scripts')
+        <script src="{{ asset('js') }}/particulas.js"></script>
+@endpush
