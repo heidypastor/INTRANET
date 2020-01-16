@@ -35,6 +35,8 @@ Auth::routes([
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
+
+	/*rutas de muestra de la plantilla*/
 	Route::get('icons', ['as' => 'pages.icons', 'uses' => 'PageController@icons']);
 	Route::get('maps', ['as' => 'pages.maps', 'uses' => 'PageController@maps']);
 	Route::get('notifications', ['as' => 'pages.notifications', 'uses' => 'PageController@notifications']);
@@ -43,18 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('typography', ['as' => 'pages.typography', 'uses' => 'PageController@typography']);
 	Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'PageController@upgrade']);
 
-
-		Route::get('nosotros', ['as' => 'prosarc.nosotros', 'uses' => 'ProsarcController@nosotros']);
-		Route::get('requiLegal', ['as' => 'prosarc.requiLegal', 'uses' => 'ProsarcController@requiLegal']);
-		Route::get('GHumana', ['as' => 'prosarc.GHumana', 'uses' => 'ProsarcController@GHumana']);
-		
-
-
-		/*Route::get('areas', ['as' => 'areas.index', 'uses' => 'AreasController@index']);*/
-		/*Route::resource('/areas','AreasController@create');*/
-		/*Route::resource('areas', ['as' => 'areas.create', 'uses' => 'AreasController@create']);*/
-
-	// Route::get('indicators', ['as' => 'indicators.index', 'uses' => 'IndicatorsController@index']);
+	/*rutas administrativas para usuarios, roles, perfiles etc...*/
 	Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::resource('roles', 'RoleController', ['except' => ['show']]);
 	Route::resource('permissions', 'PermissionController', ['except' => ['show']]);
@@ -62,14 +53,25 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 	Route::get('/cambiodecolor/{id}/color/{color}','ProfileController@updatecolor');
+
+
+	/*Rutas a controladores resource*/
 	Route::resource('areas','AreasController');
 	Route::resource('documents','DocumentsController');
 	Route::resource('indicators','IndicatorsController');
 	Route::resource('comites','ComitesController');
 
 
-	/*ruta para busceda en los modelos de la aplicacion*/
-	Route::get('search/{search}','SearchController@searchAllModels');
+	/*rutas a metodos especificos de los controladores*/
+	Route::get('nosotros', ['as' => 'prosarc.nosotros', 'uses' => 'ProsarcController@nosotros']);
+	Route::get('requiLegal', ['as' => 'prosarc.requiLegal', 'uses' => 'ProsarcController@requiLegal']);
+	Route::get('GHumana', ['as' => 'prosarc.GHumana', 'uses' => 'ProsarcController@GHumana']);
+	// Route::get('areas', ['as' => 'areas.index', 'uses' => 'AreasController@index']);
+	// Route::get('indicators', ['as' => 'indicators.index', 'uses' => 'IndicatorsController@index']);
+	Route::get('search/{search}','SearchController@searchAllModels'); /*ruta para busqueda en los modelos de la aplicacion*/
+
+
+	
 });
 
 
