@@ -81,7 +81,11 @@ class IndicatorsController extends Controller
      */
     public function show(Indicators $indicator)
     {
-        return view('indicators.show', compact('indicator'));
+        $areas = Indicators::find($indicator->id)->areas()->get();
+        /*$area = $indicator->areas()->get();*/
+        /*return $area;*/
+        /*$integrantes = $comite->users()->get();*/
+        return view('indicators.show', compact('indicator', 'areas'));
     }
 
     /**

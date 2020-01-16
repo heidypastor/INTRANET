@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="card">
-        <div class="col-md-12 card-body align-middle">
+        <div class="col-md-12 card-body">
             <div class="content">
                 <h1 class="card-title text-center">ACTUALIZACIONES</h1>
                 <div id="carousel">

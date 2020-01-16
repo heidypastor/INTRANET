@@ -51,6 +51,9 @@
 			<div class="form-group">
 				<button type="submit" class="btn btn-fill btn-success">Crear</button>
 			</div>
+			<div>
+				
+			</div>
 		</form>
 	</div>
 @endsection

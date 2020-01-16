@@ -48,6 +48,11 @@ class User extends Authenticatable
         //Relación de la tabla releases y la tabla usuarios 
     }
 
+    public function comites()
+    {
+        return $this->belongsToMany('App\Comites');
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

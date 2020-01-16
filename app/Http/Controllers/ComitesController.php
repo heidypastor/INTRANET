@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comites;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -16,7 +17,11 @@ class ComitesController extends Controller
      */
     public function index()
     {
-        $comites = DB::table('comites')->get();
+        /*$comites = DB::table('comites')->get();*/
+        $comites = Comites::all();
+        /*$comites = User::with('comites')->get();*/
+
+        /*return $comites;*/
         return view('comites.index', compact('comites'));
     }
 
@@ -65,7 +70,10 @@ class ComitesController extends Controller
      */
     public function show(Comites $comite)
     {
-        return view('comites.show', compact('comite'));
+        /*$integrantes = Comites::find($comite->id)->users()->get();*/
+        $integrantes = $comite->users()->get();
+        /*return $integrantes;*/
+        return view('comites.show', compact('comite', 'integrantes'));
     }
 
     /**

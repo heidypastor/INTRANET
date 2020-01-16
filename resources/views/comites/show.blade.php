@@ -54,6 +54,15 @@
 					<th class="text-center">Email de contacto</th>
 					<td class="text-center"><p> {{$comite->ComiEmail}} </p></td>
 				</tr>
+				<tr>
+					<td></td>
+					<th class="text-center">Integrantes</th>
+					<td class="text-center">
+						@foreach($integrantes as $integrante)
+						<br>{{$integrante->name}}
+						@endforeach
+					</td>
+				</tr>
 		      </tbody>
 		    </table>
 		</div>

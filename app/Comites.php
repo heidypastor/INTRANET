@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Comites extends Model
 {
@@ -14,6 +15,13 @@ class Comites extends Model
     protected $fillable = [
         'ComiName', 'ComiSrc', 'ComiImage', 'ComiParaQueSirve', 'ComiTelefono', 'ComiEmail', 
     ];
+
+
+    public function users()
+    {
+        return $this->belongsToMany('App\User');
+    }
+
 
     /**
      * The attributes that should be hidden for arrays.

@@ -35,13 +35,12 @@
 		      		<td></td>
 		      		<th class="text-center">Área</th>
 		      		<td class="text-center"><p>
-		      	  	{{-- <ul class="list-group" style="background: #e7e7e7;"> --}}
-		      	  		{{-- @foreach($indicator->areas as $area) --}}
-		      	  		{{-- <li class="list-group-item"> --}}
-		      	  			{{-- {{$area->AreaName}} --}}
-		      	  		{{-- </li> --}}
-		      	  		{{-- @endforeach --}}
-		      	  	{{-- </ul> --}}</p></td>
+		      	  		@foreach($areas as $area)
+		      	  		<li class="list-group-item"  style="background: #e7e7e7;">
+		      	  			{{$area->AreaName}}
+		      	  		</li>
+		      	  		@endforeach
+		      	  	</p></td>
 		      	</tr>
 		      	<tr>
 		      		<td></td>
