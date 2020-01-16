@@ -18324,7 +18324,7 @@ Copyright (c) 2015 Daniel Eden
   background: linear-gradient(to right, #040404, #040404);
   z-index: 3 !important;
   position: absolute;
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 #particles-js {
@@ -18344,12 +18344,12 @@ Copyright (c) 2015 Daniel Eden
 
 .imagen-fondo {
   background-image: linear-gradient(to right, #040404, #040404, transparent, transparent),
-   url("https://prosarc.com/wp-content/uploads/2018/03/camiones.png") !important;
+   url("https://picsum.photos/960/540") !important;
   /*background-attachment: fixed;*/
   background-size: cover;
   position: absolute !important;
   z-index: 2 !important;
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 .mision {

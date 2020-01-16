@@ -16,11 +16,12 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
         <!-- Icons -->
-        <link href="{{ asset('white') }}/css/nucleo-icons.css" rel="stylesheet" />
+        <link href="{{ asset('white') }}/css/nucleo-icons.css" rel="stylesheet"/>
         <!-- CSS -->
-        <link href="{{ asset('white') }}/css/white-dashboard.css?v=1.0.0" rel="stylesheet" />
-        <link href="{{ asset('white') }}/css/theme.css" rel="stylesheet" />
-        <link href="{{ asset('css') }}/all.css" rel="stylesheet" />
+        <link href="{{ asset('white') }}/css/white-dashboard.css?v=1.0.0" rel="stylesheet"/>
+        <link href="{{ asset('white') }}/css/theme.css" rel="stylesheet"/>
+        <link href="{{ asset('css') }}/all.css" rel="stylesheet"/>
+        <link href="{{ asset('css') }}/personalizados.css" rel="stylesheet"/>
     </head>
     <body class="white-content {{ $class ?? '' }}">
         @auth()
@@ -89,7 +90,7 @@
                             @yield('content')
                         </div>
                     </div>
-                    @include('layouts.footer')
+                    {{-- @include('layouts.footer') --}}
                 </div>
             </div>
         @endauth

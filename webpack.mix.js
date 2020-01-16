@@ -31,36 +31,44 @@ mix.js('resources/js/app.js', 'public/js')
     			'node_modules/datatables.net-plugins/features/searchHighlight/dataTables.searchHighlight.css'
     		], 'public/css/datatable-plugins.css')
     .combine([
-                'resources/css/stilospersonalizados.css'
+                'node_modules/@fortawesome/fontawesome-free/css/all.css',
             ], 'public/css/all.css')
-
-    .scripts([
-     			'node_modules/datatables.net/js/jquery.dataTables.js',
-     			'node_modules/datatables.net-dt/js/dataTables.dataTables.js',
-     			'node_modules/datatables.net-autofill/js/dataTables.autoFill.js',
-     			'node_modules/datatables.net-buttons/js/dataTables.buttons.js',
-     			'node_modules/datatables.net-buttons/js/buttons.html5.js',
-     			'node_modules/datatables.net-buttons/js/buttons.flash.js',
-     			'node_modules/datatables.net-buttons/js/buttons.colVis.js',
-     			'node_modules/datatables.net-buttons/js/buttons.print.js',
-     			'node_modules/datatables.net-colreorder/js/dataTables.colReorder.js',
-     			'node_modules/datatables.net-fixedcolumns/js/dataTables.fixedColumns.js',
-     			'node_modules/datatables.net-fixedheader/js/dataTables.fixedHeader.js',
-     			'node_modules/datatables.net-keytable/js/dataTables.keyTable.js',
-     			'node_modules/datatables.net-responsive/js/dataTables.responsive.js',
-     			/*'node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.js',*/
-     			'node_modules/datatables.net-scroller/js/dataTables.scroller.js',
-     			'node_modules/datatables.net-select/js/dataTables.select.js',
-     		], 'public/js/datatable-depen.js')
-    .scripts([
-     			// 'node_modules/datatables.net-plugins/pagination/input.js',
-     			// 'node_modules/datatables.net-plugins/filtering/row-based/range_dates.js',
-     			// 'node_modules/datatables.net-plugins/filtering/row-based/range_numbers.js',
-     			'node_modules/datatables.net-plugins/features/searchHighlight/dataTables.searchHighlight.js'
-     		], 'public/js/datatable-plugins.js');
     .combine([
-                'node_modules/@fortawesome/fontawesome-free/css/all.css'
-            ], 'public/css/all.css')
+                'resources/css/stilospersonalizados.css'
+            ], 'public/css/personalizados.css')
     .scripts([
                 'node_modules/@fortawesome/fontawesome-free/js/all.js'
             ], 'public/js/dependencias.js')
+    .scripts([
+                'node_modules/datatables.net/js/jquery.dataTables.js',
+                'node_modules/datatables.net-dt/js/dataTables.dataTables.js',
+                'node_modules/datatables.net-autofill/js/dataTables.autoFill.js',
+                'node_modules/datatables.net-buttons/js/dataTables.buttons.js',
+                'node_modules/datatables.net-buttons/js/buttons.html5.js',
+                'node_modules/datatables.net-buttons/js/buttons.flash.js',
+                'node_modules/datatables.net-buttons/js/buttons.colVis.js',
+                'node_modules/datatables.net-buttons/js/buttons.print.js',
+                'node_modules/datatables.net-colreorder/js/dataTables.colReorder.js',
+                'node_modules/datatables.net-fixedcolumns/js/dataTables.fixedColumns.js',
+                'node_modules/datatables.net-fixedheader/js/dataTables.fixedHeader.js',
+                'node_modules/datatables.net-keytable/js/dataTables.keyTable.js',
+                'node_modules/datatables.net-responsive/js/dataTables.responsive.js',
+                /*'node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.js',*/
+                'node_modules/datatables.net-scroller/js/dataTables.scroller.js',
+                'node_modules/datatables.net-select/js/dataTables.select.js'
+            ], 'public/js/datatable-depen.js')
+    .scripts([
+                // 'node_modules/datatables.net-plugins/pagination/input.js',
+                // 'node_modules/datatables.net-plugins/filtering/row-based/range_dates.js',
+                // 'node_modules/datatables.net-plugins/filtering/row-based/range_numbers.js',
+                'node_modules/datatables.net-plugins/features/searchHighlight/dataTables.searchHighlight.js'
+            ], 'public/js/datatable-plugins.js')
+    .scripts([
+                'resources/js/particulas.js'
+            ], 'public/js/particulas.js')
+    .scripts([
+                'resources/js/particles.js'
+            ], 'public/js/particles.js')
+    .scripts([
+                'resources/js/scriptspersonalizados.js'
+            ], 'public/js/all.js');
