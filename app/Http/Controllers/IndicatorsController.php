@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Indicators;
+use App\Areas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class IndicatorsController extends Controller
 {
@@ -68,6 +70,7 @@ class IndicatorsController extends Controller
         $indicator->IndAnalysis = $request->input('IndAnalysis');
         $indicator->IndDateFrom = $request->input('IndDateFrom');
         $indicator->IndDateUntil = $request->input('IndDateUntil');
+        $indicator->user_id =  Auth::user()->id;
         $indicator->save();
 
         return redirect()->route('indicators.index');
@@ -82,8 +85,10 @@ class IndicatorsController extends Controller
     public function show(Indicators $indicator)
     {
         $areas = Indicators::find($indicator->id)->areas()->get();
+        /*$areas = Indicators::where($indicator->id)->areas()->get();*/
         /*$area = $indicator->areas()->get();*/
-        /*return $area;*/
+        /*$areas = Areas::get();*/
+        /*return $areas;*/
         /*$integrantes = $comite->users()->get();*/
         return view('indicators.show', compact('indicator', 'areas'));
     }

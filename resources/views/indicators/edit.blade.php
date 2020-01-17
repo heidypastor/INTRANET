@@ -1,9 +1,6 @@
 @extends('layouts.app', ['page' => __('Indicadores'), 'pageSlug' => 'indicators'])
 
 @section('content')
-
-
-
 	<div class="card-header text-center">
 	  <h3 class="card-title">Editar Indicador</h3>
 	</div>

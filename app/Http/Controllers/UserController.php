@@ -44,6 +44,7 @@ class UserController extends Controller
      */
     public function store(UserRequest $request, User $user)
     {
+        /*return $request;*/
         $roles = Role::whereIn('name', $request->input('roles'))->get();
         // return $roles;
         $user = new User();

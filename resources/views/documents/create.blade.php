@@ -48,9 +48,10 @@
 					<option value="1">General</option>
 				</select>
 			</div>
-			<div>
-				<label>Área a la que pertenece el documento</label>
-				<select multiple name="areas[]" value="{{ old('areas[]') }}" class="form-control form-control-alternative" required autofocus>
+
+			<div class="form-group">
+				<label class="form-control-label">Áreas a la que pertenece el documento</label>
+				<select multiple name="areas[]" id="input-area" class="form-control form-control-alternative" placeholder="{{ __('Selecciona las áreas a las que pertenece')}}" value="{{ old('areas[]') }}"  required>
 					@foreach($areas as $area)
 					<option value="{{$area->AreaName}}">{{$area->AreaName}}</option>
 					@endforeach

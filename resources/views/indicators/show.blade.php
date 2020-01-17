@@ -15,11 +15,20 @@
 	  </form>
 	</div>
 
-	<div class="text-right">
-		<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-success far fa-edit"> Editar</a> 
-	</div>
 
-	
+	@php
+	$userid = Auth::user()->id;
+	@endphp
+
+	@if($indicator->id === $userid)
+		<div class="text-right">
+			<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-success far fa-edit"> Editar</a> 
+		</div>
+	@else
+		<div class="text-right">
+			<button class="btn btn-default sw-btn-prev disabled" type="button">Editar</button>
+		</div>
+	@endif	
 
 	<div class="card-body">
 	  <div class="table-responsive table-upgrade">

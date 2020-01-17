@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Documents;
+use App\Areas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -28,7 +29,8 @@ class DocumentsController extends Controller
      */
     public function create()
     {
-        $areas = Documents::with('areas')->get();
+        $areas = Areas::get();
+        /*$areas = Documents::with('areas')->get();*/
         /*return $areas;*/
         return view('documents.create', compact('areas'));
     }
@@ -39,9 +41,11 @@ class DocumentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Documents $document)
     {
         /*return $request;*/
+        $areas = Areas::whereIn('id', $request->input('areas'))->get();
+
         // se almacena el archivo
         $path = $request->file('DocSrc')->store('public/'.$request->input('DocType'));
 
@@ -64,6 +68,9 @@ class DocumentsController extends Controller
         $document->DocSize = $tamaño;
         $document->users_id = Auth::user()->id;
         $document->save();
+
+
+        /*$document->assignAreas($areas);*/
 
         // redireccionamiento al index de documentos
         return redirect()->route('documents.index'); 
@@ -88,11 +95,8 @@ class DocumentsController extends Controller
      */
     public function edit(Documents $document)
     {
-        /*return $id;*/
-        /*$Documents = Document::where($id)->first();*/
-        /*$Documents = DB::table('documents')->get();*/
-        /*return $Documents;*/
-        return view('documents.edit', compact('document'));
+        $areas = Areas::get();
+        return view('documents.edit', compact('document', 'areas'));
     }
 
     /**
