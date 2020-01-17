@@ -20,7 +20,7 @@ class Documents extends Model
 
     public function areas()
     {
-        return $this->belongsToMany('App\Areas','area_document');
+        return $this->belongsToMany('App\Areas');
         //Relación de la tabla areas y la tabla documentos 
     }
 

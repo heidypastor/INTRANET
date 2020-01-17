@@ -35,8 +35,8 @@
 <div class="sidebar" data="{{$colorsidebar}}">
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="#" class="simple-text logo-mini">{{ __('IN') }}</a>
-            <a href="#" class="simple-text logo-normal">{{ __('INTRANET') }}</a>
+            <a href="http://intranet.test/home" class="simple-text logo-mini">{{ __('IN') }}</a>
+            <a href="http://intranet.test/home" class="simple-text logo-normal">{{ __('INTRANET') }}</a>
         </div>
         <ul class="nav">
             {{-- <li @if ($pageSlug == 'dashboard') class="active " @endif>

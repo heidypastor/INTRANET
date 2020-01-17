@@ -18,7 +18,7 @@ class Areas extends Model
 
     public function documents()
     {
-        return $this->belongsToMany('App\Documents','area_document');
+        return $this->belongsToMany('App\Documents');
         //Relación de la tabla areas y la tabla documentos 
     }
 

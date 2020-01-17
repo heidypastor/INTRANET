@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-roles">{{ __('Roles') }}</label>
-                                    <select multiple name="roles[]" id="input-role" class="form-control form-control-alternative" placeholder="{{ __('Seleccion los roles del usuario') }}" value="{{ old('roles[]') }}" required autofocus>
+                                    <select multiple name="roles[]" id="input-role" class="form-control form-control-alternative" placeholder="{{ __('Selecciona los roles del usuario') }}" value="{{ old('roles[]') }}" required autofocus>
                                         @foreach($roles as $role)
                                         <option{{--  {{ in_array($role->name, $user->roles) ? 'Selected' : ""}} --}} value="{{$role->name}}">{{$role->name}}</option>
                                         @endforeach

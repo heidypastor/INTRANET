@@ -6,6 +6,7 @@ use App\Documents;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class DocumentsController extends Controller
 {
@@ -27,7 +28,9 @@ class DocumentsController extends Controller
      */
     public function create()
     {
-        return view('documents.create');
+        $areas = Documents::with('areas')->get();
+        /*return $areas;*/
+        return view('documents.create', compact('areas'));
     }
 
     /**
@@ -59,6 +62,7 @@ class DocumentsController extends Controller
         $document->DocMime = $mime;
         $document->DocOriginalName = $nombreorigi;
         $document->DocSize = $tamaño;
+        $document->users_id = Auth::user()->id;
         $document->save();
 
         // redireccionamiento al index de documentos
