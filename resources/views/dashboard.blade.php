@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="card">
-        <div class="col-md-12 card-body align-middle">
+        <div class="col-md-12 card-body">
             <div class="content">
                 <h1 class="card-title text-center">ACTUALIZACIONES</h1>
                 <div id="carousel">
@@ -81,12 +81,10 @@
     <div class="div-comites text-center">
       <div class="col-lg-12">
         <h2 class="text-center">Comites PROSARC</h2>
-        <button class="btn btn-success">COPASST</button>
-        <button class="btn btn-success">Cómite de Convivencia</button>
-        <button class="btn btn-success">Cómite Ambiental</button>
+        @foreach($comites as $comite)
+          <a href="comites/{{$comite->id}}" class="btn btn-success">{{$comite->ComiName}}</a>
+        @endforeach
         <br>
-        <button class="btn btn-success">Brigadistas</button>
-        <button class="btn btn-success">Seguridad Víal</button>
       </div>
     </div>
 @endsection

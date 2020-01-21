@@ -13,8 +13,7 @@ class CreateAreaDocumentTable extends Migration
      */
     public function up()
     {
-        Schema::create('area_document', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('areas_documents', function (Blueprint $table) {
             $table->timestamps();
             $table->unsignedBigInteger('areas_id');  /*Relación con la tabla areas*/
             $table->foreign('areas_id')->references('id')->on('areas');

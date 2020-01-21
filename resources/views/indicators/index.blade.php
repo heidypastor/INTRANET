@@ -5,7 +5,7 @@
 	  <h4 class="card-title">INDICADORES</h4>
 	</div>
 	<div>
-		<a href="{{ route('indicators.create') }}" class="far fa-plus btn btn-fill btn-success">   Crear</a>
+		<a href="{{ route('indicators.create') }}" class="fas fa-plus btn btn-fill btn-success"> Crear</a>
 	</div>
 	<div class="row">
 		@foreach($Indicators as $indicator)

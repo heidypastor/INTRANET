@@ -21,15 +21,13 @@
               <label>¿Qué mide?</label>
               <input name="IndQueMide" type="text" class="text-center form-control" required>
             </div>		
-            <div class="form-group">
+            <div class="custom-input-file">
               <label>Grafica</label>
-              <input name="IndGraphic" type="file" class="text-center form-control" required="">
-              <input name="nada" type="" placeholder="Adjuntar Archivo" class="text-center form-control">
+              <input name="IndGraphic" type="file" class="form-control" required="">
             </div>
-            <div class="form-group">
+            <div class="custom-input-file">
               <label>Tabla (Archivo)</label>
-              <input name="IndTable" type="file" class="text-center form-control" required>
-              <input name="nada1" type="" placeholder="Adjuntar Archivo" class="text-center form-control">
+              <input name="IndTable" type="file" class="form-control" required>
             </div>
             <div class="form-group">
               <label>Analisis</label>
