@@ -53,7 +53,7 @@
 				<label class="form-control-label">Áreas a la que pertenece el documento</label>
 				<select multiple name="areas[]" id="input-area" class="form-control form-control-alternative" placeholder="{{ __('Selecciona las áreas a las que pertenece')}}" value="{{ old('areas[]') }}"  required>
 					@foreach($areas as $area)
-					<option value="{{$area->AreaName}}">{{$area->AreaName}}</option>
+					<option value="{{$area->id}}">{{$area->AreaName}}</option>
 					@endforeach
 				</select>
 			</div>

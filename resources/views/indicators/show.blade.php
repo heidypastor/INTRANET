@@ -7,27 +7,48 @@
 	  <h4 class="card-title">INDICADORES</h4>
 	</div>
 
-	<div class="text-left">
-	  <form action="{{ route('indicators.destroy', $indicator) }}" method="POST" class="pull-right">
-	    @method('DELETE')
-	    @csrf 
-	      <button type="submit" class="far fa-trash btn btn-danger"> Eliminar</button>
-	  </form>
-	</div>
-
-
 	@php
 	$userid = Auth::user()->id;
 	@endphp
 
-	@if($indicator->id === $userid)
+	@if(auth()->user()->can('editIndicator') && $indicator->user_id === $userid)
+		<div class="text-left">
+		  <form action="{{ route('indicators.destroy', $indicator) }}" method="POST" class="pull-right">
+		    @method('DELETE')
+		    @csrf 
+		      <button type="submit" class="far fa-trash btn btn-danger"> Eliminar</button>
+		  </form>
+		</div>
+
 		<div class="text-right">
 			<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-success far fa-edit"> Editar</a> 
 		</div>
 	@else
-		<div class="text-right">
-			<button class="btn btn-default sw-btn-prev disabled" type="button">Editar</button>
-		</div>
+		@hasrole('Super Admin')
+			<div class="text-left">
+			  <form action="{{ route('indicators.destroy', $indicator) }}" method="POST" class="pull-right">
+			    @method('DELETE')
+			    @csrf 
+			      <button type="submit" class="fas fa-backspace btn btn-danger"> Eliminar</button>
+			  </form>
+			</div> 
+
+			<div class="text-right">
+				<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-success far fa-edit"> Editar</a>
+			</div>
+		@else
+			<div class="text-left">
+			  <form action="{{ route('indicators.destroy', $indicator) }}" method="POST" class="pull-right">
+			    @method('DELETE')
+			    @csrf 
+			      <button type="submit" class="btn btn-default sw-btn-prev disabled"> Eliminar</button>
+			  </form>
+			</div>
+
+			<div class="text-right">
+				<button class="btn btn-default sw-btn-prev disabled" type="button">Editar</button>
+			</div>
+		@endhasrole
 	@endif	
 
 	<div class="card-body">
@@ -42,14 +63,12 @@
 				<tbody>
 		      	<tr>
 		      		<td></td>
-		      		<th class="text-center">Área</th>
-		      		<td class="text-center"><p>
-		      	  		@foreach($areas as $area)
+		      		<th class="text-center">Área a la cual pertenece</th>
+		      		<td class="text-center">
 		      	  		<li class="list-group-item"  style="background: #e7e7e7;">
 		      	  			{{$area->AreaName}}
 		      	  		</li>
-		      	  		@endforeach
-		      	  	</p></td>
+		      	  	</td>
 		      	</tr>
 		      	<tr>
 		      		<td></td>

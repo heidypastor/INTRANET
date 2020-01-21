@@ -83,12 +83,12 @@
                     </ul>
                 </div>
             </li>
-            {{-- <li @if ($pageSlug == 'icons') class="active " @endif>
+            <li @if ($pageSlug == 'icons') class="active " @endif>
                 <a href="{{ route('pages.icons') }}">
                     <i class="tim-icons icon-atom"></i>
                     <p>{{ __('Icons') }}</p>
                 </a>
-            </li> --}}
+            </li>
             {{-- <li @if ($pageSlug == 'maps') class="active " @endif>
                 <a href="{{ route('pages.maps') }}">
                     <i class="tim-icons icon-pin"></i>

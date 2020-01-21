@@ -18,7 +18,13 @@ class DocumentsController extends Controller
      */
     public function index()
     {
-       $Documents = DB::table('documents')->get();
+       /*$Documents = DB::table('documents')->get();*/
+       $Documents = Documents::with('areas')->paginate(10);
+       /*return $Documents;*/
+
+       /*$users = User::with('roles')->paginate(10);*/
+
+
        return view('documents.index', compact('Documents'));
     }
 
@@ -44,8 +50,8 @@ class DocumentsController extends Controller
     public function store(Request $request, Documents $document)
     {
         /*return $request;*/
-        $areas = Areas::whereIn('id', $request->input('areas'))->get();
-
+        /*$areas = Areas::whereIn('id', $request->input('areas'))->get();*/
+        $areaid = $request->input('areas');
         // se almacena el archivo
         $path = $request->file('DocSrc')->store('public/'.$request->input('DocType'));
 
@@ -69,7 +75,7 @@ class DocumentsController extends Controller
         $document->users_id = Auth::user()->id;
         $document->save();
 
-
+        $document->areas()->attach($areaid);
         /*$document->assignAreas($areas);*/
 
         // redireccionamiento al index de documentos
@@ -121,6 +127,7 @@ class DocumentsController extends Controller
             $mime = $archivo->getClientMimeType();
             $nombreorigi = $archivo->getClientOriginalName();
             $tamaño = ceil(($archivo->getClientSize())/1024);
+            $areaid = $request->input('areas');
 
             $document->update([
                 'DocName' => $request->input('DocName'), 
@@ -134,9 +141,12 @@ class DocumentsController extends Controller
                 'DocPublisher' => $request->input('DocPublisher'), 
                 'users_id' => auth()->user()->id,
             ]);
+            $document->areas()->sync($areaid);
 
         }else{
             $document->update($request->except('DocSrc'));
+            $areaid = $request->input('areas');
+            $document->areas()->attach($areaid);
         }
         /*$tratamiento = Tratamiento::find($id);*/
         return redirect()->route('documents.index');

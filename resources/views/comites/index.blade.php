@@ -6,7 +6,7 @@
 		<h2>Comites de Prosarc</h2>
 	</div>
 	<div class="float-right">
-		<a href="{{ route('comites.create') }}" class="btn btn-fill btn-success">Crear</a>
+		<a href="{{ route('comites.create') }}" class="fas fa-plus btn btn-fill btn-success"> Crear</a>
 	</div>
 
 	<div class="card-body">

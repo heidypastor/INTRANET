@@ -36,7 +36,7 @@ class User extends Authenticatable
         //Relación de la tabla documents y la tabla usuarios 
     }
 
-    public function area()
+    public function areas()
     {
         return $this->belongsTo('App\Areas');
         //Relación de la tabla documents y la tabla usuarios 

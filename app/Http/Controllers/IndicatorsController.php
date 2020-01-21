@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Indicators;
 use App\Areas;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -18,8 +19,21 @@ class IndicatorsController extends Controller
      */
     public function index()
     {
-        $Indicators = Indicators::with('areas')->get();
+        /*$indicators = Indicators::with('user.areas')->get();*/
+        /*$users = User::with('areas')->get();*/
+        /*return $indicators;*/
+
+        $Indicators = Indicators::with('user')->get();
         /*return $Indicators;*/
+
+        // $indicadorconarea = $Indicators->map(function ($item){
+        //     $area = Areas::find($item->user->areas_id);
+
+        //     $item->arearelacionada = $area;
+        //     return $item;
+        // });
+
+        /*return $indicadorconarea;*/
         /*$Areas = Areas::with('users')->get();*/
         return view('indicators.index', compact('Indicators'));
     }
@@ -42,24 +56,12 @@ class IndicatorsController extends Controller
      */
     public function store(Request $request)
     {
-        /*return $request;*/
-
-        /*$imagen = $request->file('IndGraphic');*/
-        
-        /*$archivo = $request->file('IndTable');*/
-
-
         /*$indicator->create($request->except(['IndGraphic', 'IndTable']));*/
-        /*return $indicator;*/
-
-
+        /*return $request;*/
         $path = $request->file('IndGraphic')->store('public/Graphic');
-
         $pathimg = $request->file('IndTable')->store('public/Archivos');
-
         /*$indicator->update(['IndGraphic' => $path]);
         $indicator->update(['IndTable' => $pathimg]);*/
-
 
         $indicator = new Indicators();
         $indicator->IndName = $request->input('IndName');
@@ -73,6 +75,11 @@ class IndicatorsController extends Controller
         $indicator->user_id =  Auth::user()->id;
         $indicator->save();
 
+        $user = User::find($indicator->user_id);
+        $area = Areas::where('id', $user->areas_id)->get();
+        /*return $area;*/
+        $indicator->areas()->attach($area);
+
         return redirect()->route('indicators.index');
     }
 
@@ -84,13 +91,13 @@ class IndicatorsController extends Controller
      */
     public function show(Indicators $indicator)
     {
-        $areas = Indicators::find($indicator->id)->areas()->get();
-        /*$areas = Indicators::where($indicator->id)->areas()->get();*/
-        /*$area = $indicator->areas()->get();*/
-        /*$areas = Areas::get();*/
-        /*return $areas;*/
-        /*$integrantes = $comite->users()->get();*/
-        return view('indicators.show', compact('indicator', 'areas'));
+        /*return $indicator;*/
+        $usuario = User::find($indicator->user_id);
+        $area = Areas::find($usuario->areas_id);
+        /*$area = Areas::find($indicator->user_id);*/
+        /*$area = Indicators::with('User.areas')->where($indicator->id)->get();*/
+        /*return $area;*/
+        return view('indicators.show', compact('indicator', 'area'));
     }
 
     /**
@@ -115,8 +122,6 @@ class IndicatorsController extends Controller
     public function update(Request $request, Indicators $indicator)
     {
        /* return $request;*/
-
-
        /*if ($request->hasFile('Avatar')){
        $file = $request->file('Avatar');
        $name = time().$file->getClientOriginalName();
@@ -125,30 +130,18 @@ class IndicatorsController extends Controller
        auth()->user()->update(['Avatar' => '/images/'.$name]);
 
        }*/
-
-
-
         $indicator->update($request->except(['IndGraphic', 'IndTable']));
-
-
         if ($request->hasFile('IndGraphic')){
             $path = $request->file('IndGraphic')->store('public/Graphic');
             $indicator->update(['IndGraphic' => $path]);
         }else{
-
         }
-
 
         if ($request->hasFile('IndTable')){
             $pathimg = $request->file('IndTable')->store('public/Archivos');
             $indicator->update(['IndTable' => $pathimg]);
         }else{
-
         }
-
-
-        
-
         /*$path = $request->file('IndGraphic')->store('public/Graphic');*/
         /*$pathimg = $request->file('IndTable')->store('public/Archivos');*/
 
