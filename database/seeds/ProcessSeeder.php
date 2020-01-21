@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Process;
 
-class ProcessSeeder extends Seeder
+class ProcessesSeeder extends Seeder
 {
     /**
      * Run the database seeds.

@@ -16,7 +16,7 @@ class ProcessController extends Controller
     {
         $procesos = Process::all();
 
-        return view('process.index', compact('procesos'))
+        return view('process.index', compact('procesos'));
     }
 
     /**

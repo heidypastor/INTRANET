@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIndicatorsProcessTable extends Migration
+class CreateIndicatorsProcessesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateIndicatorsProcessTable extends Migration
      */
     public function up()
     {
-        Schema::create('indicators_process', function (Blueprint $table) {
+        Schema::create('indicators_processes', function (Blueprint $table) {
             $table->unsignedBigInteger('indicators_id');  /*Relación con la tabla indicators*/
             $table->foreign('indicators_id')->references('id')->on('indicators');
-            $table->unsignedBigInteger('process_id');  /*Relación con la tabla process*/
-            $table->foreign('process_id')->references('id')->on('process');
+            $table->unsignedBigInteger('processes_id');  /*Relación con la tabla processes*/
+            $table->foreign('processes_id')->references('id')->on('processes');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateIndicatorsProcessTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('indicators_process');
+        Schema::dropIfExists('indicators_processes');
     }
 }

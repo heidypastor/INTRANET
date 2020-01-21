@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Inputs;
+use App\Activity;
 use Illuminate\Http\Request;
 
-class InputsController extends Controller
+class ActivityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class InputsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Entradas  $entradas
+     * @param  \App\Actividades  $actividades
      * @return \Illuminate\Http\Response
      */
-    public function show(Entradas $entradas)
+    public function show(Actividades $actividades)
     {
         //
     }
@@ -52,10 +52,10 @@ class InputsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Entradas  $entradas
+     * @param  \App\Actividades  $actividades
      * @return \Illuminate\Http\Response
      */
-    public function edit(Entradas $entradas)
+    public function edit(Actividades $actividades)
     {
         //
     }
@@ -64,10 +64,10 @@ class InputsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Entradas  $entradas
+     * @param  \App\Actividades  $actividades
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Entradas $entradas)
+    public function update(Request $request, Actividades $actividades)
     {
         //
     }
@@ -75,10 +75,10 @@ class InputsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Entradas  $entradas
+     * @param  \App\Actividades  $actividades
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Entradas $entradas)
+    public function destroy(Actividades $actividades)
     {
         //
     }

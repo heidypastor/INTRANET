@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Activities;
+use App\Activity;
 
 class ActivitiesSeeder extends Seeder
 {
@@ -13,17 +13,17 @@ class ActivitiesSeeder extends Seeder
     public function run()
     {
         // id = 01
-        $activity = new Activities();
+        $activity = new Activity();
         $activity->ActiName = 'Evaluacion de provedores y subcontratistas';
         $activity->save();
 
         // id = 02
-        $activity = new Activities();
+        $activity = new Activity();
         $activity->ActiName = 'solicitud y analisisi de cotizaciones';
         $activity->save();
 
         // id = 03
-        $activity = new Activities();
+        $activity = new Activity();
         $activity->ActiName = 'Elaboracion de terminos de referencia para licitaciones';
         $activity->save();
     }

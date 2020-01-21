@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Outputs;
+use App\Input;
 use Illuminate\Http\Request;
 
-class OutputsController extends Controller
+class InputsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class OutputsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Salidas  $salidas
+     * @param  \App\Entradas  $entradas
      * @return \Illuminate\Http\Response
      */
-    public function show(Salidas $salidas)
+    public function show(Entradas $entradas)
     {
         //
     }
@@ -52,10 +52,10 @@ class OutputsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Salidas  $salidas
+     * @param  \App\Entradas  $entradas
      * @return \Illuminate\Http\Response
      */
-    public function edit(Salidas $salidas)
+    public function edit(Entradas $entradas)
     {
         //
     }
@@ -64,10 +64,10 @@ class OutputsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Salidas  $salidas
+     * @param  \App\Entradas  $entradas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Salidas $salidas)
+    public function update(Request $request, Entradas $entradas)
     {
         //
     }
@@ -75,10 +75,10 @@ class OutputsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Salidas  $salidas
+     * @param  \App\Entradas  $entradas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Salidas $salidas)
+    public function destroy(Entradas $entradas)
     {
         //
     }

@@ -1,10 +1,9 @@
 @extends('layouts.app', ['page' => __('Procesos'), 'pageSlug' => 'procesos'])
-@section('htmlheader_titleicon')
-/img/favicon.png
-@endsection
-@section('htmlheader_title')
-Procesos
-@endsection
+
+@section('htmlheader_titleicon')/img/favicon.png@endsection
+
+@section('htmlheader_title')Procesos@endsection
+
 @section('content')
 
 	<div class="card-header text-center">

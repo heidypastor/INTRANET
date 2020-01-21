@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInputsProcessTable extends Migration
+class CreateInputsProcessesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateInputsProcessTable extends Migration
      */
     public function up()
     {
-        Schema::create('inputs_process', function (Blueprint $table) {
+        Schema::create('inputs_processes', function (Blueprint $table) {
             $table->unsignedBigInteger('inputs_id');  /*Relación con la tabla inputs*/
             $table->foreign('inputs_id')->references('id')->on('inputs');
-            $table->unsignedBigInteger('process_id');  /*Relación con la tabla process*/
-            $table->foreign('process_id')->references('id')->on('process');
+            $table->unsignedBigInteger('processes_id');  /*Relación con la tabla processes*/
+            $table->foreign('processes_id')->references('id')->on('processes');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateInputsProcessTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inputs_process');
+        Schema::dropIfExists('inputs_processes');
     }
 }

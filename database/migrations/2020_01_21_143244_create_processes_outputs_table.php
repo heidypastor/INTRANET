@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProcessOutputsTable extends Migration
+class CreateProcessesOutputsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateProcessOutputsTable extends Migration
      */
     public function up()
     {
-        Schema::create('process_outputs', function (Blueprint $table) {
+        Schema::create('processes_outputs', function (Blueprint $table) {
             $table->unsignedBigInteger('outputs_id');  /*Relación con la tabla outputs*/
             $table->foreign('outputs_id')->references('id')->on('outputs');
-            $table->unsignedBigInteger('process_id');  /*Relación con la tabla process*/
-            $table->foreign('process_id')->references('id')->on('process');
+            $table->unsignedBigInteger('processes_id');  /*Relación con la tabla processes*/
+            $table->foreign('processes_id')->references('id')->on('processes');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateProcessOutputsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('outputs_process');
+        Schema::dropIfExists('outputs_processes');
     }
 }
