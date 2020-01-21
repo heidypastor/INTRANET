@@ -16,6 +16,7 @@ class CreateComitesTable extends Migration
         Schema::create('comites', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+<<<<<<< Updated upstream
             $table->string('ComiName'); /*Nombre del comite*/
             $table->string('ComiSrc'); /*Imagen del comite que va a quedar en el home*/
             $table->string('ComiImage');/*Imagen o foto que quieran agregar*/
@@ -26,6 +27,14 @@ class CreateComitesTable extends Migration
             $table->engine = 'InnoDB';
             $table->charset = 'utf8';
             $table->collation = 'utf8_unicode_ci';
+=======
+            $table->string('ComiName');
+            $table->string('ComiSrc');
+            $table->string('ComiImage');
+            $table->string('ComiParaQueSirve');
+            $table->string('ComiTelefono');
+            $table->string('ComiEmail');
+>>>>>>> Stashed changes
         });
     }
 
