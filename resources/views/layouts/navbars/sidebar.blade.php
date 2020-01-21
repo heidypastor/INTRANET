@@ -147,6 +147,14 @@
                     <p>{{ __('Comites') }}</p>
                 </a>
             </li>
+            @can('verAreas')
+            <li class=" {{ $pageSlug == 'procesos' ? 'active' : '' }}">
+                <a href="{{ route('procesos.index') }}">
+                    <i class="fas fa-window-restore"></i>
+                    <p>{{ __('Procesos') }}</p> 
+                </a>
+            </li>
+            @endcan
         </ul>
     </div>
 </div>
