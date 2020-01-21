@@ -144,6 +144,7 @@ $(document).ready(function() {
 	$('#tableProcesses').DataTable({
 		responsive: true,
 		select: true,
+		scrollX:true,
 		dom: 'Bfrtip',
 		buttons: [
 			botoncito, {
@@ -157,7 +158,7 @@ $(document).ready(function() {
 		autoWith: true,
 		searchHighlight: true,
 		columnDefs: [{
-			"targets": 10,
+			"targets": 15,
 			"data": "id",
 			"render": function(data, type, row, meta) {
 				return "<a method='get' href='/procesos/" + data + "/' class='btn btn-primary btn-block'>Ver mas</a>";
