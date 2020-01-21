@@ -5,7 +5,7 @@
 		<form id="eliminardocument" action="{{ route('documents.destroy', $document) }}" method="POST" class="pull-right">
 			@method('DELETE')
 			@csrf
-			<button type="submit" class="btn btn-danger">Eliminar</button>
+			<button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
 		</form>
 	</div>
 	<form id="formudeediciondocu" role="form" method="POST" action="{{ route('documents.update', $document) }}" enctype="multipart/form-data">
@@ -61,7 +61,7 @@
 				@endforeach
 			</select>
 		</div>
-		<button type="submit" class="btn btn-fill btn-warning">Actualizar</button>
+		<button type="submit" class="btn btn-fill btn-warning fas fa-arrow-circle-up"> Actualizar</button>
 	</form>
 </div>
 @endsection

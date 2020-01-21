@@ -28,18 +28,18 @@
 			      <tr>
 			        <td class="text-center">{{$Document->DocName}}</td>
 			        <td class="text-center"><a target="_blank" href="{{Storage::url($Document->DocSrc)}}">{{$Document->DocOriginalName}}</td>
-		        	<th class="text-center">{{$Document->DocVersion}}</th>
-		        	<th class="text-center">{{$Document->DocSize}}</th>
-		        	<th class="text-center">{{ $Document->DocPublisher === 0 ? "No Publicado" : "Publicado" }}</th>
-		        	<th class="text-center">{{$Document->DocType}}</th>
-		        	<th class="text-center">
+		        	<td class="text-center">{{$Document->DocVersion}}</td>
+		        	<td class="text-center">{{$Document->DocSize}}</td>
+		        	<td class="text-center">{{ $Document->DocPublisher === 0 ? "No Publicado" : "Publicado" }}</td>
+		        	<td class="text-center">{{$Document->DocType}}</td>
+		        	<td class="text-center">
 		        		<ul class="list-group list-group-flush">
 		        		     @foreach($Document->areas as $area)
 		        		    <li class="list-group-item"><font color="#525f7f">{{$area->AreaName}}</font></li>
 		        		    @endforeach  
 		        		</ul>
-		        	</th>
-		        	<th class="text-center"><a href="documents/{{$Document->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a></th>
+		        	</td>
+		        	<td class="text-center"><a href="documents/{{$Document->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a></td>
 			      </tr>
 			    @endforeach
 			  </tbody>

@@ -47,7 +47,7 @@
             </li> --}}
             <li>
                 <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
-                    <i class="fab fa-laravel" ></i>
+                    <i class="fas fa-users" ></i>
                     <span class="nav-link-text" >{{ __('Administración de usuarios') }}</span>
                     <b class="caret mt-1"></b>
                 </a>
@@ -62,13 +62,13 @@
                         </li>
                         <li @if ($pageSlug == 'roles') class="active " @endif>
                             <a href="{{ route('roles.index')  }}">
-                                <i class="tim-icons icon-bullet-list-67"></i>
+                                <i class="tim-icons icon-tag"></i>
                                 <p>{{ __('Roles') }}</p>
                             </a>
                         </li>
                         <li @if ($pageSlug == 'permisos') class="active " @endif>
                             <a href="{{ route('permissions.index')  }}">
-                                <i class="tim-icons icon-bullet-list-67"></i>
+                                <i class="tim-icons icon-badge"></i>
                                 <p>{{ __('Permisos') }}</p>
                             </a>
                         </li>
@@ -83,12 +83,12 @@
                     </ul>
                 </div>
             </li>
-            <li @if ($pageSlug == 'icons') class="active " @endif>
+            {{-- <li @if ($pageSlug == 'icons') class="active " @endif>
                 <a href="{{ route('pages.icons') }}">
                     <i class="tim-icons icon-atom"></i>
                     <p>{{ __('Icons') }}</p>
                 </a>
-            </li>
+            </li> --}}
             {{-- <li @if ($pageSlug == 'maps') class="active " @endif>
                 <a href="{{ route('pages.maps') }}">
                     <i class="tim-icons icon-pin"></i>
@@ -143,8 +143,8 @@
 
             <li class=" {{ $pageSlug == 'comites' ? 'active' : '' }}">
                 <a href="{{ route('comites.index') }}">
-                    <i class="tim-icons icon-attach-87"></i>
-                    <p>{{ __('Comites') }}</p> 
+                    <i class="far fa-handshake"></i>
+                    <p>{{ __('Comites') }}</p>
                 </a>
             </li>
             @can('verAreas')

@@ -4,42 +4,58 @@
     <div class="card">
         <div class="col-md-12 card-body">
             <div class="content">
-                <h1 class="card-title text-center">ACTUALIZACIONES</h1>
+                <h1 class="card-title text-center">NOVEDADES <strong>PROSARC</strong></h1>
                 <div id="carousel">
-                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                       <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
                       </ol>
                       <div class="carousel-inner">
                         <div class="carousel-item active">
-                          <img src="white/img/DJI_0125.jpg" class="d-block w-100" width="640" height="360">
+                          <img class="d-block w-100" src="white/img/DJI_0125.jpg" alt="First slide" width="640" height="360">
                           <div class="carousel-caption d-none d-md-block">
-                            <h5 id="text-carousel">Conoce Prosarc</h5>
-                            <p id="text-carousel"></p>
+                            <h3 id="text-carousel" class="texto-carousel">Conoce PROSARC</h3>
+                            <p id="text-carousel" class="texto-carousel"></p>
                           </div>
                         </div>
                         <div class="carousel-item">
-                          <img src="white/img/header.jpg" class="d-block w-100" width="640" height="360">
+                          <img class="d-block w-100" src="white/img/alerta.jpg" alt="Second slide"  width="640" height="360">
                           <div class="carousel-caption d-none d-md-block">
-                            <h5 id="text-carousel">Second slide label</h5>
-                            <p id="text-carousel">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <h4 id="text-carousel" class="texto-carousel">Contactos de Emergencia</h4>
+                            <h4 id="text-carousel" class="texto-carousel">3125262958</h4>
                           </div>
                         </div>
                         <div class="carousel-item">
-                          <img src="white/img/bg5.jpg" class="d-block w-100" width="640" height="360">
+                          <a href="indicators/{{$indicator->id}}"><img class="d-block w-100" src="{{Storage::url($indicator->IndGraphic)}}" alt="Thrid slide"  width="640" height="360"></a>
                           <div class="carousel-caption d-none d-md-block">
-                            <h5 id="text-carousel">Third slide label</h5>
-                            <p id="text-carousel">Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            <h4 id="text-carousel" class="texto-carousel">Indicador Actualizado</h4>
+                            <h4 id="text-carousel" class="texto-carousel">{{$indicator->IndName}}</h4>
+                          </div>
+                        </div>
+                        <div class="carousel-item">
+                          <a href="comites/{{$comitesCarousel->id}}"><img class="d-block w-100" src="{{Storage::url($comitesCarousel->ComiImage)}}" alt="Four slide"  width="640" height="360"></a>
+                          <div class="carousel-caption d-none d-md-block">
+                            <h4 id="text-carousel" class="texto-carousel">Comite Actualizado</h4>
+                            <h4 id="text-carousel" class="texto-carousel">{{$comitesCarousel->ComiName}}</h4>
+                          </div>
+                        </div>
+                        <div class="carousel-item">
+                          <img class="d-block w-100" src="white/img/docu.jpg" alt="Five slide"  width="640" height="360">
+                          <div class="carousel-caption d-none d-md-block">
+                            <h4 id="text-carousel" class="texto-carousel">Documento Actualizado</h4>
+                            <h4 id="text-carousel" class="texto-carousel"><font color="#000000">{{$document->DocName}}</h4>
                           </div>
                         </div>
                       </div>
-                      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                       </a>
-                      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                       </a>

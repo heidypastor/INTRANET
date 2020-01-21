@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Comites;
+use App\Indicators;
+use App\Documents;
 
 class HomeController extends Controller
 {
@@ -22,7 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        /*$document = Documents::orderBy('updated_at', 'DESC')->get()->first();*/
+        $indicator = Indicators::orderBy('updated_at', 'DESC')->get()->first();
+        $document = Documents::orderBy('updated_at', 'DESC')->get()->first();
+        $comitesCarousel = Comites::orderBy('updated_at', 'DESC')->get()->first();
+        /*return $document;*/
         $comites = Comites::all('id', 'ComiName');
-        return view('dashboard', compact('comites'));
+        return view('dashboard', compact('comites', 'indicator', 'comitesCarousel', 'document'));
     }
 }
