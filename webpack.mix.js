@@ -71,4 +71,7 @@ mix.js('resources/js/app.js', 'public/js')
             ], 'public/js/particles.js')
     .scripts([
                 'resources/js/scriptspersonalizados.js'
-            ], 'public/js/all.js');
+            ], 'public/js/all.js')
+    .copyDirectory([
+                'node_modules/@fortawesome/fontawesome-free/webfonts'
+            ], 'public/webfonts');

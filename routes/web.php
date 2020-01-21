@@ -60,6 +60,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('documents','DocumentsController');
 	Route::resource('indicators','IndicatorsController');
 	Route::resource('comites','ComitesController');
+	Route::resource('procesos','ProcessController');
+	Route::resource('entradas','InputsController');
+	Route::resource('salidas','OutputsController');
+	Route::resource('actividades','ActivitiesController');
 
 
 	/*rutas a metodos especificos de los controladores*/
