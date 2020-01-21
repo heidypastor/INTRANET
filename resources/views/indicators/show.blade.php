@@ -1,5 +1,13 @@
 @extends('layouts.app', ['page' => __('Indicadores'), 'pageSlug' => 'indicators'])
 
+@section('htmlheader_titleicon')
+/img/LogoProsarc.ico
+@endsection
+
+@section('htmlheader_title')
+Indicadores
+@endsection
+
 @section('content')
 	{{-- @method('GET') --}}
 

@@ -1,12 +1,20 @@
 @extends('layouts.app', ['page' => __('Áreas'), 'pageSlug' => 'areas'])
 
+@section('htmlheader_titleicon')
+/img/LogoProsarc.ico
+@endsection
+
+@section('htmlheader_title')
+Áreas
+@endsection
+
 @section('content')
 
 	<div class="card-header text-center">
 	  <h4 class="card-title">Listado de Áreas</h4>
 	</div>
 	<div>
-		<button type="submit" class="far fa-plus btn btn-fill btn-success" data-toggle="modal" data-target="#createmodalarea"> Crear</button>
+		<button type="submit" class="fas fa-plus btn btn-fill btn-success" data-toggle="modal" data-target="#createmodalarea"> Crear</button>
 
 		{{-- Parate del documento de la creación de áreas --}}
 
@@ -107,7 +115,7 @@
 	                	<form id="eliminararea" action="" method="POST" class="pull-right">
 	                		@method('DELETE')
 	                		@csrf
-	                  	<button type="submit" class="far fa-trash btn btn-danger " onclick="eliminarArea({{$Area->id}})"> Eliminar</button>
+	                  	<button type="submit" class="btn btn-danger fas fa-trash" onclick="eliminarArea({{$Area->id}})"> Eliminar</button>
 	                  	</form>
 	              </div>
 	            </div>

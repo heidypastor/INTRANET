@@ -1,5 +1,13 @@
 @extends('layouts.app', ['page' => __('Documentos'), 'pageSlug' => 'documents'])
 
+@section('htmlheader_titleicon')
+/img/LogoProsarc.ico
+@endsection
+
+@section('htmlheader_title')
+Documentos
+@endsection
+
 @section('content')
 
 	<div class="card-header text-center">

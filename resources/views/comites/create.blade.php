@@ -1,5 +1,13 @@
 @extends('layouts.app', ['pageSlug' => 'comites'])
 
+@section('htmlheader_titleicon')
+/img/LogoProsarc.ico
+@endsection
+
+@section('htmlheader_title')
+Comités
+@endsection
+
 @section('content')
 
 	<div class="card-body">

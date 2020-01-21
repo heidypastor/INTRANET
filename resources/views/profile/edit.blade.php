@@ -1,5 +1,13 @@
 @extends('layouts.app', ['page' => __('User Profile'), 'pageSlug' => 'profile'])
 
+@section('htmlheader_titleicon')
+/img/LogoProsarc.ico
+@endsection
+
+@section('htmlheader_title')
+Perfil de usuario
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-8">

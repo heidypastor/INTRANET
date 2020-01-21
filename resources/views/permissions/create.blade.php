@@ -1,5 +1,13 @@
 @extends('layouts.app', ['page' => __('Permisos'), 'pageSlug' => 'permisos'])
 
+@section('htmlheader_titleicon')
+/img/LogoProsarc.ico
+@endsection
+
+@section('htmlheader_title')
+Permisos
+@endsection
+
 @section('content')
     <div class="container-fluid mt--7">
         <div class="row">

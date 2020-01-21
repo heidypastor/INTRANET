@@ -1,5 +1,13 @@
 @extends('layouts.app', ['page' => __('User Management'), 'pageSlug' => 'users'])
 
+@section('htmlheader_titleicon')
+/img/LogoProsarc.ico
+@endsection
+
+@section('htmlheader_title')
+Usuarios
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-12">

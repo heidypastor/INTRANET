@@ -1,5 +1,13 @@
 @extends('layouts.app', ['pageSlug' => 'nosotros'])
 
+@section('htmlheader_titleicon')
+/img/LogoProsarc.ico
+@endsection
+
+@section('htmlheader_title')
+Requisitos Legales
+@endsection
+
 @section('content')
 
 	<div class="card">

@@ -1,5 +1,13 @@
 @extends('layouts.app', ['pageSlug' => 'dashboard'])
 
+@section('htmlheader_titleicon')
+/img/LogoProsarc.ico
+@endsection
+
+@section('htmlheader_title')
+Home
+@endsection
+
 @section('content')
     <div class="card">
         <div class="col-md-12 card-body">
