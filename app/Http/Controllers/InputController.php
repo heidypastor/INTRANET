@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Input;
 use Illuminate\Http\Request;
 
-class InputsController extends Controller
+class InputController extends Controller
 {
     /**
      * Display a listing of the resource.

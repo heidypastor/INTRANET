@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call([ActivitiesSeeder::class]);
         $this->call([OutputsSeeder::class]);
         $this->call([InputsSeeder::class]);
+        $this->call([ProcessesSeeder::class]);
     }
 }

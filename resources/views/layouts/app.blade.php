@@ -14,8 +14,7 @@
         <link rel="icon" type="image/png" href="{{ asset('white') }}@yield('htmlheader_titleicon', '/img/favicon.png')">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
-        {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css"> --}}
-        <link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
+
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
         <!-- Icons -->
         <link href="{{ asset('white') }}/css/nucleo-icons.css" rel="stylesheet"/>
@@ -23,6 +22,12 @@
         <link href="{{ asset('white') }}/css/white-dashboard.css?v=1.0.0" rel="stylesheet"/>
         <link href="{{ asset('white') }}/css/theme.css" rel="stylesheet"/>
         <link href="{{ asset('css') }}/all.css" rel="stylesheet"/>
+        
+        {{-- stack de hojas de estilo css --}}
+        @stack('css')
+
+
+        {{-- stilos personalizados ojo con el Important! --}}
         <link href="{{ asset('css') }}/personalizados.css" rel="stylesheet"/>
     </head>
     <body class="white-content {{ $class ?? '' }}">
@@ -128,7 +133,7 @@
         <script src="{{ asset('white') }}/js/core/popper.min.js"></script>
         <script src="{{ asset('white') }}/js/core/bootstrap.min.js"></script>
         <script src="{{ asset('white') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+        <script src="{{ asset('js') }}/datatable-depen.js"></script>
         {{-- <script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script> --}}
 
 
@@ -549,7 +554,6 @@
             });   
         </script> --}}
 
-        @stack('js')
         @stack('scripts')
     </body>
 </html>

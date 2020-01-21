@@ -15,17 +15,17 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
 	.combine([
     			'node_modules/datatables.net-dt/css/jquery.dataTables.css',
-    			'node_modules/datatables.net-autofill-dt/css/autoFill.dataTables.css',
-    			'node_modules/datatables.net-buttons-dt/css/buttons.dataTables.css',
-    			'node_modules/datatables.net-colreorder-dt/css/colReorder.dataTables.css',
-    			'node_modules/datatables.net-fixedcolumns-dt/css/fixedColumns.dataTables.css',
-    			'node_modules/datatables.net-fixedheader-dt/css/fixedHeader.dataTables.css',
-    			'node_modules/datatables.net-keytable-dt/css/keyTable.dataTables.css',
-    			'node_modules/datatables.net-responsive-dt/css/responsive.dataTables.css',
-    			/*'node_modules/datatables.net-rowgroup-dt/css/rowGroup.dataTables.css',*/
-    			/*'node_modules/datatables.net-rowreorder-dt/css/rowReorder.dataTables.css',*/
-    			'node_modules/datatables.net-scroller-dt/css/scroller.dataTables.css',
-    			'node_modules/datatables.net-select-dt/css/select.dataTables.css'
+                'node_modules/datatables.net-autofill-dt/css/autoFill.dataTables.css',
+                'node_modules/datatables.net-buttons-dt/css/buttons.dataTables.css',
+                'node_modules/datatables.net-colreorder-dt/css/colReorder.dataTables.css',
+                'node_modules/datatables.net-fixedcolumns-dt/css/fixedColumns.dataTables.css',
+                'node_modules/datatables.net-fixedheader-dt/css/fixedHeader.dataTables.css',
+                'node_modules/datatables.net-keytable-dt/css/keyTable.dataTables.css',
+                'node_modules/datatables.net-responsive-dt/css/responsive.dataTables.css',
+                'node_modules/datatables.net-rowgroup-dt/css/rowGroup.dataTables.css',
+                'node_modules/datatables.net-rowreorder-dt/css/rowReorder.dataTables.css',
+                'node_modules/datatables.net-scroller-dt/css/scroller.dataTables.css',
+                'node_modules/datatables.net-select-dt/css/select.dataTables.css'
     		], 'public/css/datatable-depen.css')
     .combine([
     			'node_modules/datatables.net-plugins/features/searchHighlight/dataTables.searchHighlight.css'
@@ -53,7 +53,7 @@ mix.js('resources/js/app.js', 'public/js')
                 'node_modules/datatables.net-fixedheader/js/dataTables.fixedHeader.js',
                 'node_modules/datatables.net-keytable/js/dataTables.keyTable.js',
                 'node_modules/datatables.net-responsive/js/dataTables.responsive.js',
-                /*'node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.js',*/
+                'node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.js',
                 'node_modules/datatables.net-scroller/js/dataTables.scroller.js',
                 'node_modules/datatables.net-select/js/dataTables.select.js'
             ], 'public/js/datatable-depen.js')
