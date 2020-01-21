@@ -16,7 +16,7 @@
 		  <form action="{{ route('indicators.destroy', $indicator) }}" method="POST" class="pull-right">
 		    @method('DELETE')
 		    @csrf 
-		      <button type="submit" class="far fa-trash btn btn-danger"> Eliminar</button>
+		      <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
 		  </form>
 		</div>
 
