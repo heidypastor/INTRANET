@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ProcesosSeeder extends Seeder
+class InputsSeeder extends Seeder
 {
     /**
      * Run the database seeds.

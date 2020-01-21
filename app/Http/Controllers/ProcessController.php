@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Procesos;
+use App\Process;
 use Illuminate\Http\Request;
 
-class ProcesosController extends Controller
+class ProcessController extends Controller
 {
     /**
      * Display a listing of the resource.
