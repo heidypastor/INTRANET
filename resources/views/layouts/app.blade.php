@@ -7,10 +7,11 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'White Dashboard') }}</title>
+        {{-- <title>{{ config('app.name', 'White Dashboard') }}</title> --}}
+        <title>INTRANET - @yield('htmlheader_title', 'section header title here') </title>
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('white') }}/img/apple-icon.png">
-        <link rel="icon" type="image/png" href="{{ asset('white') }}/img/favicon.png">
+        <link rel="icon" type="image/png" href="{{ asset('white') }}@yield('htmlheader_titleicon', '/img/favicon.png')">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
         {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css"> --}}
