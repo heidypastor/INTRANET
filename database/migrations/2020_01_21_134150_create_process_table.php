@@ -19,7 +19,7 @@ class CreateProcessTable extends Migration
             $table->string('ProcRevVersion'); /*numero de revision del proceso*/
             $table->string('ProcChangesDescription'); /*descripcion del ultimo cambio en el proceso*/
             $table->string('ProcImage');/*Imagen de referencia para identificar el proceso*/
-            $table->string('ProcObjetivo'); /*objetivo del proceso*/
+            $table->text('ProcObjetivo'); /*objetivo del proceso*/
             $table->string('ProcResponsable'); /*responsable del proceso*/
             $table->string('ProcAutoridad'); /*Autoridad del proceso*/
             $table->string('ProcRecursos'); /*recursos necesarios para la ejecucion del proceso*/

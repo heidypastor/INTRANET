@@ -16,5 +16,8 @@ class DatabaseSeeder extends Seeder
         $this->call([ComitesSeeder::class]);
         $this->call([IndicatorsSeeder::class]);
         $this->call([DocumentsSeeder::class]);
+        $this->call([ActivitiesSeeder::class]);
+        $this->call([OutputsSeeder::class]);
+        $this->call([InputsSeeder::class]);
     }
 }
