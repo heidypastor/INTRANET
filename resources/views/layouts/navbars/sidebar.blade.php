@@ -35,8 +35,8 @@
 <div class="sidebar" data="{{$colorsidebar}}">
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="#" class="simple-text logo-mini">{{ __('IN') }}</a>
-            <a href="#" class="simple-text logo-normal">{{ __('INTRANET') }}</a>
+            <a href="http://intranet.test/home" class="simple-text logo-mini">{{ __('IN') }}</a>
+            <a href="http://intranet.test/home" class="simple-text logo-normal">{{ __('INTRANET') }}</a>
         </div>
         <ul class="nav">
             {{-- <li @if ($pageSlug == 'dashboard') class="active " @endif>
@@ -83,12 +83,12 @@
                     </ul>
                 </div>
             </li>
-            {{-- <li @if ($pageSlug == 'icons') class="active " @endif>
+            <li @if ($pageSlug == 'icons') class="active " @endif>
                 <a href="{{ route('pages.icons') }}">
                     <i class="tim-icons icon-atom"></i>
                     <p>{{ __('Icons') }}</p>
                 </a>
-            </li> --}}
+            </li>
             {{-- <li @if ($pageSlug == 'maps') class="active " @endif>
                 <a href="{{ route('pages.maps') }}">
                     <i class="tim-icons icon-pin"></i>
@@ -141,12 +141,12 @@
                 </a>
             </li>
 
-            {{-- <li class=" {{ $pageSlug == 'documents' ? 'active' : '' }}">
-                <a href="{{ route('documents.index') }}">
+            <li class=" {{ $pageSlug == 'comites' ? 'active' : '' }}">
+                <a href="{{ route('comites.index') }}">
                     <i class="tim-icons icon-attach-87"></i>
-                    <p>{{ __('Documents') }}</p> 
+                    <p>{{ __('Comites') }}</p> 
                 </a>
-            </li> --}}
+            </li>
         </ul>
     </div>
 </div>

@@ -42,10 +42,19 @@
 				</select>
 			</div>
 			<div class="form-group">
-			  <label>General o Restringido</label>
+				<label>General o Restringido</label>
 				<select class="text-center form-control" required="" name="DocGeneral" id="DocGeneral">
 					<option value="0">Restringido</option>
 					<option value="1">General</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label class="form-control-label">Áreas a la que pertenece el documento</label>
+				<select multiple name="areas[]" id="input-area" class="form-control form-control-alternative" placeholder="{{ __('Selecciona las áreas a las que pertenece')}}" value="{{ old('areas[]') }}"  required>
+					@foreach($areas as $area)
+					<option value="{{$area->id}}">{{$area->AreaName}}</option>
+					@endforeach
 				</select>
 			</div>
 			<div class="form-group">

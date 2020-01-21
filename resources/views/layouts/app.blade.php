@@ -13,7 +13,8 @@
         <link rel="icon" type="image/png" href="{{ asset('white') }}/img/favicon.png">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+        {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css"> --}}
+        <link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
         <!-- Icons -->
         <link href="{{ asset('white') }}/css/nucleo-icons.css" rel="stylesheet"/>
@@ -127,6 +128,9 @@
         <script src="{{ asset('white') }}/js/core/bootstrap.min.js"></script>
         <script src="{{ asset('white') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+        {{-- <script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script> --}}
+
+
         <!--  Google Maps Plugin    -->
         <!-- Place this tag in your head or just before your close body tag. -->
         {{-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> --}}
@@ -499,6 +503,58 @@
                 });
             });
         </script>
+        <script type="text/javascript">
+            $(document).ready( function () {
+                $('#tabledata').DataTable({
+                    "searchHighlight": true
+                });
+            } );
+        </script>
+
+        {{-- <script type="text/javascript">
+            $('#tabledata').DataTable({
+                "dom": "<'row'<'col-md-3'l><'col-md-5'B><'col-md-4'f>" +
+                    "<'row'<'col-md-12'tr>" +
+                    "<'row'<'col-md-6'i><'col-md-6'p>",
+                "scrollX": false,
+                "autoWidth": true,
+                // "select": true,
+                "colReorder": true,
+                "searchHighlight": true,
+                "responsive": true,
+                "keys": true,
+                "lengthChange": true,
+                "buttons": [
+                    botoncito,
+                ],
+                "language": {
+                    "sProcessing":     "Procesando...",
+                    "sLengthMenu":     "Mostrar _MENU_ registros",
+                    "sZeroRecords":    "No se encontraron resultados",
+                    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered":   "",
+                    "sInfoPostFix":    "",
+                    "sSearch":         "Buscar:",
+                    "sUrl":            "",
+                    "sInfoThousands":  ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst":    "Primero",
+                        "sLast":     "Último",
+                        "sNext":     "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "colvis": 'Ajouté au presse-papiers',
+                }
+            });   
+        </script> --}}
+
         @stack('js')
         @stack('scripts')
     </body>

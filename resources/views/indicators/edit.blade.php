@@ -1,9 +1,6 @@
 @extends('layouts.app', ['page' => __('Indicadores'), 'pageSlug' => 'indicators'])
 
 @section('content')
-
-
-
 	<div class="card-header text-center">
 	  <h3 class="card-title">Editar Indicador</h3>
 	</div>
@@ -24,15 +21,13 @@
               <label>¿Qué mide?</label>
               <input name="IndQueMide" type="text" value="{{$indicator->IndQueMide}}" class="text-center form-control">
             </div>		
-            <div class="form-group">
+            <div class="custom-input-file">
               <label>Grafica</label>
-              <input name="IndGraphic" type="file" class="text-center form-control">
-              <input name="nada" type="" value="{{$indicator->IndGraphic}}" class="text-center form-control">
+              <input name="IndGraphic" type="file" class="form-control">
             </div>
-            <div class="form-group">
+            <div class="custom-input-file">
               <label>Tabla (Archivo)</label>
-              <input name="IndTable" type="file" class="text-center form-control">
-              <input name="nada1" type="" value="{{$indicator->IndTable}}" class="text-center form-control">
+              <input name="IndTable" type="file" class="form-control">
             </div>
             <div class="form-group">
               <label>Analisis</label>

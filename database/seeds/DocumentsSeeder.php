@@ -13,6 +13,7 @@ class DocumentsSeeder extends Seeder
      */
     public function run()
     {
+            // id = 01
        $document = new Documents();
        $document->DocName = 'Sistemas Doc';
        $document->DocSrc = '/images/default_temporal.pdf';
@@ -26,23 +27,9 @@ class DocumentsSeeder extends Seeder
        $document->users_id = 3;
        $document->save();
 
-
+              // id = 02
        $document = new Documents();
-       $document->DocName = 'Logistica Doc';
-       $document->DocSrc = '/images/default_temporal.pdf';
-       $document->DocVersion = 'AC';
-       $document->DocType = 'Manuales';
-       $document->DocMime = 'PDF';
-       $document->DocOriginalName = 'test.PDF';
-       $document->DocSize = 82;
-       $document->DocGeneral = 0;
-       $document->DocPublisher = 0;
-       $document->users_id = 3;
-       $document->save(); 
-
-
-       $document = new Documents();
-       $document->DocName = 'Operaciones Doc';
+       $document->DocName = 'Sistemas Doc';
        $document->DocSrc = '/images/default_temporal.pdf';
        $document->DocVersion = 'AC';
        $document->DocType = 'Manuales';

@@ -36,7 +36,7 @@ class User extends Authenticatable
         //Relación de la tabla documents y la tabla usuarios 
     }
 
-    public function area()
+    public function areas()
     {
         return $this->belongsTo('App\Areas');
         //Relación de la tabla documents y la tabla usuarios 
@@ -46,6 +46,11 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Releases','release_user');
         //Relación de la tabla releases y la tabla usuarios 
+    }
+
+    public function comites()
+    {
+        return $this->belongsToMany('App\Comites');
     }
 
     /**
