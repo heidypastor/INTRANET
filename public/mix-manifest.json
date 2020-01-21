@@ -4,7 +4,15 @@
     "/css/datatable-depen.css": "/css/datatable-depen.css",
     "/css/datatable-plugins.css": "/css/datatable-plugins.css",
     "/css/all.css": "/css/all.css",
+    "/css/personalizados.css": "/css/personalizados.css",
+    "/js/dependencias.js": "/js/dependencias.js",
     "/js/datatable-depen.js": "/js/datatable-depen.js",
     "/js/datatable-plugins.js": "/js/datatable-plugins.js",
+<<<<<<< HEAD
+    "/js/particulas.js": "/js/particulas.js",
+    "/js/particles.js": "/js/particles.js",
+    "/js/all.js": "/js/all.js"
+=======
     "/js/dependencias.js": "/js/dependencias.js"
+>>>>>>> master
 }

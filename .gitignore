@@ -1,5 +1,7 @@
 /node_modules
+/public/css
 /public/hot
+/public/images
 /public/js
 /public/storage
 /storage/*.key
@@ -11,5 +13,3 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-/public/images
-/public/storage

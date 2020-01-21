@@ -47,3 +47,10 @@
 		</div>
 	</div>
 @endsection
+@push('scripts')
+<script type="text/javascript">
+    $(document).ready( function () {
+        $('#tabledocuments').DataTable();
+    } );
+</script>
+@endpush
