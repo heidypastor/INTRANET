@@ -20,13 +20,13 @@ class Indicators extends Model
 
     public function areas()
     {
-        return $this->belongsToMany('App\Areas','area_indicator');
+        return $this->belongsToMany('App\Areas');
         //Relación de la tabla areas y la tabla indicadores 
     }
 
     public function user()
     {
-        return $this->belongsTo('App\User','indicator_user');
+        return $this->belongsTo('App\User');
         //Relación de la tabla indicadores y la tabla usuarios 
     }
 
