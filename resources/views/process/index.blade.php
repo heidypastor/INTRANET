@@ -20,7 +20,7 @@ Procesos
 
 	<div class="card-body">
 		<div class="table-responsive table-upgrade">
-			<table class="table table-compact display" id="tabledata">
+			<table class="table table-compact display" id="tableProcesses">
 			  <thead>
 			    <th class="text-center">Nombre</th>
 			    <th class="text-center">Revisión</th>
@@ -30,9 +30,10 @@ Procesos
 			    <th class="text-center">Responsable</th>
 			    <th class="text-center">Autoridad</th>
 			    <th class="text-center">Requisitos</th>
+			    <th class="text-center">Recursos Necesarios</th>
 			    <th class="text-center">Elaborado por:</th>
-			    <th class="text-center">Aprobado por:<</th>
 			    <th class="text-center">Revisado por:</th>
+			    <th class="text-center">Aprobado por:<</th>
 			    <th class="text-center">Creado el:</th>
 			    <th class="text-center">Actualizado el:</th>
 			    <th class="text-center">Editar</th>
@@ -46,11 +47,11 @@ Procesos
 			        <td class="text-center">{{$proceso->ProcObjetivo}}</td>
 			        <td class="text-center">{{$proceso->ProcImage}}</td>
 			        <td class="text-center"><a target="_blank" href="{{Storage::url($proceso->ProcImage)}}">{{$proceso->ProcImage}}</td>
-			        <td class="text-center">{{$proceso->ProcElaboro}}</td>
 			        <td class="text-center">{{$proceso->ProcResponsable}}</td>
 			        <td class="text-center">{{$proceso->ProcAutoridad}}</td>
-			        <td class="text-center">{{$proceso->ProcRecursos}}</td>
 			        <td class="text-center">{{$proceso->ProcRequsitos}}</td>
+			        <td class="text-center">{{$proceso->ProcRecursos}}</td>
+			        <td class="text-center">{{$proceso->ProcElaboro}}</td>
 			        <td class="text-center">{{$proceso->ProcReviso}}</td>
 			        <td class="text-center">{{$proceso->ProcAprobo}}</td>
 			        <td class="text-center">{{$proceso->created_at}}</td>
@@ -64,9 +65,9 @@ Procesos
 	</div>
 @endsection
 @push('scripts')
-{{-- <script type="text/javascript">
+<script type="text/javascript">
     $(document).ready( function () {
-        $('#tabledocuments').DataTable();
+        $('#tableProcesses').DataTable();
     } );
-</script> --}}
+</script>
 @endpush

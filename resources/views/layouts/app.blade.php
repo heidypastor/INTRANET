@@ -504,13 +504,6 @@
                 });
             });
         </script>
-        <script type="text/javascript">
-            $(document).ready( function () {
-                $('#tabledata').DataTable({
-                    "searchHighlight": true
-                });
-            } );
-        </script>
 
         {{-- <script type="text/javascript">
             $('#tabledata').DataTable({
