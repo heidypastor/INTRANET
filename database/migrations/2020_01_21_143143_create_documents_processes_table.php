@@ -14,8 +14,8 @@ class CreateDocumentsProcessesTable extends Migration
     public function up()
     {
         Schema::create('documents_processes', function (Blueprint $table) {
-            $table->unsignedBigInteger('document_id');  /*Relación con la tabla document*/
-            $table->foreign('document_id')->references('id')->on('documents');
+            $table->unsignedBigInteger('documents_id');  /*Relación con la tabla document*/
+            $table->foreign('documents_id')->references('id')->on('documents');
             $table->unsignedBigInteger('process_id');  /*Relación con la tabla process*/
             $table->foreign('process_id')->references('id')->on('processes');
             $table->timestamps();

@@ -31,6 +31,48 @@ class Process extends Model
         return $this->belongsToMany('App\Input','inputs_processes');
         //Relación de la tabla processes y la tabla inputs 
     }
+
+
+    public function salidas()
+    {
+        return $this->belongsToMany('App\Output','processes_outputs');
+        //Relación de la tabla processes y la tabla inputs 
+    }
+
+
+    public function actividades()
+    {
+        return $this->belongsToMany('App\Activity','activities_processes');
+        //Relación de la tabla processes y la tabla inputs 
+    }
+
+
+    public function documentos()
+    {
+        return $this->belongsToMany('App\Documents','documents_processes');
+        //Relación de la tabla processes y la tabla inputs 
+    }
+
+
+    public function areas()
+    {
+        return $this->belongsToMany('App\Areas','areas_processes');
+        //Relación de la tabla processes y la tabla inputs 
+    }
+
+
+    public function indicadores()
+    {
+        return $this->belongsToMany('App\Indicators','indicators_processes');
+        //Relación de la tabla processes y la tabla inputs 
+    }
+
+
+    public function procesosDeSoporte()
+    {
+        return $this->belongsToMany('App\Process', 'processes_processes', 'process_id', 'supportProcess_id');
+        //Relación de la tabla processes y la tabla inputs 
+    }
 	/**
 	 * The attributes that should be hidden for arrays.
 	 *

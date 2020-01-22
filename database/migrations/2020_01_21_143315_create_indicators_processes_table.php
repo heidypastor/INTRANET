@@ -14,8 +14,8 @@ class CreateIndicatorsProcessesTable extends Migration
     public function up()
     {
         Schema::create('indicators_processes', function (Blueprint $table) {
-            $table->unsignedBigInteger('indicator_id');  /*Relación con la tabla indicator*/
-            $table->foreign('indicator_id')->references('id')->on('indicators');
+            $table->unsignedBigInteger('indicators_id');  /*Relación con la tabla indicator*/
+            $table->foreign('indicators_id')->references('id')->on('indicators');
             $table->unsignedBigInteger('process_id');  /*Relación con la tabla process*/
             $table->foreign('process_id')->references('id')->on('processes');
             $table->timestamps();

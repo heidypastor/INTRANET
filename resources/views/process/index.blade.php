@@ -29,10 +29,10 @@ Procesos
 			  <thead>
 			    <th class="text-center">Nombre</th>
 			    <th class="text-center">Revisión</th>
-			    <th class="text-center">Descripción ultimo cambio</th>
+			    {{-- <th class="text-center">Descripción ultimo cambio</th> --}}
 
 			    {{-- <th class="text-center">Objetivo</th> --}}
-			    <th class="text-center">Imagen</th>
+			    {{-- <th class="text-center">Imagen</th> --}}
 			    <th class="text-center">Responsable</th>
 
 			    <th class="text-center">Autoridad</th>
@@ -40,10 +40,10 @@ Procesos
 			    <th class="text-center">Recursos Necesarios</th>
 
 			    <th class="text-center">Elaborado por:</th>
-			    <th class="text-center">Revisado por:</th>
+			    {{-- <th class="text-center">Revisado por:</th> --}}
 			    <th class="text-center">Aprobado por:<</th>
 
-			    <th class="text-center">Creado el:</th>
+			    {{-- <th class="text-center">Creado el:</th> --}}
 			    <th class="text-center">Actualizado el:</th>
 			    <th class="text-center">Editar</th>
 			  </thead>

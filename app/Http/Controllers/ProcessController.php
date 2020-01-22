@@ -14,7 +14,7 @@ class ProcessController extends Controller
      */
     public function index()
     {
-        $procesos = Process::with('entradas')->get();
+        $procesos = Process::with(['entradas', 'salidas', 'actividades', 'documentos', 'areas', 'indicadores', 'procesosDeSoporte'])->get();
 
         return $procesos;
 
