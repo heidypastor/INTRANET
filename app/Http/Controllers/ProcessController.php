@@ -14,7 +14,9 @@ class ProcessController extends Controller
      */
     public function index()
     {
-        $procesos = Process::all();
+        $procesos = Process::with('entradas')->get();
+
+        return $procesos;
 
         return view('process.index', compact('procesos'));
     }

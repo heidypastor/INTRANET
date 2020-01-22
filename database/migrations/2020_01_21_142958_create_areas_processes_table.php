@@ -14,10 +14,10 @@ class CreateAreasProcessesTable extends Migration
     public function up()
     {
         Schema::create('areas_processes', function (Blueprint $table) {
-            $table->unsignedBigInteger('areas_id');  /*Relación con la tabla areas*/
-            $table->foreign('areas_id')->references('id')->on('areas');
-            $table->unsignedBigInteger('processes_id');  /*Relación con la tabla processes*/
-            $table->foreign('processes_id')->references('id')->on('processes');
+            $table->unsignedBigInteger('area_id');  /*Relación con la tabla area*/
+            $table->foreign('area_id')->references('id')->on('areas');
+            $table->unsignedBigInteger('process_id');  /*Relación con la tabla process*/
+            $table->foreign('process_id')->references('id')->on('processes');
             $table->timestamps();
         });
     }

@@ -23,10 +23,14 @@ class Process extends Model
 	    'ProcRequsitos',
 	    'ProcElaboro',
 	    'ProcReviso',
-	    'ProcAprobo',
-	    
+	    'ProcAprobo'
 	];
 
+	public function entradas()
+    {
+        return $this->belongsToMany('App\Input','inputs_processes');
+        //Relación de la tabla processes y la tabla inputs 
+    }
 	/**
 	 * The attributes that should be hidden for arrays.
 	 *
