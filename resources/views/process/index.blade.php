@@ -35,7 +35,7 @@ Procesos
 			    {{-- <th class="text-center">Imagen</th> --}}
 			    <th class="text-center">Responsable</th>
 
-			    <th class="text-center">Autoridad</th>
+			    {{-- <th class="text-center">Autoridad</th> --}}
 			    <th class="text-center">Requisitos</th>
 			    <th class="text-center">Recursos Necesarios</th>
 
@@ -52,21 +52,21 @@ Procesos
 			      <tr>
 			        <td class="text-center">{{$proceso->ProcName}}</td>
 			        <td class="text-center">{{$proceso->ProcRevVersion}}</td>
-			        <td class="text-center">{{$proceso->ProcChangesDescription}}</td>
+			        {{-- <td class="text-center">{{$proceso->ProcChangesDescription}}</td> --}}
 
 			        {{-- <td class="text-center">{{$proceso->ProcObjetivo}}</td> --}}
 			        <td class="text-center"><a target="_blank" href="{{Storage::url($proceso->ProcImage)}}">{{$proceso->ProcImage}}</td>
 			        <td class="text-center">{{$proceso->ProcResponsable}}</td>
 
-			        <td class="text-center">{{$proceso->ProcAutoridad}}</td>
+			        {{-- <td class="text-center">{{$proceso->ProcAutoridad}}</td> --}}
 			        <td class="text-center">{{$proceso->ProcRequsitos}}</td>
 			        <td class="text-center">{{$proceso->ProcRecursos}}</td>
 
 			        <td class="text-center">{{$proceso->ProcElaboro}}</td>
-			        <td class="text-center">{{$proceso->ProcReviso}}</td>
+			        {{-- <td class="text-center">{{$proceso->ProcReviso}}</td> --}}
 			        <td class="text-center">{{$proceso->ProcAprobo}}</td>
 
-			        <td class="text-center">{{$proceso->created_at}}</td>
+			        {{-- <td class="text-center">{{$proceso->created_at}}</td> --}}
 			        <td class="text-center">{{$proceso->updated_at}}</td>
 		        	<td class="text-center"><a href="procesos/{{$proceso->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a></td>
 			      </tr>
