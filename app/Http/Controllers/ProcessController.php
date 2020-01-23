@@ -16,6 +16,8 @@ class ProcessController extends Controller
     {
         $procesos = Process::all();
 
+        // return $procesos;
+
         return view('process.index', compact('procesos'));
     }
 
@@ -48,7 +50,9 @@ class ProcessController extends Controller
      */
     public function show(Procesos $procesos)
     {
-        //
+        $procesos = Process::with(['entradas', 'salidas', 'actividades', 'documentos', 'areas', 'indicadores', 'procesosDeSoporte'])->get();
+
+        return view('process.index', compact('procesos'));
     }
 
     /**

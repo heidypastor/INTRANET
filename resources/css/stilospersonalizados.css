@@ -15,3 +15,7 @@
   color: #000000 !important;
   font-weight: bold;
 }
+.table{
+  position: relative !important;
+  width: 100% !important;
+}

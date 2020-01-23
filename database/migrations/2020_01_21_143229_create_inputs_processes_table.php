@@ -14,10 +14,10 @@ class CreateInputsProcessesTable extends Migration
     public function up()
     {
         Schema::create('inputs_processes', function (Blueprint $table) {
-            $table->unsignedBigInteger('inputs_id');  /*Relación con la tabla inputs*/
-            $table->foreign('inputs_id')->references('id')->on('inputs');
-            $table->unsignedBigInteger('processes_id');  /*Relación con la tabla processes*/
-            $table->foreign('processes_id')->references('id')->on('processes');
+            $table->unsignedBigInteger('input_id');  /*Relación con la tabla input*/
+            $table->foreign('input_id')->references('id')->on('inputs');
+            $table->unsignedBigInteger('process_id');  /*Relación con la tabla process*/
+            $table->foreign('process_id')->references('id')->on('processes');
             $table->timestamps();
         });
     }

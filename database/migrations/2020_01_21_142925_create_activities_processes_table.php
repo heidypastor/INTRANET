@@ -14,10 +14,10 @@ class CreateActivitiesProcessesTable extends Migration
     public function up()
     {
         Schema::create('activities_processes', function (Blueprint $table) {
-            $table->unsignedBigInteger('activities_id');  /*Relación con la tabla activities*/
-            $table->foreign('activities_id')->references('id')->on('activities');
-            $table->unsignedBigInteger('processes_id');  /*Relación con la tabla processes*/
-            $table->foreign('processes_id')->references('id')->on('processes');
+            $table->unsignedBigInteger('activity_id');  /*Relación con la tabla activity*/
+            $table->foreign('activity_id')->references('id')->on('activities');
+            $table->unsignedBigInteger('process_id');  /*Relación con la tabla process*/
+            $table->foreign('process_id')->references('id')->on('processes');
             $table->timestamps();
         });
     }
