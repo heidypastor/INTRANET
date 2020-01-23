@@ -35,13 +35,19 @@ class DocumentsController extends Controller
      */
     public function create()
     {
-        $permisos = Auth::user()->getPermissionsViaRoles();
-        $array = (array) $permisos;
-        return $array;
-        $areas = Areas::get();
-        /*$areas = Documents::with('areas')->get();*/
-        /*return $areas;*/
-        return view('documents.create', compact('areas'));
+        // $permisos = Auth::user()->getPermissionsViaRoles();
+        // $array = (array) $permisos;
+        // return $array;
+
+        if (auth()->user()->can('crearDocumentos')) {
+            # code...
+            $areas = Areas::get();
+            /*$areas = Documents::with('areas')->get();*/
+            /*return $areas;*/
+            return view('documents.create', compact('areas'));
+        }else{
+            abort(403);
+        }
     }
 
     /**
