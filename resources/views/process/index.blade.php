@@ -24,56 +24,56 @@ Procesos
 		</div>
 
 		<div class="card-body">
-			<div class="table-responsive">
-				<table class="table display" id="tableProcesses">
-				  <thead>
-				    <th class="text-center">Nombre</th>
-				    <th class="text-center">Revisión</th>
-				    {{-- <th class="text-center">Descripción ultimo cambio</th> --}}
+			<table class="table table-bordered table-striped" id="tableProcesses">
+			  <thead>
+			  	<tr>
+			  		<th class="">Nombre</th>
+			  		<th class="">Revisión</th>
+			  		{{-- <th class="">Descripción ultimo cambio</th> --}}
 
-				    {{-- <th class="text-center">Objetivo</th> --}}
-				    {{-- <th class="text-center">Imagen</th> --}}
-				    <th class="text-center">Responsable</th>
+			  		{{-- <th class="">Objetivo</th> --}}
+			  		{{-- <th class="">Imagen</th> --}}
+			  		<th class="">Responsable</th>
 
-				    {{-- <th class="text-center">Autoridad</th> --}}
-				    <th class="text-center">Requisitos</th>
-				    <th class="text-center">Recursos Necesarios</th>
+			  		{{-- <th class="">Autoridad</th> --}}
+			  		<th class="">Requisitos</th>
+			  		<th class="">Recursos Necesarios</th>
 
-				    <th class="text-center">Elaborado por:</th>
-				    {{-- <th class="text-center">Revisado por:</th> --}}
-				    <th class="text-center">Aprobado por:<</th>
+			  		<th class="">Elaborado por:</th>
+			  		{{-- <th class="">Revisado por:</th> --}}
+			  		<th class="">Aprobado por:</th>
 
-				    {{-- <th class="text-center">Creado el:</th> --}}
-				    <th class="text-center">Actualizado el:</th>
-				    <th class="text-center">Editar</th>
-				  </thead>
-				  <tbody>
-				  	@foreach($procesos as $proceso)
-				      <tr>
-				        <td class="text-center">{{$proceso->ProcName}}</td>
-				        <td class="text-center">{{$proceso->ProcRevVersion}}</td>
-				        {{-- <td class="text-center">{{$proceso->ProcChangesDescription}}</td> --}}
+			  		{{-- <th class="">Creado el:</th> --}}
+			  		<th class="">Actualizado el:</th>
+			  		<th class="">Editar</th>
+			  	</tr>
+			  </thead>
+			  <tbody>
+			  	@foreach($procesos as $proceso)
+			      <tr>
+			        <td class="text-center">{{$proceso->ProcName}}</td>
+			        <td class="text-center">{{$proceso->ProcRevVersion}}</td>
+			        {{-- <td class="text-center">{{$proceso->ProcChangesDescription}}</td> --}}
 
-				        {{-- <td class="text-center">{{$proceso->ProcObjetivo}}</td> --}}
-				        {{-- <td class="text-center"><a target="_blank" href="{{Storage::url($proceso->ProcImage)}}">{{$proceso->ProcImage}}</td> --}}
-				        <td class="text-center">{{$proceso->ProcResponsable}}</td>
+			        {{-- <td class="text-center">{{$proceso->ProcObjetivo}}</td> --}}
+			        {{-- <td class="text-center"><a target="_blank" href="{{Storage::url($proceso->ProcImage)}}">{{$proceso->ProcImage}}</td> --}}
+			        <td class="text-center">{{$proceso->ProcResponsable}}</td>
 
-				        {{-- <td class="text-center">{{$proceso->ProcAutoridad}}</td> --}}
-				        <td class="text-center">{{$proceso->ProcRequsitos}}</td>
-				        <td class="text-center">{{$proceso->ProcRecursos}}</td>
+			        {{-- <td class="text-center">{{$proceso->ProcAutoridad}}</td> --}}
+			        <td class="text-center">{{$proceso->ProcRequsitos}}</td>
+			        <td class="text-center">{{$proceso->ProcRecursos}}</td>
 
-				        <td class="text-center">{{$proceso->ProcElaboro}}</td>
-				        {{-- <td class="text-center">{{$proceso->ProcReviso}}</td> --}}
-				        <td class="text-center">{{$proceso->ProcAprobo}}</td>
+			        <td class="text-center">{{$proceso->ProcElaboro}}</td>
+			        {{-- <td class="text-center">{{$proceso->ProcReviso}}</td> --}}
+			        <td class="text-center">{{$proceso->ProcAprobo}}</td>
 
-				        {{-- <td class="text-center">{{$proceso->created_at}}</td> --}}
-				        <td class="text-center">{{$proceso->updated_at}}</td>
-			        	<td class="text-center"><a href="procesos/{{$proceso->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a></td>
-				      </tr>
-				    @endforeach
-				  </tbody>
-				</table>
-			</div>
+			        {{-- <td class="text-center">{{$proceso->created_at}}</td> --}}
+			        <td class="text-center">{{$proceso->updated_at}}</td>
+		        	<td class="text-center"><a href="procesos/{{$proceso->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a></td>
+			      </tr>
+			    @endforeach
+			  </tbody>
+			</table>
 		</div>
 	</div>
 @endsection
@@ -100,7 +100,7 @@ Procesos
 		// 			buttons: ['selectRows', 'selectCells']
 		// 		}] : [{extend: 'colvis', text: 'Columnas Visibles'}, {extend: 'excel', text: 'Excel'}];
 		/*inicializacion de datatable general*/        
-		$('.table').DataTable({
+		var table = $('.table').DataTable({
 			"dom": "<'row'<'col-md-3'l><'col-md-5'B><'col-md-4'f>>" +
 				"<'row'<'col-md-12'tr>>" +
 				"<'row'<'col-md-6'i><'col-md-6'p>>",
@@ -142,9 +142,9 @@ Procesos
 			}
 		});
 		/*funcion para resaltar las busquedas*/
-		var table = $('.table').DataTable();
+		// var table = $('.table').DataTable();
 
-		
+
 		table.on('draw', function() {
 			var body = $(table.table().body());
 			body.unhighlight();

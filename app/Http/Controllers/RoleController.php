@@ -43,7 +43,7 @@ class RoleController extends Controller
     public function store(Request $request, Role $role)
     {
         // return $request;
-        $role = Role::Create($request->all());
+        $role = Role::Create(['guard_name' => 'web', 'name' => $request->input('name')]);
 
         return redirect()->route('roles.index')->withStatus(__('Rol creado exitosamente.'));
     }
