@@ -19,7 +19,7 @@ Permisos
                                 <h4 class="card-title mb-0">{{ __('Edición de permiso') }}</h4>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('permissions.index') }}" class="btn btn-sm btn-primary">{{ __('lista de Permisos') }}</a>
+                                <a href="{{ route('permissions.index') }}" class="btn btn-sm btn-secundary">{{ __('lista de Permisos') }}</a>
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@ Permisos
                                 </div>
 
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-success mt-4">{{ __('Actualizar') }}</button>
+                                    <button type="submit" class="fas fa-arrow-circle-up btn btn-success mt-4">{{ __(' Actualizar') }}</button>
                                 </div>
                             </div>
                         </form>

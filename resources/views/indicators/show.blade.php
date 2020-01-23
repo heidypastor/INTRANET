@@ -9,7 +9,6 @@ Indicadores
 @endsection
 
 @section('content')
-	{{-- @method('GET') --}}
 
 	<div class="card-header text-center">
 	  <h4 class="card-title">INDICADORES</h4>

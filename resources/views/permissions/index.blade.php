@@ -18,7 +18,7 @@ Permisos
                             <h4 class="card-title">{{ __('Lista de Permisos') }}</h4>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('permissions.create') }}" class="btn btn-sm btn-primary">{{ __('Añadir Permiso') }}</a>
+                            <a href="{{ route('permissions.create') }}" class="btn btn-sm btn-success">{{ __('Añadir Permiso') }}</a>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@ Permisos
                                 <th scope="col">{{ __('Id') }}</th>
                                 <th scope="col">{{ __('nombre') }}</th>
                                 <th scope="col">{{ __('Roles') }}</th>
-                                <th scope="col">{{ __('Creation Date') }}</th>
+                                <th scope="col">{{ __('Fecha de Creación') }}</th>
                                 <th scope="col"></th>
                             </thead>
                             <tbody>

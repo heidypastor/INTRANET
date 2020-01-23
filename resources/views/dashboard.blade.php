@@ -1,4 +1,4 @@
-@extends('layouts.app', ['pageSlug' => 'dashboard'])
+@extends('layouts.app', ['page' => __('Inicio'), 'pageSlug' => 'Home'])
 
 @section('htmlheader_titleicon')
 /img/LogoProsarc.ico
@@ -55,7 +55,7 @@ Home
                           <img class="d-block w-100" src="white/img/docu.jpg" alt="Five slide"  width="640" height="360">
                           <div class="carousel-caption d-none d-md-block">
                             <h4 id="text-carousel" class="texto-carousel">Documento Actualizado</h4>
-                            <h4 id="text-carousel" class="texto-carousel"><font color="#000000">{{$document->DocName}}</h4>
+                            <h4 id="text-carousel" class="texto-carousel">{{$document->DocName}}</h4>
                           </div>
                         </div>
                       </div>

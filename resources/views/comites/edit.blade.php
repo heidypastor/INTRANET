@@ -1,4 +1,4 @@
-@extends('layouts.app', ['page' => __('Comites'), 'pageSlug' => 'comites'])
+@extends('layouts.app', ['page' => __('Cómites'), 'pageSlug' => 'comites'])
 
 @section('htmlheader_titleicon')
 /img/LogoProsarc.ico

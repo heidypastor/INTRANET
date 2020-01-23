@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Releases;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ReleasesController extends Controller
 {
@@ -14,7 +15,8 @@ class ReleasesController extends Controller
      */
     public function index()
     {
-        //
+        $releases = DB::table('releases')->get();
+        return view('releases.index', compact('releases'));
     }
 
     /**
@@ -24,7 +26,7 @@ class ReleasesController extends Controller
      */
     public function create()
     {
-        //
+        return view('releases.create');
     }
 
     /**
@@ -35,7 +37,19 @@ class ReleasesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $path = $request->file('RelSrc')->store('public/Anuncios');
+
+
+        $releases = new Releases();
+        $releases->RelName = $request->input('RelName');
+        $releases->RelMessage = $request->input('RelMessage');
+        $releases->RelType = $request->input('RelType');
+        $releases->RelGeneral = $request->input('RelGeneral');
+        $releases->RelDate = ;
+        $releases->RelSrc = $path;
+        $releases->user_id = Auth::user()->id;
+        $releases->save();
+
     }
 
     /**

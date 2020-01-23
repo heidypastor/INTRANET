@@ -64,6 +64,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('entradas','InputsController');
 	Route::resource('salidas','OutputsController');
 	Route::resource('actividades','ActivitiesController');
+	Route::resource('releases','ReleasesController');
 
 
 	/*rutas a metodos especificos de los controladores*/

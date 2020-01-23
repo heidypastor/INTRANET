@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Documents;
 use App\Areas;
+/*use App\User;*/
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -21,7 +22,6 @@ class DocumentsController extends Controller
        /*$Documents = DB::table('documents')->get();*/
        $Documents = Documents::with('areas')->paginate(10);
        /*return $Documents;*/
-
        /*$users = User::with('roles')->paginate(10);*/
 
 
@@ -35,10 +35,25 @@ class DocumentsController extends Controller
      */
     public function create()
     {
-        $areas = Areas::get();
+        /*$areas = Areas::get();*/
         /*$areas = Documents::with('areas')->get();*/
         /*return $areas;*/
-        return view('documents.create', compact('areas'));
+        /*return view('documents.create', compact('areas'));*/
+
+        
+        /*$permiso = Auth::user()->getPermissionsViaRoles();*/
+        /*$array = (array) $permiso;*/
+        /*return $array;*/
+        if(Auth::user()->hasRole('Super Admin')){
+        /*if(in_array('CrearDocumentos', $array)){*/
+            $areas = Areas::all();
+            /*$areas = Documents::with('areas')->get();*/
+            /*return $areas;*/
+            return view('documents.create', compact('areas'));
+        }else{
+            abort(403);
+        }
+
     }
 
     /**

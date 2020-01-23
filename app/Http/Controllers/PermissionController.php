@@ -43,7 +43,7 @@ class PermissionController extends Controller
         // return $request;
         $permission = Permission::Create($request->all());
 
-        return redirect()->route('permissions.index')->withStatus(__('Rol creado exitosamente.'));
+        return redirect()->route('permissions.index')->withStatus(__('Permiso creado exitosamente.'));
     }
 
     /**
