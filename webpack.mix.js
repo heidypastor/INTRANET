@@ -61,7 +61,8 @@ mix.js('resources/js/app.js', 'public/js')
                 // 'node_modules/datatables.net-plugins/pagination/input.js',
                 // 'node_modules/datatables.net-plugins/filtering/row-based/range_dates.js',
                 // 'node_modules/datatables.net-plugins/filtering/row-based/range_numbers.js',
-                'node_modules/datatables.net-plugins/features/searchHighlight/dataTables.searchHighlight.js'
+                'node_modules/datatables.net-plugins/features/searchHighlight/dataTables.searchHighlight.js',
+                'resources/js/jquery.highlight.js'
             ], 'public/js/datatable-plugins.js')
     .scripts([
                 'resources/js/particulas.js'
