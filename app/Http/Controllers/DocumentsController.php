@@ -46,7 +46,7 @@ class DocumentsController extends Controller
             /*return $areas;*/
             return view('documents.create', compact('areas'));
         }else{
-            abort(403);
+            abort(403, 'El usuario no se encuentra autorizado para crear documentos');
         }
     }
 
