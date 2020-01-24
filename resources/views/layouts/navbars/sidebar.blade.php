@@ -149,7 +149,7 @@
             </li>
             @can('verAreas')
             <li class=" {{ $pageSlug == 'procesos' ? 'active' : '' }}">
-                <a href="{{ route('procesos.index') }}">
+                <a href="{{ route('proceso.index') }}">
                     <i class="fas fa-window-restore"></i>
                     <p>{{ __('Procesos') }}</p> 
                 </a>

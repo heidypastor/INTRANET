@@ -19,7 +19,7 @@ Procesos
 		<div class="card-header pull-left">
 		  <h4 class="card-title"> 
 		  	Procesos 
-		  	<a href="{{ route('procesos.create') }}" class="fas fa-plus btn btn-fill btn-success pull-right"> Crear</a>
+		  	<a href="{{ route('proceso.create') }}" class="fas fa-plus btn btn-fill btn-success pull-right"> Crear</a>
 		  </h4>
 		</div>
 
