@@ -110,7 +110,7 @@ Home
         </tr>
       </table>
     </div>
-    <div class="div-comites text-center">
+    <div class="div-comites-ahora text-center">
       <div class="col-lg-12">
         <h2 class="text-center">Comites PROSARC</h2>
         @foreach($comites as $comite)

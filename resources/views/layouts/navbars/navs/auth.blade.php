@@ -59,7 +59,7 @@
                             <a href="{{ route('profile.edit') }}" class="nav-item dropdown-item">{{ __('Perfil') }}</a>
                         </li>
                         <li class="nav-link">
-                            <a href="#" class="nav-item dropdown-item">{{ __('Inicio') }}</a>
+                            <a href="http://intranet.test/home" class="nav-item dropdown-item">{{ __('Inicio') }}</a>
                         </li>
                         <li class="dropdown-divider"></li>
                         <li class="nav-link">
