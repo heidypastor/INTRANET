@@ -1,4 +1,12 @@
-@extends('layouts.app', ['pageSlug' => 'nosotros'])
+@extends('layouts.app', ['pageSlug' => 'nosotros'])ç
+
+@section('htmlheader_titleicon')
+/img/LogoProsarc.ico
+@endsection
+
+@section('htmlheader_title')
+Nosotros
+@endsection
 
 @section('content')
 

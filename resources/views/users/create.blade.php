@@ -1,4 +1,12 @@
-@extends('layouts.app', ['page' => __('User Management'), 'pageSlug' => 'users'])
+@extends('layouts.app', ['page' => __('Usuarios'), 'pageSlug' => 'users'])
+
+@section('htmlheader_titleicon')
+/img/LogoProsarc.ico
+@endsection
+
+@section('htmlheader_title')
+Usuarios
+@endsection
 
 @section('content')
     <div class="container-fluid mt--7">

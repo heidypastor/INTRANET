@@ -1,5 +1,13 @@
 @extends('layouts.app', ['pageSlug' => 'dashboard'])
 
+@section('htmlheader_titleicon')
+/img/LogoProsarc.ico
+@endsection
+
+@section('htmlheader_title')
+Gestion Humana
+@endsection
+
 @section('content')
 	
 	<div class="card text-center">

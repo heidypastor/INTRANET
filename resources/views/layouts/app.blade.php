@@ -108,7 +108,7 @@
                 <i class="fa fa-cog fa-2x"> </i>
                 </a>
                 <ul class="dropdown-menu">
-                <li class="header-title"> Sidebar Background</li>
+                <li class="header-title"> Escoge un color</li>
                 <li class="adjustments-line">
                     <a href="javascript:void(0)" class="switch-trigger background-color">
                     <div class="badge-colors text-center">

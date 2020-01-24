@@ -147,6 +147,14 @@
                     <p>{{ __('Comites') }}</p>
                 </a>
             </li>
+
+            <li class=" {{ $pageSlug == 'releases' ? 'active' : '' }}">
+                <a href="{{ route('releases.index') }}">
+                    <i class="far fa-newspaper"></i>
+                    <p>{{ __('Comunicados') }}</p>
+                </a>
+            </li>
+
             @can('verAreas')
             <li class=" {{ $pageSlug == 'procesos' ? 'active' : '' }}">
                 <a href="{{ route('procesos.index') }}">

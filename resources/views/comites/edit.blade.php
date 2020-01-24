@@ -1,7 +1,15 @@
-@extends('layouts.app', ['page' => __('Comites'), 'pageSlug' => 'comites'])
+@extends('layouts.app', ['page' => __('Cómites'), 'pageSlug' => 'comites'])
+
+@section('htmlheader_titleicon')
+/img/LogoProsarc.ico
+@endsection
+
+@section('htmlheader_title')
+Comités
+@endsection
 
 @section('content')
-	
+	<div class="card">
 		<div class="card-header text-center">
 		  <h3 class="card-title">Editar Indicador</h3>
 		</div>
@@ -43,5 +51,5 @@
 
 	        </form>
 	    </div>
-
+	</div>
 @endsection

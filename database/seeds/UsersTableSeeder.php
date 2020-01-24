@@ -15,15 +15,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        // superusuarios... evita la validación de permisos según gate:before
-        Role::create(['name' => 'Super Admin']);
-
-        /*los siguientes roles requieren validación de permisos*/
-        Role::create(['name' => 'Gerente']);
-        Role::create(['name' => 'Director']);
-        Role::create(['name' => 'JefeArea']);
-        Role::create(['name' => 'User']);
-
         $admin = new User();
         $admin->name = 'Luis';
         $admin->email = 'Sistemas@prosarc.com.co';

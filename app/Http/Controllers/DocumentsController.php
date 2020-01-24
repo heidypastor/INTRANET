@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Documents;
 use App\Areas;
+/*use App\User;*/
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -21,7 +22,6 @@ class DocumentsController extends Controller
        /*$Documents = DB::table('documents')->get();*/
        $Documents = Documents::with('areas')->paginate(10);
        /*return $Documents;*/
-
        /*$users = User::with('roles')->paginate(10);*/
 
 

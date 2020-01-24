@@ -1,7 +1,7 @@
 @extends('layouts.app', ['page' => __('Procesos'), 'pageSlug' => 'procesos'])
 
 @section('htmlheader_titleicon')
-/img/favicon.png
+/img/LogoProsarc.ico
 @endsection
 
 @section('htmlheader_title')
