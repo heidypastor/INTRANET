@@ -9,27 +9,28 @@ Comunicados
 @endsection
 
 @section('content')
-
+	
 	<div class="card">
 		<div class="card-body">
-			<form role="form" method="POST" action="{{ route('releases.store') }}" enctype="multipart/form-data">
-
+			<form role="form" method="POST" action="{{ route('releases.update', $release) }}" enctype="multipart/form-data">
+				@method('PUT')
 				@csrf
 
 				<div>
-				  <h3 class="card-title">Nuevo Anuncio</h3>
+				  <h3 class="card-title">Editar Anuncio</h3>
 				</div>
 				<div class="form-group">
 				  <label>Nombre del anuncio</label>
-				  <input name="RelName" type="text" id="RelName" class="text-center form-control" required="">
+				  <input name="RelName" type="text" id="RelName" class="text-center form-control" value="{{$release->RelName}}">
 				</div>
 				<div class="custom-input-file">
 					<label>Imagen del anuncio</label>
-					<input name="RelSrc" type="file" id="RelSrc" required="">
+					<input name="RelSrc" type="file" id="RelSrc" value="{{Storage::url($release->RelSrc)}}">
 				</div>
 				<div class="form-group">
 				    <label>Mensaje del anuncio</label>
-					<input type="text" name="RelMessage" id="RelMessage" class="text-center form-control">
+					<input type="text" name="RelMessage" id="RelMessage" class="text-center form-control" value="
+					{{$release->RelMessage}}">
 				</div>
 				<div class="form-group">
 				    <label>Tipo de anuncio</label>
@@ -46,10 +47,9 @@ Comunicados
 				  </select>
 				</div>
 				<div class="form-group">
-					<button type="submit" class="fas fa-plus btn btn-fill btn-success"> Crear</button>
+					<button type="submit" class="fas fa-arrow-circle-up btn btn-fill btn-success"> Actualizar</button>
 				</div>
 			</form>
 		</div>
 	</div>
-
 @endsection

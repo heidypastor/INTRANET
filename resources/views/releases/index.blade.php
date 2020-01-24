@@ -26,6 +26,7 @@ Comunicados
 		        <th class="text-center">Fecha</th>
 		        <th class="text-center">Imagen</th>
 		        <th class="text-center">Tipo de anuncio</th>
+		        <th class="text-center">Ver Más..</th>
 		      </thead>
 		      <tbody>
 		      	@foreach($releases as $release)
@@ -33,8 +34,9 @@ Comunicados
 		            <td class="text-center"><strong>{{$release->RelName}}</strong></td>
 		            <td class="text-center">{{$release->RelMessage}}</td>
 		            <td class="text-center">{{$release->RelDate}}</td>
-		            <td class="text-center"><img src="{{$release->RelSrc}}" width="100" height="100"></td>
+		            <td class="text-center"><img src="{{Storage::url($release->RelSrc)}}" width="100" height="100"></td>
 		            <td class="text-center">{{$release->RelType}}</td>
+		            <td class="text-center"><a href="releases/{{$release->id}}" class="btn btn-fill btn-warning far fa-edit"> Ver Más..</a></td>
 		          </tr>
 		        @endforeach
 		      </tbody>

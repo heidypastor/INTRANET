@@ -13,5 +13,13 @@
 
 .texto-carousel {
   color: #000000 !important;
+  text-shadow:  1px 1px 5px #ffffff;
+  -webkit-text-stroke: 0.5px white;
   font-weight: bold;
+  font-family:'Helvetica','Verdana','Monaco',sans-serif;
+  font-style:italic;
+}
+.table{
+  position: relative !important;
+  width: 100% !important;
 }

@@ -35,25 +35,19 @@ class DocumentsController extends Controller
      */
     public function create()
     {
-        /*$areas = Areas::get();*/
-        /*$areas = Documents::with('areas')->get();*/
-        /*return $areas;*/
-        /*return view('documents.create', compact('areas'));*/
+        // $permisos = Auth::user()->getPermissionsViaRoles();
+        // $array = (array) $permisos;
+        // return $array;
 
-        
-        /*$permiso = Auth::user()->getPermissionsViaRoles();*/
-        /*$array = (array) $permiso;*/
-        /*return $array;*/
-        if(Auth::user()->hasRole('Super Admin')){
-        /*if(in_array('CrearDocumentos', $array)){*/
-            $areas = Areas::all();
+        if (auth()->user()->can('crearDocumentos')) {
+            # code...
+            $areas = Areas::get();
             /*$areas = Documents::with('areas')->get();*/
             /*return $areas;*/
             return view('documents.create', compact('areas'));
         }else{
             abort(403);
         }
-
     }
 
     /**

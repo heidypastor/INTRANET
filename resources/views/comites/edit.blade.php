@@ -9,7 +9,7 @@ Comités
 @endsection
 
 @section('content')
-	
+	<div class="card">
 		<div class="card-header text-center">
 		  <h3 class="card-title">Editar Indicador</h3>
 		</div>
@@ -51,5 +51,5 @@ Comités
 
 	        </form>
 	    </div>
-
+	</div>
 @endsection

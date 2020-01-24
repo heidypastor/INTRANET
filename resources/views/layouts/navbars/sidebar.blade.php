@@ -150,7 +150,7 @@
 
             <li class=" {{ $pageSlug == 'releases' ? 'active' : '' }}">
                 <a href="{{ route('releases.index') }}">
-                    <i class="far fa-handshake"></i>
+                    <i class="far fa-newspaper"></i>
                     <p>{{ __('Comunicados') }}</p>
                 </a>
             </li>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Releases;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ReleasesController extends Controller
 {
@@ -37,19 +39,20 @@ class ReleasesController extends Controller
      */
     public function store(Request $request)
     {
-        $path = $request->file('RelSrc')->store('public/Anuncios');
 
+        $path = $request->file('RelSrc')->store('public/Anuncios');
 
         $releases = new Releases();
         $releases->RelName = $request->input('RelName');
         $releases->RelMessage = $request->input('RelMessage');
         $releases->RelType = $request->input('RelType');
         $releases->RelGeneral = $request->input('RelGeneral');
-        $releases->RelDate = ;
+        $releases->RelDate = now();
         $releases->RelSrc = $path;
         $releases->user_id = Auth::user()->id;
         $releases->save();
 
+        return redirect()->route('releases.index');
     }
 
     /**
@@ -58,9 +61,9 @@ class ReleasesController extends Controller
      * @param  \App\Releases  $releases
      * @return \Illuminate\Http\Response
      */
-    public function show(Releases $releases)
-    {
-        //
+    public function show(Releases $release)
+    {  
+        return view('releases.show', compact('release'));
     }
 
     /**
@@ -69,9 +72,9 @@ class ReleasesController extends Controller
      * @param  \App\Releases  $releases
      * @return \Illuminate\Http\Response
      */
-    public function edit(Releases $releases)
+    public function edit(Releases $release)
     {
-        //
+        return view('releases.edit', compact('release'));
     }
 
     /**
@@ -81,9 +84,17 @@ class ReleasesController extends Controller
      * @param  \App\Releases  $releases
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Releases $releases)
+    public function update(Request $request, Releases $release)
     {
-        //
+        $release->update($request->except(['RelSrc']));
+
+        if ($request->hasFile('RelSrc')){
+            $path = $request->file('RelSrc')->store('public/Anuncios');
+            $release->update(['RelSrc' => $path]);
+        }else{
+        }
+
+        return redirect()->route('releases.index');
     }
 
     /**
@@ -92,8 +103,12 @@ class ReleasesController extends Controller
      * @param  \App\Releases  $releases
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Releases $releases)
+    public function destroy(Releases $release)
     {
-        //
+        $comunicadoActual = $release->IndGraphic;
+        Storage::disk('local')->delete($comunicadoActual);
+        $release->delete();
+
+        return redirect()->route('releases.index');
     }
 }
