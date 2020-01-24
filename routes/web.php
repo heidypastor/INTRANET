@@ -60,10 +60,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('documents','DocumentsController');
 	Route::resource('indicators','IndicatorsController');
 	Route::resource('comites','ComitesController');
-	Route::resource('procesos','ProcessController');
-	Route::resource('entradas','InputController');
-	Route::resource('salidas','OutputController');
-	Route::resource('actividades','ActivityController');
+	Route::resource('proceso','ProcessController');
+	Route::resource('entrada','InputController');
+	Route::resource('salida','OutputController');
+	Route::resource('actividad','ActivityController');
 	Route::resource('releases','ReleasesController');
 
 
