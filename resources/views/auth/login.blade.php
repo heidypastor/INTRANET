@@ -1,5 +1,13 @@
 @extends('layouts.app', ['class' => 'login-page', 'page' => __('Login Page'), 'contentClass' => 'login-page'])
 
+@section('htmlheader_titleicon')
+/img/LogoProsarc.ico
+@endsection
+
+@section('htmlheader_title')
+Inicio de sesión
+@endsection
+
 @section('content')
     <div class="col-lg-3 col-md-6 ml-1s position-login">
         <form class="form" method="post" action="{{ route('login') }}">

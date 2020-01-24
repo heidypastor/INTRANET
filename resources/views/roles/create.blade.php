@@ -1,5 +1,13 @@
 @extends('layouts.app', ['page' => __('Roles'), 'pageSlug' => 'roles'])
 
+@section('htmlheader_titleicon')
+/img/LogoProsarc.ico
+@endsection
+
+@section('htmlheader_title')
+Roles
+@endsection
+
 @section('content')
     <div class="container-fluid mt--7">
         <div class="row">
@@ -28,7 +36,7 @@
                                 </div>
 
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-success mt-4">{{ __('Save') }}</button>
+                                    <button type="submit" class="btn btn-success mt-4">{{ __('Crear') }}</button>
                                 </div>
                             </div>
                         </form>

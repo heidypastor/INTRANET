@@ -1,5 +1,13 @@
 @extends('layouts.app', ['page' => __('Roles'), 'pageSlug' => 'roles'])
 
+@section('htmlheader_titleicon')
+/img/LogoProsarc.ico
+@endsection
+
+@section('htmlheader_title')
+Roles
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -7,7 +15,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">{{ __('lista de Roles') }}</h4>
+                            <h4 class="card-title">{{ __('Lista de Roles') }}</h4>
                         </div>
                         <div class="col-4 text-right">
                             <a href="{{ route('roles.create') }}" class="btn btn-sm btn-primary">{{ __('Añadir Rol') }}</a>
@@ -20,9 +28,9 @@
                     <div class="">
                         <table class="table tablesorter " id="RolesTable">
                             <thead class=" text-primary">
-                                <th scope="col">{{ __('rol') }}</th>
-                                <th scope="col">{{ __('permisos') }}</th>
-                                <th scope="col">{{ __('Creation Date') }}</th>
+                                <th scope="col">{{ __('Rol') }}</th>
+                                <th scope="col">{{ __('Permisos') }}</th>
+                                <th scope="col">{{ __('Fecha de creación') }}</th>
                                 <th scope="col"></th>
                             </thead>
                             <tbody>
