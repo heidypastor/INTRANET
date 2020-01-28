@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Process;
+use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 
 class ProcessController extends Controller
@@ -28,7 +29,9 @@ class ProcessController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Role::all(['id', 'name']);
+
+        return view('process.create', compact('roles'));
     }
 
     /**
