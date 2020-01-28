@@ -9,8 +9,8 @@ Procesos
 @endsection
 
 @push('css')
-        <link href="{{ asset('css') }}/datatable-depen.css" rel="stylesheet"/>
-        <link href="{{ asset('css') }}/datatable-plugins.css" rel="stylesheet"/>
+    <link href="{{ asset('css') }}/datatable-depen.css" rel="stylesheet"/>
+    <link href="{{ asset('css') }}/datatable-plugins.css" rel="stylesheet"/>
 @endpush
 
 @section('content')

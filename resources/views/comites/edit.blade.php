@@ -9,10 +9,7 @@ Comités
 @endsection
 
 @section('content')
-	<div class="card">
-		<div class="card-header text-center">
-		  <h3 class="card-title">Editar Indicador</h3>
-		</div>
+	<div class="card" style="padding: 1.5em 1.5em 1.5em 1.5em;">
 	    <div class="box-body">
 	        <form role="form" method="POST" action="{{ route('comites.update', $comite) }}" enctype="multipart/form-data">
 	          	@method('PUT')
@@ -44,6 +41,18 @@ Comités
 	            <div class="form-group">
 	              <label>Email de Contacto</label>
 	              <input type="text" name="ComiEmail" value="{{$comite->ComiEmail}}" id="ComiEmail" class="text-center form-control">
+	            </div>
+	            <div class="form-group">
+	            	<label>Última fecha de reunión</label>
+	            	<input type="date" name="ComiDateLast" value="{{$comite->ComiDateLast}}" id="ComiDateLast" class="text-center form-control">
+	            </div>
+	            <div class="form-group">
+	            	<label>Observaciones</label>
+	            	<input type="text" name="ComiObservations" value="{{$comite->ComiObservations}}" id="ComiObservations" class="text-center form-control">
+	            </div>
+	            <div class="form-group">
+	            	<label>Próxima fecha de reunión</label>
+	            	<input type="date" name="ComiDateNext" value="{{$comite->ComiDateNext}}" id="ComiDateNext" class="text-center form-control">
 	            </div>
 	            <div class="form-group">
 	            	<button type="submit" class="fas fa-arrow-circle-up btn btn-fill btn-success"> Actualizar</button>

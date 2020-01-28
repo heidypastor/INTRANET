@@ -20,4 +20,19 @@ class ProsarcController extends Controller
     {
         return view('prosarc.GHumana');
     }
+
+    public function GAmbiental()
+    {
+        return view('prosarc.GAmbiental');
+    }
+
+    public function GCalidad()
+    {
+        return view('prosarc.GCalidad');
+    }
+
+    public function SST()
+    {
+        return view('prosarc.SST');
+    }
 }

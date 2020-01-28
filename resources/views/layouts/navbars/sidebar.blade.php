@@ -163,6 +163,12 @@
                 </a>
             </li>
             @endcan
+            <li class=" {{ $pageSlug == 'requisitos' ? 'active' : '' }}">
+                <a href="{{ route('requisitos.index') }}">
+                    <i class="fas fa-balance-scale"></i>
+                    <p>{{ __('Requisitos Legales') }}</p>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

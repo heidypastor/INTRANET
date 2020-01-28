@@ -29,7 +29,7 @@ Comités
 
 		<div class="card-body">
 		  <div class="table-responsive table-upgrade">
-		  	<div style="background: #e7e7e7; border-radius: 5%; margin: 1em 1em 1em 1em">
+		  	<div style="background: #f5f6fa; border-radius: 5%; margin: 1em 1em 1em 1em">
 			    <table class="table">
 					<thead>
 						<th></th>
@@ -70,6 +70,21 @@ Comités
 							<br>{{$integrante->name}}
 							@endforeach
 						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<th class="text-center">Última reunión</th>
+						<td class="text-center"><p> {{$comite->ComiDateLast}} </p></td>
+					</tr>
+					<tr>
+						<td></td>
+						<th class="text-center">Observaciones</th>
+						<td class="text-center"><p> {{$comite->ComiObservations}} </p></td>
+					</tr>
+					<tr>
+						<td></td>
+						<th class="text-center">Próxima reunión</th>
+						<td class="text-center"><p> {{$comite->ComiDateNext}} </p></td>
 					</tr>
 			      </tbody>
 			    </table>

@@ -39,8 +39,20 @@ Comités
 					<input type="text" name="ComiTelefono" id="ComiTelefono" class="text-center form-control">
 				</div>
 				<div class="form-group">
-				  <label>Email de Contacto</label>
-				  <input type="text" name="ComiEmail" id="ComiEmail" class="text-center form-control">
+					<label>Email de Contacto</label>
+					<input type="text" name="ComiEmail" id="ComiEmail" class="text-center form-control">
+				</div>
+				<div class="form-group">
+					<label>Última fecha de reunión</label>
+					<input type="date" name="ComiDateLast" id="ComiDateLast" class="text-center form-control">
+				</div>
+				<div class="form-group">
+					<label>Observaciones</label>
+					<input type="text" name="ComiObservations" id="ComiObservations" class="text-center form-control">
+				</div>
+				<div class="form-group">
+					<label>Próxima fecha de reunión</label>
+					<input type="date" name="ComiDateNext" id="ComiDateNext" class="text-center form-control">
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-fill btn-success">Crear</button>

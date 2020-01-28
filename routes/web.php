@@ -65,12 +65,16 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('salida','OutputController');
 	Route::resource('actividad','ActivityController');
 	Route::resource('releases','ReleasesController');
+	Route::resource('requisitos','RequisitosController');
 
 
 	/*rutas a metodos especificos de los controladores*/
 	Route::get('nosotros', ['as' => 'prosarc.nosotros', 'uses' => 'ProsarcController@nosotros']);
 	Route::get('requiLegal', ['as' => 'prosarc.requiLegal', 'uses' => 'ProsarcController@requiLegal']);
 	Route::get('GHumana', ['as' => 'prosarc.GHumana', 'uses' => 'ProsarcController@GHumana']);
+	Route::get('GAmbiental', ['as' => 'prosarc.GAmbiental', 'uses' => 'ProsarcController@GAmbiental']);
+	Route::get('GCalidad', ['as' => 'prosarc.GCalidad', 'uses' => 'ProsarcController@GCalidad']);
+	Route::get('SST', ['as' => 'prosarc.SST', 'uses' => 'ProsarcController@SST']);
 	// Route::get('areas', ['as' => 'areas.index', 'uses' => 'AreasController@index']);
 	// Route::get('indicators', ['as' => 'indicators.index', 'uses' => 'IndicatorsController@index']);
 	Route::get('search/{search}','SearchController@searchAllModels'); /*ruta para busqueda en los modelos de la aplicacion*/

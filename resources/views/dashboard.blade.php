@@ -97,10 +97,10 @@ Home
       <h2 class="text-center">Nuestra Gestión</h2>
       <table class="col-lg-12 text-center">
         <tr>
-          <td><a href="{{ route('prosarc.GHumana')  }}"><img src="white/img/GH.jpg" class="botones-conoce"></a></td>
-          <td><a href="*"><img src="white/img/GA.jpg" class="botones-conoce"></a></td>
-          <td><a href="*"><img src="white/img/GC.jpg" class="botones-conoce"></a></td>
-          <td><a href="*"><img src="white/img/SST.jpg" class="botones-conoce"></a></td>
+          <td><a href="{{ route('prosarc.GHumana') }}"><img src="white/img/GH.jpg" class="botones-conoce"></a></td>
+          <td><a href="{{ route('prosarc.GAmbiental') }}"><img src="white/img/GA.jpg" class="botones-conoce"></a></td>
+          <td><a href="{{ route('prosarc.GCalidad') }}"><img src="white/img/GC.jpg" class="botones-conoce"></a></td>
+          <td><a href="{{ route('prosarc.SST') }}"><img src="white/img/SST.jpg" class="botones-conoce"></a></td>
         </tr>
         <tr>
           <td><h4>Gestión Humana</h4></td>

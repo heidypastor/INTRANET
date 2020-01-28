@@ -89,7 +89,6 @@
   15px 15px 16px gray;
   border: 1px solid #0099db;
   margin: 3em 3em 3em 3em;
-  /*box-shadow:  0 2px 22px 0 rgba(0, 0, 0, 0.3), 0 4px 20px 0 rgba(0, 0, 0, 0.35);*/
 }
 
 .div-comites-ahora {
@@ -135,26 +134,63 @@
 }
 
 .mision {
+  background-image: linear-gradient(to bottom right, #00b2ff, #38c2fe, #6cd2fe) !important;
+  border-radius: 10px;
+  box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
+  15px 15px 16px gray !important;
+  border: 1px solid #0099db;
+  margin: 3em 2em 4em 4em;
   padding: 3em 3em 3em 3em;
-  transform: rotate(-10deg);
-  border-radius: 5%;
-  margin: 3em 3em 3em 3em;
 }
 
 .vision {
-  padding: 3em 3em 3em 3em;
-  transform: rotate(10deg);
-  border-radius: 5%;
-  margin: 3em 3em 3em 3em;
+ background-image: linear-gradient(to bottom right, #00b2ff, #38c2fe, #6cd2fe) !important;
+ border-radius: 10px;
+ box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
+ 15px 15px 16px gray !important;
+ border: 1px solid #0099db;
+ margin: 3em 2em 4em 2em;
+ padding: 3em 3em 3em 3em;
 }
 
 .objetivos {
+  background-image: linear-gradient(to bottom right, #ff8000, #fe962d, #ffa851) !important;
+  border-radius: 10px;
+  box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
+  15px 15px 16px gray !important;
+  border: 1px solid #dc7d1d;
+  margin: 4em 4em 4em 4em;
   padding: 3em 3em 3em 3em;
-  border-radius: 5%;
-  margin: 3em 3em 3em 3em;
+}
+
+.politicas {
+  background-image: linear-gradient(to bottom right, #63ff00, #82ff31, #9eff60) !important;
+  border-radius: 10px;
+  box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
+  15px 15px 16px gray !important;
+  border: 1px solid #4cc400;
+  margin: 2em 4em 2em 4em;
+  padding: 3em 3em 3em 3em;
 }
 
 .imagen-prosarc {
   border-radius: 5%;
   margin: 0em 3em 5em 3em;
+  border-radius: 10px;
+  box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
+  15px 15px 16px gray !important;
+  border: 1px solid  rgba(0,0,0,.3);
 }
+
+.requi-legal {
+  padding: 0em 3em 0em 3em;
+}
+
+.title-gestion {
+  margin: -2em 3em 0.8em 3em;
+}
+
+.gestion-bodys{
+  margin: 0em 1.5em 0em 1.5em;
+}
+
