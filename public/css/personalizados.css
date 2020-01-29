@@ -194,3 +194,10 @@
   margin: 0em 1.5em 0em 1.5em;
 }
 
+.boton-eliminar {
+  margin: 0em 0em 0em 1em;
+}
+
+.boton-editar {
+  margin: -5em 1em 0em 0em;
+}

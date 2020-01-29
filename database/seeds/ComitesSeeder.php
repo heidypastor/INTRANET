@@ -23,6 +23,7 @@ class ComitesSeeder extends Seeder
         $comite->ComiDateLast = '1576/03/01';
         $comite->ComiObservations = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
         $comite->ComiDateNext = '2020/01/01';
+        $comite->ComiIntegrantes = 'Listado, de, integrantes, del, comite';
         $comite->save();
 
 
@@ -37,6 +38,7 @@ class ComitesSeeder extends Seeder
         $comite->ComiDateLast = '1576/03/01';
         $comite->ComiObservations = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
         $comite->ComiDateNext = '2020/01/01';
+        $comite->ComiIntegrantes = 'Listado, de, integrantes, del, comite';
         $comite->save();
     }
 }
