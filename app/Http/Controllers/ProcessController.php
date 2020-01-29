@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Process;
+use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 
 class ProcessController extends Controller
@@ -28,7 +29,9 @@ class ProcessController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Role::all(['id', 'name']);
+
+        return view('process.create', compact('roles'));
     }
 
     /**
@@ -48,11 +51,11 @@ class ProcessController extends Controller
      * @param  \App\Procesos  $procesos
      * @return \Illuminate\Http\Response
      */
-    public function show(Procesos $procesos)
+    public function show(Process $process)
     {
-        $procesos = Process::with(['entradas', 'salidas', 'actividades', 'documentos', 'areas', 'indicadores', 'procesosDeSoporte'])->get();
+        // $procesos = Process::with(['entradas', 'salidas', 'actividades', 'documentos', 'areas', 'indicadores', 'procesosDeSoporte'])->get();
 
-        return view('process.index', compact('procesos'));
+        return view('process.show', compact('process'));
     }
 
     /**
@@ -61,7 +64,7 @@ class ProcessController extends Controller
      * @param  \App\Procesos  $procesos
      * @return \Illuminate\Http\Response
      */
-    public function edit(Procesos $procesos)
+    public function edit(Process $procesos)
     {
         //
     }
@@ -84,7 +87,7 @@ class ProcessController extends Controller
      * @param  \App\Procesos  $procesos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Procesos $procesos)
+    public function destroy(Process $procesos)
     {
         //
     }

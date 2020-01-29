@@ -69,7 +69,13 @@ Procesos
 
 			        {{-- <td class="text-center">{{$proceso->created_at}}</td> --}}
 			        <td class="text-center">{{$proceso->updated_at}}</td>
-		        	<td class="text-center"><a href="procesos/{{$proceso->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a></td>
+		        	<td class="text-center">
+		        		<a href="{{ route('proceso.show', $proceso) }}" class="btn btn-fill btn-info">
+		        			<span style="font-size: 1em;">
+								<i class="far fa-eye"></i>  Ver
+							</span>
+						</a>
+					</td>
 			      </tr>
 			    @endforeach
 			  </tbody>
