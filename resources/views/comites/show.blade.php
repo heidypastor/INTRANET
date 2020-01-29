@@ -11,7 +11,7 @@ Comités
 @section('content')
 	<div class="card">
 		<div class="card-header text-center">
-		  <h4 class="card-title">Cómites</h4>
+		  <h3 class="card-title"><strong>Cómites</strong></h3>
 		</div>
 
 		<div class="text-left">
@@ -23,13 +23,13 @@ Comités
 		</div>
 
 		<div class="text-right" style="margin: -3em 100em 0em 2em;">
-			<a href="{{$comite->id}}/edit" class="btn btn-fill btn-success far fa-edit"> Editar</a> 
+			<a href="{{$comite->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a> 
 		</div>
 
 
 		<div class="card-body">
 		  <div class="table-responsive table-upgrade">
-		  	<div style="background: #e7e7e7; border-radius: 5%; margin: 1em 1em 1em 1em">
+		  	<div style="background: #f5f6fa; border-radius: 5%; margin: 1em 1em 1em 1em">
 			    <table class="table">
 					<thead>
 						<th></th>
@@ -65,11 +65,22 @@ Comités
 					<tr>
 						<td></td>
 						<th class="text-center">Integrantes</th>
-						<td class="text-center">
-							@foreach($integrantes as $integrante)
-							<br>{{$integrante->name}}
-							@endforeach
-						</td>
+						<td class="text-center">{{$comite->ComiIntegrantes}}</td>
+					</tr>
+					<tr>
+						<td></td>
+						<th class="text-center">Última reunión</th>
+						<td class="text-center"><p> {{$comite->ComiDateLast}} </p></td>
+					</tr>
+					<tr>
+						<td></td>
+						<th class="text-center">Observaciones</th>
+						<td class="text-center"><p> {{$comite->ComiObservations}} </p></td>
+					</tr>
+					<tr>
+						<td></td>
+						<th class="text-center">Próxima reunión</th>
+						<td class="text-center"><p> {{$comite->ComiDateNext}} </p></td>
 					</tr>
 			      </tbody>
 			    </table>

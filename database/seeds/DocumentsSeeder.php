@@ -16,9 +16,9 @@ class DocumentsSeeder extends Seeder
             // id = 01
        $document = new Documents();
        $document->DocName = 'Sistemas Doc';
-       $document->DocSrc = '/images/default_temporal.pdf';
+       $document->DocSrc = 'public/Formatos/test.pdf';
        $document->DocVersion = 'AC';
-       $document->DocType = 'Manuales';
+       $document->DocType = 'Formatos';
        $document->DocMime = 'PDF';
        $document->DocOriginalName = 'test.PDF';
        $document->DocSize = 82;
@@ -30,9 +30,9 @@ class DocumentsSeeder extends Seeder
               // id = 02
        $document = new Documents();
        $document->DocName = 'Sistemas Doc';
-       $document->DocSrc = '/images/default_temporal.pdf';
+       $document->DocSrc = 'public/Formatos/test.pdf';
        $document->DocVersion = 'AC';
-       $document->DocType = 'Manuales';
+       $document->DocType = 'Formatos';
        $document->DocMime = 'PDF';
        $document->DocOriginalName = 'test.PDF';
        $document->DocSize = 82;

@@ -149,6 +149,7 @@
         <script src="{{ asset('white') }}/js/theme.js"></script>
         {{-- incluido el secript de app.js para el codigo de laravel echo --}}
         <script src="{{ asset('js') }}/app.js"></script>
+        <script src="{{ asset('js') }}/all.js"></script>
 
         @stack('js')
 
@@ -399,70 +400,7 @@
             });
         });
         </script>
-        {{-- <script type="text/javascript">
-            
-            $('#tabledocuments').DataTable({
-                responsive: true,
-                select: true,
-                dom: 'Bfrtip',
-                buttons: [
-                    botoncito, {
-                        extend: 'collection',
-                        text: 'Selector',
-                        buttons: ['selectRows', 'selectCells']
-                    }
-                ],
-                colReorder: true,
-                ordering: true,
-                autoWith: true,
-                searchHighlight: true,
-            });
-
-        </script> --}}
-
-        {{-- <script type="text/javascript">
-            $('.table').DataTable({
-                "dom": "<'row'<'col-md-3'l><'col-md-5'B><'col-md-4'f>>" +
-                    "<'row'<'col-md-12'tr>>" +
-                    "<'row'<'col-md-6'i><'col-md-6'p>>",
-                "scrollX": false,
-                "autoWidth": true,
-                // "select": true,
-                "colReorder": true,
-                "searchHighlight": true,
-                "responsive": true,
-                "keys": true,
-                "lengthChange": true,
-                "buttons": [
-                    botoncito,
-                ],
-                "language": {
-                    "sProcessing":     "Procesando...",
-                    "sLengthMenu":     "Mostrar _MENU_ registros",
-                    "sZeroRecords":    "No se encontraron resultados",
-                    "sEmptyTable":     "Ningún dato disponible en esta tabla",
-                    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
-                    "sInfoFiltered":   "",
-                    "sInfoPostFix":    "",
-                    "sSearch":         "Buscar:",
-                    "sUrl":            "",
-                    "sInfoThousands":  ",",
-                    "sLoadingRecords": "Cargando...",
-                    "oPaginate": {
-                        "sFirst":    "Primero",
-                        "sLast":     "Último",
-                        "sNext":     "Siguiente",
-                        "sPrevious": "Anterior"
-                    },
-                    "oAria": {
-                        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                    },
-                    "colvis": 'Ajouté au presse-papiers',
-                }
-            });
-        </script> --}}
+        
         
         <script type="text/javascript">
             $(document).ready(function(){
@@ -509,50 +447,6 @@
                 });
             });
         </script>
-
-        {{-- <script type="text/javascript">
-            $('#tabledata').DataTable({
-                "dom": "<'row'<'col-md-3'l><'col-md-5'B><'col-md-4'f>" +
-                    "<'row'<'col-md-12'tr>" +
-                    "<'row'<'col-md-6'i><'col-md-6'p>",
-                "scrollX": false,
-                "autoWidth": true,
-                // "select": true,
-                "colReorder": true,
-                "searchHighlight": true,
-                "responsive": true,
-                "keys": true,
-                "lengthChange": true,
-                "buttons": [
-                    botoncito,
-                ],
-                "language": {
-                    "sProcessing":     "Procesando...",
-                    "sLengthMenu":     "Mostrar _MENU_ registros",
-                    "sZeroRecords":    "No se encontraron resultados",
-                    "sEmptyTable":     "Ningún dato disponible en esta tabla",
-                    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
-                    "sInfoFiltered":   "",
-                    "sInfoPostFix":    "",
-                    "sSearch":         "Buscar:",
-                    "sUrl":            "",
-                    "sInfoThousands":  ",",
-                    "sLoadingRecords": "Cargando...",
-                    "oPaginate": {
-                        "sFirst":    "Primero",
-                        "sLast":     "Último",
-                        "sNext":     "Siguiente",
-                        "sPrevious": "Anterior"
-                    },
-                    "oAria": {
-                        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                    },
-                    "colvis": 'Ajouté au presse-papiers',
-                }
-            });   
-        </script> --}}
 
         @stack('scripts')
     </body>

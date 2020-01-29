@@ -22,6 +22,12 @@ class Areas extends Model
         //Relación de la tabla areas y la tabla documentos 
     }
 
+    public function requisitos()
+    {
+        return $this->belongsToMany('App\Requisitos')->withTimestamps();
+        //Relación de la tabla areas y la tabla requisitos 
+    }
+
     public function indicators()
     {
         return $this->belongsToMany('App\Indicators','area_indicator');

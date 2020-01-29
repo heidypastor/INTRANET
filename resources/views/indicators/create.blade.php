@@ -11,7 +11,7 @@ Indicadores
 @section('content')
   <div class="card">
   	<div class="card-header text-center">
-  	  <h3 class="card-title">Creación de Indicadores</h3>
+  	  <h3 class="card-title"><strong>Creación de Indicadores</strong></h3>
   	</div>
 
       <div class="modal-body">
@@ -49,7 +49,7 @@ Indicadores
                 <label>Fecha Fin</label>
                 <input name="IndDateUntil" type="date" class="text-center form-control" required>
               </div>
-                <button type="submit" class="btn btn-fill btn-success">Crear</button>
+                <button type="submit" class="btn btn-fill btn-success fas fa-plus"> Crear</button>
           </form>
       </div>
   </div>

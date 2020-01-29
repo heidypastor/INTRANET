@@ -23,5 +23,6 @@ class DatabaseSeeder extends Seeder
         $this->call([InputsSeeder::class]);
         $this->call([ProcessesSeeder::class]);
         $this->call([ReleasesSeeder::class]);
+        $this->call([RequisitosSeeder::class]);
     }
 }
