@@ -56,7 +56,6 @@ Documentos
 						<option value="1">General</option>
 					</select>
 				</div>
-
 				<div class="form-group">
 					<label class="form-control-label">Áreas a la que pertenece el documento</label>
 					<select multiple name="areas[]" id="input-area" class="form-control form-control-alternative" placeholder="{{ __('Selecciona las áreas a las que pertenece')}}" value="{{ old('areas[]') }}"  required>
@@ -66,7 +65,7 @@ Documentos
 					</select>
 				</div>
 				<div class="form-group">
-					<button type="submit" class="btn btn-fill btn-success">Crear</button>
+					<button type="submit" class="fas fa-plus btn btn-fill btn-success"> Crear</button>
 				</div>
 			</form>
 		</div>

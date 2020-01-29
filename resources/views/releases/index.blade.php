@@ -14,7 +14,7 @@ Comunicados
 			<h2>Comunicados</h2>
 		</div>
 		<div class="float-right">
-			<a href="{{ route('releases.create') }}" class="fas fa-plus btn btn-fill btn-success"> Crear</a>
+			<a href="{{ route('releases.create') }}" class="fas fa-plus btn btn-fill btn-success b-create"> Crear</a>
 		</div>
 
 		<div class="card-body">

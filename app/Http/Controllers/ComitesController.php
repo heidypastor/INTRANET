@@ -48,7 +48,6 @@ class ComitesController extends Controller
 
         $pathimg = $request->file('ComiImage')->store('public/Comites');
 
-
         /*return $request;*/
         $comite = new Comites();
         $comite->ComiName = $request->input('ComiName');
@@ -57,6 +56,10 @@ class ComitesController extends Controller
         $comite->ComiParaQueSirve = $request->input('ComiParaQueSirve');
         $comite->ComiTelefono = $request->input('ComiTelefono');
         $comite->ComiEmail = $request->input('ComiEmail');
+        $comite->ComiDateLast = '1576/03/01';
+        $comite->ComiObservations = $request->input('ComiObservations');
+        $comite->ComiDateNext = $request->input('ComiDateNext');
+        $comite->ComiIntegrantes = $request->input('ComiIntegrantes');
         $comite->save();
 
         return redirect()->route('comites.index');
@@ -97,6 +100,7 @@ class ComitesController extends Controller
     public function update(Request $request, Comites $comite)
     {
 
+       /*return $request;*/
         $comite->update($request->except(['ComiSrc', 'ComiImage']));
 
 

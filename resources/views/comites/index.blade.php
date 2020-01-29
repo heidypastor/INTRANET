@@ -14,9 +14,8 @@ Comités
 			<h2>Cómites de Prosarc</h2>
 		</div>
 		<div class="float-right">
-			<a href="{{ route('comites.create') }}" class="fas fa-plus btn btn-fill btn-success"> Crear</a>
+			<a href="{{ route('comites.create') }}" class="fas fa-plus btn btn-fill btn-success" style="margin: 0em 0em 0em 2em;"> Crear</a>
 		</div>
-
 		<div class="card-body">
 		  <div class="table-responsive table-upgrade">
 		    <table class="table">

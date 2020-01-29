@@ -16,8 +16,8 @@ class IndicatorsSeeder extends Seeder
         $indicator->IndName = 'Indicador Sistemas';
         $indicator->IndObjective = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
         $indicator->IndQueMide = 'Productividad';
-        $indicator->IndGraphic = 'public/Comites/yndb0QS4KNxW4yYzIkOcJNu0zCnStdUPZ4hjZuGo.jpeg';
-        $indicator->IndTable = 'public/Comites/yndb0QS4KNxW4yYzIkOcJNu0zCnStdUPZ4hjZuGo.jpeg';
+        $indicator->IndGraphic = 'public/Graphic/grafica.jpeg';
+        $indicator->IndTable = 'public/Archivos/test.pdf';
         $indicator->IndAnalysis = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
         $indicator->IndDateFrom = '2019/12/29';
         $indicator->IndDateUntil = '2020/01/29';
@@ -28,8 +28,8 @@ class IndicatorsSeeder extends Seeder
         $indicator->IndName = 'Indicador Logistica';
         $indicator->IndObjective = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
         $indicator->IndQueMide = 'Productividad';
-        $indicator->IndGraphic = 'public/Comites/yndb0QS4KNxW4yYzIkOcJNu0zCnStdUPZ4hjZuGo.jpeg';
-        $indicator->IndTable = 'public/Comites/yndb0QS4KNxW4yYzIkOcJNu0zCnStdUPZ4hjZuGo.jpeg';
+        $indicator->IndGraphic = 'public/Graphic/grafica.jpeg';
+        $indicator->IndTable = 'public/Archivos/test.pdf';
         $indicator->IndAnalysis = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
         $indicator->IndDateFrom = '2019/12/29';
         $indicator->IndDateUntil = '2020/01/29';

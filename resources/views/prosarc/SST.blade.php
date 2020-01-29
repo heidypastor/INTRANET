@@ -1,18 +1,18 @@
-@extends('layouts.app', ['page' => __('Gestión Humana'), 'pageSlug' => 'dashboard'])
+@extends('layouts.app', ['page' => __('SST'), 'pageSlug' => 'dashboard'])
 
 @section('htmlheader_titleicon')
 /img/LogoProsarc.ico
 @endsection
 
 @section('htmlheader_title')
-Gestion Humana
+SST
 @endsection
 
 @section('content')
 
 	<div class="card">
-		<img src="white/img/GH.jpg" width="80" height="80" class="pull-left">
-		<h2 class="text-center title-gestion">Gestión Humana</h2>
+		<img src="white/img/SST.jpg" width="80" height="80" class="pull-left">
+		<h2 class="text-center title-gestion">Seguridad y Salud en el trabajo</h2>
 	</div>
 	
 	<div class="card text-center">

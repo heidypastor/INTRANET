@@ -11,9 +11,9 @@ Indicadores
 @section('content')
   <div class="card">
   	<div class="card-header text-center">
-  	  <h3 class="card-title">Editar Indicador</h3>
+  	  <h3 class="card-title"><strong>Editar Indicador</strong></h3>
   	</div>
-      <div class="box-body">
+      <div class="box-body" style="margin: 1em 1em 1em 1em;">
           <form id="formActualiIndicado" role="form" method="POST" action="{{ route('indicators.update', $indicator) }}" enctype="multipart/form-data" id="formuediindi">
 
             	@method('PUT')

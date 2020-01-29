@@ -11,7 +11,7 @@ Indicadores
 @section('content')
 	<div class="card">
 		<div class="card-header text-center">
-		  <h4 class="card-title">INDICADORES</h4>
+		  <h2 class="card-title"><strong>INDICADORES</strong></h2>
 		</div>
 
 		@php
@@ -19,21 +19,21 @@ Indicadores
 		@endphp
 
 		@if(auth()->user()->can('editIndicator') && $indicator->user_id === $userid)
-			<div class="text-left">
-			  <form action="{{ route('indicators.destroy', $indicator) }}" method="POST" class="pull-right">
-			    @method('DELETE')
-			    @csrf 
-			      <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
-			  </form>
+			<div>
+				<form action="{{ route('indicators.destroy', $indicator) }}" method="POST" class="pull-left boton-eliminar">
+				    @method('DELETE')
+				    @csrf 
+				    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
+				</form>
 			</div>
 
-			<div class="text-right" style="margin: -3em 100em 0em 2em;">
-				<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-success far fa-edit"> Editar</a> 
+			<div class="text-right">
+				<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-warning far fa-edit boton-editar"> Editar</a> 
 			</div>
 		@else
 			@hasrole('Super Admin')
 				<div class="text-left">
-				  <form action="{{ route('indicators.destroy', $indicator) }}" method="POST" class="pull-right">
+				  <form action="{{ route('indicators.destroy', $indicator) }}" method="POST" class="pull-left boton-eliminar">
 				    @method('DELETE')
 				    @csrf 
 				      <button type="submit" class="fas fa-backspace btn btn-danger"> Eliminar</button>
@@ -41,11 +41,11 @@ Indicadores
 				</div> 
 
 				<div class="text-right">
-					<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-success far fa-edit"> Editar</a>
+					<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-warning far fa-edit boton-editar"> Editar</a>
 				</div>
 			@else
 				<div class="text-left">
-				  <form action="{{ route('indicators.destroy', $indicator) }}" method="POST" class="pull-right">
+				  <form action="{{ route('indicators.destroy', $indicator) }}" method="POST" class="pull-left boton-eliminar">
 				    @method('DELETE')
 				    @csrf 
 				      <button type="submit" class="btn btn-default sw-btn-prev disabled"> Eliminar</button>
@@ -53,7 +53,7 @@ Indicadores
 				</div>
 
 				<div class="text-right">
-					<button class="btn btn-default sw-btn-prev disabled" type="button">Editar</button>
+					<button class="btn btn-default sw-btn-prev disabled boton-editar" type="button">Editar</button>
 				</div>
 			@endhasrole
 		@endif	

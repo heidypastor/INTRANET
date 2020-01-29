@@ -3,23 +3,24 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\User;
 
-class Comites extends Model
+class Requisitos extends Model
 {
+    // use Searchable;
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'ComiName', 'ComiSrc', 'ComiImage', 'ComiParaQueSirve', 'ComiTelefono', 'ComiEmail', 'ComiDateLast', 'ComiObservations', 'ComiDateNext', 'ComiIntegrantes',
+        'ReqName', 'ReqType', 'ReqDate', 'ReqEnte', 'ReqQueDice',  
     ];
 
 
-    public function users()
+    public function areas()
     {
-        return $this->belongsToMany('App\User');
+        return $this->belongsToMany('App\Areas')->withTimestamps();
+        //Relación de la tabla areas y la tabla requisitos 
     }
 
 
