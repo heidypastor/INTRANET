@@ -11,7 +11,7 @@ Comités
 @section('content')
 	<div class="card">
 		<div class="card-header text-center">
-		  <h4 class="card-title">Cómites</h4>
+		  <h3 class="card-title"><strong>Cómites</strong></h3>
 		</div>
 
 		<div class="text-left">
@@ -23,7 +23,7 @@ Comités
 		</div>
 
 		<div class="text-right" style="margin: -3em 100em 0em 2em;">
-			<a href="{{$comite->id}}/edit" class="btn btn-fill btn-success far fa-edit"> Editar</a> 
+			<a href="{{$comite->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a> 
 		</div>
 
 

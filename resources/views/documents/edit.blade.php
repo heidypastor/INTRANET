@@ -71,7 +71,7 @@ Documentos
 						@endforeach
 					</select>
 				</div>
-				<button type="submit" class="btn btn-fill btn-warning fas fa-arrow-circle-up"> Actualizar</button>
+				<button type="submit" class="btn btn-fill btn-success fas fa-arrow-circle-up"> Actualizar</button>
 			</form>
 		</div>
 	</div>

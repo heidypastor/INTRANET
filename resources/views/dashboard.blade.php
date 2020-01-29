@@ -53,17 +53,17 @@ Home
                           </div>
                         </div>
                         <div class="carousel-item">
-                          <img class="d-block w-100" src="white/img/docu.jpg" alt="Five slide"  width="640" height="360">
-                          <div class="carousel-caption d-none d-md-block">
-                            <h3 id="text-carousel" class="texto-carousel">Documento Actualizado</h3>
-                            <h3 id="text-carousel" class="texto-carousel">{{$document->DocName}}</h3>
-                          </div>
-                        </div>
-                        <div class="carousel-item">
                           <a href="releases/{{$release->id}}"><img class="d-block w-100" src="{{Storage::url($release->RelSrc)}}" alt="Six slide"  width="640" height="360"></a>
                           <div class="carousel-caption d-none d-md-block">
                             <h3 id="text-carousel" class="texto-carousel">¡¡Nuev@ {{$release->RelType}}!!</h3>
                             <h3 id="text-carousel" class="texto-carousel">{{$release->RelName}}</h3>
+                          </div>
+                        </div>
+                        <div class="carousel-item">
+                          <img class="d-block w-100" src="white/img/docu.jpg" alt="Five slide"  width="640" height="360">
+                          <div class="carousel-caption d-none d-md-block">
+                            <h3 id="text-carousel" class="texto-carousel">Documento Actualizado</h3>
+                            <h3 id="text-carousel" class="texto-carousel">{{$document->DocName}}</h3>
                           </div>
                         </div>
                       </div>
@@ -85,7 +85,7 @@ Home
       <table class="col-lg-12 text-center">
         <tr>
           <td><a href="{{ route('prosarc.nosotros')  }}"><img src="white/img/logo.png" class="botones-conoce"></a></td>
-          <td><a href="{{ route('prosarc.requiLegal')  }}"><img src="white/img/RL.jpg" class="botones-conoce"></a></td>
+          <td><a href="{{ route('requisitos.index')  }}"><img src="white/img/RL.jpg" class="botones-conoce"></a></td>
         </tr>
         <tr>
           <td><h4>Nosotros</h4></td>

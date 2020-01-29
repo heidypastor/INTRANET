@@ -17,7 +17,7 @@ Requisitos Legales
 				@csrf
 
 				<div>
-				  <h3 class="card-title">Nuevo Requisisto</h3>
+				  <h3 class="card-title">Nuevo Requisito</h3>
 				</div>
 				<div class="form-group">
 				  <label>Nombre del requisito legal</label>

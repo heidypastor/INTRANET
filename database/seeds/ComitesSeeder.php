@@ -15,9 +15,9 @@ class ComitesSeeder extends Seeder
     	// id = 01
         $comite = new Comites();
         $comite->ComiName = 'COPASST';
-        $comite->ComiSrc = 'public/Comites/yndb0QS4KNxW4yYzIkOcJNu0zCnStdUPZ4hjZuGo.jpeg';
-        $comite->ComiImage = 'public/Comites/yndb0QS4KNxW4yYzIkOcJNu0zCnStdUPZ4hjZuGo.jpeg';
-        $comite->ComiParaQueSirve = 'Mejorar la comunicaciòn entre los integrantes de la empresa';
+        $comite->ComiSrc = 'public/Comites/comites.jpg';
+        $comite->ComiImage = 'public/Comites/comites.jpg';
+        $comite->ComiParaQueSirve = 'Mejorar la comunicación entre los integrantes de la empresa';
         $comite->ComiTelefono = '3222324567';
         $comite->ComiEmail = 'copasst@gmail.com.co';
         $comite->ComiDateLast = '1576/03/01';
@@ -30,9 +30,9 @@ class ComitesSeeder extends Seeder
         // id = 02
         $comite = new Comites();
         $comite->ComiName = 'Brigadistas';
-        $comite->ComiSrc = 'public/Comites/yndb0QS4KNxW4yYzIkOcJNu0zCnStdUPZ4hjZuGo.jpeg';
-        $comite->ComiImage = 'public/Comites/yndb0QS4KNxW4yYzIkOcJNu0zCnStdUPZ4hjZuGo.jpeg';
-        $comite->ComiParaQueSirve = 'Mejorar la comunicaciòn entre los integrantes de la empresa';
+        $comite->ComiSrc = 'public/Comites/comites.jpg';
+        $comite->ComiImage = 'public/Comites/comites.jpg';
+        $comite->ComiParaQueSirve = 'Mejorar la comunicación entre los integrantes de la empresa';
         $comite->ComiTelefono = '3122244567';
         $comite->ComiEmail = 'brigada@gmail.com.co';
         $comite->ComiDateLast = '1576/03/01';

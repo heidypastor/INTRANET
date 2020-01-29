@@ -28,7 +28,7 @@ Indicadores
 			</div>
 
 			<div class="text-right">
-				<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-success far fa-edit boton-editar"> Editar</a> 
+				<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-warning far fa-edit boton-editar"> Editar</a> 
 			</div>
 		@else
 			@hasrole('Super Admin')
@@ -41,7 +41,7 @@ Indicadores
 				</div> 
 
 				<div class="text-right">
-					<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-success far fa-edit boton-editar"> Editar</a>
+					<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-warning far fa-edit boton-editar"> Editar</a>
 				</div>
 			@else
 				<div class="text-left">

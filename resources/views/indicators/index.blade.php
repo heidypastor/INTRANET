@@ -11,10 +11,10 @@ Indicadores
 @section('content')
 	<div class="card">
 		<div class="card-header text-center">
-		  <h4 class="card-title">INDICADORES</h4>
+		  <h3 class="card-title"><strong>INDICADORES</strong></h3>
 		</div>
 		<div>
-			<a href="{{ route('indicators.create') }}" class="fas fa-plus btn btn-fill btn-success"> Crear</a>
+			<a href="{{ route('indicators.create') }}" class="fas fa-plus btn btn-fill btn-success b-create"> Crear</a>
 		</div>
 		<div class="row">
 			@foreach($Indicators as $indicator)

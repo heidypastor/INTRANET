@@ -14,7 +14,7 @@
 		  <h4 class="card-title">Listado de Áreas</h4>
 		</div>
 		<div>
-			<button type="submit" class="fas fa-plus btn btn-fill btn-success" data-toggle="modal" data-target="#createmodalarea"> Crear</button>
+			<button type="submit" class="fas fa-plus btn btn-fill btn-success b-create" data-toggle="modal" data-target="#createmodalarea"> Crear</button>
 
 			{{-- Parate del documento de la creación de áreas --}}
 

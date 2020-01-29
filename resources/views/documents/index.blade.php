@@ -16,7 +16,7 @@ Documentos
 @section('content')
 	<div class="card">
 		<div class="card-header pull-left">
-		  <h4 class="card-title">Documentos
+		  <h4 class="card-title"><strong>Documentos</strong>
 
 		  @hasrole('Super Admin')
 		  	  <a href="{{ route('documents.create') }}" class="fas fa-plus btn btn-fill btn-success pull-right"> Crear</a>

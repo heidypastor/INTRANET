@@ -55,7 +55,7 @@ Comités
 					<input type="text" name="ComiIntegrantes" id="ComiIntegrantes" class="text-center form-control">
 				</div>
 				<div class="form-group">
-					<button type="submit" class="btn btn-fill btn-success">Crear</button>
+					<button type="submit" class="btn btn-fill btn-success fas fa-plus"> Crear</button>
 				</div>
 			</form>
 		</div>

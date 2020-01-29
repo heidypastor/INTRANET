@@ -75,8 +75,8 @@
 }
 
 .botones-conoce {
-  width: 15em;
-  height: 15em;
+  width: 10em;
+  height: 10em;
   border-radius: 50%;
   border: solid 3px black;
   box-shadow: 5px;
@@ -200,4 +200,8 @@
 
 .boton-editar {
   margin: -5em 1em 0em 0em;
+}
+
+.b-create {
+  margin: 0em 0em 0em 1em;
 }

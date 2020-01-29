@@ -54,5 +54,4 @@ Requisitos Legales
 			</form>
 		</div>
 	</div>
-
 @endsection
