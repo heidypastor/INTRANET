@@ -13,7 +13,7 @@ class Comites extends Model
      * @var array
      */
     protected $fillable = [
-        'ComiName', 'ComiSrc', 'ComiImage', 'ComiParaQueSirve', 'ComiTelefono', 'ComiEmail', 
+        'ComiName', 'ComiSrc', 'ComiImage', 'ComiParaQueSirve', 'ComiTelefono', 'ComiEmail', 'ComiDateLast', 'ComiObservations', 'ComiDateNext', 'ComiIntegrantes',
     ];
 
 

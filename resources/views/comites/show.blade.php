@@ -65,11 +65,7 @@ Comités
 					<tr>
 						<td></td>
 						<th class="text-center">Integrantes</th>
-						<td class="text-center">
-							@foreach($integrantes as $integrante)
-							<br>{{$integrante->name}}
-							@endforeach
-						</td>
+						<td class="text-center">{{$comite->ComiIntegrantes}}</td>
 					</tr>
 					<tr>
 						<td></td>

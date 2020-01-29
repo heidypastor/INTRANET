@@ -55,6 +55,10 @@ Comités
 	            	<input type="date" name="ComiDateNext" value="{{$comite->ComiDateNext}}" id="ComiDateNext" class="text-center form-control">
 	            </div>
 	            <div class="form-group">
+	            	<label>Integrantes</label>
+	            	<input type="text" name="ComiIntegrantes" value="{{$comite->ComiIntegrantes}}" id="ComiIntegrantes" class="text-center form-control">
+	            </div>
+	            <div class="form-group">
 	            	<button type="submit" class="fas fa-arrow-circle-up btn btn-fill btn-success"> Actualizar</button>
 	            </div>
 
