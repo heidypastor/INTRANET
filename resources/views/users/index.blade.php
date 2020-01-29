@@ -44,7 +44,7 @@ Usuarios
                                         <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
                                         <td>
                                             <ul class="list-group list-group-flush">
-                                                 @foreach($user->roles as $rol)
+                                                @foreach($user->roles as $rol)
                                                 <li class="list-group-item">{{$rol->name}}</li>
                                                 @endforeach  
                                             </ul>
