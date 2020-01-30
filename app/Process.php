@@ -73,6 +73,12 @@ class Process extends Model
         return $this->belongsToMany('App\Process', 'processes_processes', 'process_id', 'supportProcess_id');
         //Relación de la tabla processes y la tabla inputs 
     }
+
+    public function requisitos()
+    {
+        return $this->belongsToMany('App\Requisitos', 'processes_requisitos');
+        //Relación de la tabla processes y la tabla inputs 
+    }
 	/**
 	 * The attributes that should be hidden for arrays.
 	 *

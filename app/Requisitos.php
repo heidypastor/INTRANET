@@ -24,6 +24,13 @@ class Requisitos extends Model
     }
 
 
+    public function procesos()
+    {
+        return $this->belongsToMany('App\Process', 'processes_requisitos')->withTimestamps();
+        //Relación de la tabla processes y la tabla requisitos 
+    }
+
+
     /**
      * The attributes that should be hidden for arrays.
      *
