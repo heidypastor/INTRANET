@@ -89,7 +89,7 @@ Home
         </tr>
         <tr>
           <td><h4>Nosotros</h4></td>
-          <td><h4>Requisitos legales</h4></td>
+          <td><h4>Requisitos y Documentos legales</h4></td>
         </tr>
       </table>
     </div>
