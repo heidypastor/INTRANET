@@ -58,13 +58,13 @@
   font-weight: bold; 
 }
 
-#carousel {
-  /*margin: 3em 3em 5em 3em;*/
-  padding: 1em 4em 4em 4em;
-  width: 75%;
-  height: 75%;
-  margin: 0em 0em 0em 10em;
-}
+
+
+
+/*En esta parte van los estilos del carousel*/
+
+
+
 
 #logo-prosarc {
   margin: -2em 0em 0em 8em;
@@ -80,6 +80,7 @@
   border-radius: 50%;
   border: solid 3px black;
   box-shadow: 5px;
+  margin: 10px 10px 10px 10px;
 }
 
 .div-conoce-pro {
@@ -204,4 +205,17 @@
 
 .b-create {
   margin: 0em 0em 0em 1em;
+}
+
+.rollo-pelicula-1 {
+  margin: 0em 0em -1.2em 0em;
+}
+
+.rollo-pelicula-2 {
+  margin: -4.2em 0em 0em 0em;
+}
+
+.carousel img { 
+  border-right: 10px solid #000000;
+  border-left: 10px solid #000000;
 }

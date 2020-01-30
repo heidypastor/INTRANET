@@ -18252,4 +18252,16 @@ Copyright (c) 2015 Daniel Eden
 }
 
 
+#carousel {
+  /*margin: 3em 3em 5em 3em;*/
+  padding: 1em 4em 4em 4em;
+  width: 75%;
+  height: 75%;
+  margin: 0em 0em 0em 10em;
+  /*margin: 1em 0em 4.2em 0em;*/
+}
+
+
+
+
 /*# sourceMappingURL=dashboard-free.css.map */
