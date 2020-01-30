@@ -1,11 +1,11 @@
-@extends('layouts.app', ['page' => __('Requisitos Legales'), 'pageSlug' => 'requisitos'])
+@extends('layouts.app', ['page' => __('Requisitos y Documentos'), 'pageSlug' => 'requisitos'])
 
 @section('htmlheader_titleicon')
 /img/LogoProsarc.ico
 @endsection
 
 @section('htmlheader_title')
-Requisitos Legales
+Requisitos y Documentos Legales
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@ Requisitos Legales
 	<div class="card col-md-12">
 		<div class="card-title text-center col-md-12">
 			<br>
-			<h1>Requisitos Legales</h1>
+			<h1>Requisitos y Documentos Legales</h1>
 		</div>
 		<div class="pull-left">
 			<a href="{{ route('requisitos.create') }}" class="fas fa-plus btn btn-fill btn-success"> Crear</a>

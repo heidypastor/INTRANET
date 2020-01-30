@@ -35,8 +35,8 @@
 <div class="sidebar" data="{{$colorsidebar}}">
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="http://intranet.test/home" class="simple-text logo-mini">{{ __('IN') }}</a>
-            <a href="http://intranet.test/home" class="simple-text logo-normal">{{ __('INTRANET') }}</a>
+            <a href="{{ route('home') }}" class="simple-text logo-mini">{{ __('IN') }}</a>
+            <a href="{{ route('home') }}" class="simple-text logo-normal">{{ __('INTRANET') }}</a>
         </div>
         <ul class="nav">
             {{-- <li @if ($pageSlug == 'dashboard') class="active " @endif>
@@ -126,20 +126,46 @@
                 </a>
             </li> --}}
             
-
-            <li class=" {{ $pageSlug == 'indicators' ? 'active' : '' }}">
-                <a href="{{ route('indicators.index') }}">
-                    <i class="tim-icons icon-chart-bar-32"></i>
-                    <p>{{ __('Indicators') }}</p> 
-                </a>
-            </li>
-
             <li class=" {{ $pageSlug == 'documents' ? 'active' : '' }}">
                 <a href="{{ route('documents.index') }}">
                     <i class="tim-icons icon-attach-87"></i>
-                    <p>{{ __('Documents') }}</p> 
+                    <p>{{ __('Documentos') }}</p> 
                 </a>
             </li>
+
+            {{-- <li class=" {{ $pageSlug == 'indicators' ? 'active' : '' }}">
+                <a href="{{ route('indicators.index') }}">
+                    <i class="tim-icons icon-chart-bar-32"></i>
+                    <p>{{ __('Indicadores') }}</p> 
+                </a>
+            </li> --}}
+
+            <li>
+                <a data-toggle="collapse" href="#laravel-examples-I" aria-expanded="true">
+                    <i class="tim-icons icon-chart-bar-32" ></i>
+                    <span class="nav-link-text" >{{ __('Indicadores') }}</span>
+                    <b class="caret mt-1"></b>
+                </a>
+
+                <div class="collapse" id="laravel-examples-I">
+                    <ul class="nav pl-4">
+                        <li class=" {{ $pageSlug == 'Estrategicos' ? 'active' : '' }}">
+                            <a href="{{ route('indicators.index') }}">
+                                <i class="tim-icons icon-chart-bar-32"></i>
+                                <p>{{ __('Estrategicos') }}</p> 
+                            </a>
+                        </li>
+                        <li class=" {{ $pageSlug == 'Generales' ? 'active' : '' }}">
+                            <a href="{{ route('indicators.index2') }}">
+                                <i class="tim-icons icon-chart-bar-32"></i>
+                                <p>{{ __('Generales') }}</p> 
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+
 
             <li class=" {{ $pageSlug == 'comites' ? 'active' : '' }}">
                 <a href="{{ route('comites.index') }}">

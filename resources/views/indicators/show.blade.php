@@ -94,7 +94,7 @@ Indicadores
 					</tr>
 					<tr>
 						<td></td>
-						<th class="text-center">Grafica</th>
+						<th class="text-center">Gráfica</th>
 						<td class="text-center"><div class="col-md-12 text-center"><a href="{{Storage::url($indicator->IndGraphic)}}"><img style="width: 20em; height: 15em; margin: 1.5em 1.5em 1.5em 1.5em; width: 40em; height: 20em;" src="{{Storage::url($indicator->IndGraphic)}}"></a></div></td>
 					</tr>
 					<tr>
@@ -106,6 +106,11 @@ Indicadores
 						<td></td>
 						<th class="text-center">Analisis</th>
 						<td class="text-center"><p>{{$indicator->IndAnalysis}}</p></td>
+					</tr>
+					<tr>
+						<td></td>
+						<th class="text-center">Tipo de Indicador</th>
+						<td class="text-center"><p>{{$indicator->IndType}}</p></td>
 					</tr>
 			      </tbody>
 			    </table>
