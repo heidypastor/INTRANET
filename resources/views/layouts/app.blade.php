@@ -30,7 +30,7 @@
         {{-- stilos personalizados ojo con el Important! --}}
         <link href="{{ asset('css') }}/personalizados.css" rel="stylesheet"/>
     </head>
-    <body class="white-content {{ $class ?? '' }}">
+    <body class="white-content {{ $class ?? '' }} tipo-letra">
         @auth()
             <div class="wrapper">
                     @include('layouts.navbars.sidebar')
