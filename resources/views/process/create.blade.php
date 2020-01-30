@@ -34,6 +34,7 @@ titulo de la pagina
 
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
+			    		<label class="input-label" for="ProcRevVersion">N° de Revisión</label>
 			      		<input type="text" class="form-control" id="ProcRevVersion" placeholder="N° de Revisión" name="ProcRevVersion">
 			    	</div>
 			    </div>
@@ -45,21 +46,24 @@ titulo de la pagina
 			    </div> --}}
 
 			    <div class="col-md-6 col-xs-12">
-			    	<div class="form-group">
+			    	<div class="custom-input-file">
+			    		<label class="input-label" for="ProcImage">Imagen de referencia</label>
 			      		<input type="file" class="form-control" id="ProcImage" placeholder="Imagen de Referencia" name="ProcImage">
 			    	</div>
 			    </div>
 
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
+			    		<label class="input-label" for="ProcObjetivo">Objetivo del Proceso</label>
 			      		 <textarea class="form-control" id="ProcObjetivo" name="ProcObjetivo">
-			      		Objetivo del PRoceso
+			      		Objetivo de ejemplo para el proceso de compras
 			      		</textarea> 
 			    	</div>
 			    </div>
 
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
+			    		<label class="input-label" for="ProcResponsable">Responsable del Proceso</label>
 			    		<select id="ProcResponsable" class="form-control" name="ProcResponsable" placeholder="Responsable" id="ProcResponsable">
 			    			@foreach($roles as $rol)
 			    				<option value="{{$rol->id}}">{{$rol->name}}</option>
@@ -68,9 +72,9 @@ titulo de la pagina
 			    	</div>
 			    </div>
 
-
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
+			    		<label class="input-label" for="ProcAutoridad">Autoridad del Proceso</label>
 			    		<select id="ProcAutoridad" class="form-control" name="ProcAutoridad" placeholder="Autoridad" id="ProcAutoridad">
 			    			@foreach($roles as $rol)
 			    				<option value="{{$rol->id}}">{{$rol->name}}</option>
@@ -81,31 +85,52 @@ titulo de la pagina
 
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
-			      		<input type="text" class="form-control" id="ProcRecursos" placeholder="Recursos Necesarios" name="ProcRecursos">
+			    		<label class="input-label" for="ProcRecursos">Recursos Necesarios</label>
+			      		<input type="text" class="form-control" id="ProcRecursos" placeholder="Vehiculo; Computador; Celular; Papel carta; etc..." name="ProcRecursos">
 			    	</div>
 			    </div>
 
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
-			      		<input type="text" class="form-control" id="ProcRequsitos" placeholder="Requisitos por cumplir" name="ProcRequsitos">
+			    		<label class="input-label" for="ProcRequsitos">Requisitos por cumplir</label>
+			      		<select id="ProcAutoridad" class="form-control" name="ProcAutoridad" placeholder="Autoridad" id="ProcAutoridad">
+			    			@foreach($roles as $rol)
+			    				<option value="{{$rol->id}}">{{$rol->name}}</option>
+			    			@endforeach
+			    		</select>
 			    	</div>
 			    </div>
 
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
-			      		<input type="text" class="form-control" id="ProcElaboro" placeholder="Elaborado Por" name="ProcElaboro">
+			    		<label class="input-label" for="ProcElaboro">Elaborado Por</label>
+			      		<select id="ProcAutoridad" class="form-control" name="ProcAutoridad" placeholder="Autoridad" id="ProcAutoridad">
+			    			@foreach($roles as $rol)
+			    				<option value="{{$rol->id}}">{{$rol->name}}</option>
+			    			@endforeach
+			    		</select>
 			    	</div>
 			    </div>
 			    
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
-			      		<input type="text" class="form-control" id="ProcReviso" placeholder="Revisado Por" name="ProcReviso">
+			    		<label class="input-label" for="ProcReviso">Revisado Por</label>
+			      		<select id="ProcAutoridad" class="form-control" name="ProcAutoridad" placeholder="Autoridad" id="ProcAutoridad">
+			    			@foreach($roles as $rol)
+			    				<option value="{{$rol->id}}">{{$rol->name}}</option>
+			    			@endforeach
+			    		</select>
 			    	</div>
 			    </div>
 
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
-			      		<input type="text" class="form-control" id="ProcAprobo" placeholder="Aprobado Por" name="ProcAprobo">
+			    		<label class="input-label" for="ProcAprobo">Aprobado Por</label>
+			      		<select id="ProcAutoridad" class="form-control" name="ProcAutoridad" placeholder="Autoridad" id="ProcAutoridad">
+			    			@foreach($roles as $rol)
+			    				<option value="{{$rol->id}}">{{$rol->name}}</option>
+			    			@endforeach
+			    		</select>
 			    	</div>
 			    </div>
 
