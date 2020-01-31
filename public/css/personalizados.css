@@ -80,6 +80,7 @@
   border-radius: 50%;
   border: solid 3px black;
   box-shadow: 5px;
+  margin: 10px 10px 10px 10px;
 }
 
 .div-conoce-pro {
@@ -214,7 +215,4 @@
   margin: -4.2em 0em 0em 0em;
 }
 
-.carousel img { 
-  border-right: 10px solid #000000;
-  border-left: 10px solid #000000;
-}
+/*aqui va la parte de los bordes del carousel*/

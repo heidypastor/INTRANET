@@ -18262,6 +18262,9 @@ Copyright (c) 2015 Daniel Eden
 }
 
 
-
+/*.carousel img { 
+  border-right: 10px solid #000000;
+  border-left: 10px solid #000000;
+}*/
 
 /*# sourceMappingURL=dashboard-free.css.map */
