@@ -30,7 +30,7 @@ Indicadores
                 <input name="IndQueMide" type="text" class="text-center form-control" required>
               </div>		
               <div class="custom-input-file">
-                <label>Grafica</label>
+                <label>Gráfica</label>
                 <input name="IndGraphic" type="file" class="form-control" required="">
               </div>
               <div class="custom-input-file">

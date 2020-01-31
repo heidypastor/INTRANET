@@ -92,7 +92,13 @@ class IndicatorsController extends Controller
         /*return $area;*/
         $indicator->areas()->attach($area);
 
-        return redirect()->route('indicators.index');
+
+        if ($indicator->IndType === 0) {
+            return redirect()->route('indicators.index');
+        } else {
+            return redirect()->route('indicators.index2');
+        } 
+        
     }
 
     /**
