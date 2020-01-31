@@ -18,7 +18,6 @@ class CreateIndicatorsProcessesTable extends Migration
             $table->foreign('indicators_id')->references('id')->on('indicators');
             $table->unsignedBigInteger('process_id');  /*Relación con la tabla process*/
             $table->foreign('process_id')->references('id')->on('processes');
-            $table->timestamps();
         });
     }
 

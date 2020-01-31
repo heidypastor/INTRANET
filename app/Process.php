@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Permission\Traits\HasRoles;
+
 
 class Process extends Model
 {
+	use HasRoles;
 	/**
 	 * The attributes that are mass assignable.
 	 *
@@ -20,11 +23,17 @@ class Process extends Model
 	    'ProcResponsable',
 	    'ProcAutoridad',
 	    'ProcRecursos',
-	    'ProcRequsitos',
 	    'ProcElaboro',
 	    'ProcReviso',
 	    'ProcAprobo'
 	];
+
+	/**
+	 * The attributes that should be cast to native types.
+	 *
+	 * @var array
+	 */
+	protected $table = 'processes';
 
 	public function entradas()
     {
