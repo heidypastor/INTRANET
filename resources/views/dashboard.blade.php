@@ -13,9 +13,9 @@ Home
         <div class="col-md-12 card-body">
             <div class="content">
                 <h1 class="card-title text-center col-md-12">NOVEDADES <strong>PROSARC</strong></h1>
-                <div>
+                {{-- <div>
                   <img class="rollo-pelicula-1" src="white/img/rollo-pelicula-recorte.png">
-                </div>
+                </div> --}}
                 <div id="carousel" class="col-md-12 col-sm-12">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                       <ol class="carousel-indicators">
@@ -80,9 +80,9 @@ Home
                       </a>
                     </div>
                 </div>
-                <div class="rollo-pelicula-2">
+                {{-- <div class="rollo-pelicula-2">
                   <img src="white/img/rollo-pelicula-recorte.png">
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
