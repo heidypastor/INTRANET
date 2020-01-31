@@ -49,6 +49,13 @@ Indicadores
                 <label>Fecha Fin</label>
                 <input name="IndDateUntil" type="date" class="text-center form-control" required>
               </div>
+              <div class="form-group">
+                <label>Tipo de Indicador</label>
+                <select class="text-center form-control" required="" name="IndType" id="IndType">
+                  <option value="0">Estrategico</option>
+                  <option value="1">General</option>
+                </select>
+              </div>
                 <button type="submit" class="btn btn-fill btn-success fas fa-plus"> Crear</button>
           </form>
       </div>

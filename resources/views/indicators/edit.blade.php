@@ -50,6 +50,13 @@ Indicadores
                 <label>Fecha Fin</label>
                 <input name="IndDateUntil" type="date" value="{{$indicator->IndDateUntil}}" class="text-center form-control">
               </div>
+              <div class="form-group">
+                <label>Tipo de Indicador</label>
+                <select class="text-center form-control" required="" name="IndType" id="IndType">
+                  <option value="0">Estrategico</option>
+                  <option value="1">General</option>
+                </select>
+              </div>
                 <button type="submit" class="fas fa-arrow-circle-up btn btn-fill btn-success"> Actualizar</button>
           </form>
       </div>

@@ -38,6 +38,17 @@ class IndicatorsController extends Controller
         return view('indicators.index', compact('Indicators'));
     }
 
+    public function index2()
+    {
+        $Indicators = Indicators::with('user.areas')->get();
+
+        /*$usuario = User::find($indicator->user_id);
+        $area = Areas::find($usuario->areas_id);*/
+        /*return $Indicators;*/
+
+        return view('indicators.index2', compact('Indicators'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -72,6 +83,7 @@ class IndicatorsController extends Controller
         $indicator->IndAnalysis = $request->input('IndAnalysis');
         $indicator->IndDateFrom = $request->input('IndDateFrom');
         $indicator->IndDateUntil = $request->input('IndDateUntil');
+        $indicator->IndType = $request->input('IndType');
         $indicator->user_id =  Auth::user()->id;
         $indicator->save();
 

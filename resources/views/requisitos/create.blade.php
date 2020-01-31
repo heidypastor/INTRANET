@@ -1,11 +1,11 @@
-@extends('layouts.app', ['page' => __('Requisitos Legales'), 'pageSlug' => 'requisitos'])
+@extends('layouts.app', ['page' => __('Requisitos y Documentos'), 'pageSlug' => 'requisitos'])
 
 @section('htmlheader_titleicon')
 /img/LogoProsarc.ico
 @endsection
 
 @section('htmlheader_title')
-Requisitos Legales
+Requisitos y Documentos Legales
 @endsection
 
 @section('content')

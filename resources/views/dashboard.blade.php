@@ -12,8 +12,11 @@ Home
     <div class="card">
         <div class="col-md-12 card-body">
             <div class="content">
-                <h1 class="card-title text-center">NOVEDADES <strong>PROSARC</strong></h1>
-                <div id="carousel">
+                <h1 class="card-title text-center col-md-12">NOVEDADES <strong>PROSARC</strong></h1>
+                {{-- <div>
+                  <img class="rollo-pelicula-1" src="white/img/rollo-pelicula-recorte.png">
+                </div> --}}
+                <div id="carousel" class="col-md-12 col-sm-12">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                       <ol class="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -23,7 +26,7 @@ Home
                         <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
                       </ol>
-                      <div class="carousel-inner">
+                      <div class="carousel-inner" id="imagen-carousel">
                         <div class="carousel-item active">
                           <img class="d-block w-100" src="white/img/DJI_0125.jpg" alt="First slide" width="640" height="360">
                           <div class="carousel-caption d-none d-md-block">
@@ -77,46 +80,51 @@ Home
                       </a>
                     </div>
                 </div>
+                {{-- <div class="rollo-pelicula-2">
+                  <img src="white/img/rollo-pelicula-recorte.png">
+                </div> --}}
             </div>
         </div>
     </div>
-    <div class="div-conoce-pro">
-      <h2 class="text-center">Conoce a Prosarc</h2>
-      <table class="col-lg-12 text-center">
-        <tr>
-          <td><a href="{{ route('prosarc.nosotros')  }}"><img src="white/img/logo.png" class="botones-conoce"></a></td>
-          <td><a href="{{ route('requisitos.index')  }}"><img src="white/img/RL.jpg" class="botones-conoce"></a></td>
-        </tr>
-        <tr>
-          <td><h4>Nosotros</h4></td>
-          <td><h4>Requisitos legales</h4></td>
-        </tr>
-      </table>
-    </div>
-    <div class="div-conoce-pro">
-      <h2 class="text-center">Nuestra Gestión</h2>
-      <table class="col-lg-12 text-center">
-        <tr>
-          <td><a href="{{ route('prosarc.GHumana') }}"><img src="white/img/GH.jpg" class="botones-conoce"></a></td>
-          <td><a href="{{ route('prosarc.GAmbiental') }}"><img src="white/img/GA.jpg" class="botones-conoce"></a></td>
-          <td><a href="{{ route('prosarc.GCalidad') }}"><img src="white/img/GC.jpg" class="botones-conoce"></a></td>
-          <td><a href="{{ route('prosarc.SST') }}"><img src="white/img/SST.jpg" class="botones-conoce"></a></td>
-        </tr>
-        <tr>
-          <td><h4>Gestión Humana</h4></td>
-          <td><h4>Gestión Ambiental</h4></td>
-          <td><h4>Gestión de Calidad</h4></td>
-          <td><h4>Seguridad y salud <br> en el trabajo</h4></td>
-        </tr>
-      </table>
-    </div>
-    <div class="div-comites-ahora text-center">
-      <div class="col-lg-12">
-        <h2 class="text-center">Comites PROSARC</h2>
-        @foreach($comites as $comite)
-          <a href="comites/{{$comite->id}}" class="btn btn-success">{{$comite->ComiName}}</a>
-        @endforeach
-        <br>
+    <div class="text-center">
+      <div class="div-conoce-pro">
+        <h2 class="text-center">Conoce a Prosarc</h2>
+        <table class="col-lg-12 text-center">
+          <tr>
+            <td><a href="{{ route('prosarc.nosotros')  }}"><img src="white/img/logo.png" class="botones-conoce"></a></td>
+            <td><a href="{{ route('requisitos.index')  }}"><img src="white/img/RL.jpg" class="botones-conoce"></a></td>
+          </tr>
+          <tr>
+            <td><h4>Nosotros</h4></td>
+            <td><h4>Requisitos legales</h4></td>
+          </tr>
+        </table>
+      </div>
+      <div class="div-conoce-pro">
+        <h2 class="text-center">Nuestra Gestión</h2>
+        <table class="col-lg-12 text-center">
+          <tr>
+            <td><a href="{{ route('prosarc.GHumana') }}"><img src="white/img/GH.jpg" class="botones-conoce"></a></td>
+            <td><a href="{{ route('prosarc.GAmbiental') }}"><img src="white/img/GA.jpg" class="botones-conoce"></a></td>
+            <td><a href="{{ route('prosarc.GCalidad') }}"><img src="white/img/GC.jpg" class="botones-conoce"></a></td>
+            <td><a href="{{ route('prosarc.SST') }}"><img src="white/img/SST.jpg" class="botones-conoce"></a></td>
+          </tr>
+          <tr>
+            <td><h4>Gestión Humana</h4></td>
+            <td><h4>Gestión Ambiental</h4></td>
+            <td><h4>Gestión de Calidad</h4></td>
+            <td><h4>Seguridad y salud <br> en el trabajo</h4></td>
+          </tr>
+        </table>
+      </div>
+      <div class="div-comites-ahora text-center">
+        <div class="col-lg-12">
+          <h2 class="text-center">Comites PROSARC</h2>
+          @foreach($comites as $comite)
+            <a href="comites/{{$comite->id}}" class="btn btn-success">{{$comite->ComiName}}</a>
+          @endforeach
+          <br>
+        </div>
       </div>
     </div>
 @endsection
