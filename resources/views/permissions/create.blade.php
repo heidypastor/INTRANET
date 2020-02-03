@@ -15,10 +15,10 @@ Permisos
                 <div class="card">
                     <div class="card-header">
                         <div class="row align-items-center">
-                            <div class="col-8">
+                            <div class="col-md-8 col-sm-12">
                                 <h4 class="card-title mb-0">{{ __('Nuevo permiso') }}</h4>
                             </div>
-                            <div class="col-4 text-right">
+                            <div class="col-md-4 col-sm-12 text-right">
                                 <a href="{{ route('permissions.index') }}" class="btn btn-sm btn-primary">{{ __('lista de Permisos') }}</a>
                             </div>
                         </div>

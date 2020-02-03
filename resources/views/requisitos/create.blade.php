@@ -48,7 +48,7 @@ Requisitos y Documentos Legales
 					</select>
 				</div>
 				<div class="form-group">
-					<button type="submit" class="btn btn-fill btn-success">Crear</button>
+					<button type="submit" class="btn btn-fill btn-success fas fa-plus"> Crear</button>
 				</div>
 			</form>
 		</div>
