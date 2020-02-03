@@ -1,4 +1,4 @@
-/*estilo de imput para input personalizade del documentos.edit*/
+estilo de imput para input personalizade del documentos.edit*/
 .custom-input-file input[type=file] {
   opacity: 1;
   width: 100%;
@@ -58,14 +58,6 @@
   font-weight: bold; 
 }
 
-
-
-
-/*En esta parte van los estilos del carousel*/
-
-
-
-
 #logo-prosarc {
   margin: -2em 0em 0em 8em;
 }
@@ -89,7 +81,7 @@
   box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
   15px 15px 16px gray;
   border: 1px solid #0099db;
-  margin: 3em 3em 3em 3em;
+  margin: 3em 0em 3em 0em;
 }
 
 .div-comites-ahora {
@@ -98,7 +90,7 @@
   box-shadow:  inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
   15px 15px 16px gray;
   border: 1px solid #6cd630;
-  margin: 3em 3em 3em 3em;
+  margin: 3em 0em 3em 0em;
 }
 
 
@@ -134,13 +126,18 @@
   min-height: 100%;
 }
 
+.responsive {
+  width: auto;
+  height: 100%;
+}
+
 .mision {
   background-image: linear-gradient(to bottom right, #00b2ff, #38c2fe, #6cd2fe) !important;
   border-radius: 10px;
   box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
   15px 15px 16px gray !important;
   border: 1px solid #0099db;
-  margin: 3em 2em 4em 4em;
+  margin: 2em 2em 2em 2em;
   padding: 3em 3em 3em 3em;
 }
 
@@ -150,7 +147,7 @@
  box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
  15px 15px 16px gray !important;
  border: 1px solid #0099db;
- margin: 3em 2em 4em 2em;
+ margin: 2em 2em 2em 2em;
  padding: 3em 3em 3em 3em;
 }
 
@@ -160,7 +157,7 @@
   box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
   15px 15px 16px gray !important;
   border: 1px solid #dc7d1d;
-  margin: 4em 4em 4em 4em;
+  margin: 4em 0em 4em 0em;
   padding: 3em 3em 3em 3em;
 }
 
@@ -170,13 +167,11 @@
   box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
   15px 15px 16px gray !important;
   border: 1px solid #4cc400;
-  margin: 2em 4em 2em 4em;
+  margin: 3em 0em 3em 0em;
   padding: 3em 3em 3em 3em;
 }
 
 .imagen-prosarc {
-  border-radius: 5%;
-  margin: 0em 3em 5em 3em;
   border-radius: 10px;
   box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
   15px 15px 16px gray !important;
@@ -215,4 +210,8 @@
   margin: -4.2em 0em 0em 0em;
 }
 
-/*aqui va la parte de los bordes del carousel*/
+.negrilla {
+  font-weight: 600;
+}
+
+/*aqui va la parte de los bordes del carousel

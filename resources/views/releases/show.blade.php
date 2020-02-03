@@ -10,56 +10,78 @@ Comunicados
 
 @section('content')
 	<div class="card">
-		<div class="card-header text-center">
-		  <h3 class="card-title"><strong>Comunicados</strong></h3>
-		</div>
-
-		<div class="text-left">
-		  <form action="{{ route('releases.destroy', $release) }}" method="POST" class="pull-right">
-		    @method('DELETE')
-		    @csrf 
-		      <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
-		  </form>
-		</div>
-
-		<div class="text-right" style="margin: -3em 100em 0em 2em;">
-			<a href="{{$release->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a> 
-		</div>
-
-		<div class="card-body">
-		  <div class="table-responsive table-upgrade">
-		  	<div style="background: #e7e7e7; border-radius: 5%; margin: 1em 1em 1em 1em">
-			    <table class="table">
-					<thead>
-						<th></th>
-						<th class="text-center">Nombre</th>
-						<th class="text-center"><h4>{{$release->RelName}}</h4></th>
-					</thead>
-					<tbody>
-			      	<tr>
-			      		<td></td>
-			      		<th class="text-center">Imagen</th>
-			      		<td class="text-center"><p> <img style="width: 20em; height: 15em; margin: 1.5em 1.5em 1.5em 1.5em; width: 40em; height: 20em;" src="{{Storage::url($release->RelSrc)}}"> </p></td>
-			      	</tr>
-					<tr>
-						<td></td>
-						<th class="text-center">Mensaje</th>
-						<td class="text-center"><p> {{$release->RelMessage}} </p></td>
-					</tr>
-					<tr>
-						<td></td>
-						<th class="text-center">Fecha de publicación</th>
-						<td class="text-center"><p> {{$release->RelDate}} </p></td>
-					</tr>
-					<tr>
-						<td></td>
-						<th class="text-center">Tipo de Anuncio</th>
-						<td class="text-center"><p> {{$release->RelType}} </p></td>
-					</tr>
-			      </tbody>
-			    </table>
+		<div class="container">
+			<div class="col-md-12">
+				<div class="col-md-12">
+					<br><br>
+					<h3 class="card-title text-center"><strong>Comunicados</strong></h3>
+				</div>
+				<div class="row">
+					<div class="col-md-6 text-center">
+						<form action="{{ route('releases.destroy', $release) }}" method="POST">
+						  @method('DELETE')
+						  @csrf 
+						    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
+						</form>
+					</div>
+					<div class="col-md-6 text-center">
+						<a href="{{$release->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a><br><br><br>
+					</div>
+				</div>
 			</div>
-		  </div>
+		</div>
+
+		<div class="container">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-3">
+						<h4 class="text-center negrilla">Nombre</h4>
+					</div>
+					<div class="col-md-9 text-center">
+						<h4>{{$release->RelName}}</h4>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-3">
+						<h4 class="text-center negrilla">Imagen</h4>
+					</div>
+					<div class="col-md-9 text-center">
+						<p><img class="resposive" src="{{Storage::url($release->RelSrc)}}"> </p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-3">
+						<h4 class="text-center negrilla">Mensaje</h4>
+					</div>
+					<div class="col-md-9 text-center">
+						<p> {{$release->RelMessage}} </p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-3">
+						<h4 class="text-center negrilla">Fecha de publicación</h4>
+					</div>
+					<div class="col-md-9 text-center">
+						<p> {{$release->RelDate}} </p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-3">
+						<h4 class="text-center negrilla">Tipo de Anuncio</h4>
+					</div>
+					<div class="col-md-9 text-center">
+						<p> {{$release->RelType}} </p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 @endsection
