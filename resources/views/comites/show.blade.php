@@ -10,82 +10,128 @@ Comités
 
 @section('content')
 	<div class="card">
-		<div class="card-header text-center">
-		  <h3 class="card-title"><strong>Cómites</strong></h3>
-		</div>
-
-		<div class="text-left">
-		  <form action="{{ route('comites.destroy', $comite) }}" method="POST" class="pull-right">
-		    @method('DELETE')
-		    @csrf 
-		      <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
-		  </form>
-		</div>
-
-		<div class="text-right" style="margin: -3em 100em 0em 2em;">
-			<a href="{{$comite->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a> 
-		</div>
-
-
-		<div class="card-body">
-		  <div class="table-responsive table-upgrade">
-		  	<div style="background: #f5f6fa; border-radius: 5%; margin: 1em 1em 1em 1em">
-			    <table class="table">
-					<thead>
-						<th></th>
-						<th class="text-center">Nombre</th>
-						<th class="text-center"><h4>{{$comite->ComiName}}</h4></th>
-					</thead>
-					<tbody>
-			      	<tr>
-			      		<td></td>
-			      		<th class="text-center">Imagen del cómite</th>
-			      		<td class="text-center"><p> <img style="width: 20em; height: 15em; margin: 1.5em 1.5em 1.5em 1.5em; width: 40em; height: 20em;" src="{{Storage::url($comite->ComiSrc)}}"> </p></td>
-			      	</tr>
-					<tr>
-						<td></td>
-						<th class="text-center">Foto del cómite</th>
-						<td class="text-center"><p> <img style="width: 20em; height: 15em; margin: 1.5em 1.5em 1.5em 1.5em; width: 40em; height: 20em;" src="{{Storage::url($comite->ComiImage)}}"> </p></td>
-					</tr>
-					<tr>
-						<td></td>
-						<th class="text-center">Función del cómite</th>
-						<td class="text-center"><p> {{$comite->ComiParaQueSirve}} </p></td>
-					</tr>
-					<tr>
-						<td></td>
-						<th class="text-center">Telefono de contacto</th>
-						<td class="text-center"><p> {{$comite->ComiTelefono}} </p></td>
-					</tr>
-					<tr>
-						<td></td>
-						<th class="text-center">Email de contacto</th>
-						<td class="text-center"><p> {{$comite->ComiEmail}} </p></td>
-					</tr>
-					<tr>
-						<td></td>
-						<th class="text-center">Integrantes</th>
-						<td class="text-center">{{$comite->ComiIntegrantes}}</td>
-					</tr>
-					<tr>
-						<td></td>
-						<th class="text-center">Última reunión</th>
-						<td class="text-center"><p> {{$comite->ComiDateLast}} </p></td>
-					</tr>
-					<tr>
-						<td></td>
-						<th class="text-center">Observaciones</th>
-						<td class="text-center"><p> {{$comite->ComiObservations}} </p></td>
-					</tr>
-					<tr>
-						<td></td>
-						<th class="text-center">Próxima reunión</th>
-						<td class="text-center"><p> {{$comite->ComiDateNext}} </p></td>
-					</tr>
-			      </tbody>
-			    </table>
+		<div class="container">
+			<div class="col-md-12">
+				<div class="col-md-12">
+					<br><br>
+					<h3 class="card-title text-center"><strong>Cómites</strong></h3>
+				</div>
+				<div class="row">
+					<div class="col-md-6 text-center">
+						<form action="{{ route('comites.destroy', $comite) }}" method="POST">
+						  @method('DELETE')
+						  @csrf 
+						    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
+						</form>
+					</div>
+					<div class="col-md-6 text-center">
+						<a href="{{$comite->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a><br><br><br>
+					</div>
+				</div>
 			</div>
-		  </div>
+		</div>
+
+		<div class="container">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-3">
+						<h4 class="text-center negrilla">Nombre</h4>
+					</div>
+					<div class="col-md-9 text-center">
+						<h4>{{$comite->ComiName}}</h4>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-3">
+						<h4 class="text-center negrilla">Imagen del cómite</h4>
+					</div>
+					<div class="col-md-9 text-center">
+						<img class="responsive" src="{{Storage::url($comite->ComiSrc)}}">
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-3">
+						<h4 class="text-center negrilla">Foto del cómite</h4>
+					</div>
+					<div class="col-md-9 text-center">
+						<img class="responsive" src="{{Storage::url($comite->ComiImage)}}">
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-3">
+						<h4 class="text-center negrilla">Función del cómite</h4>
+					</div>
+					<div class="col-md-9 text-center">
+						<p>{{$comite->ComiParaQueSirve}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-3">
+						<h4 class="text-center negrilla">Telefono de contacto</h4>
+					</div>
+					<div class="col-md-9 text-center">
+						<p>{{$comite->ComiTelefono}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-3">
+						<h4 class="text-center negrilla">Email de contacto</h4>
+					</div>
+					<div class="col-md-9 text-center">
+						<p>{{$comite->ComiEmail}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-3">
+						<h4 class="text-center negrilla">Integrantes</h4>
+					</div>
+					<div class="col-md-9 text-center">
+						<p>{{$comite->ComiIntegrantes}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-3">
+						<h4 class="text-center negrilla">Última reunión</h4>
+					</div>
+					<div class="col-md-9 text-center">
+						<p>{{$comite->ComiDateLast}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-3">
+						<h4 class="text-center negrilla">Observaciones</h4>
+					</div>
+					<div class="col-md-9 text-center">
+						<p>{{$comite->ComiObservations}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-3">
+						<h4 class="text-center negrilla">Próxima reunión</h4>
+					</div>
+					<div class="col-md-9 text-center">
+						<p>{{$comite->ComiDateNext}}</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 @endsection

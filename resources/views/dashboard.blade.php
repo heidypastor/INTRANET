@@ -13,10 +13,7 @@ Home
         <div class="col-md-12 card-body">
             <div class="content">
                 <h1 class="card-title text-center col-md-12">NOVEDADES <strong>PROSARC</strong></h1>
-                {{-- <div>
-                  <img class="rollo-pelicula-1" src="white/img/rollo-pelicula-recorte.png">
-                </div> --}}
-                <div id="carousel" class="col-md-12 col-sm-12">
+                <div id="carousel" class="col-md-8 col-sm-12 mx-auto">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                       <ol class="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -28,42 +25,42 @@ Home
                       </ol>
                       <div class="carousel-inner" id="imagen-carousel">
                         <div class="carousel-item active">
-                          <img class="d-block w-100" src="white/img/DJI_0125.jpg" alt="First slide" width="640" height="360">
+                          <img class="d-block w-100 responsive" src="white/img/DJI_0125.jpg" alt="First slide" width="640" height="360">
                           <div class="carousel-caption d-none d-md-block">
                             <h3 id="text-carousel" class="texto-carousel">Conoce PROSARC</h3>
                             <p id="text-carousel" class="texto-carousel"></p>
                           </div>
                         </div>
                         <div class="carousel-item">
-                          <img class="d-block w-100" src="white/img/bombero.png" alt="Second slide"  width="640" height="360">
+                          <img class="d-block w-100 responsive" src="white/img/bombero.png" alt="Second slide"  width="640" height="360">
                           <div class="carousel-caption d-none d-md-block">
                             <h3 id="text-carousel" class="texto-carousel"></h3>
                             <h3 id="text-carousel" class="texto-carousel"></h3>
                           </div>
                         </div>
                         <div class="carousel-item">
-                          <a href="indicators/{{$indicator->id}}"><img class="d-block w-100" src="{{Storage::url($indicator->IndGraphic)}}" alt="Thrid slide"  width="640" height="360"></a>
+                          <a href="indicators/{{$indicator->id}}"><img class="d-block w-100 responsive" src="{{Storage::url($indicator->IndGraphic)}}" alt="Thrid slide"  width="640" height="360"></a>
                           <div class="carousel-caption d-none d-md-block">
                             <h3 id="text-carousel" class="texto-carousel">Indicador Actualizado</h3>
                             <h3 id="text-carousel" class="texto-carousel">{{$indicator->IndName}}</h3>
                           </div>
                         </div>
                         <div class="carousel-item">
-                          <a href="comites/{{$comitesCarousel->id}}"><img class="d-block w-100" src="{{Storage::url($comitesCarousel->ComiImage)}}" alt="Four slide"  width="640" height="360"></a>
+                          <a href="comites/{{$comitesCarousel->id}}"><img class="d-block w-100 responsive" src="{{Storage::url($comitesCarousel->ComiImage)}}" alt="Four slide"  width="640" height="360"></a>
                           <div class="carousel-caption d-none d-md-block">
                             <h3 id="text-carousel" class="texto-carousel">Comite Actualizado</h3>
                             <h3 id="text-carousel" class="texto-carousel">{{$comitesCarousel->ComiName}}</h3>
                           </div>
                         </div>
                         <div class="carousel-item">
-                          <a href="releases/{{$release->id}}"><img class="d-block w-100" src="{{Storage::url($release->RelSrc)}}" alt="Six slide"  width="640" height="360"></a>
+                          <a href="releases/{{$release->id}}"><img class="d-block w-100 responsive" src="{{Storage::url($release->RelSrc)}}" alt="Six slide"  width="640" height="360"></a>
                           <div class="carousel-caption d-none d-md-block">
                             <h3 id="text-carousel" class="texto-carousel">¡¡Nuev@ {{$release->RelType}}!!</h3>
                             <h3 id="text-carousel" class="texto-carousel">{{$release->RelName}}</h3>
                           </div>
                         </div>
                         <div class="carousel-item">
-                          <img class="d-block w-100" src="white/img/docu.jpg" alt="Five slide"  width="640" height="360">
+                          <img class="d-block w-100 responsive" src="white/img/docu.jpg" alt="Five slide"  width="640" height="360">
                           <div class="carousel-caption d-none d-md-block">
                             <h3 id="text-carousel" class="texto-carousel">Documento Actualizado</h3>
                             <h3 id="text-carousel" class="texto-carousel">{{$document->DocName}}</h3>
@@ -80,43 +77,54 @@ Home
                       </a>
                     </div>
                 </div>
-                {{-- <div class="rollo-pelicula-2">
-                  <img src="white/img/rollo-pelicula-recorte.png">
-                </div> --}}
             </div>
         </div>
     </div>
     <div class="text-center">
       <div class="div-conoce-pro">
         <h2 class="text-center">Conoce a Prosarc</h2>
-        <table class="col-lg-12 text-center">
-          <tr>
-            <td><a href="{{ route('prosarc.nosotros')  }}"><img src="white/img/logo.png" class="botones-conoce"></a></td>
-            <td><a href="{{ route('requisitos.index')  }}"><img src="white/img/RL.jpg" class="botones-conoce"></a></td>
-          </tr>
-          <tr>
-            <td><h4>Nosotros</h4></td>
-            <td><h4>Requisitos legales</h4></td>
-          </tr>
-        </table>
+        <div class="row">
+          <div class="col-md-6">
+            <a href="{{ route('prosarc.nosotros') }}"><img src="white/img/logo.png" class="botones-conoce"></a>
+            <br>
+            <h4>Nosotros</h4>
+          </div>
+          <div class="col-md-6">
+            <a href="{{ route('requisitos.index') }}"><img src="white/img/RL.jpg" class="botones-conoce"></a>
+            <br>
+            <h4>Requisitos legales</h4>
+          </div>
+        </div>
       </div>
       <div class="div-conoce-pro">
         <h2 class="text-center">Nuestra Gestión</h2>
-        <table class="col-lg-12 text-center">
-          <tr>
-            <td><a href="{{ route('prosarc.GHumana') }}"><img src="white/img/GH.jpg" class="botones-conoce"></a></td>
-            <td><a href="{{ route('prosarc.GAmbiental') }}"><img src="white/img/GA.jpg" class="botones-conoce"></a></td>
-            <td><a href="{{ route('prosarc.GCalidad') }}"><img src="white/img/GC.jpg" class="botones-conoce"></a></td>
-            <td><a href="{{ route('prosarc.SST') }}"><img src="white/img/SST.jpg" class="botones-conoce"></a></td>
-          </tr>
-          <tr>
-            <td><h4>Gestión Humana</h4></td>
-            <td><h4>Gestión Ambiental</h4></td>
-            <td><h4>Gestión de Calidad</h4></td>
-            <td><h4>Seguridad y salud <br> en el trabajo</h4></td>
-          </tr>
-        </table>
+        <div class="row">
+          <div class="col-md-3 mx-auto">
+            <a href="{{ route('prosarc.GHumana') }}"><img src="white/img/GH.jpg" class="botones-conoce"></a>
+            <br>
+            <h4>Gestión Humana</h4>         
+          </div>
+
+          <div class="col-md-3 mx-auto">
+            <a href="{{ route('prosarc.GAmbiental') }}"><img src="white/img/GA.jpg" class="botones-conoce"></a>
+            <br>
+            <h4>Gestión Ambiental</h4>          
+          </div>
+
+          <div class="col-md-3 mx-auto">
+            <a href="{{ route('prosarc.GCalidad') }}"><img src="white/img/GC.jpg" class="botones-conoce"></a>
+            <br>
+            <h4>Gestión de Calidad</h4>
+          </div>
+
+          <div class="col-md-3 mx-auto">
+            <a href="{{ route('prosarc.SST') }}"><img src="white/img/SST.jpg" class="botones-conoce"></a>
+            <br>
+            <h4>Seguridad y salud <br> en el trabajo</h4>
+          </div>
+        </div>
       </div>
+
       <div class="div-comites-ahora text-center">
         <div class="col-lg-12">
           <h2 class="text-center">Comites PROSARC</h2>

@@ -15,10 +15,10 @@ Usuarios
                 <div class="card">
                     <div class="card-header">
                         <div class="row align-items-center">
-                            <div class="col-8">
+                            <div class="col-md-8 col-sm-12">
                                 <h3 class="mb-0">{{ __('Gestión de usuarios') }}</h3>
                             </div>
-                            <div class="col-4 text-right">
+                            <div class="col-md-4 col-sm-12 text-right">
                                 <a href="{{ route('user.index') }}" class="btn btn-sm btn-primary">{{ __('Volver a la lista') }}</a>
                             </div>
                         </div>
