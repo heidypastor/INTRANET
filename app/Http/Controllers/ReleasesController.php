@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\User;
+use App\Mail\ReleaseStored;
+use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Mail;
 
 class ReleasesController extends Controller
 {
@@ -51,6 +55,13 @@ class ReleasesController extends Controller
         $releases->RelSrc = $path;
         $releases->user_id = Auth::user()->id;
         $releases->save();
+
+        $users = User::all('email');
+        /*$users = User::find(2);*/
+        return $users;
+
+        /*Notification::send($users->email, new MailReleases($releases));*/
+        Mail::to($users)->send(new ReleaseStored($releases));
 
         return redirect()->route('releases.index');
     }
