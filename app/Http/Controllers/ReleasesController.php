@@ -58,12 +58,12 @@ class ReleasesController extends Controller
 
         $users = User::all('email');
         /*$users = User::find(2);*/
-        return $users;
+        /*return $users;*/
 
         /*Notification::send($users->email, new MailReleases($releases));*/
         Mail::to($users)->send(new ReleaseStored($releases));
 
-        return redirect()->route('releases.index');
+        return redirect()->route('releases.index')->withStatus(__('Comunicado creado correctamente'));
     }
 
     /**
@@ -105,7 +105,7 @@ class ReleasesController extends Controller
         }else{
         }
 
-        return redirect()->route('releases.index');
+        return redirect()->route('releases.index')->withStatus(__('Comunicado actualizado correctamente'));
     }
 
     /**
@@ -120,6 +120,6 @@ class ReleasesController extends Controller
         Storage::disk('local')->delete($comunicadoActual);
         $release->delete();
 
-        return redirect()->route('releases.index');
+        return redirect()->route('releases.index')->withStatus(__('Comunicado eliminado correctamente'));
     }
 }

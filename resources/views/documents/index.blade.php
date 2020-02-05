@@ -24,7 +24,7 @@ Documentos
 		  @endhasrole
 		  </h4>
 		</div>
-
+        @include('alerts.success')
 		<div class="card-body">
 			<table class="table table-bordered table-striped" id="tabledata">
 			  <thead>

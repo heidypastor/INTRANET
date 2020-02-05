@@ -53,6 +53,12 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Comites');
     }
 
+    public function alerts()
+    {
+        return $this->hasMany('App\Alerts');
+        //Relación de la tabla areas y la tabla usearios
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

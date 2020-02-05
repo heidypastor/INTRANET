@@ -18,7 +18,7 @@ Requisitos y Documentos Legales
 		<div class="pull-left">
 			<a href="{{ route('requisitos.create') }}" class="fas fa-plus btn btn-fill btn-success"> Crear</a>
 		</div>
-
+		@include('alerts.success')
 		<div class="card-body">
 			<div class="row">
 				@foreach($requisitos as $requisito)
@@ -62,11 +62,23 @@ Requisitos y Documentos Legales
 				      					<a href="requisitos/{{$requisito->id}}/edit" class="btn btn-fill btn-warning far fa-edit"></a>
 				      				</td>
 				      				<td>
-				      					<form id="eliminarrequisito" action="{{ route('requisitos.destroy', $requisito) }}" method="POST" class="pull-right">
-				      						@method('DELETE')
-				      						@csrf
-				      						<button type="submit" class="btn btn-danger fas fa-trash"></button>
-				      					</form>
+				      					<button type="button" class="btn btn-danger fas fa-trash pull-right" data-toggle="modal" data-target="#eliminar{{$requisito->id}}">
+				      					</button>
+				      					@component('layouts.partials.modal')
+				      						@slot('id')
+				      							{{$requisito->id}}
+				      						@endslot
+				      						@slot('textModal')
+				      							{{$requisito->ReqName}}
+				      						@endslot
+				      						@slot('botonModal')
+				      							<form id="eliminarrequisito" action="{{ route('requisitos.destroy', $requisito) }}" method="POST" class="pull-right">
+				      								@method('DELETE')
+				      								@csrf
+				      								<button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
+				      							</form>
+				      						@endslot
+				      					@endcomponent
 				      				</td>	      				
 				      			</tr>
 					      	</table>

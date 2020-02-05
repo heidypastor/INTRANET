@@ -53,7 +53,7 @@ class RequisitosController extends Controller
 
         $requisito->areas()->attach($areaid);
 
-        return redirect()->route('requisitos.index');
+        return redirect()->route('requisitos.index')->withStatus(__('Requisito y documento legal creado correctamente'));
     }
 
     /**
@@ -93,7 +93,7 @@ class RequisitosController extends Controller
         $areaid = $request->input('areas');
         $requisito->areas()->attach($areaid);
 
-        return redirect()->route('requisitos.index');
+        return redirect()->route('requisitos.index')->withStatus(__('Requisito y documento legal actualizado correctamente'));
     }
 
     /**
@@ -105,6 +105,6 @@ class RequisitosController extends Controller
     public function destroy(Requisitos $requisito)
     {
         $requisito->delete();
-        return redirect()->route('requisitos.index');
+        return redirect()->route('requisitos.index')->withStatus(__('Requisito y documento legal eliminado correctamente'));
     }
 }

@@ -21,7 +21,7 @@ Comunicados
 		<div class="float-right">
 			<a href="{{ route('releases.create') }}" class="fas fa-plus btn btn-fill btn-success b-create"> Crear</a>
 		</div>
-
+        @include('alerts.success')
 		<div class="card-body">
 		  <div class="table-responsive table-upgrade">
 		    <table class="table">

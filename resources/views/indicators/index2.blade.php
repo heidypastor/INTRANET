@@ -23,7 +23,7 @@ Indicadores
 			<a href="{{ route('indicators.create') }}" class="float-right fas fa-plus btn btn-fill btn-success b-create"> Crear</a>
 		</div>
 
-
+        @include('alerts.success')
 		<div class="card-body">
 			<table class="table table-bordered table-striped" id="tabledata">
 			  <thead>

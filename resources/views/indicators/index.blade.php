@@ -16,6 +16,7 @@ Indicadores
 		<div class="col-md-12">
 			<a href="{{ route('indicators.create') }}" class="float-right fas fa-plus btn btn-fill btn-success b-create"> Crear</a>
 		</div>
+		@include('alerts.success')
 		<div class="row">
 			@foreach($Indicators as $indicator)
 				@if($indicator->IndType === 0)

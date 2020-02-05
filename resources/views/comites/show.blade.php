@@ -18,11 +18,24 @@ Comités
 				</div>
 				<div class="row">
 					<div class="col-md-6 text-center">
-						<form action="{{ route('comites.destroy', $comite) }}" method="POST">
-						  @method('DELETE')
-						  @csrf 
-						    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
-						</form>
+						<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$comite->id}}">
+						  Eliminar
+						</button>
+						@component('layouts.partials.modal')
+							@slot('id')
+								{{$comite->id}}
+							@endslot
+							@slot('textModal')
+								{{$comite->ComiName}}
+							@endslot
+							@slot('botonModal')
+								<form action="{{ route('comites.destroy', $comite) }}" method="POST">
+								  @method('DELETE')
+								  @csrf 
+								    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
+								</form>
+							@endslot
+						@endcomponent
 					</div>
 					<div class="col-md-6 text-center">
 						<a href="{{$comite->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a><br><br><br>

@@ -94,9 +94,9 @@ class IndicatorsController extends Controller
 
 
         if ($indicator->IndType === 0) {
-            return redirect()->route('indicators.index');
+            return redirect()->route('indicators.index')->withStatus(__('Indicador creado correctamente'));
         } else {
-            return redirect()->route('indicators.index2');
+            return redirect()->route('indicators.index2')->withStatus(__('Indicador creado correctamente'));
         } 
         
     }
@@ -167,7 +167,11 @@ class IndicatorsController extends Controller
         // $indicator->update(['IndGraphic' => $path]);
         // $indicator->update(['IndTable' => $pathimg]);
 
-        return redirect()->route('indicators.index');
+        if ($indicator->IndType === 0) {
+            return redirect()->route('indicators.index')->withStatus(__('Indicador actualizado correctamente'));
+        } else {
+            return redirect()->route('indicators.index2')->withStatus(__('Indicador actualizado correctamente'));
+        }
     }
 
     /**
@@ -186,6 +190,12 @@ class IndicatorsController extends Controller
         Storage::disk('local')->delete($tableActual);
         $indicator->delete();
 
-        return redirect()->route('indicators.index');
+
+        if ($indicator->IndType === 0) {
+            return redirect()->route('indicators.index')->withStatus(__('Indicador eliminado correctamente'));
+        } else {
+            return redirect()->route('indicators.index2')->withStatus(__('Indicador eliminado correctamente'));
+        }
+        /*return redirect()->route('indicators.index')->withStatus(__('Indicador eliminado correctamente'));*/
     }
 }
