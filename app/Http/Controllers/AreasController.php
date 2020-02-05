@@ -46,7 +46,7 @@ class AreasController extends Controller
         $area->AreaSede = $request->input('AreaSede');
         $area->save();
 
-        return redirect()->route('areas.index');
+        return redirect()->route('areas.index')->withStatus(__('Área creada correctamente'));
     }
 
     /**
@@ -84,7 +84,7 @@ class AreasController extends Controller
         /*$Area = Areas::where($id)->first();
         $Area = new Areas();*/
         $area->update($request->all());
-        return redirect()->route('areas.index');
+        return redirect()->route('areas.index')->withStatus(__('Área actualizada correctamente'));
     }
 
     /**
@@ -97,6 +97,6 @@ class AreasController extends Controller
     {
         /*return $area;*/
         $area->delete();
-        return redirect()->route('areas.index');
+        return redirect()->route('areas.index')->withStatus(__('Área eliminada correctamente'));
     }
 }

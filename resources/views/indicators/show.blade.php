@@ -25,11 +25,24 @@ Indicadores
 						@if(auth()->user()->can('editIndicator') && $indicator->user_id === $userid)
 							<div class="row">
 								<div class="col-md-6 col-sm-12 text-center">
-									<form action="{{ route('indicators.destroy', $indicator) }}" method="POST">
-									    @method('DELETE')
-									    @csrf 
-									    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
-									</form>
+									<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$indicator->id}}">
+									  Eliminar
+									</button>
+									@component('layouts.partials.modal')
+										@slot('id')
+											{{$indicator->id}}
+										@endslot
+										@slot('textModal')
+											{{$indicator->IndName}}
+										@endslot
+										@slot('botonModal')
+											<form action="{{ route('indicators.destroy', $indicator) }}" method="POST">
+											    @method('DELETE')
+											    @csrf 
+											    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
+											</form>
+										@endslot
+									@endcomponent
 								</div>
 								<div class="col-md-6 col-sm-12 text-center">
 									<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a><br><br><br>

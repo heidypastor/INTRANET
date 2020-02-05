@@ -62,7 +62,7 @@ class ComitesController extends Controller
         $comite->ComiIntegrantes = $request->input('ComiIntegrantes');
         $comite->save();
 
-        return redirect()->route('comites.index');
+        return redirect()->route('comites.index')->withStatus(__('Comite creado correctamente'));
     }
 
     /**
@@ -119,7 +119,7 @@ class ComitesController extends Controller
             
         }
 
-        return redirect()->route('comites.index');
+        return redirect()->route('comites.index')->withStatus(__('Comite actualizado correctamente'));
     }
 
     /**
@@ -136,7 +136,7 @@ class ComitesController extends Controller
         Storage::disk('local')->delete($imageActual);
         $comite->delete();
 
-        return redirect()->route('comites.index');
+        return redirect()->route('comites.index')->withStatus(__('Comite eliminado correctamente'));
 
     }
 }

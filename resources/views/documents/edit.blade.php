@@ -12,11 +12,24 @@ Documentos
 	<div class="card">
 		<div class="card-body">
 			<div class="text-right">
-				<form id="eliminardocument" action="{{ route('documents.destroy', $document) }}" method="POST" class="pull-right">
-					@method('DELETE')
-					@csrf
-					<button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
-				</form>
+				<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$document->id}}">
+				  Eliminar
+				</button>
+				@component('layouts.partials.modal')
+					@slot('id')
+						{{$document->id}}
+					@endslot
+					@slot('textModal')
+						{{$document->DocName}}
+					@endslot
+					@slot('botonModal')
+						<form id="eliminardocument" action="{{ route('documents.destroy', $document) }}" method="POST" class="pull-right">
+							@method('DELETE')
+							@csrf
+							<button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
+						</form>
+					@endslot
+				@endcomponent
 			</div>
 			<form id="formudeediciondocu" role="form" method="POST" action="{{ route('documents.update', $document) }}" enctype="multipart/form-data">
 				@method('PUT')

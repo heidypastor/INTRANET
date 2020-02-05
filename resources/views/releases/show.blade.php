@@ -18,11 +18,24 @@ Comunicados
 				</div>
 				<div class="row">
 					<div class="col-md-6 text-center">
-						<form action="{{ route('releases.destroy', $release) }}" method="POST">
-						  @method('DELETE')
-						  @csrf 
-						    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
-						</form>
+						<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$release->id}}">
+						  Eliminar
+						</button>
+						@component('layouts.partials.modal')
+							@slot('id')
+								{{$release->id}}
+							@endslot
+							@slot('textModal')
+								{{$release->RelName}}
+							@endslot
+							@slot('botonModal')
+								<form action="{{ route('releases.destroy', $release) }}" method="POST">
+								  @method('DELETE')
+								  @csrf 
+								    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
+								</form>
+							@endslot
+						@endcomponent
 					</div>
 					<div class="col-md-6 text-center">
 						<a href="{{$release->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a><br><br><br>

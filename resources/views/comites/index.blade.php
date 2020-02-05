@@ -21,6 +21,7 @@ Comités
 		<div class="float-right">
 			<a href="{{ route('comites.create') }}" class="fas fa-plus btn btn-fill btn-success" style="margin: 0em 0em 0em 2em;"> Crear</a>
 		</div>
+        @include('alerts.success')
 		<div class="card-body">
 		  <div class="table-responsive table-upgrade">
 		    <table class="table">

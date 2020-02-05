@@ -100,8 +100,8 @@
                     <i class="tim-icons icon-bell-55"></i>
                     <p>{{ __('Notifications') }}</p>
                 </a>
-            </li>
-            <li @if ($pageSlug == 'tables') class="active " @endif>
+            </li> --}}
+            {{-- <li @if ($pageSlug == 'tables') class="active " @endif>
                 <a href="{{ route('pages.tables') }}">
                     <i class="tim-icons icon-puzzle-10"></i>
                     <p>{{ __('Table List') }}</p>
@@ -151,13 +151,13 @@
                     <ul class="nav pl-4">
                         <li class=" {{ $pageSlug == 'Estrategicos' ? 'active' : '' }}">
                             <a href="{{ route('indicators.index') }}">
-                                <i class="tim-icons icon-chart-bar-32"></i>
+                                <i class="fas fa-chess"></i>
                                 <p>{{ __('Estrategicos') }}</p> 
                             </a>
                         </li>
                         <li class=" {{ $pageSlug == 'Generales' ? 'active' : '' }}">
                             <a href="{{ route('indicators.index2') }}">
-                                <i class="tim-icons icon-chart-bar-32"></i>
+                                <i class="far fa-chart-bar"></i>
                                 <p>{{ __('Generales') }}</p> 
                             </a>
                         </li>
@@ -193,6 +193,12 @@
                 <a href="{{ route('requisitos.index') }}">
                     <i class="fas fa-balance-scale"></i>
                     <p>{{ __('Requisitos Legales') }}</p>
+                </a>
+            </li>
+            <li class=" {{ $pageSlug == 'alerts' ? 'active' : '' }}">
+                <a href="{{ route('alerts.index') }}">
+                    <i class="fas fa-user-clock"></i>
+                    <p>{{ __('Alertas') }}</p>
                 </a>
             </li>
         </ul>

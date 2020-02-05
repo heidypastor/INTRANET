@@ -66,6 +66,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('actividad','ActivityController');
 	Route::resource('releases','ReleasesController');
 	Route::resource('requisitos','RequisitosController');
+	Route::resource('alerts','AlertsController');
 
 
 	/*rutas a metodos especificos de los controladores*/

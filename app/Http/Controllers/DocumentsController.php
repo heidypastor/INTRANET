@@ -88,7 +88,7 @@ class DocumentsController extends Controller
         /*$document->assignAreas($areas);*/
 
         // redireccionamiento al index de documentos
-        return redirect()->route('documents.index'); 
+        return redirect()->route('documents.index')->withStatus(__('Documento creado correctamente')); 
     }
 
     /**
@@ -158,7 +158,7 @@ class DocumentsController extends Controller
             $document->areas()->attach($areaid);
         }
         /*$tratamiento = Tratamiento::find($id);*/
-        return redirect()->route('documents.index');
+        return redirect()->route('documents.index')->withStatus(__('Documento actualizado correctamente'));
     }
 
     /**
@@ -172,6 +172,6 @@ class DocumentsController extends Controller
         $docActual = $document->DocSrc;
         Storage::disk('local')->delete($docActual);
         $document->delete();
-        return redirect()->route('documents.index');
+        return redirect()->route('documents.index')->withStatus(__('Documento eliminado correctamente'));
     }
 }

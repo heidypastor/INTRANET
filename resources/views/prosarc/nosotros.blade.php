@@ -14,7 +14,7 @@ Nosotros
 			<h2>PROSARC S.A. ESP</h2>
 		</div>
 		<div class="col-md-12">
-			<div class="col-md-10 mx-auto">
+			<div class="col-md-10" style="margin-left: auto;">
 				<img src="white/img/DJI_0123.jpg" class="responsive imagen-prosarc" width="600" height="400">
 			</div>
 		</div>
