@@ -3,11 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+// use Laravel\Scout\Searchable;
 
 class Indicators extends Model
 {
-    use Notifiable;
-
+    // use Searchable;
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -16,6 +17,18 @@ class Indicators extends Model
     protected $fillable = [
         'IndName', 'IndObjective', 'IndQueMide', 'IndGraphic', 'IndTable', 'IndDateFrom', 'IndDateUntil', 
     ];
+
+    public function areas()
+    {
+        return $this->belongsToMany('App\Areas');
+        //Relación de la tabla areas y la tabla indicadores 
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+        //Relación de la tabla indicadores y la tabla usuarios 
+    }
 
     /**
      * The attributes that should be hidden for arrays.

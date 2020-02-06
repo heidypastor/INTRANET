@@ -1,4 +1,17 @@
-@extends('layouts.app', ['page' => __('User Management'), 'pageSlug' => 'users'])
+@extends('layouts.app', ['page' => __('Usuarios'), 'pageSlug' => 'users'])
+
+@section('htmlheader_titleicon')
+/img/LogoProsarc.ico
+@endsection
+
+@section('htmlheader_title')
+Usuarios
+@endsection
+
+@push('css')
+    <link href="{{ asset('css') }}/datatable-depen.css" rel="stylesheet"/>
+    <link href="{{ asset('css') }}/datatable-plugins.css" rel="stylesheet"/>
+@endpush
 
 @section('content')
     <div class="row">
@@ -6,11 +19,11 @@
             <div class="card ">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col-8">
-                            <h4 class="card-title">{{ __('Users') }}</h4>
+                        <div class="col-6">
+                            <h4 class="card-title">{{ __('Usuarios') }}</h4>
                         </div>
-                        <div class="col-4 text-right">
-                            <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">{{ __('Add user') }}</a>
+                        <div class="col-6 text-right">
+                            <a href="{{ route('user.create') }}" class="btn btn-sm btn-success">{{ __('Crear usuario') }}</a>
                         </div>
                     </div>
                 </div>
@@ -20,9 +33,9 @@
                     <div class="">
                         <table class="table tablesorter " id="">
                             <thead class=" text-primary">
-                                <th scope="col">{{ __('Name') }}</th>
-                                <th scope="col">{{ __('Email') }}</th>
-                                <th scope="col">{{ __('Creation Date') }}</th>
+                                <th scope="col">{{ __('Nombre') }}</th>
+                                <th scope="col">{{ __('Correo Electronico') }}</th>
+                                <th scope="col">{{ __('Fecha de creación') }}</th>
                                 <th scope="col">{{ __('Roles') }}</th>
                                 <th scope="col"></th>
                             </thead>
@@ -52,13 +65,13 @@
                                                                 @csrf
                                                                 @method('delete')
 
-                                                                <a class="dropdown-item" href="{{ route('user.edit', $user) }}">{{ __('Edit') }}</a>
+                                                                <a class="dropdown-item" href="{{ route('user.edit', $user) }}">{{ __('Editar') }}</a>
                                                                 <button type="button" class="dropdown-item" onclick="confirm('{{ __("Are you sure you want to delete this user?") }}') ? this.parentElement.submit() : ''">
-                                                                            {{ __('Delete') }}
+                                                                            {{ __('Eliminar') }}
                                                                 </button>
                                                             </form>
                                                         @else
-                                                            <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Edit') }}</a>
+                                                            <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Editar') }}</a>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -69,12 +82,86 @@
                         </table>
                     </div>
                 </div>
-                <div class="card-footer py-4">
+                {{-- <div class="card-footer py-4">
                     <nav class="d-flex justify-content-end" aria-label="...">
                         {{ $users->links() }}
                     </nav>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
 @endsection
+
+@push('js')
+    <script src="{{ asset('js') }}/datatable-depen.js"></script>
+    <script src="{{ asset('js') }}/datatable-plugins.js"></script>
+@endpush
+
+@push('scripts')
+<script type="text/javascript">
+    /*$(document).ready( function () {
+        $('#tabledocuments').DataTable();
+    } );*/
+
+    $(document).ready(function() {
+        // /*var rol defino el rol del usuario*/
+        // var rol = "<?php echo Auth::user()->UsRol; ?>";
+        // /*var botoncito define los botones que se usaran si el usuario es programador*/
+        // var botoncito = (rol == 'Programador') ? [{extend: 'colvis', text: 'Columnas Visibles'}, {extend: 'copy', text: 'Copiar'}, {extend: 'excel', text: 'Excel'}, {extend: 'pdf', text: 'Pdf'}, {
+        //          extend: 'collection',
+        //          text: 'Selector',
+        //          buttons: ['selectRows', 'selectCells']
+        //      }] : [{extend: 'colvis', text: 'Columnas Visibles'}, {extend: 'excel', text: 'Excel'}];
+        /*inicializacion de datatable general*/        
+        var table = $('.table').DataTable({
+            "dom": "<'row'<'col-md-3'l><'col-md-5'B><'col-md-4'f>>" +
+                "<'row'<'col-md-12'tr>>" +
+                "<'row'<'col-md-6'i><'col-md-6'p>>",
+            "scrollX": false,
+            "autoWidth": true,
+            // "select": true,
+            "colReorder": true,
+            "searchHighlight": true,
+            "responsive": true,
+            "keys": true,
+            "lengthChange": true,
+            "buttons": [
+                // botoncito,
+            ],
+            "language": {
+                "sProcessing":     "Procesando...",
+                "sLengthMenu":     "Mostrar _MENU_ registros",
+                "sZeroRecords":    "No se encontraron resultados",
+                "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered":   "",
+                "sInfoPostFix":    "",
+                "sSearch":         "Buscar:",
+                "sUrl":            "",
+                "sInfoThousands":  ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst":    "Primero",
+                    "sLast":     "Último",
+                    "sNext":     "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                },
+                "colvis": 'Ajouté au presse-papiers',
+            }
+        });
+        /*funcion para resaltar las busquedas*/
+        // var table = $('.table').DataTable();
+
+        table.on('draw', function() {
+            var body = $(table.table().body());
+            body.unhighlight();
+            body.highlight(table.search());
+        });
+    });
+</script>
+@endpush

@@ -7,20 +7,30 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'White Dashboard') }}</title>
+        {{-- <title>{{ config('app.name', 'White Dashboard') }}</title> --}}
+        <title>INTRANET - @yield('htmlheader_title', 'section header title here') </title>
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('white') }}/img/apple-icon.png">
-        <link rel="icon" type="image/png" href="{{ asset('white') }}/img/favicon.png">
+        <link rel="icon" type="image/png" href="{{ asset('white') }}@yield('htmlheader_titleicon', '/img/favicon.png')">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
         <!-- Icons -->
-        <link href="{{ asset('white') }}/css/nucleo-icons.css" rel="stylesheet" />
+        <link href="{{ asset('white') }}/css/nucleo-icons.css" rel="stylesheet"/>
         <!-- CSS -->
-        <link href="{{ asset('white') }}/css/white-dashboard.css?v=1.0.0" rel="stylesheet" />
-        <link href="{{ asset('white') }}/css/theme.css" rel="stylesheet" />
+        <link href="{{ asset('white') }}/css/white-dashboard.css?v=1.0.0" rel="stylesheet"/>
+        <link href="{{ asset('white') }}/css/theme.css" rel="stylesheet"/>
+        <link href="{{ asset('css') }}/all.css" rel="stylesheet"/>
+
+        {{-- stack de hojas de estilo css --}}
+        @stack('css')
+
+
+        {{-- stilos personalizados ojo con el Important! --}}
+        <link href="{{ asset('css') }}/personalizados.css" rel="stylesheet"/>
     </head>
-    <body class="white-content {{ $class ?? '' }}">
+    <body class="white-content {{ $class ?? '' }} tipo-letra">
         @auth()
             <div class="wrapper">
                     @include('layouts.navbars.sidebar')
@@ -79,22 +89,26 @@
             @include('layouts.navbars.navbar')
             <div class="wrapper wrapper-full-page">
                 <div class="full-page {{ $contentClass ?? '' }}">
+                    <div class="imagen-fondo col-lg-12 col-xs-1 col-md-12"></div>
+                    <div class="degradado col-lg-4 col-xs-12 col-md-12"></div>
+                    <div id="particles-js" class="col-lg-5 col-xs-12 col-md-12 ml-1"></div>
                     <div class="content">
                         <div class="container">
                             @yield('content')
                         </div>
                     </div>
-                    @include('layouts.footer')
+                    {{-- @include('layouts.footer') --}}
                 </div>
             </div>
         @endauth
+        @auth()
         <div class="fixed-plugin">
             <div class="dropdown show-dropdown">
                 <a href="#" data-toggle="dropdown">
                 <i class="fa fa-cog fa-2x"> </i>
                 </a>
                 <ul class="dropdown-menu">
-                <li class="header-title"> Sidebar Background</li>
+                <li class="header-title"> Escoge un color</li>
                 <li class="adjustments-line">
                     <a href="javascript:void(0)" class="switch-trigger background-color">
                     <div class="badge-colors text-center">
@@ -111,29 +125,18 @@
                     <div class="clearfix"></div>
                     </a>
                 </li>
-                <li>
-                </li>
-                {{-- <li class="button-container">
-                    <a href="https://www.creative-tim.com/product/white-dashboard-laravel" target="_blank" class="btn btn-primary btn-block btn-round">Download Now</a>
-                    <a href="https://white-dashboard-laravel.creative-tim.com/docs/getting-started/laravel-setup.html" target="_blank" class="btn btn-default btn-block btn-round">
-                    Documentation
-                    </a>
-                </li>
-                <li class="header-title">Thank you for 95 shares!</li>
-                <li class="button-container text-center">
-                    <button id="twitter" class="btn btn-round btn-info"><i class="fab fa-twitter"></i> &middot; 45</button>
-                    <button id="facebook" class="btn btn-round btn-info"><i class="fab fa-facebook-f"></i> &middot; 50</button>
-                    <br>
-                    <br>
-                    <a class="github-button" href="https://github.com/creativetimofficial/white-dashboard-laravel" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-                </li> --}}
                 </ul>
             </div>
         </div>
+        @endauth
         <script src="{{ asset('white') }}/js/core/jquery.min.js"></script>
         <script src="{{ asset('white') }}/js/core/popper.min.js"></script>
         <script src="{{ asset('white') }}/js/core/bootstrap.min.js"></script>
         <script src="{{ asset('white') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+
+        {{-- <script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script> --}}
+
+
         <!--  Google Maps Plugin    -->
         <!-- Place this tag in your head or just before your close body tag. -->
         {{-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> --}}
@@ -146,6 +149,7 @@
         <script src="{{ asset('white') }}/js/theme.js"></script>
         {{-- incluido el secript de app.js para el codigo de laravel echo --}}
         <script src="{{ asset('js') }}/app.js"></script>
+        <script src="{{ asset('js') }}/all.js"></script>
 
         @stack('js')
 
@@ -396,12 +400,54 @@
             });
         });
         </script>
-        <script>
-            $('#iconolapiz').on('click', function(){
-                $('#Avatar').click();
+        
+        
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#searchallmodelinput").change(function(e){
+                    id=$("#searchallmodelinput").val();
+                    e.preventDefault();
+                    $.ajaxSetup({
+                      headers: {
+                          'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                      }
+                    });
+                    $.ajax({
+                        url: "{{url('search')}}/"+id,
+                        method: 'GET',
+                        data:{},
+                        beforeSend: function(){
+                            // $(".load").append('<i class="fas fa-sync-alt fa-spin"></i>');
+                            // $("#municipio").prop('disabled', true);
+                        },
+                        success: function(res){
+                            $("#resultList").empty();
+                            if (res['users'].length > 0||res['documents'].length > 0||res['indicators'].length > 0||res['releases'].length > 0) {
+                                for(var i = res['users'].length -1; i >= 0; i--){
+                                    $("#resultList").append(`<a class="dropdown-item" href="../../../user/`+res['users'][i].id+`/edit">${res['users'][i].name}</a>`);
+                                }
+                                for(var i = res['documents'].length -1; i >= 0; i--){
+                                    $("#resultList").append(`<a class="dropdown-item" href="../../../documents/`+res['documents'][i].id+`/edit">${res['documents'][i].DocName}</a>`);
+                                }
+                                for(var i = res['indicators'].length -1; i >= 0; i--){
+                                    $("#resultList").append(`<a class="dropdown-item" href="../../../indicators/`+res['indicators'][i].id+`">${res['indicators'][i].IndName}</a>`);
+                                }
+                                for(var i = res['releases'].length -1; i >= 0; i--){
+                                    $("#resultList").append(`<a class="dropdown-item" href="../../../releases/`+res['releases'][i].id+`">${res['releases'][i].RelName}</a>`);
+                                }
+                            }else{
+                                    $("#resultList").append(`<a class="list-group-item" value="">No se encontro información relacionada con este término de busqueda</li>`);
+                            }
+                        },
+                        complete: function(){
+                            // $(".load").empty();
+                            // $("#municipio").prop('disabled', false);
+                        }
+                    })
+                });
             });
         </script>
-        
-        @stack('js')
+
+        @stack('scripts')
     </body>
 </html>

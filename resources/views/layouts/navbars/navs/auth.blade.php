@@ -22,7 +22,7 @@
                         <span class="d-lg-none d-md-block">{{ __('Search') }}</span>
                     </button>
                 </li>
-                <li class="dropdown nav-item">
+                {{-- <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <div class="notification d-none d-lg-block d-xl-block"></div>
                         <i class="tim-icons icon-sound-wave"></i>
@@ -45,7 +45,7 @@
                             <a href="#" class="nav-item dropdown-item">{{ __('Another one') }}</a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <div class="photo">
@@ -56,14 +56,14 @@
                     </a>
                     <ul class="dropdown-menu dropdown-navbar">
                         <li class="nav-link">
-                            <a href="{{ route('profile.edit') }}" class="nav-item dropdown-item">{{ __('Profile') }}</a>
+                            <a href="{{ route('profile.edit') }}" class="nav-item dropdown-item">{{ __('Perfil') }}</a>
                         </li>
                         <li class="nav-link">
-                            <a href="#" class="nav-item dropdown-item">{{ __('Settings') }}</a>
+                            <a href="http://intranet.test/home" class="nav-item dropdown-item">{{ __('Inicio') }}</a>
                         </li>
                         <li class="dropdown-divider"></li>
                         <li class="nav-link">
-                            <a href="{{ route('logout') }}" class="nav-item dropdown-item" onclick="event.preventDefault();  document.getElementById('logout-form').submit();">{{ __('Log out') }}</a>
+                            <a href="{{ route('logout') }}" class="nav-item dropdown-item" onclick="event.preventDefault();  document.getElementById('logout-form').submit();">{{ __('Salir') }}</a>
                         </li>
                     </ul>
                 </li>
@@ -76,10 +76,27 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="{{ __('SEARCH') }}">
-                <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('Close') }}">
-                    <i class="tim-icons icon-simple-remove"></i>
-              </button>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="searchallmodelinput" aria-label="Text input with dropdown button" placeholder="{{ __('Buscar') }}" name="search" autocomplete="false" style="border: solid 1px; border-color: #e9ecef">
+                   {{--  <div class="input-group-append">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">EN</button>
+                        <div id="typesearch" class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Todos</a>
+                            <div role="separator" class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Indicadores</a>
+                            <a class="dropdown-item" href="#">Documentos</a>
+                            <a class="dropdown-item" href="#">Noticias</a>
+                            <a class="dropdown-item" href="#">Usuarios</a>
+                        </div>
+                    </div> --}}
+                </div>
+            </div>
+            <div class="modal-body h-0">
+                <div class="dropdown-menu show w-100" id="resultList">
+                  <a class="dropdown-item" href="#">Regular link</a>
+                  <a class="dropdown-item active" href="#">Active link</a>
+                  <a class="dropdown-item" href="#">Another link</a>
+                </div>                
             </div>
         </div>
     </div>

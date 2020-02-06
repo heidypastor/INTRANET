@@ -4,6 +4,9 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\sendAlert;
+use App\Alerts;
 
 class Kernel extends ConsoleKernel
 {
@@ -13,7 +16,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\MailDailyAlerts::class
     ];
 
     /**
@@ -24,8 +27,18 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        /*$schedule->command('inspire')
+                 ->hourly();*/
+
+        $schedule->command('mail:dailyalerts')->everyFiveMinutes();
+
+        // $schedule->call(function () {
+        //    /*$alerts = Alert::where('AlertDateNotifi', today())->get();*/
+        //    $alerts = Alerts::with('user')->where('AlertDateNotifi', today())->get();
+        //    for ($i=0; $i < count($alerts); $i++) { 
+        //        Mail::to($alerts[$i]->user->email)->queue(new sendAlert($alerts[$i]));
+        //    }
+        // })->everyMinute();
     }
 
     /**

@@ -1,5 +1,13 @@
 @extends('layouts.app', ['class' => 'register-page', 'page' => __('Register Page'), 'contentClass' => 'register-page'])
 
+@section('htmlheader_titleicon')
+/img/LogoProsarc.ico
+@endsection
+
+@section('htmlheader_title')
+Registró
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-5 ml-auto">

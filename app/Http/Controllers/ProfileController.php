@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\PasswordRequest;
+use App\User;
 
 class ProfileController extends Controller
 {
@@ -36,7 +37,7 @@ class ProfileController extends Controller
             
             auth()->user()->update(['Avatar' => '/images/'.$name]);
 
-        /*auth()->user()->update($request->all());*/
+                /*auth()->user()->update($request->all());*/
             }
 
             return back()->withStatus(__('Profile successfully updated.'));
