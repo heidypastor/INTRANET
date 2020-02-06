@@ -18,7 +18,6 @@ class CreateDocumentsProcessesTable extends Migration
             $table->foreign('documents_id')->references('id')->on('documents');
             $table->unsignedBigInteger('process_id');  /*Relación con la tabla process*/
             $table->foreign('process_id')->references('id')->on('processes');
-            $table->timestamps();
         });
     }
 

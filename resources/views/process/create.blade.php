@@ -82,14 +82,16 @@ titulo de la pagina
 			    	</div>
 			    </div>
 
+
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
-			    		<label class="input-label" for="ProcRequsitos">Requisitos por cumplir</label>
-			      		<select class="form-control" name="ProcRequsitos" placeholder="seleccione" id="ProcRequsitos">
-			    			@foreach($requisitos as $requisito)
-			    				<option value="{{$requisito->id}}">{{$requisito->ReqName}}</option>
+			    		<label class="input-label" for="Seguimiento">Seguimiento</label>
+			    		<input type="text" required class="form-control" id="Seguimiento" placeholder="lista de controles, auditorias, seguimientos, etc..." name="Seguimiento">
+			      		{{-- <select multiple id="Seguimiento" class="form-control" name="Seguimiento[]" placeholder="seleccione">
+			    			@foreach($roles as $rol)
+			    				<option value="{{$rol->id}}">{{$rol->name}}</option>
 			    			@endforeach
-			    		</select>
+			    		</select> --}}
 			    	</div>
 			    </div>
 
@@ -170,17 +172,6 @@ titulo de la pagina
 			    	</div>
 			    </div>
 
-			    <div class="col-md-6 col-xs-12">
-			    	<div class="form-group">
-			    		<label class="input-label" for="Seguimiento">Seguimiento</label>
-			    		<input type="text" required class="form-control" id="Seguimiento" placeholder="lista de controles, auditorias, seguimientos, etc..." name="Seguimiento">
-			      		{{-- <select multiple id="Seguimiento" class="form-control" name="Seguimiento[]" placeholder="seleccione">
-			    			@foreach($roles as $rol)
-			    				<option value="{{$rol->id}}">{{$rol->name}}</option>
-			    			@endforeach
-			    		</select> --}}
-			    	</div>
-			    </div>
 
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
@@ -215,6 +206,16 @@ titulo de la pagina
 			    	</div>
 			    </div>
 
+			    <div class="col-md-6 col-xs-12">
+			    	<div class="form-group">
+			    		<label class="input-label" for="ProcRequsitos">Requisitos por cumplir</label>
+			      		<select multiple class="form-control" name="ProcRequsitos[]" placeholder="seleccione" id="ProcRequsitos">
+			    			@foreach($requisitos as $requisito)
+			    				<option value="{{$requisito->id}}">{{$requisito->ReqName}}</option>
+			    			@endforeach
+			    		</select>
+			    	</div>
+			    </div>
 
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
@@ -224,7 +225,7 @@ titulo de la pagina
 			      		</textarea> 
 			    	</div>
 			    </div>
-
+			    
 			</div>
 		</div>
 		<div class="card-footer">
