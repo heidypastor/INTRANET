@@ -72,25 +72,25 @@ class ProcessController extends Controller
         $process->ProcResponsable = $request->input('ProcResponsable');
         $process->ProcAutoridad = $request->input('ProcAutoridad');
         $process->ProcRecursos = $request->input('ProcRecursos');
-        $process->ProcRequsitos = $request->input('ProcRequsitos');
         $process->ProcElaboro = $request->input('ProcElaboro');
         $process->ProcReviso = $request->input('ProcReviso');
         $process->ProcAprobo = $request->input('ProcAprobo');
         $process->ProcImage = $path;
+        $process->ProcChangesDescription = "añadido mediante intranet recientemente";
         $process->save();
 
-        $process->entradas()->attach($areaid);
-        $process->salidas()->attach($areaid);
-        $process->actividades()->attach($areaid);
-        $process->documentos()->attach($areaid);
-        $process->areas()->attach($areaid);
-        $process->indicadores()->attach($areaid);
-        $process->procesosDeSoporte()->attach($areaid);
-        $process->requisitos()->attach($areaid);
+        $process->entradas()->attach($request->input('Entradas'));
+        $process->salidas()->attach($request->input('Salidas'));
+        $process->actividades()->attach($request->input('Actividades'));
+        $process->documentos()->attach($request->input('Docs'));
+        $process->areas()->attach($request->input('Areas'));
+        $process->indicadores()->attach($request->input('Indicadores'));
+        $process->procesosDeSoporte()->attach($request->input('Soporte'));
+        $process->requisitos()->attach($request->input('ProcRequsitos'));
         /*$document->assignAreas($areas);*/
 
         // redireccionamiento al index de documentos
-        return redirect()->route('process.index'); 
+        return redirect()->route('proceso.index'); 
     }
 
     /**
@@ -99,11 +99,21 @@ class ProcessController extends Controller
      * @param  \App\Procesos  $procesos
      * @return \Illuminate\Http\Response
      */
-    public function show(Process $process)
+    public function show(Process $proceso)
     {
-        // $procesos = Process::with(['entradas', 'salidas', 'actividades', 'documentos', 'areas', 'indicadores', 'procesosDeSoporte'])->get();
+        // $proceso['entradas'] = $proceso->entradas()->get();
+        // $proceso['salidas'] = $proceso->salidas()->get();
+        // $proceso['actividades'] = $proceso->actividades()->get();
+        // $proceso['documentos'] = $proceso->documentos()->get();
+        // $proceso['areas'] = $proceso->areas()->get();
+        // $proceso['indicadores'] = $proceso->indicadores()->get();
+        // $proceso['procesosDeSoporte'] = $proceso->procesosDeSoporte()->get();
+        // $proceso['requisitos'] = $proceso->requisitos()->get();
 
-        return view('process.show', compact('process'));
+        // return $proceso;
+        $responsable = Role::findById($proceso->ProcResponsable);
+        // return $responsable;
+        return view('process.show', compact('proceso'));
     }
 
     /**
@@ -112,7 +122,7 @@ class ProcessController extends Controller
      * @param  \App\Procesos  $procesos
      * @return \Illuminate\Http\Response
      */
-    public function edit(Process $procesos)
+    public function edit(Process $proceso)
     {
         //
     }
@@ -124,7 +134,7 @@ class ProcessController extends Controller
      * @param  \App\Procesos  $procesos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Procesos $procesos)
+    public function update(Request $request, Procesos $proceso)
     {
         //
     }
@@ -135,7 +145,7 @@ class ProcessController extends Controller
      * @param  \App\Procesos  $procesos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Process $procesos)
+    public function destroy(Process $proceso)
     {
         //
     }

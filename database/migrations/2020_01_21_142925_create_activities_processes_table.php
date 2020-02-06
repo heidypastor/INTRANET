@@ -18,7 +18,6 @@ class CreateActivitiesProcessesTable extends Migration
             $table->foreign('activity_id')->references('id')->on('activities');
             $table->unsignedBigInteger('process_id');  /*Relación con la tabla process*/
             $table->foreign('process_id')->references('id')->on('processes');
-            $table->timestamps();
         });
     }
 

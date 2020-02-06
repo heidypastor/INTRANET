@@ -23,7 +23,7 @@ class ProcessesSeeder extends Seeder
         $process->ProcResponsable = 'SuperIntendente de planta';
         $process->ProcAutoridad = 'Gerente General';
         $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
-        $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
+        // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
         $process->ProcReviso = 'Gerente General';
         $process->ProcAprobo = 'Presidencia';
         $process->save();
@@ -40,7 +40,7 @@ class ProcessesSeeder extends Seeder
         $process->ProcResponsable = 'SuperIntendente de planta';
         $process->ProcAutoridad = 'Gerente General';
         $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
-        $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
+        // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
         $process->ProcReviso = 'Gerente General';
         $process->ProcAprobo = 'Presidencia';
         $process->save();
@@ -56,7 +56,7 @@ class ProcessesSeeder extends Seeder
         $process->ProcResponsable = 'SuperIntendente de planta';
         $process->ProcAutoridad = 'Gerente General';
         $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
-        $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
+        // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
         $process->ProcReviso = 'Gerente General';
         $process->ProcAprobo = 'Presidencia';
         $process->save();
@@ -73,7 +73,7 @@ class ProcessesSeeder extends Seeder
         $process->ProcResponsable = 'SuperIntendente de planta';
         $process->ProcAutoridad = 'Gerente General';
         $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
-        $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
+        // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
         $process->ProcReviso = 'Gerente General';
         $process->ProcAprobo = 'Presidencia';
         $process->save();
