@@ -27,6 +27,17 @@ class AlertsController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function calendario()
+    {
+        $alerts = Alerts::with('user')->get();
+        return view('alertas.calendario', compact('alerts'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
