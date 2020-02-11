@@ -3,7 +3,7 @@
 /img/LogoProsarc.ico
 @endsection
 @section('htmlheader_title')
-Proceso de {{'nombre del proceso'}}
+Proceso de {{$proceso->ProcName}}
 @endsection
 @push('css')
 {{--
@@ -14,7 +14,7 @@ Proceso de {{'nombre del proceso'}}
 <div class="card col-md-12">
 	<div class="card-header">
 		<h2>
-			<b>{{'Compras'}}</b>
+			<b>{{$proceso->ProcName}}</b>
 		</h2>
 	</div>
 	<div class="card-body">
@@ -24,12 +24,8 @@ Proceso de {{'nombre del proceso'}}
 			<div class="col-md-9 col-xs-12 float-left">
 				<h4 class="mt-0"><b class="text-info">Objetivo</b></h4>
 				<p>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-				</p>
-				<br>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</p>
+					{{$proceso->ProcObjetivo}}
+
 			</div>
 		</div>
 		<div class="row">
@@ -49,7 +45,7 @@ Proceso de {{'nombre del proceso'}}
 							<span>
 								<ul class="list-group">
 									<a href="#" class="list-group-item list-group-item-action">
-										{{'Superintendente de planta'}}
+										{{ Role::findById($proceso->ProcResponsable) }}
 									</a>
 								</ul>
 							</span>

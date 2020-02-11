@@ -14,11 +14,10 @@ class CreateProcessesRequisitosTable extends Migration
     public function up()
     {
         Schema::create('processes_requisitos', function (Blueprint $table) {
-            $table->unsignedBigInteger('processes_id');  /*Relación con la tabla processes*/
-            $table->foreign('processes_id')->references('id')->on('processes');
+            $table->unsignedBigInteger('process_id');  /*Relación con la tabla processes*/
+            $table->foreign('process_id')->references('id')->on('processes');
             $table->unsignedBigInteger('requisitos_id');  /*Relación con la tabla requisitos*/
             $table->foreign('requisitos_id')->references('id')->on('requisitos');
-            $table->timestamps();
         });
     }
 

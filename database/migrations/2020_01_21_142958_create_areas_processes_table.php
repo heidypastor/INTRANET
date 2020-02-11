@@ -18,7 +18,6 @@ class CreateAreasProcessesTable extends Migration
             $table->foreign('areas_id')->references('id')->on('areas');
             $table->unsignedBigInteger('process_id');  /*Relación con la tabla process*/
             $table->foreign('process_id')->references('id')->on('processes');
-            $table->timestamps();
         });
     }
 
