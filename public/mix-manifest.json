@@ -10,5 +10,7 @@
     "/js/datatable-plugins.js": "/js/datatable-plugins.js",
     "/js/particulas.js": "/js/particulas.js",
     "/js/particles.js": "/js/particles.js",
-    "/js/all.js": "/js/all.js"
+    "/js/all.js": "/js/all.js",
+    "/css/fullcalendar.css": "/css/fullcalendar.css",
+    "/js/fullcalendar.js": "/js/fullcalendar.js"
 }
