@@ -100,8 +100,10 @@ class AlertsController extends Controller
      * @param  \App\Alerts  $alerts
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Alerts $alerts)
+    public function update(Request $request, Alerts $alert)
     {
+        /*return $request;*/
+        $alert->update($request->all());
         return redirect()->route('alerts.index')->withStatus(__('Alerta actualizada correctamente'));
     }
 

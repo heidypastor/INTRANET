@@ -19,7 +19,7 @@ class Alerts extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
-        //Relación de la tabla areas y la tabla usearios
+        //Relación de la tabla areas y la tabla usuarios
     }
 
     /**

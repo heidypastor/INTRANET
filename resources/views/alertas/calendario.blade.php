@@ -34,8 +34,14 @@ Alertas - Calendario
         document.addEventListener('DOMContentLoaded', function() {
           var calendarEl = document.getElementById('calendar');
 
-          var calendar = new FullCalendar.Calendar(calendarEl, {
-            plugins: [ 'dayGrid', 'interaction' ],
+          var calendar = new FullCalendar.Calendar(
+            calendarEl, {
+
+            locale: 'es',
+            timeZone: 'UTC',
+            defaultView: 'dayGridMonth',
+
+            plugins: [ 'dayGrid', 'interaction', 'timeGrid' ],
             eventSources:[{
             events: [
                     @foreach($alerts as $alert)
@@ -53,14 +59,30 @@ Alertas - Calendario
             }],
             eventLimit: true,
             eventLimitText: "más",
+            header: {
+                left: 'dayGridMonth,timeGridWeek,timeGridDay',
+                center: 'title',
+                right: 'prev,today,next'
+            },
+            buttonText:{
+                today: 'Hoy',
+                day: 'Día',
+                month: 'Mes',
+                week: 'Semana'
+            },
+            defaultRangeSeparator: ' - ',
+            height: 'parent',
             views: {
                 month: {
                     eventLimit: 1
                 }
             },
+
             dateClick: function(info) {
                 calendar.changeView('timeGridDay', info.dateStr);
             },
+
+
             droppable: true,
             eventStartEditable: true,
             drop : function( dropInfo ) {
@@ -70,15 +92,29 @@ Alertas - Calendario
                     minute: '2-digit'
                 });
                 $('.AlertDateEvent').val(dropInfo.dateStr);
+            },
+
+            eventReceive: function( info ) {
+                var id = info.event.id;
+                var tipo = info.event.title;
+                info.event.remove();
+                    $('#AlertDateEvent').val("");                
+            },
+
+            eventDrop: function( eventDropInfo ) {
+                CambioDeFecha(eventDropInfo.event);
+            },
+
+            eventClick: function(info){
+                info.jsEvent.preventDefault();
+                window.open(info.event.url);
             }
           });
           calendar.render();
-            
-
-
             function CambioDeFecha(event){
                 var id = event.id;
-                var fecha = event.start.toISOString();
+                var fecha = event.start.parse();
+                var token = '{{csrf_token()}}';
                 var data = {Event:fecha};
                 $.ajaxSetup({
                     headers: {
@@ -93,16 +129,13 @@ Alertas - Calendario
                         NotifiTrue(msg);
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
-                        for (var i = jqXHR.responseJSON.errors.Event.length - 1; i >= 0; i--) {
+                        alert("Hay un error, no esta pasando por el AjaxController");
+                        /*for (var i = jqXHR.responseJSON.errors.Event.length - 1; i >= 0; i--) {
                             NotifiFalse(jqXHR.responseJSON.errors.Event[i]);
-                        }
+                        }*/
                     }
                 });
             }
-
-
-
-
         });
     </script>
 @endpush
