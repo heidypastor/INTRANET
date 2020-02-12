@@ -35,7 +35,11 @@ class OutputController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $salida = new Output();
+        $salida->OutputName = $request->input('OutputName');
+        $salida->save();
+
+        return redirect()->route('proceso.create')->withStatus(__('Salida creada correctamente'));
     }
 
     /**
