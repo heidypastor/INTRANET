@@ -45,7 +45,13 @@ Documentos
 			  	@foreach($Documents as $Document)
 			      <tr>
 			        <td class="text-center">{{$Document->DocName}}</td>
-			        <td class="text-center"><a target="_blank" href="{{Storage::url($Document->DocSrc)}}">{{$Document->DocOriginalName}}</td>
+			        <td class="text-center">
+                        @if($Document->DocSrc !== 'graficos1.jpg' || $Document->DocSrc === 'Null')
+                            <p><a href="/white/img/test.pdf"><strong>Archivo</strong></a></p>
+                        @else
+                            <p><a target="_blank" href="{{Storage::url($Document->DocSrc)}}">{{$Document->DocOriginalName}}</a></p>
+                        @endif
+                    </td>
 		        	<td class="text-center">{{$Document->DocVersion}}</td>
 		        	{{-- <td class="text-center">{{$Document->DocSize}}</td> --}}
 		        	<td class="text-center">{{ $Document->DocPublisher === 0 ? "No Publicado" : "Publicado" }}</td>
@@ -53,7 +59,7 @@ Documentos
 		        	<td class="text-center">
 		        		<ul class="list-group list-group-flush">
 		        		    @foreach($Document->areas as $area)
-		        		    <li class="list-group-item" style="background-color: #f5f6fa;"><font color="#525f7f">{{$area->AreaName}}</font></li>
+		        		    <li class="list-group-item" style="background-color: #ffffff;"><font color="#525f7f">{{$area->AreaName}}</font></li>
 		        		    @endforeach  
 		        		</ul>
 		        	</td>

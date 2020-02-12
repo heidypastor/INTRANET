@@ -20,7 +20,7 @@ Indicadores
 		<div class="row">
 			@foreach($Indicators as $indicator)
 				@if($indicator->IndType === 0)
-					<div class="col-md-5 text-center" style="background: #e7e7e7; border-radius: 5%; margin: 2.5em 2.5em 2.5em 2.5em;">
+					<div class="col-md-5 text-center index-indicators-1">
 						<table class="table">
 							<thead>
 							  <th></th>
@@ -31,7 +31,13 @@ Indicadores
 								<tr>
 					      			<td></td>
 									<th class="text-center">Gráfica</th>
-									<td class="text-center"><img src="{{Storage::url($indicator->IndGraphic)}}"></td>
+									<td class="text-center">
+										@if($indicator->IndGraphic !== 'graficos1.jpg' || $indicator->IndGraphic === 'Null')
+										    <img src="{{Storage::url($indicator->IndGraphic)}}" class="responsive">
+										@else
+										    <img src="/white/img/graficos1.jpg" class="responsive">
+										@endif
+									</td>
 								</tr>
 							</tbody>
 						</table>

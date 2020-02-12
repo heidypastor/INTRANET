@@ -104,6 +104,7 @@ class RequisitosController extends Controller
      */
     public function destroy(Requisitos $requisito)
     {
+        $requisito->Areas()->detach();
         $requisito->delete();
         return redirect()->route('requisitos.index')->withStatus(__('Requisito y documento legal eliminado correctamente'));
     }

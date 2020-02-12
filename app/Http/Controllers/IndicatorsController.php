@@ -183,6 +183,8 @@ class IndicatorsController extends Controller
     public function destroy(Indicators $indicator)
     {
         /*$indicator->delete();*/
+        $indicator->Areas()->detach();
+        
 
         $graphicActual = $indicator->IndGraphic;
         Storage::disk('local')->delete($graphicActual);
