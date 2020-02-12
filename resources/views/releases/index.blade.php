@@ -39,7 +39,13 @@ Comunicados
 		            <td class="text-center"><strong>{{$release->RelName}}</strong></td>
 		            <td class="text-center">{{$release->RelMessage}}</td>
 		            <td class="text-center">{{$release->RelDate}}</td>
-		            <td class="text-center"><img src="{{Storage::url($release->RelSrc)}}" width="100" height="100"></td>
+		            <td class="text-center">
+                        @if($release->RelSrc !== 'graficos1.jpg' || $release->RelSrc === 'Null')
+                            <img src="/white/img/bloc.jpg">
+                        @else
+                            <img src="{{Storage::url($release->RelSrc)}}" width="100" height="100">
+                        @endif
+                    </td>
 		            <td class="text-center">{{$release->RelType}}</td>
 		            <td class="text-center"><a href="releases/{{$release->id}}" class="btn btn-fill btn-warning far fa-edit"> Ver Más..</a></td>
 		          </tr>

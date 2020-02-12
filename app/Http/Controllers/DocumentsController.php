@@ -169,6 +169,7 @@ class DocumentsController extends Controller
      */
     public function destroy(Documents $document)
     {
+        $document->Areas()->detach();
         $docActual = $document->DocSrc;
         Storage::disk('local')->delete($docActual);
         $document->delete();

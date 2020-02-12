@@ -399,9 +399,7 @@
                 @endauth
             });
         });
-        </script>
-        
-        
+        </script>        
         <script type="text/javascript">
             $(document).ready(function(){
                 $("#searchallmodelinput").change(function(e){

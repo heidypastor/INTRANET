@@ -27,6 +27,17 @@ class AlertsController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function calendario()
+    {
+        $alerts = Alerts::with('user')->get();
+        return view('alertas.calendario', compact('alerts'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -89,8 +100,10 @@ class AlertsController extends Controller
      * @param  \App\Alerts  $alerts
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Alerts $alerts)
+    public function update(Request $request, Alerts $alert)
     {
+        /*return $request;*/
+        $alert->update($request->all());
         return redirect()->route('alerts.index')->withStatus(__('Alerta actualizada correctamente'));
     }
 

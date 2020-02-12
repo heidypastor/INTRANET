@@ -25,7 +25,7 @@ Home
                       </ol>
                       <div class="carousel-inner" id="imagen-carousel">
                         <div class="carousel-item active">
-                          <img class="d-block w-100 responsive" src="white/img/DJI_0125.jpg" alt="First slide" width="640" height="360">
+                          <img class="d-block w-100 responsive" src="white/img/DJI_0127.jpg" alt="First slide" width="640" height="360">
                           <div class="carousel-caption d-none d-md-block">
                             <h3 id="text-carousel" class="texto-carousel">Conoce PROSARC</h3>
                             <p id="text-carousel" class="texto-carousel"></p>
@@ -55,7 +55,13 @@ Home
                         <div class="carousel-item">
                           <a href="releases/{{$release->id}}"><img class="d-block w-100 responsive" src="{{Storage::url($release->RelSrc)}}" alt="Six slide"  width="640" height="360"></a>
                           <div class="carousel-caption d-none d-md-block">
-                            <h3 id="text-carousel" class="texto-carousel">¡¡Nuev@ {{$release->RelType}}!!</h3>
+                            <h3 id="text-carousel" class="texto-carousel">
+                              @if($release->RelType === 'Comunicado')
+                                ¡¡Nuevo {{$release->RelType}}!!
+                              @else
+                                ¡¡Nueva {{$release->RelType}}!!
+                              @endif
+                            </h3>
                             <h3 id="text-carousel" class="texto-carousel">{{$release->RelName}}</h3>
                           </div>
                         </div>
