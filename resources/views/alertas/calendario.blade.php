@@ -113,9 +113,10 @@ Alertas - Calendario
           calendar.render();
             function CambioDeFecha(event){
                 var id = event.id;
-                var fecha = event.start.parse();
+                var fecha = event.start.toISOString();
                 var token = '{{csrf_token()}}';
-                var data = {Event:fecha};
+                var data={Event:fecha,_token:token};
+                console.log(fecha);
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
@@ -126,13 +127,13 @@ Alertas - Calendario
                     type: "PUT",
                     data: data,
                     success: function (msg) {
-                        NotifiTrue(msg);
+                        alert(msg);
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         alert("Hay un error, no esta pasando por el AjaxController");
-                        /*for (var i = jqXHR.responseJSON.errors.Event.length - 1; i >= 0; i--) {
-                            NotifiFalse(jqXHR.responseJSON.errors.Event[i]);
-                        }*/
+                        // for (var i = jqXHR.responseJSON.errors.Event.length - 1; i >= 0; i--) {
+                        //     NotifiFalse(jqXHR.responseJSON.errors.Event[i]);
+                        // }
                     }
                 });
             }

@@ -92,77 +92,86 @@ Indicadores
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-3">
+				<div class="row mx-auto">
+					<div class="col-md-3 recuadro mx-auto">
 						<h4 class="text-center negrilla">Área a la cual pertenece</h4>
 					</div>
-					<div class="col-md-9 text-center">
-						<li class="list-group-item"  style="background: #FFFFFF;">
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
+						<li class="list-group-item"  style="background: #d2ffce;">
 		      	  			{{$area->AreaName}}
 		      	  		</li>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-3">
+				<div class="row mx-auto">
+					<div class="col-md-3 recuadro mx-auto">
 						<h4 class="text-center negrilla">Objetivo</h4>
 					</div>
-					<div class="col-md-9 text-center">
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						<p>{{$indicator->IndObjective}}</p>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-3">
+				<div class="row mx-auto">
+					<div class="col-md-3 recuadro mx-auto">
 						<h4 class="text-center negrilla">¿Que Mide?</h4>
 					</div>
-					<div class="col-md-9 text-center">
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						<p>{{$indicator->IndQueMide}}</p>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-3">
+				<div class="row mx-auto">
+					<div class="col-md-3 recuadro mx-auto">
 						<h4 class="text-center negrilla">Fecha de Evaluación</h4>
 					</div>
-					<div class="col-md-9 text-center">
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						<p><strong>Desde</strong> {{$indicator->IndDateFrom}}</p>  <p><strong>Hasta</strong> {{$indicator->IndDateUntil}} </p>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-3">
+				<div class="row mx-auto">
+					<div class="col-md-3 recuadro mx-auto">
 						<h4 class="text-center negrilla">Gráfica</h4>
 					</div>
-					<div class="col-md-9 text-center">
-						<a href="{{Storage::url($indicator->IndGraphic)}}"><img class="responsive" src="{{Storage::url($indicator->IndGraphic)}}"></a>
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
+						@if($indicator->IndGraphic === "")
+						   <a href="/white/img/graficos1.jpg"> <img src="/white/img/graficos1.jpg" class="responsive"></a>
+						@else
+						   <a href="{{Storage::url($indicator->IndGraphic)}}"> <img src="{{Storage::url($indicator->IndGraphic)}}" class="responsive"></a>
+						@endif
 					</div>
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-3">
+				<div class="row mx-auto">
+					<div class="col-md-3 recuadro mx-auto">
 						<h4 class="text-center negrilla">Tabla</h4>
 					</div>
-					<div class="col-md-9 text-center">
-						<p><a href="{{Storage::url($indicator->IndTable)}}"><strong>Archivo</strong></a></p>
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
+						@if($indicator->IndTable === "")
+						    <p><a href="/white/img/test.pdf"><strong>Archivo</strong></a></p>
+						@else
+							<p><a href="{{Storage::url($indicator->IndTable)}}"><strong>Archivo</strong></a></p>
+						@endif
 					</div>
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-3">
+				<div class="row mx-auto">
+					<div class="col-md-3 recuadro mx-auto">
 						<h4 class="text-center negrilla">Analisis</h4>
 					</div>
-					<div class="col-md-9 text-center">
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						<p>{{$indicator->IndAnalysis}}</p>
 					</div>
 				</div>
 			</div>
+			<br>
 		</div>
 	</div>
 @endsection

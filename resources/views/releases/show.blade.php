@@ -61,7 +61,11 @@ Comunicados
 						<h4 class="text-center negrilla">Imagen</h4>
 					</div>
 					<div class="col-md-9 text-center">
-						<p><img class="resposive" src="{{Storage::url($release->RelSrc)}}"> </p>
+						@if($release->RelSrc === "")
+						    <img src="/white/img/bloc.jpg">
+						@else
+						    <img class="resposive" src="{{Storage::url($release->RelSrc)}}">
+						@endif
 					</div>
 				</div>
 			</div>

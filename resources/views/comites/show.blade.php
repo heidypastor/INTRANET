@@ -46,105 +46,118 @@ Comités
 
 		<div class="container">
 			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-3">
+				<div class="row mx-auto">
+					<div class="col-md-3 mx-auto recuadro">
 						<h4 class="text-center negrilla">Nombre</h4>
 					</div>
-					<div class="col-md-9 text-center">
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						<h4>{{$comite->ComiName}}</h4>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-3">
+				<div class="row mx-auto">
+					<div class="col-md-3 mx-auto recuadro">
 						<h4 class="text-center negrilla">Imagen del cómite</h4>
 					</div>
-					<div class="col-md-9 text-center">
-						<img class="responsive" src="{{Storage::url($comite->ComiSrc)}}">
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
+						<div class="col-md-12">
+							@if($comite->ComiSrc === "")
+							    <img src="/white/img/empresa.jpg">
+							@else
+							    <img class="responsive" src="{{Storage::url($comite->ComiSrc)}}">
+							@endif
+						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-3">
+				<div class="row mx-auto">
+					<div class="col-md-3 mx-auto recuadro">
 						<h4 class="text-center negrilla">Foto del cómite</h4>
 					</div>
-					<div class="col-md-9 text-center">
-						<img class="responsive" src="{{Storage::url($comite->ComiImage)}}">
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
+						<div class="col-md-12">
+							@if($comite->ComiImage === "")
+							    <img src="/white/img/comite.png">
+							@else
+							    <img class="responsive" src="{{Storage::url($comite->ComiImage)}}">
+							@endif
+						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-3">
+				<div class="row mx-auto">
+					<div class="col-md-3 mx-auto recuadro">
 						<h4 class="text-center negrilla">Función del cómite</h4>
 					</div>
-					<div class="col-md-9 text-center">
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						<p>{{$comite->ComiParaQueSirve}}</p>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-3">
+				<div class="row mx-auto">
+					<div class="col-md-3 mx-auto recuadro">
 						<h4 class="text-center negrilla">Telefono de contacto</h4>
 					</div>
-					<div class="col-md-9 text-center">
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						<p>{{$comite->ComiTelefono}}</p>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-3">
+				<div class="row mx-auto">
+					<div class="col-md-3 mx-auto recuadro">
 						<h4 class="text-center negrilla">Email de contacto</h4>
 					</div>
-					<div class="col-md-9 text-center">
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						<p>{{$comite->ComiEmail}}</p>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-3">
+				<div class="row mx-auto">
+					<div class="col-md-3 mx-auto recuadro">
 						<h4 class="text-center negrilla">Integrantes</h4>
 					</div>
-					<div class="col-md-9 text-center">
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						<p>{{$comite->ComiIntegrantes}}</p>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-3">
+				<div class="row mx-auto">
+					<div class="col-md-3 mx-auto recuadro">
 						<h4 class="text-center negrilla">Última reunión</h4>
 					</div>
-					<div class="col-md-9 text-center">
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						<p>{{$comite->ComiDateLast}}</p>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-3">
+				<div class="row mx-auto">
+					<div class="col-md-3 mx-auto recuadro">
 						<h4 class="text-center negrilla">Observaciones</h4>
 					</div>
-					<div class="col-md-9 text-center">
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						<p>{{$comite->ComiObservations}}</p>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-3">
+				<div class="row mx-auto">
+					<div class="col-md-3 mx-auto recuadro">
 						<h4 class="text-center negrilla">Próxima reunión</h4>
 					</div>
-					<div class="col-md-9 text-center">
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						<p>{{$comite->ComiDateNext}}</p>
 					</div>
 				</div>
 			</div>
+			<br>
 		</div>
 	</div>
 @endsection

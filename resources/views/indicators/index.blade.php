@@ -17,25 +17,59 @@ Indicadores
 			<a href="{{ route('indicators.create') }}" class="float-right fas fa-plus btn btn-fill btn-success b-create"> Crear</a>
 		</div>
 		@include('alerts.success')
-		<div class="row">
+		<div class="row mx-auto">
 			@foreach($Indicators as $indicator)
 				@if($indicator->IndType === 0)
-					<div class="col-md-5 text-center" style="background: #e7e7e7; border-radius: 5%; margin: 2.5em 2.5em 2.5em 2.5em;">
-						<table class="table">
-							<thead>
-							  <th></th>
-							  <th class="text-center">Nombre</th>
-							  <th class="text-center">{{$indicator->IndName}}</th>
-							</thead>
-							<tbody>
-								<tr>
-					      			<td></td>
-									<th class="text-center">Gráfica</th>
-									<td class="text-center"><img src="{{Storage::url($indicator->IndGraphic)}}"></td>
-								</tr>
-							</tbody>
-						</table>
-						<a method='GET' href="indicators/{{$indicator->id}}" class="btn btn-secondary tim-icons icon-double-right"> Ver Más.</a>
+					<div class="col-md-5 text-center index-indicators-1">
+						{{-- <div class="col-md-6 mx-auto">
+							<div class="card" style="width: 18rem;">
+							  @if($indicator->IndGraphic === "")
+							      <img src="/white/img/graficos1.jpg" class="card-img-top">
+							  @else
+							      <img src="{{Storage::url($indicator->IndGraphic)}}" class="card-img-top">
+							  @endif
+							  <div class="card-body">
+							    <h5 class="card-title">Nombre</h5>
+							    <p class="card-text">{{$indicator->IndName}}</p>
+							    <a method='GET' href="indicators/{{$indicator->id}}" class="btn btn-secondary tim-icons icon-double-right"> Ver Más.</a>
+							  </div>
+							</div>
+						</div> --}}
+						<div class="card card-style" {{-- style="background-color: transparent; height: 25em;" --}}>
+							<div class="card-body">
+									<br>
+								<div class="row">
+									<div class="col-md-3 text-center">
+										<strong>Nombre</strong>
+									</div>
+									<div class="col-md-9">
+										<strong>{{$indicator->IndName}}</strong>
+									</div>
+								</div>
+									<br>
+								<div class="row">
+									<div class="col-md-3 text-center">
+										<strong>Gráfica</strong>
+									</div>
+									<div class="col-md-9">
+										<div class="col-md-12">
+											@if($indicator->IndGraphic === "")
+											    <img src="/white/img/graficos1.jpg" class="responsive height-img-index">
+											@else
+											    <img src="{{Storage::url($indicator->IndGraphic)}}" class="responsive height-img-index">
+											@endif
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-footer">
+								<div class="row">
+									<div class="col-md-12" style="bottom: 0;">
+										<a method='GET' href="indicators/{{$indicator->id}}" class="btn btn-secondary tim-icons icon-double-right"> Ver Más.</a>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				@else
 				@endif
