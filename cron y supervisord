@@ -1,0 +1,9 @@
+[program:laravel-worker]
+command=/usr/bin/php /home/prosar5/intranet.prosarc.com/artisan queue:work
+autostart=true
+autorestart=true
+user=prosar5
+numprocs=1
+
+
+/usr/local/bin/ea-php72 /home/prosar5/intranet.prosarc.com/artisan schedule:run
