@@ -17,9 +17,25 @@ titulo de la pagina
 	{{-- contenido de la pagina --}}
 	<div class="card">
 		<div class="card-header">
-			<h2>
-				<b>{{'Nuevo Proceso'}}</b>
-			</h2>
+			<div class="row">
+				<div class="col-md-10">
+					<h2>
+						<b>{{'Nuevo Proceso'}}</b>
+					</h2>
+				</div>
+				<div class="col-md-2 float-right">
+					<div class="dropdown">
+					  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    Agregar
+					  </button>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					    <a class="dropdown-item" data-toggle="modal" data-target="#ModalEntradas">Entradas</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#ModalActividades">Actividades</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#ModalSalidas">Salidas</a>
+					  </div>
+					</div>
+				</div>
+			</div>
 		</div>
 			 <form role="form" method="POST" action="{{ route('proceso.store') }}" enctype="multipart/form-data">
 			 @csrf
@@ -233,6 +249,97 @@ titulo de la pagina
 		</div>
 		</form> 
 	</div>
+
+
+
+
+	{{-- Esta es la sección de los modal --}}
+
+	{{-- Este modal corresponde a las entradas --}}
+	<div class="modal fade" id="ModalEntradas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Agregar Entrada</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	       	<form role="form" method="POST" action="{{ route('entrada.store')}}" enctype="multipart/form-data">
+	       		@csrf
+	       		<div class="form-group">
+	       			<label>Nombre de la entrada</label>	      
+	       			<input type="text" name="InputName" class="text-center form-control" required="">
+	       		</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+	        <button type="submit" class="fas fa-plus btn btn-fill btn-success"> Crear</button>
+	       	</form>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+	{{-- Este modal corresponde a las actividades --}}
+
+	<div class="modal fade" id="ModalActividades" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Agregar Actividad</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	       	<form role="form" method="POST" action="{{ route('actividad.store')}}" enctype="multipart/form-data">
+	       		@csrf
+	       		<div class="form-group">
+	       			<label>Nombre de la actividad</label>	      
+	       			<input type="text" name="ActiName" class="text-center form-control" required="">
+	       		</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+	        <button type="submit" class="fas fa-plus btn btn-fill btn-success"> Crear</button>
+	       	</form>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+	{{-- Este modal corresponde a las Salidas --}}
+
+	<div class="modal fade" id="ModalSalidas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Agregar Salida</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	       	<form role="form" method="POST" action="{{ route('salida.store')}}" enctype="multipart/form-data">
+	       		@csrf
+	       		<div class="form-group">
+	       			<label>Nombre de la salida</label>	      
+	       			<input type="text" name="OutputName" class="text-center form-control" required="">
+	       		</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+	        <button type="submit" class="fas fa-plus btn btn-fill btn-success"> Crear</button>
+	       	</form>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
 @endsection
 
 

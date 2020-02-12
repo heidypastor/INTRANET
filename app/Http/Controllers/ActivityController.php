@@ -35,7 +35,11 @@ class ActivityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $actividad = new Activity();
+        $actividad->ActiName = $request->input('ActiName');
+        $actividad->save();
+
+        return redirect()->route('proceso.create')->withStatus(__('Actividad creada correctamente'));
     }
 
     /**

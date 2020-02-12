@@ -35,7 +35,11 @@ class InputController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $entrada = new Input();
+        $entrada->InputName = $request->input('InputName');
+        $entrada->save();
+
+        return redirect()->route('proceso.create')->withStatus(__('Entrada creada correctamente'));
     }
 
     /**
