@@ -139,13 +139,11 @@ Indicadores
 						<h4 class="text-center negrilla">Gráfica</h4>
 					</div>
 					<div class="col-md-8 recuadro-2 mx-auto text-justify">
-						<a href="{{Storage::url($indicator->IndGraphic)}}">
-							@if($indicator->IndGraphic !== 'graficos1.jpg' || $indicator->IndGraphic === 'Null')
-							    <img src="{{Storage::url($indicator->IndGraphic)}}">
-							@else
-							    <img src="/white/img/graficos1.jpg">
-							@endif
-						</a>
+						@if($indicator->IndGraphic === "")
+						   <a href="/white/img/graficos1.jpg"> <img src="/white/img/graficos1.jpg" class="responsive"></a>
+						@else
+						   <a href="{{Storage::url($indicator->IndGraphic)}}"> <img src="{{Storage::url($indicator->IndGraphic)}}" class="responsive"></a>
+						@endif
 					</div>
 				</div>
 			</div>
@@ -155,7 +153,7 @@ Indicadores
 						<h4 class="text-center negrilla">Tabla</h4>
 					</div>
 					<div class="col-md-8 recuadro-2 mx-auto text-justify">
-						@if($indicator->IndTable == ' ' & $indicator->IndTable == 'Null')
+						@if($indicator->IndTable === "")
 						    <p><a href="/white/img/test.pdf"><strong>Archivo</strong></a></p>
 						@else
 							<p><a href="{{Storage::url($indicator->IndTable)}}"><strong>Archivo</strong></a></p>

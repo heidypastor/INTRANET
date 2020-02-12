@@ -61,7 +61,7 @@ Comunicados
 						<h4 class="text-center negrilla">Imagen</h4>
 					</div>
 					<div class="col-md-9 text-center">
-						@if($release->RelSrc !== 'graficos1.jpg' || $release->RelSrc === 'Null')
+						@if($release->RelSrc === "")
 						    <img src="/white/img/bloc.jpg">
 						@else
 						    <img class="resposive" src="{{Storage::url($release->RelSrc)}}">

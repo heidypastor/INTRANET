@@ -16,7 +16,7 @@ class DocumentsSeeder extends Seeder
             // id = 01
        $document = new Documents();
        $document->DocName = 'Sistemas Doc';
-       $document->DocSrc = 'public/Formatos/test.pdf';
+       $document->DocSrc = '';
        $document->DocVersion = 'AC';
        $document->DocType = 'Formatos';
        $document->DocMime = 'PDF';
@@ -30,7 +30,7 @@ class DocumentsSeeder extends Seeder
               // id = 02
        $document = new Documents();
        $document->DocName = 'Sistemas Doc';
-       $document->DocSrc = 'public/Formatos/test.pdf';
+       $document->DocSrc = '';
        $document->DocVersion = 'AC';
        $document->DocType = 'Formatos';
        $document->DocMime = 'PDF';

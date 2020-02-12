@@ -40,7 +40,7 @@ Comunicados
 		            <td class="text-center">{{$release->RelMessage}}</td>
 		            <td class="text-center">{{$release->RelDate}}</td>
 		            <td class="text-center">
-                        @if($release->RelSrc !== 'graficos1.jpg' || $release->RelSrc === 'Null')
+                        @if($release->RelSrc === "")
                             <img src="/white/img/bloc.jpg">
                         @else
                             <img src="{{Storage::url($release->RelSrc)}}" width="100" height="100">

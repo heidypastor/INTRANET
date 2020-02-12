@@ -46,7 +46,7 @@ Documentos
 			      <tr>
 			        <td class="text-center">{{$Document->DocName}}</td>
 			        <td class="text-center">
-                        @if($Document->DocSrc !== 'graficos1.jpg' || $Document->DocSrc === 'Null')
+                        @if($Document->DocSrc === "")
                             <p><a href="/white/img/test.pdf"><strong>Archivo</strong></a></p>
                         @else
                             <p><a target="_blank" href="{{Storage::url($Document->DocSrc)}}">{{$Document->DocOriginalName}}</a></p>

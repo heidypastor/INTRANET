@@ -93,7 +93,7 @@ class IndicatorsController extends Controller
         $indicator->areas()->attach($area);
 
 
-        if ($indicator->IndType === 0) {
+        if ($indicator->IndType == 0) {
             return redirect()->route('indicators.index')->withStatus(__('Indicador creado correctamente'));
         } else {
             return redirect()->route('indicators.index2')->withStatus(__('Indicador creado correctamente'));

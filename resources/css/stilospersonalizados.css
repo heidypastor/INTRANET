@@ -227,4 +227,13 @@ estilo de imput para input personalizade del documentos.edit*/
   margin: 2.5em 2.5em 2.5em 2.5em;
 }
 
+.height-img-index {
+  min-height: 180px;
+}
+
+.card-style {
+  background-color: transparent !important;
+  height: 25em;
+}
+
 /*aqui va la parte de los bordes del carousel
