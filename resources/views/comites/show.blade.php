@@ -62,10 +62,10 @@ Comités
 					</div>
 					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						<div class="col-md-12">
-							@if($comite->ComiSrc !== 'empresa.jpg' || $comite->ComiSrc === 'Null')
-							    <img class="responsive" src="{{Storage::url($comite->ComiSrc)}}">
-							@else
+							@if($comite->ComiSrc === "")
 							    <img src="/white/img/empresa.jpg">
+							@else
+							    <img class="responsive" src="{{Storage::url($comite->ComiSrc)}}">
 							@endif
 						</div>
 					</div>
@@ -78,7 +78,7 @@ Comités
 					</div>
 					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						<div class="col-md-12">
-							@if($comite->ComiImage !== 'comite.jpg' || $comite->ComiImage === 'Null')
+							@if($comite->ComiImage === "")
 							    <img src="/white/img/comite.png">
 							@else
 							    <img class="responsive" src="{{Storage::url($comite->ComiImage)}}">
