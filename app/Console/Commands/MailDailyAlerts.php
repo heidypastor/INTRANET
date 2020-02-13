@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Mail;
 use App\Alerts;
 use App\Mail\sendAlert;
 use App\Jobs\sendAlertJob;
-
 use App\Http\Controllers\AlertsController;
 
 class MailDailyAlerts extends Command
@@ -46,6 +45,9 @@ class MailDailyAlerts extends Command
         $alerts = Alerts::with('user')->where('AlertDateNotifi', today())->get();
         for ($i=0; $i < count($alerts); $i++) { 
             Mail::to($alerts[$i]->user->email)->queue(new sendAlert($alerts[$i]));
+            /*$alerts->update('AlertNotification' = 1);*/
+            $alerts[$i]->AlertNotification = 1;
+            $alerts[$i]->save();
             // sendAlertJob::dispatch($alerts[$i]);
         }
 

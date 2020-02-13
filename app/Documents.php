@@ -30,6 +30,12 @@ class Documents extends Model
         //Relación de la tabla documentos y la tabla usuarios 
     }
 
+    public function procesos()
+    {
+        return $this->belongsToMany('App\Process','documents_processes');
+        //Relación de la tabla processes y la tabla inputs 
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
