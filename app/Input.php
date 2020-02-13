@@ -15,6 +15,12 @@ class Input extends Model
 	    'InputName', 
 	];
 
+	public function procesos()
+    {
+        return $this->belongsToMany('App\Process','inputs_processes');
+        //Relación de la tabla processes y la tabla inputs 
+    }
+
 	/**
 	 * The attributes that should be hidden for arrays.
 	 *

@@ -20,7 +20,7 @@ Procesos
 			<div class="row">
 				<div class="col-md-10">
 					<h2>
-						<b>{{'Nuevo Proceso'}}</b>
+						<b>{{'Editar Proceso'}}</b>
 					</h2>
 				</div>
 				<div class="col-md-2 float-right">
@@ -37,21 +37,22 @@ Procesos
 				</div>
 			</div>
 		</div>
-			 <form role="form" method="POST" action="{{ route('proceso.store') }}" enctype="multipart/form-data">
+			 <form role="form" method="POST" action="{{ route('proceso.update', $proceso) }}" enctype="multipart/form-data">
 			 @csrf
+			 @method('PUT')
 			<div class="card-body">
 			  <div class="row">
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="ProcName">Nombre del Proceso</label>
-			      		<input type="text" required class="form-control" id="ProcName" placeholder="Compras" name="ProcName">
+			      		<input type="text" value="{{$proceso->ProcName}}" class="form-control" id="ProcName" placeholder="Compras" name="ProcName">
 			    	</div>
 			    </div>
 
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="ProcRevVersion">N° de Revisión</label>
-			      		<input type="text" required class="form-control" id="ProcRevVersion" placeholder="N° de Revisión" name="ProcRevVersion">
+			      		<input type="text" value="{{$proceso->ProcRevVersion}}" class="form-control" id="ProcRevVersion" placeholder="N° de Revisión" name="ProcRevVersion">
 			    	</div>
 			    </div>
 
@@ -64,7 +65,7 @@ Procesos
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="custom-input-file">
 			    		<label class="input-label" for="ProcImage">Imagen de referencia</label>
-			      		<input type="file" required class="form-control" id="ProcImage" placeholder="Imagen de Referencia" name="ProcImage">
+			      		<input type="file" value="{{$proceso->ProcImage}}" class="form-control" id="ProcImage" placeholder="Imagen de Referencia" name="ProcImage">
 			    	</div>
 			    </div>
 
@@ -72,7 +73,7 @@ Procesos
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="ProcResponsable">Responsable del Proceso</label>
-			    		<select id="ProcResponsable" class="form-control" name="ProcResponsable" placeholder="seleccione">
+			    		<select id="ProcResponsable" required class="form-control" name="ProcResponsable" placeholder="seleccione">
 			    			@foreach($roles as $rol)
 			    				<option value="{{$rol->id}}">{{$rol->name}}</option>
 			    			@endforeach
@@ -83,7 +84,7 @@ Procesos
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="ProcAutoridad">Autoridad del Proceso</label>
-			    		<select id="ProcAutoridad" class="form-control" name="ProcAutoridad" placeholder="seleccione">
+			    		<select id="ProcAutoridad" required class="form-control" name="ProcAutoridad" placeholder="seleccione">
 			    			@foreach($roles as $rol)
 			    				<option value="{{$rol->id}}">{{$rol->name}}</option>
 			    			@endforeach
@@ -94,7 +95,7 @@ Procesos
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="ProcRecursos">Recursos Necesarios</label>
-			      		<input type="text" required class="form-control" id="ProcRecursos" placeholder="Vehiculo; Computador; Celular; Papel carta; etc..." name="ProcRecursos">
+			      		<input type="text" value="{{$proceso->ProcRecursos}}" class="form-control" id="ProcRecursos" placeholder="Vehiculo; Computador; Celular; Papel carta; etc..." name="ProcRecursos">
 			    	</div>
 			    </div>
 
@@ -102,7 +103,7 @@ Procesos
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="Seguimiento">Seguimiento</label>
-			    		<input type="text" required class="form-control" id="Seguimiento" placeholder="lista de controles, auditorias, seguimientos, etc..." name="Seguimiento">
+			    		<input type="text" class="form-control" id="Seguimiento" placeholder="lista de controles, auditorias, seguimientos, etc..." name="Seguimiento">
 			      		{{-- <select multiple id="Seguimiento" class="form-control" name="Seguimiento[]" placeholder="seleccione">
 			    			@foreach($roles as $rol)
 			    				<option value="{{$rol->id}}">{{$rol->name}}</option>
@@ -114,7 +115,7 @@ Procesos
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="ProcElaboro">Elaborado Por</label>
-			      		<select id="ProcElaboro" class="form-control" name="ProcElaboro" placeholder="seleccione">
+			      		<select id="ProcElaboro" required class="form-control" name="ProcElaboro" placeholder="seleccione">
 			    			@foreach($roles as $rol)
 			    				<option value="{{$rol->id}}">{{$rol->name}}</option>
 			    			@endforeach
@@ -125,7 +126,7 @@ Procesos
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="ProcReviso">Revisado Por</label>
-			      		<select id="ProcReviso" class="form-control" name="ProcReviso" placeholder="seleccione">
+			      		<select id="ProcReviso" required class="form-control" name="ProcReviso" placeholder="seleccione">
 			    			@foreach($roles as $rol)
 			    				<option value="{{$rol->id}}">{{$rol->name}}</option>
 			    			@endforeach
@@ -136,7 +137,7 @@ Procesos
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="ProcAprobo">Aprobado Por</label>
-			      		<select id="ProcAprobo" class="form-control" name="ProcAprobo" placeholder="seleccione">
+			      		<select id="ProcAprobo" required class="form-control" name="ProcAprobo" placeholder="seleccione">
 			    			@foreach($roles as $rol)
 			    				<option value="{{$rol->id}}">{{$rol->name}}</option>
 			    			@endforeach
@@ -147,7 +148,7 @@ Procesos
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="Entradas">Entradas</label>
-			      		<select multiple id="Entradas" class="form-control" name="Entradas[]" placeholder="seleccione">
+			      		<select multiple id="Entradas" required class="form-control" name="Entradas[]" placeholder="seleccione">
 			    			@foreach($entradas as $entrada)
 			    				<option value="{{$entrada->id}}">{{$entrada->InputName}}</option>
 			    			@endforeach
@@ -158,7 +159,7 @@ Procesos
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="Actividades">Actividades</label>
-			      		<select multiple id="Actividades" class="form-control" name="Actividades[]" placeholder="seleccione">
+			      		<select multiple id="Actividades" required class="form-control" name="Actividades[]" placeholder="seleccione">
 			    			@foreach($actividades as $actividade)
 			    				<option value="{{$actividade->id}}">{{$actividade->ActiName}}</option>
 			    			@endforeach
@@ -169,7 +170,7 @@ Procesos
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="Salidas">Salidas</label>
-			      		<select multiple id="Salidas" class="form-control" name="Salidas[]" placeholder="seleccione">
+			      		<select multiple id="Salidas" required class="form-control" name="Salidas[]" placeholder="seleccione">
 			    			@foreach($salidas as $salida)
 			    				<option value="{{$salida->id}}">{{$salida->OutputName}}</option>
 			    			@endforeach
@@ -180,7 +181,7 @@ Procesos
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="Indicadores">Indicadores</label>
-			      		<select multiple id="Indicadores" class="form-control" name="Indicadores[]" placeholder="seleccione">
+			      		<select multiple id="Indicadores" required class="form-control" name="Indicadores[]" placeholder="seleccione">
 			    			@foreach($indicadores as $indicador)
 			    				<option value="{{$indicador->id}}">{{$indicador->IndName}}</option>
 			    			@endforeach
@@ -192,7 +193,7 @@ Procesos
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="Soporte">Procesos de Soporte</label>
-			      		<select multiple id="Soporte" class="form-control" name="Soporte[]" placeholder="seleccione">
+			      		<select multiple id="Soporte" required class="form-control" name="Soporte[]" placeholder="seleccione">
 			    			@foreach($soportes as $soporte)
 			    				<option value="{{$soporte->id}}">{{$soporte->ProcName}}</option>
 			    			@endforeach
@@ -203,7 +204,7 @@ Procesos
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="Docs">Documentación aplicable</label>
-			      		<select multiple id="Docs" class="form-control" name="Docs[]" placeholder="seleccione">
+			      		<select multiple id="Docs" required class="form-control" name="Docs[]" placeholder="seleccione">
 			    			@foreach($documentos as $documento)
 			    				<option value="{{$documento->id}}">{{$documento->DocName}}</option>
 			    			@endforeach
@@ -214,7 +215,7 @@ Procesos
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="Areas">Areas Que participan</label>
-			      		<select multiple id="Areas" class="form-control" name="Areas[]" placeholder="seleccione">
+			      		<select multiple id="Areas" required class="form-control" name="Areas[]" placeholder="seleccione">
 			    			@foreach($areas as $area)
 			    				<option value="{{$area->id}}">{{$area->AreaName}}</option>
 			    			@endforeach
@@ -225,7 +226,7 @@ Procesos
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="ProcRequsitos">Requisitos por cumplir</label>
-			      		<select multiple class="form-control" name="ProcRequsitos[]" placeholder="seleccione" id="ProcRequsitos">
+			      		<select multiple class="form-control" required name="ProcRequsitos[]" placeholder="seleccione" id="ProcRequsitos">
 			    			@foreach($requisitos as $requisito)
 			    				<option value="{{$requisito->id}}">{{$requisito->ReqName}}</option>
 			    			@endforeach
@@ -269,7 +270,7 @@ Procesos
 	       	<form role="form" method="POST" action="{{ route('entrada.store')}}" enctype="multipart/form-data">
 	       		@csrf
 	       		<div class="form-group">
-	       			<label>Nombre de la entrada</label>	      
+	       			<label>Nombre de la entrada</label>
 	       			<input type="text" name="InputName" class="text-center form-control" required="">
 	       		</div>
 	      </div>

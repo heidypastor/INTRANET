@@ -15,6 +15,7 @@ class AjaxController extends Controller
             $fecha = date('Y-m-d', strtotime(substr($request->Event, 0, -1)));
             $eventos = Alerts::where('id', $id)->first();
             $eventos->AlertDateEvent = $fecha;
+            $eventos->AlertNotification = 0;
             $eventos->save();
             // return view('alertas.calendario');
             return "fecha del evento actualizada";

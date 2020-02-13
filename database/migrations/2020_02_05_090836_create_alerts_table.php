@@ -20,7 +20,7 @@ class CreateAlertsTable extends Migration
             $table->string('AlertName');
             $table->string('AlertDescription');
             $table->date('AlertDateNotifi');
-            $table->boolean('AlertNotification');
+            $table->boolean('AlertNotification'); /*0 = Sin notificar y 1 = Notificado*/
             $table->softDeletes();
             $table->unsignedBigInteger('user_id')->default(1);  /*Relación con la tabla areas*/
             $table->foreign('user_id')->references('id')->on('users');

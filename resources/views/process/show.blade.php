@@ -13,9 +13,36 @@ Proceso de {{$proceso->ProcName}}
 @section('content')
 <div class="card col-md-12">
 	<div class="card-header">
-		<h2>
-			<b>{{$proceso->ProcName}}</b>
-		</h2>
+		<div class="row">
+			<div class="col-md-8">
+				<h2>
+					<b>{{$proceso->ProcName}}</b>
+				</h2>
+			</div>
+			<div class="col-md-2">
+				<a href="{{$proceso->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a><br><br><br>
+			</div>
+			<div class="col-md-2">
+				<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$proceso->id}}">
+				  Eliminar
+				</button>
+				@component('layouts.partials.modal')
+					@slot('id')
+						{{$proceso->id}}
+					@endslot
+					@slot('textModal')
+						{{$proceso->ProcName}}
+					@endslot
+					@slot('botonModal')
+						<form action="{{ route('proceso.destroy', $proceso) }}" method="POST">
+						    @method('DELETE')
+						    @csrf 
+						    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
+						</form>
+					@endslot
+				@endcomponent
+			</div>
+		</div>
 	</div>
 	<div class="card-body">
 		{{-- div para la imagen y el objetivo --}}
@@ -45,7 +72,8 @@ Proceso de {{$proceso->ProcName}}
 							<span>
 								<ul class="list-group">
 									<a href="#" class="list-group-item list-group-item-action">
-										{{ Role::findById($proceso->ProcResponsable) }}
+										{{-- {{ Role::findByName($proceso->ProcResponsable) }} --}}
+										{{$proceso->ProcResponsable}}
 									</a>
 								</ul>
 							</span>

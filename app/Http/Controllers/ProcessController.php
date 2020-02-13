@@ -10,7 +10,6 @@ use App\Output;
 use App\Activity;
 use App\Indicators;
 use App\Areas;
-
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 
@@ -59,7 +58,7 @@ class ProcessController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        /*return $request;*/
 
         $path = $request->file('ProcImage')->store('public/Procesos');
 
@@ -90,7 +89,7 @@ class ProcessController extends Controller
         /*$document->assignAreas($areas);*/
 
         // redireccionamiento al index de documentos
-        return redirect()->route('proceso.index'); 
+        return redirect()->route('proceso.index')->withStatus(__('Proceso creado correctamente')); 
     }
 
     /**
@@ -124,7 +123,18 @@ class ProcessController extends Controller
      */
     public function edit(Process $proceso)
     {
-        //
+        $roles = Role::all(['id', 'name']);
+        $areas = Areas::all(['id', 'AreaName']);
+        $requisitos = Requisitos::all(['id', 'ReqName']);
+        $documentos = Documents::all(['id', 'DocName']);
+        $entradas = Input::all(['id', 'InputName']);
+        $salidas = Output::all(['id', 'OutputName']);
+        $actividades = Activity::all(['id', 'ActiName']);
+        $indicadores = Indicators::all(['id', 'IndName']);
+        $soportes = Process::all(['id', 'ProcName']);
+
+
+        return view('process.edit', compact(['roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'proceso']));
     }
 
     /**
@@ -134,9 +144,10 @@ class ProcessController extends Controller
      * @param  \App\Procesos  $procesos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Procesos $proceso)
+    public function update(Request $request, Process $proceso)
     {
-        //
+        $proceso->update($request->all());
+        return redirect()->route('proceso.index')->withStatus(__('Proceso actualizado correctamente'));
     }
 
     /**
@@ -147,6 +158,16 @@ class ProcessController extends Controller
      */
     public function destroy(Process $proceso)
     {
-        //
+        $proceso->Actividades()->detach();
+        $proceso->Areas()->detach();
+        $proceso->Documentos()->detach();
+        $proceso->Indicadores()->detach();
+        $proceso->Entradas()->detach();
+        $proceso->Salidas()->detach();
+        $proceso->procesosDeSoporte()->detach();
+        $proceso->Requisitos()->detach();
+        $proceso->delete();
+        return redirect()->route('proceso.index')->withStatus(__('Proceso eliminado correctamente'));
+        
     }
 }

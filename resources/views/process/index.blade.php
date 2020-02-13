@@ -45,7 +45,7 @@ Procesos
 
 			  		{{-- <th class="">Creado el:</th> --}}
 			  		<th class="">Actualizado el:</th>
-			  		<th class="">Mas Información</th>
+			  		<th class="">Más Información</th>
 			  	</tr>
 			  </thead>
 			  <tbody>

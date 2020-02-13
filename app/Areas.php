@@ -40,6 +40,12 @@ class Areas extends Model
         //Relación de la tabla areas y la tabla indicadores
     }
 
+    public function procesos()
+    {
+        return $this->belongsToMany('App\Process','areas_processes');
+        //Relación de la tabla processes y la tabla inputs 
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
