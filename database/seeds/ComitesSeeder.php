@@ -15,8 +15,8 @@ class ComitesSeeder extends Seeder
     	// id = 01
         $comite = new Comites();
         $comite->ComiName = 'COPASST';
-        $comite->ComiSrc = 'public/Comites/comites.jpg';
-        $comite->ComiImage = 'public/Comites/comites.jpg';
+        $comite->ComiSrc = '';
+        $comite->ComiImage = '';
         $comite->ComiParaQueSirve = 'Mejorar la comunicación entre los integrantes de la empresa';
         $comite->ComiTelefono = '3222324567';
         $comite->ComiEmail = 'copasst@gmail.com.co';
@@ -30,8 +30,8 @@ class ComitesSeeder extends Seeder
         // id = 02
         $comite = new Comites();
         $comite->ComiName = 'Brigadistas';
-        $comite->ComiSrc = 'public/Comites/comites.jpg';
-        $comite->ComiImage = 'public/Comites/comites.jpg';
+        $comite->ComiSrc = '';
+        $comite->ComiImage = '';
         $comite->ComiParaQueSirve = 'Mejorar la comunicación entre los integrantes de la empresa';
         $comite->ComiTelefono = '3122244567';
         $comite->ComiEmail = 'brigada@gmail.com.co';

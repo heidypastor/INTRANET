@@ -36,7 +36,8 @@ Alertas
 		        <th class="text-center">Nombre</th>
 		        <th class="text-center">Descripción</th>
 		        <th class="text-center">Fecha Notificación</th>
-		        <th class="text-center">Notificado</th>
+                <th class="text-center">Notificado</th>
+		        <th class="text-center">Realizado</th>
 		        <th class="text-center">Editar</th>
 		      </thead>
 		      <tbody>
@@ -46,14 +47,21 @@ Alertas
 			            <td class="text-center">{{$alert->AlertDateEvent}}</td>
 			            <td class="text-center">{{$alert->AlertName}}</td>
 			            <td class="text-center">{{$alert->AlertDescription}}</td>
-			            <td class="text-center">{{$alert->AlertDateNotifi}}</td>
+                        <td class="text-center">{{$alert->AlertDateNotifi}}</td>
 			            <td class="text-center">
 			            	@if($alert->AlertNotification == 0)
-			            		<p>Sin Notificar</p>
+			            		Sin Notificar
 			            	@else
-			            		<p>Notificado</p>
+			            		Notificado
 			            	@endif
 			            </td>
+			            <td class="text-center" id="Boton-alert-{{$alert->id}}">
+                            @if($alert->AlertRealizado === 0)
+                                <button class="btn-success" onclick="editBoton({{$alert->id}})">Realizado</button>
+                            @else
+                                <i><strong>Realizado</strong></i>
+                            @endif
+                        </td>
 			            <td class="text-center"><a href="alerts/{{$alert->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a></td>
 			          </tr>
 			        @endif
@@ -136,5 +144,31 @@ Alertas
     		body.highlight(table.search());
     	});
     });
+</script>
+<script type="text/javascript">
+
+    function editBoton(id){
+        var data = id;
+        var token = '{{csrf_token()}}';
+        var data={id,_token:token};
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: 'PUT',
+            url: "{{url('/CambioDeBoton')}}/"+id,
+            data: data,
+            success: function (msg) {
+                $('#Boton-alert-'+id).empty();
+                $('#Boton-alert-'+id).append(`<i><strong>Realizado</strong></i>`);
+                alert(msg);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("Hay un error, no esta pasando por el AjaxController");
+            }
+        });
+    }
 </script>
 @endpush

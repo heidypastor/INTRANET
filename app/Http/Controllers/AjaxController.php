@@ -21,4 +21,15 @@ class AjaxController extends Controller
             return "fecha del evento actualizada";
     	}
     }
+
+    /*Función para cambiar la */
+    public function CambioDeBoton(Request $request, $id){
+            /*return $request;*/
+        if ($request->ajax()) {
+            $eventos = Alerts::where('id', $id)->first();
+            $eventos->AlertRealizado = 1;
+            $eventos->save();
+            return "El evento ha sido realizado";
+        }
+    }
 }

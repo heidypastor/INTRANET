@@ -6,6 +6,9 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
 use App\Alerts;
 use App\Mail\sendAlert;
+use App\Mail\sendAlertGreen;
+use App\Mail\sendAlertYellow;
+use App\Mail\sendAlertRed;
 use App\Jobs\sendAlertJob;
 use App\Http\Controllers\AlertsController;
 
@@ -44,11 +47,50 @@ class MailDailyAlerts extends Command
     {
         $alerts = Alerts::with('user')->where('AlertDateNotifi', today())->get();
         for ($i=0; $i < count($alerts); $i++) { 
-            Mail::to($alerts[$i]->user->email)->queue(new sendAlert($alerts[$i]));
-            /*$alerts->update('AlertNotification' = 1);*/
-            $alerts[$i]->AlertNotification = 1;
-            $alerts[$i]->save();
-            // sendAlertJob::dispatch($alerts[$i]);
+
+            $FechaNotificacion = $alerts[$i]->AlertDateNotifi;
+
+            if ($FechaNotificacion  <= today()) {
+
+                $direfencia = $alerts[$i]->AlertDateEvent->diffInDays($alerts[$i]->AlertDateNotifi);
+
+                switch ($alerts[$i]->AlertDateEvent->diffInDays($alerts[$i]->AlertDateNotifi)) {
+                    case ($direfencia <= 0):
+                    
+                        break;
+                    case ($direfencia <= 3):
+                           Mail::to($alerts[$i]->user->email)->queue(new sendAlertRed($alerts[$i]));
+                           /*$alerts->update('AlertNotification' = 1);*/
+                           $alerts[$i]->AlertNotification = 1;
+                           $alerts[$i]->save();
+                           // sendAlertJob::dispatch($alerts[$i]);
+                        break;
+                    case ($direfencia <= 10):
+                        if ($alerts[$i]->AlertNotification !== 2) {
+                            Mail::to($alerts[$i]->user->email)->queue(new sendAlertYellow($alerts[$i]));
+                            /*$alerts->update('AlertNotification' = 1);*/
+                            $alerts[$i]->AlertNotification = 2;
+                            $alerts[$i]->save();
+                            // sendAlertJob::dispatch($alerts[$i]);
+                        }
+                        
+                        break;
+                    case ($direfencia <= 62):
+                        if ($alerts[$i]->AlertNotification !== 3) {
+                            Mail::to($alerts[$i]->user->email)->queue(new sendAlertGreen($alerts[$i]));
+                            /*$alerts->update('AlertNotification' = 1);*/
+                            $alerts[$i]->AlertNotification = 3;
+                            $alerts[$i]->save();
+                            // sendAlertJob::dispatch($alerts[$i]);
+                        }
+                        break;
+                    default:
+                        
+                        break;
+                }
+            }else{
+                return "NO ENVIADO";
+            }
         }
 
     }

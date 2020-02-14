@@ -33,6 +33,15 @@ Alertas
 					<input type="date" name="AlertDateNotifi" id="AlertDateNotifi" class="text-center form-control">
 				</div>
 				<div class="form-group">
+				    <label>Tipo de alerta</label>
+					<select class="text-center form-control" required="" name="AlertType" id="AlertType">
+						<option value="Global">Global</option>
+						{{-- <option>Sede</option> --}}
+						{{-- <option>Área</option> --}}
+						<option value="Personal">Personal</option>
+					</select>
+				</div>
+				<div class="form-group">
 					<button type="submit" class="btn btn-fill btn-success fas fa-plus"> Crear</button>
 				</div>
 			</form>

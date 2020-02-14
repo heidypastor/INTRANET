@@ -39,4 +39,11 @@ class Alerts extends Model
     protected $casts = [
         
     ];
+
+    protected $dates = [
+        
+        'AlertDateEvent',
+        'AlertDateNotifi',
+        
+    ];
 }
