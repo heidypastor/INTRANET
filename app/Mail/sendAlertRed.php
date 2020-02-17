@@ -33,7 +33,7 @@ class sendAlertRed extends Mailable
         $url = url('/alerts/'.$this->alert->id);
 
         return $this->from('notificaciones@prosarc.com.co', 'Prosarc S.A. ESP')
-                    ->subject('Recordar Alerta')
+                    ->subject('¡¡URGENTE!!')
                     ->markdown('emails.sendAlertRed');
     }
 }

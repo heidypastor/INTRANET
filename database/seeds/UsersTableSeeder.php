@@ -45,7 +45,7 @@ class UsersTableSeeder extends Seeder
         $user->password = bcrypt('secret');
         $user->Avatar = 'robot400x400.gif';
         $user->ColorUser = 1;
-        $user->areas_id = 
+        $user->areas_id = 3;
         $user->save();
         $user->assignRole('JefeArea');
 

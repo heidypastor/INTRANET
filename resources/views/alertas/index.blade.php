@@ -49,11 +49,26 @@ Alertas
 			            <td class="text-center">{{$alert->AlertDescription}}</td>
                         <td class="text-center">{{$alert->AlertDateNotifi}}</td>
 			            <td class="text-center">
-			            	@if($alert->AlertNotification == 0)
-			            		Sin Notificar
-			            	@else
-			            		Notificado
-			            	@endif
+			            	@switch($alert->AlertNotification)
+                                @case(0)
+                                    Sin Notificar
+                                    @break
+
+                                @case(1)
+                                    <font color="#ff0000">Alerta Roja</font>
+                                    @break
+
+                                @case(2)
+                                    <font color="#ffd100">Alerta Amarilla</font>
+                                    @break
+
+                                @case(3)
+                                   <font color="#42ff00"> Alerta Verde</font>
+                                    @break
+
+                                @default
+                                    Por notificar...
+                            @endswitch
 			            </td>
 			            <td class="text-center" id="Boton-alert-{{$alert->id}}">
                             @if($alert->AlertRealizado === 0)

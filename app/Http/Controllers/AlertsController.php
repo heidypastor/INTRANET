@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Alerts;
+use App\Areas;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\sendAlert;
+use Spatie\Permission\Models\Role;
 /*use SebastianBergmann\Comparator\Factory;
 use SebastianBergmann\Comparator\ComparisonFailure;*/
 use Carbon\Carbon;
@@ -70,6 +72,22 @@ class AlertsController extends Controller
         $alert->AlertPercentage = 100;
         $alert->user_id = Auth::user()->id;
         $alert->save();
+
+        $usuario = User::where('id', $alert->user_id)->first();
+        $areadelusuario = Areas::where('id', $usuario->areas_id)->first();
+        $jefearea = User::with(['areas', 'roles' => function ($query) {
+            $query->where('name', 'JefeArea');
+        }])
+        ->role('JefeArea')
+        ->where('areas_id', $areadelusuario->id)->first();
+
+        /*$jefearea = User::with(['areas', 'roles' => function ($query) {
+            $query->where('name', 'JefeArea');
+        }])
+        ->whereHas('roles')
+        ->where('areas_id', $areadelusuario->id)->get();*/
+
+        return $areadelusuario;
 
         /*$users = User::where('id', $alert->user_id)->get('email');
         Mail::to($users)->send(new sendAlert($alert));*/

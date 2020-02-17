@@ -5,12 +5,15 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
 use App\Alerts;
+use App\Areas;
+use App\User;
 use App\Mail\sendAlert;
 use App\Mail\sendAlertGreen;
 use App\Mail\sendAlertYellow;
 use App\Mail\sendAlertRed;
 use App\Jobs\sendAlertJob;
 use App\Http\Controllers\AlertsController;
+use Spatie\Permission\Models\Role;
 
 class MailDailyAlerts extends Command
 {
@@ -26,7 +29,7 @@ class MailDailyAlerts extends Command
      *
      * @var string
      */
-    protected $description = 'envia notificación por correo electronico de todas las alertas con fecha de notificacion igual a la fecha actual';
+    protected $description = 'envia notificación por correo electronico de todas las alertas con fecha de notificacion igual o menor a la fecha actual';
 
     /**
      * Create a new command instance.
@@ -45,7 +48,7 @@ class MailDailyAlerts extends Command
      */
     public function handle()
     {
-        $alerts = Alerts::with('user')->where('AlertDateNotifi', today())->get();
+        $alerts = Alerts::with('user')->where('AlertDateNotifi', '<=', today())->get();
         for ($i=0; $i < count($alerts); $i++) { 
 
             $FechaNotificacion = $alerts[$i]->AlertDateNotifi;
