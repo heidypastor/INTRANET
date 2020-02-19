@@ -9,7 +9,7 @@ use Illuminate\Queue\SerializesModels;
 
 class sendAlertRed extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
 
     public $alert;
 

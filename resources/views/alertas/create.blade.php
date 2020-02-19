@@ -36,8 +36,8 @@ Alertas
 				    <label>Tipo de alerta</label>
 					<select class="text-center form-control" required="" name="AlertType" id="AlertType">
 						<option value="Global">Global</option>
-						{{-- <option>Sede</option> --}}
-						{{-- <option>Área</option> --}}
+						<option value="Sede">Sede</option>
+						<option value="Area">Área</option>
 						<option value="Personal">Personal</option>
 					</select>
 				</div>

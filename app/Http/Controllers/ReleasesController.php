@@ -32,7 +32,8 @@ class ReleasesController extends Controller
      */
     public function create()
     {
-        return view('releases.create');
+        $users = User::get();
+        return view('releases.create', compact('users'));
     }
 
     /**
@@ -56,7 +57,7 @@ class ReleasesController extends Controller
         $releases->user_id = Auth::user()->id;
         $releases->save();
 
-        $users = User::all('email');
+        $users = User::all();
         /*$users = User::find(2);*/
         /*return $users;*/
 

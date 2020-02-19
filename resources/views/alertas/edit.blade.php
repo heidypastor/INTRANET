@@ -43,7 +43,7 @@ Alertas
 				</div>
 				<div class="form-group">
 					<label>Fecha Evento</label>
-					<input name="AlertDateEvent" type="date" id="AlertDateEvent" class="text-center form-control" value="{{$alert->AlertDateEvent}}">
+					<input name="AlertDateEvent" type="date" id="AlertDateEvent" class="text-center form-control" value="{{date_format($alert->AlertDateEvent, 'Y-m-d')}}" placeholder="{{$alert->AlertDateEvent}}">
 				</div>
 				<div class="form-group">
 				    <label>Descripción</label>
@@ -51,7 +51,7 @@ Alertas
 				</div>
 				<div class="form-group">
 				    <label>Fecha de Notificación</label>
-					<input type="date" name="AlertDateNotifi" id="AlertDateNotifi" class="text-center form-control" value="{{$alert->AlertDateNotifi}}">
+					<input type="date" name="AlertDateNotifi" id="AlertDateNotifi" class="text-center form-control" value="{{date_format($alert->AlertDateNotifi, 'Y-m-d')}}">
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-fill btn-success fas fa-arrow-circle-up"> Actualizar</button>

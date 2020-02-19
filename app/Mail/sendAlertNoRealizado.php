@@ -5,9 +5,10 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Queue\SerializesModels; /*Si retiro esta parte puedo agregar toda la información que necesite, incluso las que estan con foraneas y tablas pivot, pero si no incluyo la información completa, no va a aparecer*/ 
+use Illuminate\Queue\SerializesModels;
+use Carbon\Carbon;
 
-class sendAlertYellow extends Mailable
+class sendAlertNoRealizado extends Mailable
 {
     use Queueable;
 
@@ -21,6 +22,7 @@ class sendAlertYellow extends Mailable
     public function __construct($alert)
     {
         $this->alert = $alert;
+        /*$this->alert->AlertDateEvent = Carbon::createFromFormat('Y-m-d', $alert->AlertDateEvent);*/
     }
 
     /**
@@ -30,10 +32,12 @@ class sendAlertYellow extends Mailable
      */
     public function build()
     {
+        /*return $this->markdown('emails.sendAlertNoRealizado');*/
+
         $url = url('/alerts/'.$this->alert->id);
 
         return $this->from('notificaciones@prosarc.com.co', 'Prosarc S.A. ESP')
-                    ->subject('¡¡IMPORTANTE!!')
-                    ->markdown('emails.sendAlertYellow');
+                    ->subject('No Terminado')
+                    ->markdown('emails.sendAlertNoRealizado');
     }
 }

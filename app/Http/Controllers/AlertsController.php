@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\sendAlert;
+use App\Mail\sendAlertNoRealizado;
 use Spatie\Permission\Models\Role;
 /*use SebastianBergmann\Comparator\Factory;
 use SebastianBergmann\Comparator\ComparisonFailure;*/
@@ -87,7 +88,7 @@ class AlertsController extends Controller
         ->whereHas('roles')
         ->where('areas_id', $areadelusuario->id)->get();*/
 
-        return $areadelusuario;
+        /*return $jefearea;*/
 
         /*$users = User::where('id', $alert->user_id)->get('email');
         Mail::to($users)->send(new sendAlert($alert));*/
@@ -133,6 +134,7 @@ class AlertsController extends Controller
     public function update(Request $request, Alerts $alert)
     {
         /*return $request;*/
+
         $alert->update($request->all());
         return redirect()->route('alerts.index')->withStatus(__('Alerta actualizada correctamente'));
     }
@@ -159,6 +161,6 @@ class AlertsController extends Controller
     /*public function sendMail(Alerts $alert)
     {
         $users = User::where('id', $alert->user_id)->get('email');
-        Mail::to($users)->send(new sendAlert($alert));
+        Mail::to($users)->send(new sendAlertRealizado($alert));
     }*/
 }

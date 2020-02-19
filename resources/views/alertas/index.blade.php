@@ -44,10 +44,11 @@ Alertas
 		      	@foreach($alerts as $alert)
 		      		@if($alert->user_id === Auth::user()->id)
 			          <tr>
-			            <td class="text-center">{{$alert->AlertDateEvent}}</td>
+			            <td class="text-center">{{date_format($alert->AlertDateEvent, 'Y-m-d')}}</td>
 			            <td class="text-center">{{$alert->AlertName}}</td>
 			            <td class="text-center">{{$alert->AlertDescription}}</td>
-                        <td class="text-center">{{$alert->AlertDateNotifi}}</td>
+                        <td class="text-center">{{date_format($alert->AlertDateNotifi, 'Y-m-d')}}
+                        </td>
 			            <td class="text-center">
 			            	@switch($alert->AlertNotification)
                                 @case(0)
@@ -165,7 +166,7 @@ Alertas
     function editBoton(id){
         var data = id;
         var token = '{{csrf_token()}}';
-        var data={id,_token:token};
+        var data = {id,_token:token};
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')

@@ -5,7 +5,7 @@
 <body>
 	<strong>Recuerda</strong> 
 	<br>Tienes una nueva alerta: <strong>{{$alert->AlertName}}</strong> 
-	<br> para el día {{$alert->AlertDateEvent}}.
+	<br> para el día {{date_format($alert->AlertDateEvent, 'd-m-Y')}}.
 	<br><h3>Descripción:</h3> {{$alert->AlertDescription}}.
 
 	@component('mail::button', ['url' => url('/alerts')])

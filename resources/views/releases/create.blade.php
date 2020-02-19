@@ -45,6 +45,19 @@ Comunicados
 				  	<option value="1">Restringido</option>
 				  </select>
 				</div>
+
+				{{-- @if(RelType == 1) --}}
+					<div class="form-group">
+						<label class="form-control-label">Anuncio emitido para:</label>
+						<select multiple name="users[]" id="input-users" class="form-control form-control-alternative" placeholder="{{ __('Selecciona las áreas a las que pertenece')}}" value="{{ old('areas[]') }}"  required>
+							@foreach($users as $user)
+							<option value="{{$user->email}}">{{$user->name}} - {{$user->email}}</option>
+							@endforeach
+						</select>
+					</div>
+				{{-- @else
+				@endif --}}
+
 				<div class="form-group">
 					<button type="submit" class="fas fa-plus btn btn-fill btn-success"> Crear</button>
 				</div>
@@ -53,3 +66,37 @@ Comunicados
 	</div>
 
 @endsection
+
+@push('js')
+	<script src="{{ asset('js') }}/datatable-depen.js"></script>
+	<script src="{{ asset('js') }}/datatable-plugins.js"></script>
+@endpush
+
+@push('scripts')
+<script type="text/javascript">
+
+    function editBoton(id){
+        var data = id;
+        var token = '{{csrf_token()}}';
+        var data = {id,_token:token};
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: 'PUT',
+            url: "{{url('/CambioDeBoton')}}/"+id,
+            data: data,
+            success: function (msg) {
+                $('#Boton-alert-'+id).empty();
+                $('#Boton-alert-'+id).append(`<i><strong>Realizado</strong></i>`);
+                alert(msg);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("Hay un error, no esta pasando por el AjaxController");
+            }
+        });
+    }
+</script>
+@endpush
