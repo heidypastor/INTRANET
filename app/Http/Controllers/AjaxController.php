@@ -11,11 +11,12 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\sendAlertRealizado;
 use App\Http\Controllers\AlertsController;
 use Spatie\Permission\Models\Role;
+use App\Http\Requests\CambiodefechaRequest;
 
 class AjaxController extends Controller
 {
     /*Función para cambiar la fecha de una Alerta Temprana*/
-    public function CambioDeFecha(Request $request, $id){
+    public function CambioDeFecha(CambiodefechaRequest $request, $id){
             // return $request;
         if ($request->ajax()) {
             $fecha = date('Y-m-d', strtotime(substr($request->Event, 0, -1)));
@@ -56,16 +57,43 @@ class AjaxController extends Controller
             ->where('areas_id', $areadelusuario->id)->first();
 
 
+            if ($jefearea != "") {
+                /*Destinatarios Global cuando hay jefe de área*/
+                $destinatariosGlobal = (['gerencia@prosarc.com.co', $jefearea->email, 'gerenteplanta@prosarc.com.co']);
+                /*Destinatarios Global Bogota cuando hay jefe de área*/
+                $destinatariosGlobalBogota = (['gerencia@prosarc.com.co', $jefearea->email, 'subgerencia@prosarc.com.co']);
+                /*Destinatarios Sede cuando hay jefe de área*/
+                $destinatariosSede = ([$jefearea->email, 'gerenteplanta@prosarc.com.co']);
+                /*Destinatarios Sede Bogotá cuando hay jefe de área*/
+                $destinatariosSedeBogota = ([$jefearea->email, 'subgerencia@prosarc.com.co']);
+                /*Destinatarios por área cuando hay jefe de área*/
+                $destinatariosArea = ([$jefearea->email]);
+
+            }else{
+                /*Destinatarios Global cuando NO hay jefe de área*/
+                $destinatariosGlobal = (['gerencia@prosarc.com.co', 'gerenteplanta@prosarc.com.co']);
+                /*Destinatarios Global Bogota cuando NO hay jefe de area*/
+                $destinatariosGlobalBogota = (['gerencia@prosarc.com.co', 'subgerencia@prosarc.com.co']);
+                /*Destinatarios Sede cuando NO hay jefe de área*/
+                $destinatariosSede = (['gerenteplanta@prosarc.com.co']);
+                /*Destinatarios Sede Bogotá cuando NO hay jefe de área*/
+                $destinatariosSedeBogota = (['subgerencia@prosarc.com.co']);
+                /*Destinatarios por área cuando hay NO jefe de área*/
+                $destinatariosArea = ([Auth::user()->email]);
+
+            }
+
+
             switch ($eventos->AlertType) {
                 case 'Global':
 
                     switch ($areadelusuario->AreaSede) {
                         case 'Planta':
-                            Mail::to(['gerencia@prosarc.com.co', $jefearea->email, 'gerenteplanta@prosarc.com.co'])->queue(new sendAlertRealizado($eventos));
+                            Mail::to($destinatariosGlobal)->queue(new sendAlertRealizado($eventos));
                             break;
                         
                         case 'Bogotá':
-                            Mail::to(['gerencia@prosarc.com.co', $jefearea->email, 'subgerencia@prosarc.com.co'])->queue(new sendAlertRealizado($eventos));
+                            Mail::to($destinatariosGlobalBogota)->queue(new sendAlertRealizado($eventos));
                             break;
                         
                         default:
@@ -79,11 +107,11 @@ class AjaxController extends Controller
 
                     switch ($areadelusuario->AreaSede) {
                         case 'Planta':
-                            Mail::to([$jefearea->email, 'gerenteplanta@prosarc.com.co'])->queue(new sendAlertRealizado($eventos));
+                            Mail::to($destinatariosSede)->queue(new sendAlertRealizado($eventos));
                             break;
                         
                         case 'Bogotá':
-                            Mail::to([$jefearea->email, 'subgerencia@prosarc.com.co'])->queue(new sendAlertRealizado($eventos));
+                            Mail::to($destinatariosSedeBogota)->queue(new sendAlertRealizado($eventos));
                             break;
                         
                         default:
@@ -94,7 +122,7 @@ class AjaxController extends Controller
                     break;
                 
                 case 'Area':
-                    Mail::to([$jefearea->email])->queue(new sendAlertRealizado($eventos));
+                    Mail::to($destinatariosArea)->queue(new sendAlertRealizado($eventos));
                     break;
                 
                 default:

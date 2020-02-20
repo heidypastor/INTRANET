@@ -40,23 +40,25 @@ Comunicados
 				</div>
 				<div class="form-group">
 				  <label>Clasificación del anuncio</label>
-				  <select name="RelGeneral" id="RelGeneral" class="text-center form-control">
-				  	<option value="0">General</option>
-				  	<option value="1">Restringido</option>
+				  <select name="RelGeneral" id="RelGeneral" class="text-center form-control" >
+				  	<option value="0" onclick="General()">General</option>
+				  	<option value="1" onclick="Restringido()">Restringido</option>
 				  </select>
 				</div>
 
-				{{-- @if(RelType == 1) --}}
-					<div class="form-group">
-						<label class="form-control-label">Anuncio emitido para:</label>
-						<select multiple name="users[]" id="input-users" class="form-control form-control-alternative" placeholder="{{ __('Selecciona las áreas a las que pertenece')}}" value="{{ old('areas[]') }}"  required>
-							@foreach($users as $user)
-							<option value="{{$user->email}}">{{$user->name}} - {{$user->email}}</option>
-							@endforeach
-						</select>
-					</div>
-				{{-- @else
-				@endif --}}
+				<div class="col-md-12" id="div-contenedor">
+					
+				</div>
+
+				{{-- <div class="form-group">
+					<label class="form-control-label">Anuncio emitido para:</label>
+					<select multiple name="users[]" id="input-users" class="form-control form-control-alternative" placeholder="{{ __('Selecciona los usuarios a los cuales se les enviara el correo')}}" value="{{ old('areas[]') }}"  required>
+						@foreach($users as $user)
+						<option value="{{$user->email}}">{{$user->name}}  -  {{$user->email}}</option>
+						@endforeach
+					</select>
+				</div> --}}
+
 
 				<div class="form-group">
 					<button type="submit" class="fas fa-plus btn btn-fill btn-success"> Crear</button>
@@ -74,7 +76,6 @@ Comunicados
 
 @push('scripts')
 <script type="text/javascript">
-
     function editBoton(id){
         var data = id;
         var token = '{{csrf_token()}}';
@@ -99,4 +100,29 @@ Comunicados
         });
     }
 </script>
+
+<script type="text/javascript">
+	
+	function Restringido() {
+		$('#div-contenedor').empty();
+		$('#div-contenedor').append(`
+			<div class="form-group">
+				<label class="form-control-label">Anuncio emitido para:</label>
+				<select multiple name="users[]" id="input-users" class="form-control form-control-alternative" placeholder="{{ __('Selecciona los usuarios a los cuales se les enviara el correo')}}" value="{{ old('users[]') }}"  required>
+					@foreach($users as $user)
+					<option value="{{$user->email}}">{{$user->name}}  -  {{$user->email}}</option>
+					@endforeach
+				</select>
+			</div>
+		`);
+		alert(msg);
+	}
+
+	function General() {
+		$('#div-contenedor').empty();
+		alert(msg);
+	}
+
+</script>
+
 @endpush

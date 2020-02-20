@@ -58,9 +58,9 @@ class DocumentsController extends Controller
      */
     public function store(Request $request, Documents $document)
     {
-        /*return $request;*/
         /*$areas = Areas::whereIn('id', $request->input('areas'))->get();*/
         $areaid = $request->input('areas');
+        /*return $areaid;*/
         // se almacena el archivo
         $path = $request->file('DocSrc')->store('public/'.$request->input('DocType'));
 

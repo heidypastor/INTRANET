@@ -12,9 +12,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\sendAlert;
 use App\Mail\sendAlertNoRealizado;
 use Spatie\Permission\Models\Role;
-/*use SebastianBergmann\Comparator\Factory;
-use SebastianBergmann\Comparator\ComparisonFailure;*/
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Redirect;
 
 class AlertsController extends Controller
 {
@@ -61,6 +60,14 @@ class AlertsController extends Controller
      */
     public function store(Request $request)
     {
+
+
+        $validatedData = $request->validate([
+            'AlertDateEvent' => 'after_or_equal:AlertDateNotifi',
+        ], ['AlertDateEvent.after_or_equal' => 'El campo Fecha Evento debe ser una fecha posterior o igual a Fecha de notificación.'
+        ]);
+
+
         /*return $request;*/
         $alert = new Alerts();
         $alert->AlertName = $request->input('AlertName');
@@ -81,6 +88,8 @@ class AlertsController extends Controller
         }])
         ->role('JefeArea')
         ->where('areas_id', $areadelusuario->id)->first();
+
+
 
         /*$jefearea = User::with(['areas', 'roles' => function ($query) {
             $query->where('name', 'JefeArea');
@@ -134,6 +143,11 @@ class AlertsController extends Controller
     public function update(Request $request, Alerts $alert)
     {
         /*return $request;*/
+
+        $validatedData = $request->validate([
+            'AlertDateEvent' => 'after_or_equal:AlertDateNotifi',
+        ], ['AlertDateEvent.after_or_equal' => 'El campo Fecha Evento debe ser una fecha posterior o igual a Fecha de notificación.'
+        ]);
 
         $alert->update($request->all());
         return redirect()->route('alerts.index')->withStatus(__('Alerta actualizada correctamente'));

@@ -44,7 +44,7 @@ class User extends Authenticatable
 
     public function releases()
     {
-        return $this->hasMany('App\Releases','release_user');
+        return $this->hasMany('App\Releases');
         //Relación de la tabla releases y la tabla usuarios 
     }
 
