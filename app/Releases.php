@@ -20,7 +20,7 @@ class Releases extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User','release_user');
+        return $this->belongsTo('App\User');
         //Relación de la tabla usuarios y la tabla releases 
     }
 

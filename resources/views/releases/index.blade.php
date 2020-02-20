@@ -43,7 +43,7 @@ Comunicados
                         @if($release->RelSrc === "")
                             <img src="/white/img/bloc.jpg">
                         @else
-                            <img src="{{Storage::url($release->RelSrc)}}" width="100" height="100">
+                            <img src="{{Storage::url($release->RelSrc)}}" class="responsive">
                         @endif
                     </td>
 		            <td class="text-center">{{$release->RelType}}</td>

@@ -32,7 +32,9 @@ class ReleasesController extends Controller
      */
     public function create()
     {
-        return view('releases.create');
+        $users = User::get();
+        /*return $users;*/
+        return view('releases.create', compact('users'));
     }
 
     /**
@@ -43,7 +45,8 @@ class ReleasesController extends Controller
      */
     public function store(Request $request)
     {
-
+        $usuarios = $request->input('users');
+        /*return $usuarios;*/
         $path = $request->file('RelSrc')->store('public/Anuncios');
 
         $releases = new Releases();
@@ -56,12 +59,21 @@ class ReleasesController extends Controller
         $releases->user_id = Auth::user()->id;
         $releases->save();
 
-        $users = User::all('email');
-        /*$users = User::find(2);*/
-        /*return $users;*/
+        // $usuariocreador = $releases->user;
+        // $releases['user'] = $usuariocreador;
+        /*return $releases;*/
+
+        /*$correos = $releases->areas();*/
+
+        $general = User::all('email');
+
+        if ($releases->RelGeneral == 0) {
+            Mail::to($general)->queue(new ReleaseStored($releases));
+        }else{
+            Mail::to($usuarios)->queue(new ReleaseStored($releases));
+        }
 
         /*Notification::send($users->email, new MailReleases($releases));*/
-        Mail::to($users)->send(new ReleaseStored($releases));
 
         return redirect()->route('releases.index')->withStatus(__('Comunicado creado correctamente'));
     }
@@ -85,7 +97,13 @@ class ReleasesController extends Controller
      */
     public function edit(Releases $release)
     {
-        return view('releases.edit', compact('release'));
+
+        if ($release->user_id == Auth::user()->id) {
+            return view('releases.edit', compact('release'));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para editar comunicados');
+        }
+
     }
 
     /**
