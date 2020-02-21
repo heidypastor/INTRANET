@@ -51,7 +51,7 @@ Documentos
 				</div>
 				<div class="form-group">
 					<label>Tipo de documento</label>
-					<select class="text-center form-control" required="" name="DocType" id="DocType" placeholder="{{$document->DocType}}">
+					<select class="text-center form-control" name="DocType" id="DocType" required>
 						<option {{$document->DocType == 'Manuales' ? 'selected' : ''}} value="Manuales">Manuales</option>
 						<option {{$document->DocType == 'Procedimientos' ? 'selected' : ''}} value="Procedimientos">Procedimientos</option>
 						<option {{$document->DocType == 'Instructivos' ? 'selected' : ''}} value="Instructivos">Instructivos</option>
@@ -75,12 +75,17 @@ Documentos
 						<option {{$document->DocGeneral == 1 ? 'selected' : ''}} value="1">General</option>
 					</select>
 				</div>
-
 				<div class="form-group">
 					<label class="form-control-label">Área a la que pertenece dicho documento</label>
-					<select multiple name="areas[]" id="input-area" class="form-control form-control-alternative" placeholder="{{ __('Selecciona las áreas a las que pertenece')}}" value="{{ old('areas[]') }}" required>
+					<select multiple name="areas[]" id="input-area" class="form-control form-control-alternative" placeholder="{{ __('Selecciona las áreas a las que pertenece')}}" value="{{ old('areas[]') }}">
 						@foreach($areas as $area)
-						<option value="{{$area->id}}">{{$area->AreaName}}</option>
+							<option 
+							@foreach($document->areas as $areaSelect)
+							@if($areaSelect->id == $area->id)
+							selected
+							@endif
+							@endforeach
+							value="{{$area->id}}">{{$area->AreaName}}</option>
 						@endforeach
 					</select>
 				</div>

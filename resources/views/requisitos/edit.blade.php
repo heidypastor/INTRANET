@@ -44,7 +44,13 @@ Requisitos y Documentos Legales
 					<label class="form-control-label">Áreas implicadas al requisito legal</label>
 					<select multiple name="areas[]" id="input-area" class="form-control form-control-alternative" placeholder="{{ __('Selecciona las áreas a las que pertenece')}}" value="{{ old('areas[]') }}"  required>
 						@foreach($areas as $area)
-						<option value="{{$area->id}}">{{$area->AreaName}}</option>
+						<option
+						@foreach($requisito->areas as $areaSelect)
+						@if($areaSelect->id == $area->id)
+						selected
+						@endif
+						@endforeach
+						value="{{$area->id}}">{{$area->AreaName}}</option>
 						@endforeach
 					</select>
 				</div>

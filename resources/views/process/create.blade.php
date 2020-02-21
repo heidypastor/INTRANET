@@ -102,12 +102,11 @@ Procesos
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="Seguimiento">Seguimiento</label>
-			    		<input type="text" required class="form-control" id="Seguimiento" placeholder="lista de controles, auditorias, seguimientos, etc..." name="Seguimiento">
-			      		{{-- <select multiple id="Seguimiento" class="form-control" name="Seguimiento[]" placeholder="seleccione">
-			    			@foreach($roles as $rol)
-			    				<option value="{{$rol->id}}">{{$rol->name}}</option>
+			      		<select multiple id="Seguimiento" class="form-control" name="Seguimiento[]" placeholder="seleccione">
+			    			@foreach($seguimientos as $seguimiento)
+			    				<option value="{{$seguimiento->id}}">{{$seguimiento->SeguiName}}</option>
 			    			@endforeach
-			    		</select> --}}
+			    		</select>
 			    	</div>
 			    </div>
 

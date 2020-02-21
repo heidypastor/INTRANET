@@ -103,12 +103,18 @@ Procesos
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="Seguimiento">Seguimiento</label>
-			    		<input type="text" class="form-control" id="Seguimiento" placeholder="lista de controles, auditorias, seguimientos, etc..." name="Seguimiento">
-			      		{{-- <select multiple id="Seguimiento" class="form-control" name="Seguimiento[]" placeholder="seleccione">
-			    			@foreach($roles as $rol)
-			    				<option value="{{$rol->id}}">{{$rol->name}}</option>
+			    		{{-- <input type="text" class="form-control" id="Seguimiento" placeholder="lista de controles, auditorias, seguimientos, etc..." name="Seguimiento"> --}}
+			      		<select multiple id="Seguimiento" class="form-control" name="Seguimiento[]" placeholder="seleccione">
+			    			@foreach($seguimientos as $seguimiento)
+			    				<option 
+			    				@foreach($proceso->seguimientos as $seguiSelect)
+			    				@if($seguiSelect->id == $seguimiento->id)
+			    				selected
+			    				@endif
+			    				@endforeach 
+			    				value="{{$seguimiento->id}}">{{$seguimiento->SeguiName}}</option>
 			    			@endforeach
-			    		</select> --}}
+			    		</select>
 			    	</div>
 			    </div>
 
@@ -150,7 +156,13 @@ Procesos
 			    		<label class="input-label" for="Entradas">Entradas</label>
 			      		<select multiple id="Entradas" required class="form-control" name="Entradas[]" placeholder="seleccione">
 			    			@foreach($entradas as $entrada)
-			    				<option value="{{$entrada->id}}">{{$entrada->InputName}}</option>
+			    				<option 
+			    				@foreach($proceso->entradas as $entradaSelect)
+			    				@if($entradaSelect->id == $entrada->id)
+			    				selected
+			    				@endif
+			    				@endforeach
+			    				value="{{$entrada->id}}">{{$entrada->InputName}}</option>
 			    			@endforeach
 			    		</select>
 			    	</div>
@@ -161,7 +173,13 @@ Procesos
 			    		<label class="input-label" for="Actividades">Actividades</label>
 			      		<select multiple id="Actividades" required class="form-control" name="Actividades[]" placeholder="seleccione">
 			    			@foreach($actividades as $actividade)
-			    				<option value="{{$actividade->id}}">{{$actividade->ActiName}}</option>
+			    				<option 
+			    				@foreach($proceso->actividades as $actiSelect)
+			    				@if($actiSelect->id == $actividade->id)
+			    				selected
+			    				@endif
+			    				@endforeach
+			    				value="{{$actividade->id}}">{{$actividade->ActiName}}</option>
 			    			@endforeach
 			    		</select>
 			    	</div>
@@ -172,7 +190,13 @@ Procesos
 			    		<label class="input-label" for="Salidas">Salidas</label>
 			      		<select multiple id="Salidas" required class="form-control" name="Salidas[]" placeholder="seleccione">
 			    			@foreach($salidas as $salida)
-			    				<option value="{{$salida->id}}">{{$salida->OutputName}}</option>
+			    				<option 
+			    				{{-- @foreach($proceso->salidas == $salidaSelect)
+			    				@if($salidaSelect->id == $salida->id)
+			    				selected
+			    				@endif
+			    				@endforeach --}}
+			    				value="{{$salida->id}}">{{$salida->OutputName}}</option>
 			    			@endforeach
 			    		</select>
 			    	</div>
@@ -183,7 +207,13 @@ Procesos
 			    		<label class="input-label" for="Indicadores">Indicadores</label>
 			      		<select multiple id="Indicadores" required class="form-control" name="Indicadores[]" placeholder="seleccione">
 			    			@foreach($indicadores as $indicador)
-			    				<option value="{{$indicador->id}}">{{$indicador->IndName}}</option>
+			    				<option 
+			    				@foreach($proceso->indicadores as $indiSelect)
+			    				@if($indiSelect->id == $indicador->id)
+			    				selected
+			    				@endif
+			    				@endforeach 
+			    				value="{{$indicador->id}}">{{$indicador->IndName}}</option>
 			    			@endforeach
 			    		</select>
 			    	</div>
@@ -195,7 +225,13 @@ Procesos
 			    		<label class="input-label" for="Soporte">Procesos de Soporte</label>
 			      		<select multiple id="Soporte" required class="form-control" name="Soporte[]" placeholder="seleccione">
 			    			@foreach($soportes as $soporte)
-			    				<option value="{{$soporte->id}}">{{$soporte->ProcName}}</option>
+			    				<option 
+			    				{{-- @foreach($proceso->soportes as $sopoSelect)
+			    				@if($sopoSelect->id == $soporte->id)
+			    				selected 
+			    				@endif
+			    				@endforeach --}}
+			    				value="{{$soporte->id}}">{{$soporte->ProcName}}</option>
 			    			@endforeach
 			    		</select>
 			    	</div>
@@ -206,7 +242,13 @@ Procesos
 			    		<label class="input-label" for="Docs">Documentación aplicable</label>
 			      		<select multiple id="Docs" required class="form-control" name="Docs[]" placeholder="seleccione">
 			    			@foreach($documentos as $documento)
-			    				<option value="{{$documento->id}}">{{$documento->DocName}}</option>
+			    				<option 
+			    				@foreach($proceso->documentos as $docuSelect)
+			    				@if($docuSelect->id == $documento->id)
+			    				selected 
+			    				@endif
+			    				@endforeach
+			    				value="{{$documento->id}}">{{$documento->DocName}}</option>
 			    			@endforeach
 			    		</select>
 			    	</div>
@@ -217,7 +259,13 @@ Procesos
 			    		<label class="input-label" for="Areas">Areas Que participan</label>
 			      		<select multiple id="Areas" required class="form-control" name="Areas[]" placeholder="seleccione">
 			    			@foreach($areas as $area)
-			    				<option value="{{$area->id}}">{{$area->AreaName}}</option>
+			    				<option 
+			    				@foreach($proceso->areas as $areaSelect)
+			    				@if($areaSelect->id == $area->id)
+			    				selected 
+			    				@endif
+			    				@endforeach
+			    				value="{{$area->id}}">{{$area->AreaName}}</option>
 			    			@endforeach
 			    		</select>
 			    	</div>
@@ -228,7 +276,13 @@ Procesos
 			    		<label class="input-label" for="ProcRequsitos">Requisitos por cumplir</label>
 			      		<select multiple class="form-control" required name="ProcRequsitos[]" placeholder="seleccione" id="ProcRequsitos">
 			    			@foreach($requisitos as $requisito)
-			    				<option value="{{$requisito->id}}">{{$requisito->ReqName}}</option>
+			    				<option 
+			    				@foreach($proceso->requisitos as $requiSelect)
+			    				@if($requiSelect->id == $requisito->id)
+			    				selected 
+			    				@endif
+			    				@endforeach
+			    				value="{{$requisito->id}}">{{$requisito->ReqName}}</option>
 			    			@endforeach
 			    		</select>
 			    	</div>
