@@ -8,15 +8,14 @@
         </button>
       </div>
       <div class="modal-body">
-        {{-- <form role="form" method="POST" action="{{$action}}" id="{{$idModal}}" enctype="multipart/form-data">
-          @method('PUT') --}}
-          {{$form}}
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="submit" class="btn btn-fill btn-success fas fa-arrow-circle-up"> Actualizar</button>
-        </form>
-      </div>
+        <form role="form" method="POST" action="{{$action}}" id="{{$idModal}}" enctype="multipart/form-data">
+            {{$form}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-fill btn-success fas fa-arrow-circle-up"> Actualizar</button>
+        </div>
+    </form>
     </div>
   </div>
 </div>

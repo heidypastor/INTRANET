@@ -62,6 +62,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('comites','ComitesController');
 	Route::resource('proceso','ProcessController');
 	Route::resource('entrada','InputController');
+	Route::post('actualizarentrada','InputController@actualizar')->name('entrada.actualizar');
 	Route::resource('salida','OutputController');
 	Route::resource('actividad','ActivityController');
 	Route::resource('releases','ReleasesController');
