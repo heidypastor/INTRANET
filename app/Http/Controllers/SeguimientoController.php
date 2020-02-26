@@ -84,6 +84,12 @@ class SeguimientoController extends Controller
      */
     public function destroy(Seguimiento $seguimiento)
     {
-        //
+        if ($seguimiento->id == 0) {
+            return redirect()->route('proceso.create')->withStatus(__('el seguimiento no fue eliminada... intente nuevamente escogiendo una salida existente'));
+        }
+        $seguimiento->delete();
+
+        return redirect()->route('proceso.create')->withStatus(__('Seguimiento Eliminado correctamente'));
+    
     }
 }

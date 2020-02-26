@@ -99,8 +99,14 @@ class InputController extends Controller
      * @param  \App\Entradas  $entradas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Entradas $entradas)
+    public function destroy(Input $entrada)
     {
-        //
+        if ($entrada->id == 0) {
+            return redirect()->route('proceso.create')->withStatus(__('la entrada no fue eliminada... intente nuevamente escogiendo una salida existente'));
+        }
+        $entrada->delete();
+
+        return redirect()->route('proceso.create')->withStatus(__('Entrada Eliminada correctamente'));
+    
     }
 }
