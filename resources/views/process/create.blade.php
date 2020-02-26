@@ -66,13 +66,8 @@ Procesos
 					  </button>
 					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateSeguimientos">Nuevo</a>
-<<<<<<< HEAD
-					    <a class="dropdown-item" data-toggle="modal" data-target="#ModalActividades">Actualizar</a>
 					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteSeguimientos">Eliminar</a>
-=======
 					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditSeguimientos">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#ModalSalidas">Eliminar</a>
->>>>>>> master
 					  </div>
 					</div>
 				</div>
@@ -480,7 +475,6 @@ Procesos
 		@endslot
 	@endcomponent
 
-<<<<<<< HEAD
 	{{-- Modal de eliminar Salidas --}}
 	@component('layouts.partials.modalDelete')
 		@slot('idModal')
@@ -573,7 +567,6 @@ Procesos
 			<button form="formDeleteActividad" disabled id="eliminarSubmitActividad" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
 		@endslot
 	@endcomponent
-=======
 
 
 	{{-- Modal de edición de Seguimientos --}}
@@ -603,7 +596,6 @@ Procesos
 			</div>
 		@endslot
 	@endcomponent 
->>>>>>> master
 	
 	{{-- Modal de eliminar seguimientos --}}
 	@component('layouts.partials.modalDelete')
