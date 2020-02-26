@@ -71,6 +71,20 @@ class OutputController extends Controller
      * @param  \App\Salidas  $salidas
      * @return \Illuminate\Http\Response
      */
+
+
+    public function actualizar(Request $request)
+    {
+        // return $request;
+        $salida = Output::find($request->input('idocultoSali'));
+        $salida->OutputName = $request->input('OutputName');
+        $salida->save();
+
+        return redirect()->route('proceso.create')->withStatus(__('Salida actualizada correctamente'));
+    }
+
+
+
     public function update(Request $request, Output $salida)
     {
         /*return $request;*/

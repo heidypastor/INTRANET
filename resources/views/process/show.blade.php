@@ -14,6 +14,10 @@ Proceso de {{$proceso->ProcName}}
 <div class="card col-md-12">
 	<div class="card-header">
 		<div class="row">
+			@php
+			$userid = Auth::user()->id;
+			@endphp
+			{{-- @if($usuario == 21) --}}
 			<div class="col-md-8">
 				<h2>
 					<b>{{$proceso->ProcName}}</b>
@@ -303,7 +307,7 @@ Proceso de {{$proceso->ProcName}}
 					<tr>
 						<td class="text-center">{{$proceso->ProcDate}}</td>
 						<td class="text-center">{{-- {{'0'}} --}}{{$proceso->ProcRevVersion}}</td>
-						<td class="text-center">{{'Emision inicial'}}</td>
+						<td class="text-center">{{-- {{'Emision inicial'}} --}}{{$proceso->ProcChangesDescription}}</td>
 						<td class="text-center">{{-- {{'Superintendente de planta'}} --}}
 							@switch($proceso->ProcElaboro)
 								@case(1) 

@@ -43,12 +43,26 @@ class RequisitosController extends Controller
         /*return $request;*/
         $areaid = $request->input('areas');
 
+        if ($request->hasFile('ReqSrc')) {
+            $path = $request->file('ReqSrc')->store('public/'.'Requisitos');
+        }else{
+            $path = "N";
+        }
+
+        if ($request->ReqLink != "") {
+            $Link = $request->input('ReqLink');;
+        }else{
+            $Link = "N";
+        }
+
         $requisito = new Requisitos();
         $requisito->ReqName = $request->input('ReqName');
         $requisito->ReqType = $request->input('ReqType');
         $requisito->ReqDate = $request->input('ReqDate');
         $requisito->ReqEnte = $request->input('ReqEnte');
         $requisito->ReqQueDice = $request->input('ReqQueDice');
+        $requisito->ReqSrc = $path;
+        $requisito->ReqLink = $Link;
         $requisito->save();
 
         $requisito->areas()->attach($areaid);

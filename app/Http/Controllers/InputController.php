@@ -32,15 +32,7 @@ class InputController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function actualizar(Request $request)
-    {
-        // return $request;
-        $entrada = Input::find($request->input('idoculto'));
-        $entrada->InputName = $request->input('InputName');
-        $entrada->save();
-
-        return redirect()->route('proceso.create')->withStatus(__('Entrada actualizada correctamente'));
-    }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -86,6 +78,18 @@ class InputController extends Controller
      * @param  \App\Entradas  $entradas
      * @return \Illuminate\Http\Response
      */
+
+    public function actualizar(Request $request)
+    {
+        // return $request;
+        $entrada = Input::find($request->input('idoculto'));
+        $entrada->InputName = $request->input('InputName');
+        $entrada->save();
+
+        return redirect()->route('proceso.create')->withStatus(__('Entrada actualizada correctamente'));
+    }
+
+    
     public function update(Request $request, Input $entrada)
     {
         /*return $request;*/
