@@ -71,9 +71,10 @@ class ActivityController extends Controller
      * @param  \App\Actividades  $actividades
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Actividades $actividades)
+    public function update(Request $request, Activity $actividad)
     {
-        //
+        $actividad->update($request->all());
+        return redirect()->route('proceso.create')->withStatus(__('Actividad actualizada correctamente'));
     }
 
     /**

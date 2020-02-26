@@ -23,12 +23,14 @@ class ProcessController extends Controller
      */
     public function index()
     {
-        $procesos = Process::all();
-        $requisitos = Requisitos::all(['id', 'ReqName']);
+        /*$procesos = Process::all();*/
+        $procesos = Process::with('requisitos')->paginate(10);
+
+        /*$requisitos = Requisitos::all(['id', 'ReqName']);*/
 
         // return $procesos;
 
-        return view('process.index', compact('procesos', 'requisitos'));
+        return view('process.index', compact('procesos'/*, 'requisitos'*/));
     }
 
     /**
@@ -48,6 +50,8 @@ class ProcessController extends Controller
         $indicadores = Indicators::all(['id', 'IndName']);
         $soportes = Process::all(['id', 'ProcName']);
         $seguimientos = Seguimiento::all(['id', 'SeguiName']);
+
+        /*return $actividades;*/
 
         return view('process.create', compact(['roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'seguimientos']));
     }
@@ -78,6 +82,7 @@ class ProcessController extends Controller
         $process->ProcAprobo = $request->input('ProcAprobo');
         $process->ProcImage = $path;
         $process->ProcChangesDescription = "añadido mediante intranet recientemente";
+        $process->ProcDate = $request->input('ProcDate');
         $process->save();
 
         $process->entradas()->attach($request->input('Entradas'));

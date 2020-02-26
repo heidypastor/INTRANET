@@ -35,7 +35,11 @@ class SeguimientoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $seguimiento = new Seguimiento();
+        $seguimiento->SeguiName = $request->input('SeguiName');
+        $seguimiento->save();
+        
+        return redirect()->route('proceso.create')->withStatus(__('Seguimiento creado correctamente'));
     }
 
     /**

@@ -301,12 +301,66 @@ Proceso de {{$proceso->ProcName}}
 				</thead>
 				<tbody>
 					<tr>
-						<td class="text-center">{{'12-15-2001'}}</td>
+						<td class="text-center">{{$proceso->ProcDate}}</td>
 						<td class="text-center">{{-- {{'0'}} --}}{{$proceso->ProcRevVersion}}</td>
 						<td class="text-center">{{'Emision inicial'}}</td>
-						<td class="text-center">{{-- {{'Superintendente de planta'}} --}}{{$proceso->ProcElaboro}}</td>
-						<td class="text-center">{{-- {{'Gerente general'}} --}}{{$proceso->ProcReviso}}</td>
-						<td class="text-center">{{-- {{'Presidencia GC'}} --}}{{$proceso->ProcAprobo}}</td>
+						<td class="text-center">{{-- {{'Superintendente de planta'}} --}}
+							@switch($proceso->ProcElaboro)
+								@case(1) 
+									Super Admin
+									@break
+								@case(2)
+									Gerente
+									@break
+								@case(3)
+									Director
+									@break
+								@case(4)
+									Jefe Área
+									@break
+								@case(5)
+									User
+									@break
+							@endswitch
+						</td>
+						<td class="text-center">{{-- {{'Gerente general'}} --}}
+							@switch($proceso->ProcReviso)
+								@case(1) 
+									Super Admin
+									@break
+								@case(2)
+									Gerente
+									@break
+								@case(3)
+									Director
+									@break
+								@case(4)
+									Jefe Área
+									@break
+								@case(5)
+									User
+									@break
+							@endswitch
+						</td>
+						<td class="text-center">{{-- {{'Presidencia GC'}} --}}
+							@switch($proceso->ProcAprobo)
+								@case(1) 
+									Super Admin
+									@break
+								@case(2)
+									Gerente
+									@break
+								@case(3)
+									Director
+									@break
+								@case(4)
+									Jefe Área
+									@break
+								@case(5)
+									User
+									@break
+							@endswitch
+						</td>
 					</tr>
 				</tbody>
 			</table>

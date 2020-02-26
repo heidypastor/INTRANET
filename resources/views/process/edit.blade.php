@@ -290,6 +290,13 @@ Procesos
 
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
+			    		<label class="input-label" for="ProcRequsitos">Fecha</label>
+			      		<input type="date" name="ProcDate" class="form-control" value="{{$proceso->ProcDate}}">
+			    	</div>
+			    </div>
+
+			    <div class="col-md-6 col-xs-12">
+			    	<div class="form-group">
 			    		<label class="input-label" for="ProcObjetivo">Objetivo del Proceso</label>
 			      		 <textarea class="form-control" id="ProcObjetivo" name="ProcObjetivo">
 			      		Objetivo de ejemplo para el proceso de compras

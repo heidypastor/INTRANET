@@ -71,9 +71,11 @@ class InputController extends Controller
      * @param  \App\Entradas  $entradas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Entradas $entradas)
+    public function update(Request $request, Input $entrada)
     {
-        //
+        /*return $request;*/
+        $entrada->update($request->all());
+        return redirect()->route('proceso.create')->withStatus(__('Entrada actualizada correctamente'));
     }
 
     /**
