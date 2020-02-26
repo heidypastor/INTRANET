@@ -98,8 +98,14 @@ class ActivityController extends Controller
      * @param  \App\Actividades  $actividades
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Actividades $actividades)
+    public function destroy(Activity $actividad)
     {
-        //
+        if ($actividad->id == 0) {
+            return redirect()->route('proceso.create')->withStatus(__('la actividad no fue eliminada... intente nuevamente escogiendo una salida existente'));
+        }
+        $actividad->delete();
+
+        return redirect()->route('proceso.create')->withStatus(__('Actividad Eliminada correctamente'));
+    
     }
 }

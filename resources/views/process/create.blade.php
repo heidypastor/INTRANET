@@ -31,7 +31,7 @@ Procesos
 					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateEntradas">Nueva</a>
 					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditEntradas">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#ModalSalidas">Eliminar</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteEntradas">Eliminar</a>
 					  </div>
 					</div>
 				</div>
@@ -43,7 +43,7 @@ Procesos
 					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateActividades">Nueva</a>
 					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditActividades">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#ModalSalidas">Eliminar</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteActividad">Eliminar</a>
 					  </div>
 					</div>
 				</div>
@@ -55,7 +55,7 @@ Procesos
 					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateSalidas">Nueva</a>
 					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditSalidas">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#ModalSalidas">Eliminar</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteSalidas">Eliminar</a>
 					  </div>
 					</div>
 				</div>
@@ -66,13 +66,19 @@ Procesos
 					  </button>
 					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateSeguimientos">Nuevo</a>
+<<<<<<< HEAD
+					    <a class="dropdown-item" data-toggle="modal" data-target="#ModalActividades">Actualizar</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteSeguimientos">Eliminar</a>
+=======
 					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditSeguimientos">Actualizar</a>
 					    <a class="dropdown-item" data-toggle="modal" data-target="#ModalSalidas">Eliminar</a>
+>>>>>>> master
 					  </div>
 					</div>
 				</div>
 			</div>
 		</div>
+		@include('alerts.success')
 			 <form role="form" method="POST" action="{{ route('proceso.store') }}" enctype="multipart/form-data">
 			 @csrf
 			<div class="card-body">
@@ -474,6 +480,100 @@ Procesos
 		@endslot
 	@endcomponent
 
+<<<<<<< HEAD
+	{{-- Modal de eliminar Salidas --}}
+	@component('layouts.partials.modalDelete')
+		@slot('idModal')
+			modalDeleteSalidas
+		@endslot
+		@slot('idform')
+			formDeleteSalidas
+		@endslot
+		@slot('titulo')
+			Eliminar Salidas
+			@endslot
+		@slot('action')
+			{{ route('salida.destroy', 0) }}
+		@endslot
+		@slot('form')
+	         	@method('DELETE')
+				@csrf
+				<div class="form-group">
+					<select id="SelectEliminarSalidas" class="form-control" onchange="eliminarSalida()">
+						<option value="0" selected>Seleccionar salida a Eliminar</option>
+						@foreach($salidasDrop as $salidaDrop)
+						<option value="{{$salidaDrop->id}}">{{$salidaDrop->OutputName}}</option>
+						@endforeach
+					</select>
+				</div>
+		@endslot
+		@slot('submitbutton')
+		<button form="formDeleteSalidas" disabled id="eliminarSubmitSalidas" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
+		@endslot
+	@endcomponent
+
+	{{-- Modal de eliminar entradas --}}
+	@component('layouts.partials.modalDelete')
+		@slot('idModal')
+			modalDeleteEntradas
+		@endslot
+		@slot('idform')
+			formDeleteEntradas
+		@endslot
+		@slot('titulo')
+			Eliminar Entradas
+		@endslot
+		@slot('action')
+			{{ route('entrada.destroy', 0) }}
+		@endslot
+		@slot('form')
+	         	@method('DELETE')
+				@csrf
+				<div class="form-group">
+					<select id="SelectEliminarEntradas" class="form-control" onchange="eliminarEntrada()">
+						<option value="0" selected>Seleccionar entrada a Eliminar</option>
+						@foreach($entradasDrop as $entradaDrop)
+						<option value="{{$entradaDrop->id}}">{{$entradaDrop->InputName}}</option>
+						@endforeach
+					</select>
+				</div>
+		@endslot
+		@slot('submitbutton')
+		<button form="formDeleteEntradas" disabled id="eliminarSubmitEntradas" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
+		@endslot
+	@endcomponent
+
+	{{-- Modal de eliminar actividades --}}
+	@component('layouts.partials.modalDelete')
+		@slot('idModal')
+			modalDeleteActividad
+		@endslot
+		@slot('idform')
+			formDeleteActividad
+		@endslot
+		@slot('titulo')
+			Eliminar Actividad
+		@endslot
+		@slot('action')
+			{{ route('actividad.destroy', 0) }}
+		@endslot
+		@slot('form')
+				@method('DELETE')
+				@csrf
+				<div class="form-group">
+					<select id="SelectEliminarActividad" class="form-control" onchange="eliminarActividad()">
+						<option value="0" selected>Seleccionar actividad a Eliminar</option>
+						@foreach($actividadesDrop as $actividadDrop)
+						<option value="{{$actividadDrop->id}}">{{$actividadDrop->ActiName}}</option>
+						@endforeach
+					</select>
+				</div>
+		@endslot
+		@slot('submitbutton')
+			<button form="formDeleteActividad" disabled id="eliminarSubmitActividad" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
+		@endslot
+	@endcomponent
+=======
 
 
 	{{-- Modal de edición de Seguimientos --}}
@@ -503,7 +603,38 @@ Procesos
 			</div>
 		@endslot
 	@endcomponent 
+>>>>>>> master
 	
+	{{-- Modal de eliminar seguimientos --}}
+	@component('layouts.partials.modalDelete')
+		@slot('idModal')
+			modalDeleteSeguimientos
+		@endslot
+		@slot('idform')
+			formDeleteSeguimientos
+		@endslot
+		@slot('titulo')
+			Eliminar Seguimiento
+		@endslot
+		@slot('action')
+			{{ route('seguimiento.destroy', 0) }}
+		@endslot
+		@slot('form')
+				@method('DELETE')
+				@csrf
+				<div class="form-group">
+					<select id="SelectEliminarSeguimiento" class="form-control" onchange="eliminarSeguimiento()">
+						<option value="0" selected>Seleccionar seguimiento a Eliminar</option>
+						@foreach($seguimientosDrop as $seguimientoDrop)
+						<option value="{{$seguimientoDrop->id}}">{{$seguimientoDrop->SeguiName}}</option>
+						@endforeach
+					</select>
+				</div>
+		@endslot
+		@slot('submitbutton')
+			<button form="formDeleteSeguimientos" disabled id="eliminarSubmitSeguimiento" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
+		@endslot
+	@endcomponent
 @endsection
 
 
@@ -521,10 +652,66 @@ Procesos
 	function cambiarEntradaId(){
 		var id = $('#IdSelectEntrada').val();
 		var inputoculto = $('#idoculto');
-			inputoculto.attr('value', id);
-			console.log(id);
+		inputoculto.attr('value', id);
+		// console.log(id);
 	};
 
+	function eliminarSalida(){
+		let formulario = $('#formDeleteSalidas');
+		let botonsubmit = $('#eliminarSubmitSalidas');
+		var id = $('#SelectEliminarSalidas').val();
+		formulario.attr('action', '{{ url('salida') }}/'+id);
+		if (id > 0) {
+			botonsubmit.attr('disabled', false);
+		}else{
+			botonsubmit.attr('disabled', true);
+		}
+		// console.log(id);
+	};
+
+	function eliminarActividad(){
+		let formulario = $('#formDeleteActividad');
+		let botonsubmit = $('#eliminarSubmitActividad');
+		var id = $('#SelectEliminarActividad').val();
+		formulario.attr('action', '{{ url('actividad') }}/'+id);
+		if (id > 0) {
+			botonsubmit.attr('disabled', false);
+		}else{
+			botonsubmit.attr('disabled', true);
+		}
+		// console.log(id);
+	};
+
+	function eliminarEntrada(){
+		let formulario = $('#formDeleteEntradas');
+		let botonsubmit = $('#eliminarSubmitEntradas');
+		var id = $('#SelectEliminarEntradas').val();
+		formulario.attr('action', '{{ url('entrada') }}/'+id);
+		if (id > 0) {
+			botonsubmit.attr('disabled', false);
+		}else{
+			botonsubmit.attr('disabled', true);
+		}
+		// console.log(id);
+	};
+
+	function eliminarSeguimiento(){
+		let formulario = $('#formDeleteSeguimientos');
+		let botonsubmit = $('#eliminarSubmitSeguimiento');
+		var id = $('#SelectEliminarSeguimiento').val();
+		formulario.attr('action', '{{ url('seguimiento') }}/'+id);
+		if (id > 0) {
+			botonsubmit.attr('disabled', false);
+		}else{
+			botonsubmit.attr('disabled', true);
+		}
+		// console.log(id);
+	};
+</script>
+<script>
+	$(document).ready( function(){
+		$('option:selected').each(function(){ $(this).prop('selected',true); });
+	})
 	function cambiarActividadId(){
 		var id = $('#IdSelectActividad').val();
 		var inputoculto = $('#idocultoActi');
