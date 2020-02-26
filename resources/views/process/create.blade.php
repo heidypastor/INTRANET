@@ -66,7 +66,7 @@ Procesos
 					  </button>
 					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateSeguimientos">Nuevo</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#ModalActividades">Actualizar</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditSeguimientos">Actualizar</a>
 					    <a class="dropdown-item" data-toggle="modal" data-target="#ModalSalidas">Eliminar</a>
 					  </div>
 					</div>
@@ -91,11 +91,12 @@ Procesos
 			    	</div>
 			    </div>
 
-			    {{-- <div class="col-md-6 col-xs-12">
+			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
+			    		<label class="input-label" for="ProcRevVersion">Descripción del cambio</label>
 			      		<input type="text" class="form-control" id="email" placeholder="descripcion del cambio" name="ProcChangesDescription">
 			    	</div>
-			    </div> --}}
+			    </div>
 
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="custom-input-file">
@@ -103,7 +104,6 @@ Procesos
 			      		<input type="file" required class="form-control" id="ProcImage" placeholder="Imagen de Referencia" name="ProcImage">
 			    	</div>
 			    </div>
-
 
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
@@ -135,16 +135,6 @@ Procesos
 			    </div>
 
 
-			    <div class="col-md-6 col-xs-12">
-			    	<div class="form-group">
-			    		<label class="input-label" for="Seguimiento">Seguimiento</label>
-			      		<select multiple id="Seguimiento" class="form-control" name="Seguimiento[]" placeholder="seleccione">
-			    			@foreach($seguimientos as $seguimiento)
-			    				<option value="{{$seguimiento->id}}">{{$seguimiento->SeguiName}}</option>
-			    			@endforeach
-			    		</select>
-			    	</div>
-			    </div>
 
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
@@ -179,6 +169,17 @@ Procesos
 			    	</div>
 			    </div>
 
+			    <div class="col-md-6 col-xs-12">
+			    	<div class="form-group">
+			    		<label class="input-label" for="Seguimiento">Seguimiento</label>
+			      		<select multiple id="Seguimiento" class="form-control" name="Seguimiento[]" placeholder="seleccione">
+			    			@foreach($seguimientos as $seguimiento)
+			    				<option value="{{$seguimiento->id}}">{{$seguimiento->SeguiName}}</option>
+			    			@endforeach
+			    		</select>
+			    	</div>
+			    </div>
+			    
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="Entradas">Entradas</label>
@@ -423,27 +424,26 @@ Procesos
 			Editar Actividad
 		@endslot
 		@slot('action')
-			{{ route('actividad.create') }}
+			{{ route('actividad.actualizar') }}
 		@endslot
 		@slot('form')
-			<div class="">
-				<select class="form-control">
+			@csrf
+			<div class="form-group">
+				<select id="IdSelectActividad" class="form-control" onchange="cambiarActividadId()">
 					@foreach($actividades as $actividad)
 						<option value="{{$actividad->id}}">{{$actividad->ActiName}}</option>
 					@endforeach
 				</select>
 			</div>
-			<form role="form" method="POST" action="{{ route('actividad.update', $actividad->id) }}" enctype="multipart/form-data">
-	         	@method('PUT')
-				@csrf
-				<div class="form-group">
-				</div>
-				<div class="form-group">
-					<label>Nuevo Nombre</label>
-					<input type="text" name="ActiName" class="text-center form-control" required="">
-				</div>
+			<input id="idocultoActi" type="text" value="1" name="idocultoActi" style="display:none;">
+			<div class="form-group">
+				<label>Nuevo Nombre</label>
+				<input type="text" name="ActiName" class="text-center form-control" required="">
+			</div>
 		@endslot
 	@endcomponent
+
+
 
 
 	{{-- Modal de edición de Salidas --}}
@@ -455,26 +455,54 @@ Procesos
 			Editar Salidas
 		@endslot
 		@slot('action')
-			{{ route('salida.create') }}
+			{{ route('salida.actualizar') }}
 		@endslot
 		@slot('form')
-			<form role="form" method="POST" action="{{ route('salida.update', $salida->id) }}" enctype="multipart/form-data">
-	         	@method('PUT')
-				@csrf
-				<div class="form-group">
-
-					<select class="form-control">
-						@foreach($salidas as $salida)
-							<option value="{{$salida->id}}">{{$salida->OutputName}}</option>
-						@endforeach
-					</select>
-				</div>
-				<div class="form-group">
-					<label>Nuevo Nombre</label>
-					<input type="text" name="OutputName" class="text-center form-control" required="">
-				</div>
+			@csrf
+			<div class="form-group">
+				<select id="IdSelectSalida" class="form-control" onchange="cambiarSalidaId()">
+					@foreach($salidas as $salida)
+						<option value="{{$salida->id}}">{{$salida->OutputName}}</option>
+					@endforeach
+				</select>
+			</div>
+			<input id="idocultoSali" type="text" value="1" name="idocultoSali" style="display:none;">
+			<div class="form-group">
+				<label>Nuevo Nombre</label>
+				<input type="text" name="OutputName" class="text-center form-control" required="">
+			</div>
 		@endslot
 	@endcomponent
+
+
+
+	{{-- Modal de edición de Seguimientos --}}
+	@component('layouts.partials.modalEdit')
+		@slot('idModal')
+			modalEditSeguimientos
+		@endslot
+		@slot('titulo')
+			Editar Seguimiento
+		@endslot
+		@slot('action')
+			{{ route('seguimiento.actualizar') }}
+		@endslot
+		@slot('form')
+			@csrf
+			<div class="form-group">
+				<select id="IdSelectSeguimiento" class="form-control" onchange="cambiarSeguimientoId()">
+					@foreach($seguimientos as $seguimiento)
+						<option value="{{$seguimiento->id}}">{{$seguimiento->SeguiName}}</option>
+					@endforeach
+				</select>
+			</div>
+			<input id="idocultoSegui" type="text" value="1" name="idocultoSegui" style="display:none;">
+			<div class="form-group">
+				<label>Nuevo Nombre</label>
+				<input type="text" name="SeguiName" class="text-center form-control" required="">
+			</div>
+		@endslot
+	@endcomponent 
 	
 @endsection
 
@@ -493,6 +521,27 @@ Procesos
 	function cambiarEntradaId(){
 		var id = $('#IdSelectEntrada').val();
 		var inputoculto = $('#idoculto');
+			inputoculto.attr('value', id);
+			console.log(id);
+	};
+
+	function cambiarActividadId(){
+		var id = $('#IdSelectActividad').val();
+		var inputoculto = $('#idocultoActi');
+			inputoculto.attr('value', id);
+			console.log(id);
+	};
+
+	function cambiarSalidaId(){
+		var id = $('#IdSelectSalida').val();
+		var inputoculto = $('#idocultoSali');
+			inputoculto.attr('value', id);
+			console.log(id);
+	};
+
+	function cambiarSeguimientoId(){
+		var id = $('#IdSelectSeguimiento').val();
+		var inputoculto = $('#idocultoSegui');
 			inputoculto.attr('value', id);
 			console.log(id);
 	};

@@ -25,7 +25,11 @@ Requisitos y Documentos Legales
 				<div class="col-md-6">
 					<div class="card" style="background-color: #f5f6fa;">
 						<div class="card-header">
-							{{$requisito->ReqName}}
+							@if($requisito->ReqLink == "N" || $requisito->ReqLink == "")
+								{{$requisito->ReqName}}
+							@else
+								<a href="{{$requisito->ReqLink}}">{{$requisito->ReqName}}</a>
+							@endif
 						</div>
 						<div class="card-body">
 					      	<table>
@@ -40,6 +44,15 @@ Requisitos y Documentos Legales
 				      			<tr>
 				      				<td><strong>Ente emisor:</strong></td> 
 				      				<td> {{$requisito->ReqEnte}}</td>
+				      			</tr>
+				      			<tr>
+				      				@if($requisito->ReqSrc == "N" || $requisito->ReqSrc == "")
+				      					<td><strong>Archivo:</strong></td> 
+				      					<td>Sin Archivo</td>
+				      				@else
+					      				<td><strong>Archivo:</strong></td> 
+					      				<td><a href="{{Storage::url($requisito->ReqSrc)}}">Archivo</a></td>
+					      			@endif
 				      			</tr>
 				      			<tr>
 				      				<td><strong>Descripción:</strong></td> 
