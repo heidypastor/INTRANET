@@ -71,6 +71,21 @@ class ActivityController extends Controller
      * @param  \App\Actividades  $actividades
      * @return \Illuminate\Http\Response
      */
+
+
+
+    public function actualizar(Request $request)
+    {
+        // return $request;
+        $actividad = Activity::find($request->input('idocultoActi'));
+        $actividad->ActiName = $request->input('ActiName');
+        $actividad->save();
+
+        return redirect()->route('proceso.create')->withStatus(__('Actividad actualizada correctamente'));
+    }
+
+
+
     public function update(Request $request, Activity $actividad)
     {
         $actividad->update($request->all());

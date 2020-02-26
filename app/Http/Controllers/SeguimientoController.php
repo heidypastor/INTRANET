@@ -71,6 +71,21 @@ class SeguimientoController extends Controller
      * @param  \App\Seguimiento  $seguimiento
      * @return \Illuminate\Http\Response
      */
+
+
+
+    public function actualizar(Request $request)
+    {
+        // return $request;
+        $seguimiento = Seguimiento::find($request->input('idocultoSegui'));
+        $seguimiento->SeguiName = $request->input('SeguiName');
+        $seguimiento->save();
+
+        return redirect()->route('proceso.create')->withStatus(__('Salida actualizada correctamente'));
+    }
+
+
+
     public function update(Request $request, Seguimiento $seguimiento)
     {
         //

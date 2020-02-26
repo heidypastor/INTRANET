@@ -11,8 +11,10 @@ use App\Activity;
 use App\Indicators;
 use App\Areas;
 use App\Seguimiento;
+use App\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProcessController extends Controller
 {
@@ -51,9 +53,11 @@ class ProcessController extends Controller
         $soportes = Process::all(['id', 'ProcName']);
         $seguimientos = Seguimiento::all(['id', 'SeguiName']);
 
+        $usuario = Auth::user()->id;
+
         /*return $actividades;*/
 
-        return view('process.create', compact(['roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'seguimientos']));
+        return view('process.create', compact(['roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'seguimientos', 'usuario']));
     }
 
     /**
@@ -81,7 +85,6 @@ class ProcessController extends Controller
         $process->ProcReviso = $request->input('ProcReviso');
         $process->ProcAprobo = $request->input('ProcAprobo');
         $process->ProcImage = $path;
-        $process->ProcChangesDescription = "añadido mediante intranet recientemente";
         $process->ProcDate = $request->input('ProcDate');
         $process->save();
 

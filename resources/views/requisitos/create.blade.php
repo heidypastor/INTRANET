@@ -39,6 +39,14 @@ Requisitos y Documentos Legales
 				    <label>Descripción del requisito legal</label>
 					<input name="ReqQueDice" type="text" placeholder="" id="ReqQueDice" class="text-center form-control" required="">
 				</div>
+				<div class="custom-input-file">
+				    <label>Adjunto</label>
+					<input name="ReqSrc" type="file" placeholder="" id="ReqSrc" class="form-control">
+				</div>
+				<div class="form-group">
+				    <label>Link</label>
+					<input name="ReqLink" type="text" placeholder="" id="ReqLink" class="text-center form-control">
+				</div>
 				<div class="form-group">
 					<label class="form-control-label">Áreas implicadas al requisito legal</label>
 					<select multiple name="areas[]" id="input-area" class="form-control form-control-alternative" placeholder="{{ __('Selecciona las áreas a las que pertenece')}}" value="{{ old('areas[]') }}"  required>
