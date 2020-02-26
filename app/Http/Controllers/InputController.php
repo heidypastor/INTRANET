@@ -28,6 +28,21 @@ class InputController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function actualizar(Request $request)
+    {
+        // return $request;
+        $entrada = Input::find($request->input('idoculto'));
+        $entrada->InputName = $request->input('InputName');
+        $entrada->save();
+
+        return redirect()->route('proceso.create')->withStatus(__('Entrada actualizada correctamente'));
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

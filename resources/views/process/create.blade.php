@@ -393,17 +393,18 @@ Procesos
 			Editar Entrada
 		@endslot
 		@slot('action')
-			{{ route('entrada.update', $entrada) }}
+			{{ route('entrada.actualizar') }}
 		@endslot
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<select class="form-control">
+				<select id="IdSelectEntrada" class="form-control" onchange="cambiarEntradaId()">
 					@foreach($entradas as $entrada)
-						<option value="{{$entrada->id}}">{{$entrada->InputName}}</option>
+					<option value="{{$entrada->id}}">{{$entrada->InputName}}</option>
 					@endforeach
 				</select>
 			</div>
+			<input id="idoculto" type="text" value="1" name="idoculto" style="display:none;">
 			<div class="form-group">
 				<label>Nuevo Nombre</label>
 				<input type="text" name="InputName" class="text-center form-control" required="">
@@ -420,6 +421,9 @@ Procesos
 		@endslot
 		@slot('titulo')
 			Editar Actividad
+		@endslot
+		@slot('action')
+			{{ route('actividad.create') }}
 		@endslot
 		@slot('form')
 			<div class="">
@@ -448,7 +452,10 @@ Procesos
 			modalEditSalidas
 		@endslot
 		@slot('titulo')
-			Editar Actividad
+			Editar Salidas
+		@endslot
+		@slot('action')
+			{{ route('salida.create') }}
 		@endslot
 		@slot('form')
 			<form role="form" method="POST" action="{{ route('salida.update', $salida->id) }}" enctype="multipart/form-data">
@@ -483,8 +490,11 @@ Procesos
 {{-- scripts adicionales para el funcionmiento de la vista --}}
 @push('scripts')
 <script>
-	// $(document).ready(function() {
-	// 	console.log('vista cargada correctamente')
-	// });
+	function cambiarEntradaId(){
+		var id = $('#IdSelectEntrada').val();
+		var inputoculto = $('#idoculto');
+			inputoculto.attr('value', id);
+			console.log(id);
+	};
 </script>
 @endpush
