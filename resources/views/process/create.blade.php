@@ -18,7 +18,7 @@ Procesos
 	<div class="card">
 		<div class="card-header">
 			<div class="row">
-				<div class="col-md-10">
+				<div class="col-md-4">
 					<h2>
 						<b>{{'Nuevo Proceso'}}</b>
 					</h2>
@@ -26,12 +26,48 @@ Procesos
 				<div class="col-md-2 float-right">
 					<div class="dropdown">
 					  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Agregar
+					    Entradas
 					  </button>
 					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#ModalEntradas">Entradas</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#ModalActividades">Actividades</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#ModalSalidas">Salidas</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateEntradas">Nueva</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditEntradas">Actualizar</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#ModalSalidas">Eliminar</a>
+					  </div>
+					</div>
+				</div>
+				<div class="col-md-2 float-right">
+					<div class="dropdown">
+					  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    Actividades
+					  </button>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateActividades">Nueva</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditActividades">Actualizar</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#ModalSalidas">Eliminar</a>
+					  </div>
+					</div>
+				</div>
+				<div class="col-md-2 float-right">
+					<div class="dropdown">
+					  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    Salidas
+					  </button>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateSalidas">Nueva</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditSalidas">Actualizar</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#ModalSalidas">Eliminar</a>
+					  </div>
+					</div>
+				</div>
+				<div class="col-md-2 float-right">
+					<div class="dropdown">
+					  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    Seguimientos
+					  </button>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateSeguimientos">Nuevo</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#ModalActividades">Actualizar</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#ModalSalidas">Eliminar</a>
 					  </div>
 					</div>
 				</div>
@@ -102,12 +138,11 @@ Procesos
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="Seguimiento">Seguimiento</label>
-			    		<input type="text" required class="form-control" id="Seguimiento" placeholder="lista de controles, auditorias, seguimientos, etc..." name="Seguimiento">
-			      		{{-- <select multiple id="Seguimiento" class="form-control" name="Seguimiento[]" placeholder="seleccione">
-			    			@foreach($roles as $rol)
-			    				<option value="{{$rol->id}}">{{$rol->name}}</option>
+			      		<select multiple id="Seguimiento" class="form-control" name="Seguimiento[]" placeholder="seleccione">
+			    			@foreach($seguimientos as $seguimiento)
+			    				<option value="{{$seguimiento->id}}">{{$seguimiento->SeguiName}}</option>
 			    			@endforeach
-			    		</select> --}}
+			    		</select>
 			    	</div>
 			    </div>
 
@@ -235,6 +270,13 @@ Procesos
 
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
+			    		<label class="input-label" for="ProcRequsitos">Fecha</label>
+			      		<input type="date" name="ProcDate" class="form-control">
+			    	</div>
+			    </div>
+
+			    <div class="col-md-6 col-xs-12">
+			    	<div class="form-group">
 			    		<label class="input-label" for="ProcObjetivo">Objetivo del Proceso</label>
 			      		 <textarea class="form-control" id="ProcObjetivo" name="ProcObjetivo">
 			      		Objetivo de ejemplo para el proceso de compras
@@ -255,91 +297,178 @@ Procesos
 
 	{{-- Esta es la sección de los modal --}}
 
-	{{-- Este modal corresponde a las entradas --}}
-	<div class="modal fade" id="ModalEntradas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">Agregar Entrada</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>
-	      <div class="modal-body">
-	       	<form role="form" method="POST" action="{{ route('entrada.store')}}" enctype="multipart/form-data">
-	       		@csrf
-	       		<div class="form-group">
-	       			<label>Nombre de la entrada</label>	      
-	       			<input type="text" name="InputName" class="text-center form-control" required="">
-	       		</div>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-	        <button type="submit" class="fas fa-plus btn btn-fill btn-success"> Crear</button>
-	       	</form>
-	      </div>
-	    </div>
-	  </div>
-	</div>
+	@component('layouts.partials.modalCreate')
+		@slot('idModal')
+			modalCreateEntradas
+		@endslot
+		@slot('titulo')
+			Nueva Entrada
+		@endslot
+		@slot('action')
+			{{ route('entrada.store')}}
+		@endslot
+		@slot('form')
+			@csrf
+			<div class="form-group">
+				<label>Nombre de la entrada</label>	      
+				<input type="text" name="InputName" class="text-center form-control" required="">
+			</div>
+		@endslot
+	@endcomponent
 
 
 	{{-- Este modal corresponde a las actividades --}}
 
-	<div class="modal fade" id="ModalActividades" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">Agregar Actividad</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>
-	      <div class="modal-body">
-	       	<form role="form" method="POST" action="{{ route('actividad.store')}}" enctype="multipart/form-data">
-	       		@csrf
-	       		<div class="form-group">
-	       			<label>Nombre de la actividad</label>	      
-	       			<input type="text" name="ActiName" class="text-center form-control" required="">
-	       		</div>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-	        <button type="submit" class="fas fa-plus btn btn-fill btn-success"> Crear</button>
-	       	</form>
-	      </div>
-	    </div>
-	  </div>
-	</div>
+	@component('layouts.partials.modalCreate')
+		@slot('idModal')
+			modalCreateActividades
+		@endslot
+		@slot('titulo')
+			Nueva Actividad
+		@endslot
+		@slot('action')
+			{{ route('actividad.store')}}
+		@endslot
+		@slot('form')
+			@csrf
+			<div class="form-group">
+				<label>Nombre de la actividad</label>	      
+				<input type="text" name="ActiName" class="text-center form-control" required="">
+			</div>
+		@endslot
+	@endcomponent
 
 
 	{{-- Este modal corresponde a las Salidas --}}
 
-	<div class="modal fade" id="ModalSalidas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">Agregar Salida</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>
-	      <div class="modal-body">
-	       	<form role="form" method="POST" action="{{ route('salida.store')}}" enctype="multipart/form-data">
-	       		@csrf
-	       		<div class="form-group">
-	       			<label>Nombre de la salida</label>	      
-	       			<input type="text" name="OutputName" class="text-center form-control" required="">
-	       		</div>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-	        <button type="submit" class="fas fa-plus btn btn-fill btn-success"> Crear</button>
-	       	</form>
-	      </div>
-	    </div>
-	  </div>
-	</div>
+	@component('layouts.partials.modalCreate')
+		@slot('idModal')
+			modalCreateSalidas
+		@endslot
+		@slot('titulo')
+			Nueva Salida
+		@endslot
+		@slot('action')
+			{{ route('salida.store')}}
+		@endslot
+		@slot('form')
+			@csrf
+			<div class="form-group">
+				<label>Nombre de la salida</label>	      
+				<input type="text" name="OutputName" class="text-center form-control" required="">
+			</div>
+		@endslot
+	@endcomponent
 
+	{{-- Este modal corresponde a los seguimientos --}}
+
+	@component('layouts.partials.modalCreate')
+		@slot('idModal')
+			modalCreateSeguimientos
+		@endslot
+		@slot('titulo')
+			Nueva Seguimiento
+		@endslot
+		@slot('action')
+			{{ route('seguimiento.store')}}
+		@endslot
+		@slot('form')
+			@csrf
+			<div class="form-group">
+				<label>Nombre de la salida</label>	      
+				<input type="text" name="SeguiName" class="text-center form-control" required="">
+			</div>
+		@endslot
+	@endcomponent
+
+
+	{{-- Parte del documento donde se encuentran los modales de edición --}}
+
+	{{-- Modal de edición de Entradas --}}
+	@component('layouts.partials.modalEdit')
+		@slot('idModal')
+			modalEditEntradas
+		@endslot
+		@slot('titulo')
+			Editar Entrada
+		@endslot
+		@slot('action')
+			{{ route('entrada.update', $entrada) }}
+		@endslot
+		@slot('form')
+			@csrf
+			<div class="form-group">
+				<select class="form-control">
+					@foreach($entradas as $entrada)
+						<option value="{{$entrada->id}}">{{$entrada->InputName}}</option>
+					@endforeach
+				</select>
+			</div>
+			<div class="form-group">
+				<label>Nuevo Nombre</label>
+				<input type="text" name="InputName" class="text-center form-control" required="">
+			</div>
+		@endslot
+	@endcomponent
+
+
+
+	{{-- Modal de edición de Actividades --}}
+	@component('layouts.partials.modalEdit')
+		@slot('idModal')
+			modalEditActividades
+		@endslot
+		@slot('titulo')
+			Editar Actividad
+		@endslot
+		@slot('form')
+			<div class="">
+				<select class="form-control">
+					@foreach($actividades as $actividad)
+						<option value="{{$actividad->id}}">{{$actividad->ActiName}}</option>
+					@endforeach
+				</select>
+			</div>
+			<form role="form" method="POST" action="{{ route('actividad.update', $actividad->id) }}" enctype="multipart/form-data">
+	         	@method('PUT')
+				@csrf
+				<div class="form-group">
+				</div>
+				<div class="form-group">
+					<label>Nuevo Nombre</label>
+					<input type="text" name="ActiName" class="text-center form-control" required="">
+				</div>
+		@endslot
+	@endcomponent
+
+
+	{{-- Modal de edición de Salidas --}}
+	@component('layouts.partials.modalEdit')
+		@slot('idModal')
+			modalEditSalidas
+		@endslot
+		@slot('titulo')
+			Editar Actividad
+		@endslot
+		@slot('form')
+			<form role="form" method="POST" action="{{ route('salida.update', $salida->id) }}" enctype="multipart/form-data">
+	         	@method('PUT')
+				@csrf
+				<div class="form-group">
+
+					<select class="form-control">
+						@foreach($salidas as $salida)
+							<option value="{{$salida->id}}">{{$salida->OutputName}}</option>
+						@endforeach
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Nuevo Nombre</label>
+					<input type="text" name="OutputName" class="text-center form-control" required="">
+				</div>
+		@endslot
+	@endcomponent
+	
 @endsection
 
 

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Activity;
+use App\Seguimiento;
 use Illuminate\Http\Request;
 
-class ActivityController extends Controller
+class SeguimientoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,20 +35,20 @@ class ActivityController extends Controller
      */
     public function store(Request $request)
     {
-        $actividad = new Activity();
-        $actividad->ActiName = $request->input('ActiName');
-        $actividad->save();
-
-        return redirect()->route('proceso.create')->withStatus(__('Actividad creada correctamente'));
+        $seguimiento = new Seguimiento();
+        $seguimiento->SeguiName = $request->input('SeguiName');
+        $seguimiento->save();
+        
+        return redirect()->route('proceso.create')->withStatus(__('Seguimiento creado correctamente'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Actividades  $actividades
+     * @param  \App\Seguimiento  $seguimiento
      * @return \Illuminate\Http\Response
      */
-    public function show(Actividades $actividades)
+    public function show(Seguimiento $seguimiento)
     {
         //
     }
@@ -56,10 +56,10 @@ class ActivityController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Actividades  $actividades
+     * @param  \App\Seguimiento  $seguimiento
      * @return \Illuminate\Http\Response
      */
-    public function edit(Actividades $actividades)
+    public function edit(Seguimiento $seguimiento)
     {
         //
     }
@@ -68,22 +68,21 @@ class ActivityController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Actividades  $actividades
+     * @param  \App\Seguimiento  $seguimiento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Activity $actividad)
+    public function update(Request $request, Seguimiento $seguimiento)
     {
-        $actividad->update($request->all());
-        return redirect()->route('proceso.create')->withStatus(__('Actividad actualizada correctamente'));
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Actividades  $actividades
+     * @param  \App\Seguimiento  $seguimiento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Actividades $actividades)
+    public function destroy(Seguimiento $seguimiento)
     {
         //
     }

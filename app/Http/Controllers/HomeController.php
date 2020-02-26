@@ -27,7 +27,8 @@ class HomeController extends Controller
     {
         /*$document = Documents::orderBy('updated_at', 'DESC')->get()->first();*/
         $indicator = Indicators::orderBy('updated_at', 'DESC')->get()->first();
-        $release = Releases::orderBy('updated_at', 'DESC')->get()->first();
+        /*$release = Releases::orderBy('updated_at', 'DESC')->get()->first();*/
+        $release = Releases::orderBy('updated_at', 'DESC')->where('RelGeneral', 0)->first();
         $document = Documents::orderBy('updated_at', 'DESC')->get()->first();
         $comitesCarousel = Comites::orderBy('updated_at', 'DESC')->get()->first();
         /*return $document;*/
