@@ -17,35 +17,36 @@ Proceso de {{$proceso->ProcName}}
 			@php
 			$userid = Auth::user()->id;
 			@endphp
-			{{-- @if($usuario == 21) --}}
 			<div class="col-md-8">
 				<h2>
 					<b>{{$proceso->ProcName}}</b>
 				</h2>
 			</div>
-			<div class="col-md-2">
-				<a href="{{$proceso->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a><br><br><br>
-			</div>
-			<div class="col-md-2">
-				<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$proceso->id}}">
-				  Eliminar
-				</button>
-				@component('layouts.partials.modal')
-					@slot('id')
-						{{$proceso->id}}
-					@endslot
-					@slot('textModal')
-						{{$proceso->ProcName}}
-					@endslot
-					@slot('botonModal')
-						<form action="{{ route('proceso.destroy', $proceso) }}" method="POST">
-						    @method('DELETE')
-						    @csrf 
-						    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
-						</form>
-					@endslot
-				@endcomponent
-			</div>
+			@can('updateProcess')
+				<div class="col-md-2">
+					<a href="{{$proceso->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a><br><br><br>
+				</div>
+				<div class="col-md-2">
+					<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$proceso->id}}">
+					  Eliminar
+					</button>
+					@component('layouts.partials.modal')
+						@slot('id')
+							{{$proceso->id}}
+						@endslot
+						@slot('textModal')
+							{{$proceso->ProcName}}
+						@endslot
+						@slot('botonModal')
+							<form action="{{ route('proceso.destroy', $proceso) }}" method="POST">
+							    @method('DELETE')
+							    @csrf 
+							    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
+							</form>
+						@endslot
+					@endcomponent
+				</div>
+			@endcan
 		</div>
 	</div>
 	<div class="card-body">
@@ -80,7 +81,12 @@ Proceso de {{$proceso->ProcName}}
 							<span>
 								<ul class="list-group">
 									<a href="#" class="list-group-item list-group-item-action">
-										{{$proceso->ProcResponsable}}
+										{{-- {{$proceso->ProcResponsable}} --}}
+										@foreach($users as $user)
+											@if($proceso->ProcResponsable == $user->id)
+												{{$user->name}}
+											@endif
+										@endforeach
 									</a>
 								</ul>
 							</span>
@@ -99,7 +105,12 @@ Proceso de {{$proceso->ProcName}}
 						<div class="card-body">
 							<ul class="list-group">
 								<a href="#" class="list-group-item list-group-item-action">
-									{{'Gerente General'}}
+									{{-- {{$proceso->ProcAutoridad}} --}}
+									@foreach($users as $user)
+										@if($proceso->ProcAutoridad == $user->id)
+											{{$user->name}}
+										@endif
+									@endforeach
 								</a>
 							</ul>
 						</div>
@@ -117,9 +128,27 @@ Proceso de {{$proceso->ProcName}}
 						<div class="card-body">
 							<ul class="list-group">
 								@foreach($proceso->requisitos as $requisito)
-									<a href="#" class="list-group-item list-group-item-action">
-										{{$requisito->ReqName}}
-									</a>
+									@if($requisito->ReqLink == 'N')
+										@if($requisito->ReqSrc == 'N')
+											<a href="#" class="list-group-item list-group-item-action"> 
+												{{$requisito->ReqName}}
+											</a>
+										@else
+											<a href="{{$requisito->ReqSrc}}" class="list-group-item list-group-item-action"> 
+												{{$requisito->ReqName}}
+											</a>
+										@endif
+									@else
+										@if($requisito->ReqSrc == 'N')
+											<a href="{{$requisito->ReqLink}}" class="list-group-item list-group-item-action">
+												{{$requisito->ReqName}}
+											</a>
+										@else
+											<a href="{{$requisito->ReqLink}}" class="list-group-item list-group-item-action">
+												{{$requisito->ReqName}}
+											</a>
+										@endif
+									@endif
 								@endforeach
 							</ul>
 						</div>
@@ -137,7 +166,7 @@ Proceso de {{$proceso->ProcName}}
 						<div class="card-body">
 							<ul class="list-group">
 								@foreach($proceso->procesosDeSoporte as $proSopor)
-									<a href="{{ route('proceso.show', $proceso) }}" class="list-group-item list-group-item-action">
+									<a href="{{ route('proceso.show', $proSopor) }}" class="list-group-item list-group-item-action">
 										{{$proSopor->ProcName}}
 									</a>
 								@endforeach
@@ -306,64 +335,31 @@ Proceso de {{$proceso->ProcName}}
 				<tbody>
 					<tr>
 						<td class="text-center">{{$proceso->ProcDate}}</td>
-						<td class="text-center">{{-- {{'0'}} --}}{{$proceso->ProcRevVersion}}</td>
-						<td class="text-center">{{-- {{'Emision inicial'}} --}}{{$proceso->ProcChangesDescription}}</td>
-						<td class="text-center">{{-- {{'Superintendente de planta'}} --}}
-							@switch($proceso->ProcElaboro)
-								@case(1) 
-									Super Admin
-									@break
-								@case(2)
-									Gerente
-									@break
-								@case(3)
-									Director
-									@break
-								@case(4)
-									Jefe Área
-									@break
-								@case(5)
-									User
-									@break
-							@endswitch
+						<td class="text-center">{{$proceso->ProcRevVersion}}</td>
+						<td class="text-center">{{$proceso->ProcChangesDescription}}</td>
+						<td class="text-center">
+							{{-- {{$proceso->ProcElaboro}} --}}
+							@foreach($users as $user)
+								@if($proceso->ProcElaboro == $user->id)
+									{{$user->name}}
+								@endif
+							@endforeach
 						</td>
-						<td class="text-center">{{-- {{'Gerente general'}} --}}
-							@switch($proceso->ProcReviso)
-								@case(1) 
-									Super Admin
-									@break
-								@case(2)
-									Gerente
-									@break
-								@case(3)
-									Director
-									@break
-								@case(4)
-									Jefe Área
-									@break
-								@case(5)
-									User
-									@break
-							@endswitch
+						<td class="text-center">
+							{{-- {{$proceso->ProcRevis}} --}}
+							@foreach($users as $user)
+								@if($proceso->ProcReviso == $user->id)
+									{{$user->name}}
+								@endif
+							@endforeach
 						</td>
-						<td class="text-center">{{-- {{'Presidencia GC'}} --}}
-							@switch($proceso->ProcAprobo)
-								@case(1) 
-									Super Admin
-									@break
-								@case(2)
-									Gerente
-									@break
-								@case(3)
-									Director
-									@break
-								@case(4)
-									Jefe Área
-									@break
-								@case(5)
-									User
-									@break
-							@endswitch
+						<td class="text-center">
+							{{-- {{$proceso->ProcAprobo}} --}}
+							@foreach($users as $user)
+								@if($proceso->ProcAprobo == $user->id)
+									{{$user->name}}
+								@endif
+							@endforeach
 						</td>
 					</tr>
 				</tbody>

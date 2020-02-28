@@ -56,11 +56,11 @@ Procesos
 			    	</div>
 			    </div>
 
-			    {{-- <div class="col-md-6 col-xs-12">
+			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			      		<input type="text" class="form-control" id="email" placeholder="descripcion del cambio" name="ProcChangesDescription">
 			    	</div>
-			    </div> --}}
+			    </div>
 
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="custom-input-file">

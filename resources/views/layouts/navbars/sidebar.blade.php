@@ -60,6 +60,7 @@
                                 <p>{{ __('Lista de Usuarios') }}</p>
                             </a>
                         </li>
+                        {{-- @can('') --}}
                         <li @if ($pageSlug == 'roles') class="active " @endif>
                             <a href="{{ route('roles.index')  }}">
                                 <i class="tim-icons icon-tag"></i>
@@ -72,6 +73,7 @@
                                 <p>{{ __('Permisos') }}</p>
                             </a>
                         </li>
+
                         @can('verAreas')
                         <li class=" {{ $pageSlug == 'areas' ? 'active' : '' }}">
                             <a href="{{ route('areas.index') }}">
@@ -181,14 +183,13 @@
                 </a>
             </li>
 
-            @can('verAreas')
             <li class=" {{ $pageSlug == 'procesos' ? 'active' : '' }}">
                 <a href="{{ route('proceso.index') }}">
                     <i class="fas fa-window-restore"></i>
                     <p>{{ __('Procesos') }}</p> 
                 </a>
             </li>
-            @endcan
+
             <li class=" {{ $pageSlug == 'requisitos' ? 'active' : '' }}">
                 <a href="{{ route('requisitos.index') }}">
                     <i class="fas fa-balance-scale"></i>

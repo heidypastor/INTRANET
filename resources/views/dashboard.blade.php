@@ -25,35 +25,35 @@ Home
                       </ol>
                       <div class="carousel-inner" id="imagen-carousel">
                         <div class="carousel-item active">
-                          <img class="d-block w-100 responsive" src="white/img/DJI_0127.jpg" alt="First slide" width="640" height="360">
+                          <img class="d-block w-100 responsive" src="white/img/DJI_0127.jpg" alt="First slide">
                           <div class="carousel-caption d-none d-md-block">
                             <h3 id="text-carousel" class="texto-carousel">Conoce PROSARC</h3>
                             <p id="text-carousel" class="texto-carousel"></p>
                           </div>
                         </div>
                         <div class="carousel-item">
-                          <img class="d-block w-100 responsive" src="white/img/bombero.png" alt="Second slide"  width="640" height="360">
+                          <img class="d-block w-100 responsive" src="white/img/bombero.png" alt="Second slide">
                           <div class="carousel-caption d-none d-md-block">
                             <h3 id="text-carousel" class="texto-carousel"></h3>
                             <h3 id="text-carousel" class="texto-carousel"></h3>
                           </div>
                         </div>
                         <div class="carousel-item">
-                          <a href="indicators/{{$indicator->id}}"><img class="d-block w-100 responsive" src="{{Storage::url($indicator->IndGraphic)}}" alt="Thrid slide"  width="640" height="360"></a>
+                          <a href="indicators/{{$indicator->id}}"><img class="d-block w-100 responsive" src="{{Storage::url($indicator->IndGraphic)}}" alt="Thrid slide"></a>
                           <div class="carousel-caption d-none d-md-block">
                             <h3 id="text-carousel" class="texto-carousel">Indicador Actualizado</h3>
                             <h3 id="text-carousel" class="texto-carousel">{{$indicator->IndName}}</h3>
                           </div>
                         </div>
                         <div class="carousel-item">
-                          <a href="comites/{{$comitesCarousel->id}}"><img class="d-block w-100 responsive" src="{{Storage::url($comitesCarousel->ComiImage)}}" alt="Four slide"  width="640" height="360"></a>
+                          <a href="comites/{{$comitesCarousel->id}}"><img class="d-block w-100 responsive" src="{{Storage::url($comitesCarousel->ComiImage)}}" alt="Four slide"></a>
                           <div class="carousel-caption d-none d-md-block">
                             <h3 id="text-carousel" class="texto-carousel">Comite Actualizado</h3>
                             <h3 id="text-carousel" class="texto-carousel">{{$comitesCarousel->ComiName}}</h3>
                           </div>
                         </div>
                         <div class="carousel-item">
-                          <a href="releases/{{$release->id}}"><img class="d-block w-100 responsive" src="{{Storage::url($release->RelSrc)}}" alt="Six slide"  width="640" height="360"></a>
+                          <a href="releases/{{$release->id}}"><img class="d-block w-100 responsive" src="{{Storage::url($release->RelSrc)}}" alt="Five slide"></a>
                           <div class="carousel-caption d-none d-md-block">
                             <h3 id="text-carousel" class="texto-carousel">
                               @if($release->RelType === 'Comunicado')
@@ -66,7 +66,7 @@ Home
                           </div>
                         </div>
                         <div class="carousel-item">
-                          <img class="d-block w-100 responsive" src="white/img/docu.jpg" alt="Five slide"  width="640" height="360">
+                          <img class="d-block w-100 responsive" src="white/img/docu.jpg" alt="Six slide">
                           <div class="carousel-caption d-none d-md-block">
                             <h3 id="text-carousel" class="texto-carousel">Documento Actualizado</h3>
                             <h3 id="text-carousel" class="texto-carousel">{{$document->DocName}}</h3>

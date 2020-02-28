@@ -19,6 +19,8 @@ class RequisitosSeeder extends Seeder
         $requisito->ReqDate = '2020/03/01';
         $requisito->ReqEnte = 'Prueba';
         $requisito->ReqQueDice = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+        $requisito->ReqSrc = 'N';
+        $requisito->ReqLink = 'N';
         $requisito->save();
 
 
@@ -29,6 +31,8 @@ class RequisitosSeeder extends Seeder
         $requisito->ReqDate = '2020/03/01';
         $requisito->ReqEnte = 'Prueba';
         $requisito->ReqQueDice = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+        $requisito->ReqSrc = 'N';
+        $requisito->ReqLink = 'N';
         $requisito->save();
     }
 }

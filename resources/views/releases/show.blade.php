@@ -39,17 +39,17 @@ Comunicados
 							@endcomponent
 						</div>
 					@else
-						<div class="col-md-6 text-center">
+						{{-- <div class="col-md-6 text-center">
 							<button type="button" class="btn btn-default sw-btn-prev disabled" data-toggle="modal" data-target="#eliminar{{$release->id}}">
 							  Eliminar
 							</button>
-						</div>
+						</div> --}}
 					@endif
 					<div class="col-md-6 text-center">
 						@if($release->user_id == Auth::user()->id)
 							<a href="{{$release->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a><br><br><br>
 						@else
-							<a href="{{$release->id}}/edit" class="btn btn-default sw-btn-prev disabled"> Editar</a><br><br><br>
+							{{-- <a href="{{$release->id}}/edit" class="btn btn-default sw-btn-prev disabled"> Editar</a><br><br><br> --}}
 						@endif
 					</div>
 				</div>

@@ -42,22 +42,26 @@ class ProcessController extends Controller
      */
     public function create()
     {
-        $roles = Role::all(['id', 'name']);
-        $areas = Areas::all(['id', 'AreaName']);
-        $requisitos = Requisitos::all(['id', 'ReqName']);
-        $documentos = Documents::all(['id', 'DocName']);
-        $entradas = Input::all(['id', 'InputName']);
-        $salidas = Output::all(['id', 'OutputName']);
-        $actividades = Activity::all(['id', 'ActiName']);
-        $indicadores = Indicators::all(['id', 'IndName']);
-        $soportes = Process::all(['id', 'ProcName']);
-        $seguimientos = Seguimiento::all(['id', 'SeguiName']);
+        if (auth()->user()->can('createProcess')) {
 
-        $usuario = Auth::user()->id;
+            $roles = Role::all(['id', 'name']);
+            /*$users = User::all(['id', 'name']);*/
+            $areas = Areas::all(['id', 'AreaName']);
+            $requisitos = Requisitos::all(['id', 'ReqName']);
+            $documentos = Documents::all(['id', 'DocName']);
+            $entradas = Input::all(['id', 'InputName']);
+            $salidas = Output::all(['id', 'OutputName']);
+            $actividades = Activity::all(['id', 'ActiName']);
+            $indicadores = Indicators::all(['id', 'IndName']);
+            $soportes = Process::all(['id', 'ProcName']);
+            $seguimientos = Seguimiento::all(['id', 'SeguiName']);
 
-        /*return $actividades;*/
+            /*return $actividades;*/
+            return view('process.create', compact(['roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'seguimientos']));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para crear Procesos');
+        }
 
-        return view('process.create', compact(['roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'seguimientos', 'usuario']));
     }
 
     /**
@@ -122,9 +126,12 @@ class ProcessController extends Controller
         $proceso['seguimientos'] = $proceso->seguimientos()->get();
 
         /*return $proceso;*/
+        /*$users = User::all(['id', 'name']);*/
         $responsable = Role::findById($proceso->ProcResponsable);
+
+        $usuario = Auth::user()->id;
         // return $responsable;
-        return view('process.show', compact('proceso'));
+        return view('process.show', compact('proceso', 'usuario'));
     }
 
     /**
@@ -135,20 +142,27 @@ class ProcessController extends Controller
      */
     public function edit(Process $proceso)
     {
-        $roles = Role::all(['id', 'name']);
-        $areas = Areas::all(['id', 'AreaName']);
-        $requisitos = Requisitos::all(['id', 'ReqName']);
-        $documentos = Documents::all(['id', 'DocName']);
-        $entradas = Input::all(['id', 'InputName']);
-        $salidas = Output::all(['id', 'OutputName']);
-        $actividades = Activity::all(['id', 'ActiName']);
-        $indicadores = Indicators::all(['id', 'IndName']);
-        $soportes = Process::all(['id', 'ProcName']);
-        $seguimientos = Seguimiento::all(['id', 'SeguiName']);
+        if (auth()->user()->can('updateProcess')) {
+            
+            $roles = Role::all(['id', 'name']);
+            $areas = Areas::all(['id', 'AreaName']);
+            $requisitos = Requisitos::all(['id', 'ReqName']);
+            $documentos = Documents::all(['id', 'DocName']);
+            $entradas = Input::all(['id', 'InputName']);
+            $salidas = Output::all(['id', 'OutputName']);
+            $actividades = Activity::all(['id', 'ActiName']);
+            $indicadores = Indicators::all(['id', 'IndName']);
+            $soportes = Process::all(['id', 'ProcName']);
+            $seguimientos = Seguimiento::all(['id', 'SeguiName']);
 
-        /*return $proceso->entradas;*/
+            /*return $proceso->entradas;*/
 
-        return view('process.edit', compact(['roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'proceso', 'seguimientos']));
+            return view('process.edit', compact(['roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'proceso', 'seguimientos']));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para editar Procesos');
+        }
+
+
     }
 
     /**

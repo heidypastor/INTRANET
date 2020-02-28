@@ -29,7 +29,11 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        return view('permissions.create');
+        $roles = Role::all();
+
+        /*$permission->roles = $permission->getRoleNames();*/
+
+        return view('permissions.create', compact('roles'));
     }
 
     /**
@@ -42,6 +46,7 @@ class PermissionController extends Controller
     {
         // return $request;
         $permission = Permission::Create(['guard_name' => 'web', 'name' => $request->input('name')]);
+        $permission->syncRoles($request->input('roles'));
 
         return redirect()->route('permissions.index')->withStatus(__('Permiso creado exitosamente.'));
     }
