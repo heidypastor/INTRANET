@@ -29,7 +29,7 @@ mix.js('resources/js/app.js', 'public/js')
     		], 'public/css/datatable-depen.css')
     .combine([
     			'resources/css/white-dashboard.css'
-            ], 'public/white/white-dashboard.css')
+            ], 'public/white/css/white-dashboard.css')
     .combine([
     			'node_modules/datatables.net-plugins/features/searchHighlight/dataTables.searchHighlight.css'
     		], 'public/css/datatable-plugins.css')
