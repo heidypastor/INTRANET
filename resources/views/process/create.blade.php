@@ -25,7 +25,7 @@ Procesos
 				</div>
 				<div class="col-md-2 float-right">
 					<div class="dropdown">
-					  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    Entradas
 					  </button>
 					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -49,7 +49,7 @@ Procesos
 				</div>
 				<div class="col-md-2 float-right">
 					<div class="dropdown">
-					  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    Salidas
 					  </button>
 					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -61,7 +61,7 @@ Procesos
 				</div>
 				<div class="col-md-2 float-right">
 					<div class="dropdown">
-					  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    Seguimientos
 					  </button>
 					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
