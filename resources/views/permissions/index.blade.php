@@ -23,7 +23,7 @@ Permisos
                             <h4 class="card-title">{{ __('Lista de Permisos') }}</h4>
                         </div>
                         <div class="col-md-4 col-sm-12 text-right">
-                            <a href="{{ route('permissions.create') }}" class="btn btn-sm btn-success">{{ __('Añadir Permiso') }}</a>
+                            <a href="{{ route('permissions.create') }}" class="btn btn-sm btn-success fas fa-plus"> {{ __('Crear') }}</a>
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@ Permisos
 
                     <div class="">
                         <table class="table tablesorter " id="RolesTable">
-                            <thead class=" text-primary">
+                            <thead>
                                 <th scope="col">{{ __('Id') }}</th>
                                 <th scope="col">{{ __('nombre') }}</th>
                                 <th scope="col">{{ __('Roles') }}</th>
