@@ -61,7 +61,7 @@ Comunicados
 
 
 				<div class="form-group">
-					<button type="submit" class="fas fa-plus btn btn-fill btn-success"> Crear</button>
+					<button type="submit" class="btn btn-fill btn-primary"> Guardar</button>
 				</div>
 			</form>
 		</div>

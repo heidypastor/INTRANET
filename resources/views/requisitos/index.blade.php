@@ -16,7 +16,7 @@ Requisitos y Documentos Legales
 			<h1>Requisitos y Documentos Legales</h1>
 		</div>
 		<div class="pull-left">
-			<a href="{{ route('requisitos.create') }}" class="fas fa-plus btn btn-fill btn-success"> Crear</a>
+			<a href="{{ route('requisitos.create') }}" class="fas fa-plus btn btn-sm btn-fill btn-success"> Crear</a>
 		</div>
 		@include('alerts.success')
 		<div class="card-body">

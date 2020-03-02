@@ -56,7 +56,7 @@ Indicadores
                   <option value="1">General</option>
                 </select>
               </div>
-                <button type="submit" class="btn btn-fill btn-success fas fa-plus"> Crear</button>
+                <button type="submit" class="btn btn-fill btn-primary">Guardar</button>
           </form>
       </div>
   </div>

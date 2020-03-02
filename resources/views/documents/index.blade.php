@@ -19,7 +19,7 @@ Documentos
 		  <h4 class="card-title"><strong>Documentos</strong>
 
 		  @hasrole('Super Admin')
-		  	  <a href="{{ route('documents.create') }}" class="fas fa-plus btn btn-fill btn-success pull-right"> Crear</a>
+		  	  <a href="{{ route('documents.create') }}" class="fas fa-plus btn btn-sm btn-fill btn-success pull-right"> Crear</a>
 		  @else
 		  @endhasrole
 		  </h4>

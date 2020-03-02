@@ -43,7 +43,7 @@ Alertas
 					</select>
 				</div>
 				<div class="form-group">
-					<button type="submit" class="btn btn-fill btn-success fas fa-plus"> Crear</button>
+					<button type="submit" class="btn btn-fill btn-primary">Guardar</button>
 				</div>
 			</form>
 		</div>

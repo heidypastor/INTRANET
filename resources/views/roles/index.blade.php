@@ -23,7 +23,7 @@ Roles
                             <h4 class="card-title">{{ __('Lista de Roles') }}</h4>
                         </div>
                         <div class="col-md-4 col-sm-12 text-right">
-                            <a href="{{ route('roles.create') }}" class="btn btn-sm btn-primary">{{ __('Añadir Rol') }}</a>
+                            <a href="{{ route('roles.create') }}" class="btn btn-sm btn-success fas fa-plus"> {{ __('Crear') }}</a>
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@ Roles
 
                     <div class="">
                         <table class="table tablesorter " id="RolesTable">
-                            <thead class=" text-primary">
+                            <thead>
                                 <th scope="col">{{ __('Rol') }}</th>
                                 <th scope="col">{{ __('Permisos') }}</th>
                                 <th scope="col">{{ __('Fecha de creación') }}</th>
