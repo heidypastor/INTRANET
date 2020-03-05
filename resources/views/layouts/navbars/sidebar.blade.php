@@ -60,7 +60,6 @@
                                 <p>{{ __('Lista de Usuarios') }}</p>
                             </a>
                         </li>
-                        {{-- @can('') --}}
                         <li @if ($pageSlug == 'roles') class="active " @endif>
                             <a href="{{ route('roles.index')  }}">
                                 <i class="tim-icons icon-tag"></i>
@@ -74,7 +73,7 @@
                             </a>
                         </li>
 
-                        @can('verAreas')
+                        @can('readAreas')
                         <li class=" {{ $pageSlug == 'areas' ? 'active' : '' }}">
                             <a href="{{ route('areas.index') }}">
                                 <i class="tim-icons icon-components"></i>

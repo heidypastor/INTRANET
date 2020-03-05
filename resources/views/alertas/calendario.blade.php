@@ -16,7 +16,7 @@ Alertas - Calendario
 
 @section('content')
 	<div class="col-md-12">
-        <div class="col-md-10 mx-auto">
+        <div class="col-md-10 mx-auto"><br><br>
             <div id="calendar"></div>
         </div>
     </div>
