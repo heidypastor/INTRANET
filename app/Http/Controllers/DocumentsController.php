@@ -58,9 +58,9 @@ class DocumentsController extends Controller
      */
     public function store(Request $request, Documents $document)
     {
-        /*return $request;*/
         /*$areas = Areas::whereIn('id', $request->input('areas'))->get();*/
         $areaid = $request->input('areas');
+        /*return $areaid;*/
         // se almacena el archivo
         $path = $request->file('DocSrc')->store('public/'.$request->input('DocType'));
 
@@ -111,6 +111,7 @@ class DocumentsController extends Controller
     public function edit(Documents $document)
     {
         $areas = Areas::get();
+        /*return $document->areas;*/
         return view('documents.edit', compact('document', 'areas'));
     }
 
@@ -155,7 +156,7 @@ class DocumentsController extends Controller
         }else{
             $document->update($request->except('DocSrc'));
             $areaid = $request->input('areas');
-            $document->areas()->attach($areaid);
+            $document->areas()->sync($areaid);
         }
         /*$tratamiento = Tratamiento::find($id);*/
         return redirect()->route('documents.index')->withStatus(__('Documento actualizado correctamente'));

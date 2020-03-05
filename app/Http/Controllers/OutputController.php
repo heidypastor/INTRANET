@@ -71,9 +71,25 @@ class OutputController extends Controller
      * @param  \App\Salidas  $salidas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Salidas $salidas)
+
+
+    public function actualizar(Request $request)
     {
-        //
+        // return $request;
+        $salida = Output::find($request->input('idocultoSali'));
+        $salida->OutputName = $request->input('OutputName');
+        $salida->save();
+
+        return redirect()->route('proceso.create')->withStatus(__('Salida actualizada correctamente'));
+    }
+
+
+
+    public function update(Request $request, Output $salida)
+    {
+        /*return $request;*/
+        $salida->update($request->all());
+        return redirect()->route('proceso.create')->withStatus(__('Salida actualizada correctamente'));
     }
 
     /**
@@ -82,8 +98,13 @@ class OutputController extends Controller
      * @param  \App\Salidas  $salidas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Salidas $salidas)
+    public function destroy(Output $salida)
     {
-        //
+        if ($salida->id == 0) {
+            return redirect()->route('proceso.create')->withStatus(__('la salida no fue eliminada... intente nuevamente escogiendo una salida existente'));
+        }
+        $salida->delete();
+
+        return redirect()->route('proceso.create')->withStatus(__('Salida Eliminada correctamente'));
     }
 }

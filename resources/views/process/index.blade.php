@@ -19,7 +19,9 @@ Procesos
 		<div class="card-header pull-left">
 		  <h3 class="card-title"> 
 		  		<strong>Procesos</strong> 
-		  	<a href="{{ route('proceso.create') }}" class="fas fa-plus btn btn-fill btn-success pull-right"> Crear</a>
+		  		@can('createProcess')
+		  		<a href="{{ route('proceso.create') }}" class="fas fa-plus btn btn-fill btn-success pull-right"> Crear</a>
+		  		@endcan
 		  </h3>
 		</div>
 
@@ -45,27 +47,103 @@ Procesos
 
 			  		{{-- <th class="">Creado el:</th> --}}
 			  		<th class="">Actualizado el:</th>
-			  		<th class="">Mas Información</th>
+			  		<th class="">Más Información</th>
 			  	</tr>
 			  </thead>
 			  <tbody>
 			  	@foreach($procesos as $proceso)
 			      <tr>
 			        <td class="text-center">{{$proceso->ProcName}}</td>
-			        <td class="text-center">{{$proceso->ProcRevVersion}}</td>
+			        <td class="text-center">{{-- {{$proceso->ProcReviso}} --}}
+			        	@switch($proceso->ProcReviso)
+			        		@case(1) 
+			        			Super Admin
+			        			@break
+			        		@case(2)
+			        			Gerente
+			        			@break
+			        		@case(3)
+			        			Director
+			        			@break
+			        		@case(4)
+			        			Jefe Área
+			        			@break
+			        		@case(5)
+			        			User
+			        			@break
+			        	@endswitch
+			        </td>
 			        {{-- <td class="text-center">{{$proceso->ProcChangesDescription}}</td> --}}
 
 			        {{-- <td class="text-center">{{$proceso->ProcObjetivo}}</td> --}}
 			        {{-- <td class="text-center"><a target="_blank" href="{{Storage::url($proceso->ProcImage)}}">{{$proceso->ProcImage}}</td> --}}
-			        <td class="text-center">{{$proceso->ProcResponsable}}</td>
+			        <td class="text-center">{{-- {{$proceso->ProcResponsable}} --}}
+			        	@switch($proceso->ProcResponsable)
+			        		@case(1) 
+			        			Super Admin
+			        			@break
+			        		@case(2)
+			        			Gerente
+			        			@break
+			        		@case(3)
+			        			Director
+			        			@break
+			        		@case(4)
+			        			Jefe Área
+			        			@break
+			        		@case(5)
+			        			User
+			        			@break
+			        	@endswitch
+			        </td>
 
 			        {{-- <td class="text-center">{{$proceso->ProcAutoridad}}</td> --}}
-			        <td class="text-center">{{$proceso->ProcRequsitos}}</td>
+			        <td class="text-center">{{$proceso->ProcRequsitos}}
+				        	@foreach($proceso->requisitos as $requisito)
+				        		{{$requisito->ReqName}}
+				        	@endforeach
+			        </td>
 			        <td class="text-center">{{$proceso->ProcRecursos}}</td>
 
-			        <td class="text-center">{{$proceso->ProcElaboro}}</td>
+			        <td class="text-center">
+			        	@switch($proceso->ProcElaboro)
+			        		@case(1) 
+			        			Super Admin
+			        			@break
+			        		@case(2)
+			        			Gerente
+			        			@break
+			        		@case(3)
+			        			Director
+			        			@break
+			        		@case(4)
+			        			Jefe Área
+			        			@break
+			        		@case(5)
+			        			User
+			        			@break
+			        	@endswitch
+			        </td>
 			        {{-- <td class="text-center">{{$proceso->ProcReviso}}</td> --}}
-			        <td class="text-center">{{$proceso->ProcAprobo}}</td>
+			        <td class="text-center">{{$proceso->ProcAprobo}}
+			        	@switch($proceso->ProcAprobo)
+			        		@case(1) 
+			        			Super Admin
+			        			@break
+			        		@case(2)
+			        			Gerente
+			        			@break
+			        		@case(3)
+			        			Director
+			        			@break
+			        		@case(4)
+			        			Jefe Área
+			        			@break
+			        		@case(5)
+			        			User
+			        			@break
+			        	@endswitch
+			        </td>
 
 			        {{-- <td class="text-center">{{$proceso->created_at}}</td> --}}
 			        <td class="text-center">{{$proceso->updated_at}}</td>

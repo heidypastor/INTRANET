@@ -13,19 +13,55 @@ Proceso de {{$proceso->ProcName}}
 @section('content')
 <div class="card col-md-12">
 	<div class="card-header">
-		<h2>
-			<b>{{$proceso->ProcName}}</b>
-		</h2>
+		<div class="row">
+			@php
+			$userid = Auth::user()->id;
+			@endphp
+			<div class="col-md-8">
+				<h2>
+					<b>{{$proceso->ProcName}}</b>
+				</h2>
+			</div>
+			@can('updateProcess')
+				<div class="col-md-2">
+					<a href="{{$proceso->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a><br><br><br>
+				</div>
+				<div class="col-md-2">
+					<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$proceso->id}}">
+					  Eliminar
+					</button>
+					@component('layouts.partials.modal')
+						@slot('id')
+							{{$proceso->id}}
+						@endslot
+						@slot('textModal')
+							{{$proceso->ProcName}}
+						@endslot
+						@slot('botonModal')
+							<form action="{{ route('proceso.destroy', $proceso) }}" method="POST">
+							    @method('DELETE')
+							    @csrf 
+							    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
+							</form>
+						@endslot
+					@endcomponent
+				</div>
+			@endcan
+		</div>
 	</div>
 	<div class="card-body">
 		{{-- div para la imagen y el objetivo --}}
 		<div class="row col-md-12">
-			<img src="https://picsum.photos/1024/768" class="col-md-3 col-xs-12 float-left" alt="...">
+			@if($proceso->ProcImage == "")
+				<img src="https://picsum.photos/1024/768" class="col-md-3 col-xs-12 float-left" alt="...">
+			@else
+				<img src="{{Storage::url($proceso->ProcImage)}}" class="col-md-3 col-xs-12 float-left" alt="...">
+			@endif
 			<div class="col-md-9 col-xs-12 float-left">
 				<h4 class="mt-0"><b class="text-info">Objetivo</b></h4>
 				<p>
 					{{$proceso->ProcObjetivo}}
-
+				</p>
 			</div>
 		</div>
 		<div class="row">
@@ -45,7 +81,29 @@ Proceso de {{$proceso->ProcName}}
 							<span>
 								<ul class="list-group">
 									<a href="#" class="list-group-item list-group-item-action">
-										{{ Role::findById($proceso->ProcResponsable) }}
+										{{-- {{$proceso->ProcResponsable}} --}}
+										{{-- @foreach($users as $user)
+											@if($proceso->ProcResponsable == $user->id)
+												{{$user->name}}
+											@endif
+										@endforeach --}}
+										@switch($proceso->ProcResponsable)
+											@case(1) 
+												Super Admin
+												@break
+											@case(2)
+												Gerente
+												@break
+											@case(3)
+												Director
+												@break
+											@case(4)
+												Jefe Área
+												@break
+											@case(5)
+												User
+												@break
+										@endswitch
 									</a>
 								</ul>
 							</span>
@@ -64,7 +122,29 @@ Proceso de {{$proceso->ProcName}}
 						<div class="card-body">
 							<ul class="list-group">
 								<a href="#" class="list-group-item list-group-item-action">
-									{{'Gerente General'}}
+									{{-- {{$proceso->ProcAutoridad}} --}}
+									{{-- @foreach($users as $user)
+										@if($proceso->ProcAutoridad == $user->id)
+											{{$user->name}}
+										@endif
+									@endforeach --}}
+									@switch($proceso->ProcAutoridad)
+										@case(1) 
+											Super Admin
+											@break
+										@case(2)
+											Gerente
+											@break
+										@case(3)
+											Director
+											@break
+										@case(4)
+											Jefe Área
+											@break
+										@case(5)
+											User
+											@break
+									@endswitch
 								</a>
 							</ul>
 						</div>
@@ -81,15 +161,29 @@ Proceso de {{$proceso->ProcName}}
 					<div id="collapse3" class="collapse show">
 						<div class="card-body">
 							<ul class="list-group">
-								<a href="#" class="list-group-item list-group-item-action">
-									{{'Normas NTC ISO 9001'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action">
-									{{'Normas NTC ISO 14001'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action">
-									{{'Normas NTC OHSAS 18001'}}
-								</a>
+								@foreach($proceso->requisitos as $requisito)
+									@if($requisito->ReqLink == 'N')
+										@if($requisito->ReqSrc == 'N')
+											<a href="#" class="list-group-item list-group-item-action"> 
+												{{$requisito->ReqName}}
+											</a>
+										@else
+											<a href="{{$requisito->ReqSrc}}" class="list-group-item list-group-item-action"> 
+												{{$requisito->ReqName}}
+											</a>
+										@endif
+									@else
+										@if($requisito->ReqSrc == 'N')
+											<a href="{{$requisito->ReqLink}}" class="list-group-item list-group-item-action">
+												{{$requisito->ReqName}}
+											</a>
+										@else
+											<a href="{{$requisito->ReqLink}}" class="list-group-item list-group-item-action">
+												{{$requisito->ReqName}}
+											</a>
+										@endif
+									@endif
+								@endforeach
 							</ul>
 						</div>
 					</div>
@@ -105,18 +199,11 @@ Proceso de {{$proceso->ProcName}}
 					<div id="collapse4" class="collapse show">
 						<div class="card-body">
 							<ul class="list-group">
-								<a href="#" class="list-group-item list-group-item-action">
-									{{'Planificación'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action">
-									{{'Transporte y Recolección'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action">
-									{{'Gestión Ambiental y SI&SO'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action">
-									{{'Almacén'}}
-								</a>
+								@foreach($proceso->procesosDeSoporte as $proSopor)
+									<a href="{{ route('proceso.show', $proSopor) }}" class="list-group-item list-group-item-action">
+										{{$proSopor->ProcName}}
+									</a>
+								@endforeach
 							</ul>
 						</div>
 					</div>
@@ -133,7 +220,7 @@ Proceso de {{$proceso->ProcName}}
 						<div class="card-body">
 							<ul class="list-group">
 								<li class="list-group-item">
-									{{'Oficina, Computador, teléfono, fax, vehículo'}}
+									{{$proceso->ProcRecursos}}
 								</li>
 							</ul>
 						</div>
@@ -150,33 +237,11 @@ Proceso de {{$proceso->ProcName}}
 					<div id="collapse6" class="collapse show">
 						<div class="card-body">
 							<ul class="list-group">
-								<a href="#" class="list-group-item list-group-item-action">
-									{{'P-11 Compras'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action">
-									{{'P-02 PLanificación'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action">
-									{{'P-22 Manejo del Producto No Conforme'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action">
-									{{'P-17 Auditorias'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action">
-									{{'P-18 Mejoras'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action">
-									{{'Programa de gestión SI&SO y Medio Ambiente'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action">
-									{{'Normas de Trabajo'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action">
-									{{'Hojas de Seguridad'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action">
-									{{'Matriz de requisitos Legales'}}
-								</a>
+								@foreach($proceso->documentos as $documento)
+									<a href="{{Storage::url($documento->DocSrc)}}" class="list-group-item list-group-item-action">
+										{{$documento->DocName}}
+									</a>
+								@endforeach
 							</ul>
 						</div>
 					</div>
@@ -195,27 +260,11 @@ Proceso de {{$proceso->ProcName}}
 					<div id="collapse7" class="collapse show">
 						<div class="card-body">
 							<ul class="list-group">
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'Requisiciones de bienes y servicios'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'solicitud de elaboración y eliminación de contratos'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'Fichas del PMA'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'Identificación del peligro evaluación y eliminación de riesgos'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'Identificación de aspectos e impacto ambiental'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'Programa de Gestión en SI$SO y medio Ambiente'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'Normas de Trabajo'}}
-								</a>
+								@foreach($proceso->entradas as $entrada)
+									<a href="#" class="list-group-item list-group-item-action ">
+										{{$entrada->InputName}}
+									</a>
+								@endforeach
 							</ul>
 						</div>
 					</div>
@@ -231,30 +280,11 @@ Proceso de {{$proceso->ProcName}}
 					<div id="collapse8" class="collapse show">
 						<div class="card-body">
 							<ul class="list-group">
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'evaluación de proveedores y contratistas'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'solicitud y análisis de cotización'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'elaboración de términos de referencia para licitaciones'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'selección de proveedores'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'elaboración de ordenes de compra, ordenes de servicio y contratos'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'Manejo de relaciones con proveedores y seguimiento hasta la llegada del insumo al Almacén'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'levar estadística mensual de entrega de pedidos, haciendo énfasis en los productos críticos para el desarrollo de proyectos'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'Implementación de los programas de gestión'}}
-								</a>
+								@foreach($proceso->actividades as $actividad)
+									<a href="#" class="list-group-item list-group-item-action ">
+										{{$actividad->ActiName}}
+									</a>
+								@endforeach
 							</ul>
 						</div>
 					</div>
@@ -270,12 +300,11 @@ Proceso de {{$proceso->ProcName}}
 					<div id="collapse9" class="collapse show">
 						<div class="card-body">
 							<ul class="list-group">
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'suministros de bienes y servicios acordes con los requerimientos'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'Reducción de los riesgos e impacto ambiental'}}
-								</a>
+								@foreach($proceso->salidas as $salida)
+									<a href="#" class="list-group-item list-group-item-action ">
+										{{$salida->OutputName}}
+									</a>
+								@endforeach
 							</ul>
 						</div>
 					</div>
@@ -291,15 +320,11 @@ Proceso de {{$proceso->ProcName}}
 					<div id="collapse10" class="collapse show">
 						<div class="card-body">
 							<ul class="list-group">
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'Auditorias Internas y Externas'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'Revisión por la Dirección'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'Revisión por la Dirección'}}
-								</a>
+								@foreach($proceso->seguimientos as $seguimiento)
+									<a href="#" class="list-group-item list-group-item-action ">
+										{{$seguimiento->SeguiName}}
+									</a>
+								@endforeach
 							</ul>
 						</div>
 					</div>
@@ -315,15 +340,11 @@ Proceso de {{$proceso->ProcName}}
 					<div id="collapse1" class="collapse show">
 						<div class="card-body">
 							<ul class="list-group">
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'Tiempo requerido para el tramite de una requisicion'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'Tiempo de llegada para los productos'}}
-								</a>
-								<a href="#" class="list-group-item list-group-item-action ">
-									{{'N° de Pedidos no conformes'}}
-								</a>
+								@foreach($proceso->indicadores as $indicador)
+									<a href="{{ route('indicators.show', $indicador) }}" class="list-group-item list-group-item-action ">
+										{{$indicador->IndName}}
+									</a>
+								@endforeach
 							</ul>
 						</div>
 					</div>
@@ -339,7 +360,7 @@ Proceso de {{$proceso->ProcName}}
 					<tr>
 						<th class="text-center" style="color:lightsteelblue !important;">Fecha</th>
 						<th class="text-center" style="color:lightsteelblue !important;">Rev N°</th>
-						<th class="text-center" style="color:lightsteelblue !important;">Descrición de modificación</th>
+						<th class="text-center" style="color:lightsteelblue !important;">Descripción de modificación</th>
 						<th class="text-center" style="color:lightsteelblue !important;">Elaboró</th>
 						<th class="text-center" style="color:lightsteelblue !important;">Revisó</th>
 						<th class="text-center" style="color:lightsteelblue !important;">Aprobó</th>
@@ -347,12 +368,84 @@ Proceso de {{$proceso->ProcName}}
 				</thead>
 				<tbody>
 					<tr>
-						<td class="text-center">{{'12-15-2001'}}</td>
-						<td class="text-center">{{'0'}}</td>
-						<td class="text-center">{{'emision inicial'}}</td>
-						<td class="text-center">{{'superintendente de planta'}}</td>
-						<td class="text-center">{{'Gerente general'}}</td>
-						<td class="text-center">{{'Presidencia GC'}}</td>
+						<td class="text-center">{{$proceso->ProcDate}}</td>
+						<td class="text-center">{{$proceso->ProcRevVersion}}</td>
+						<td class="text-center">{{$proceso->ProcChangesDescription}}</td>
+						<td class="text-center">
+							{{-- {{$proceso->ProcElaboro}} --}}
+							{{-- @foreach($users as $user)
+								@if($proceso->ProcElaboro == $user->id)
+									{{$user->name}}
+								@endif
+							@endforeach --}}
+							@switch($proceso->ProcElaboro)
+								@case(1) 
+									Super Admin
+									@break
+								@case(2)
+									Gerente
+									@break
+								@case(3)
+									Director
+									@break
+								@case(4)
+									Jefe Área
+									@break
+								@case(5)
+									User
+									@break
+							@endswitch
+						</td>
+						<td class="text-center">
+							{{-- {{$proceso->ProcRevis}} --}}
+							{{-- @foreach($users as $user)
+								@if($proceso->ProcReviso == $user->id)
+									{{$user->name}}
+								@endif
+							@endforeach --}}
+							@switch($proceso->ProcReviso)
+								@case(1) 
+									Super Admin
+									@break
+								@case(2)
+									Gerente
+									@break
+								@case(3)
+									Director
+									@break
+								@case(4)
+									Jefe Área
+									@break
+								@case(5)
+									User
+									@break
+							@endswitch
+						</td>
+						<td class="text-center">
+							{{-- {{$proceso->ProcAprobo}} --}}
+							{{-- @foreach($users as $user)
+								@if($proceso->ProcAprobo == $user->id)
+									{{$user->name}}
+								@endif
+							@endforeach --}}
+							@switch($proceso->ProcAprobo)
+								@case(1) 
+									Super Admin
+									@break
+								@case(2)
+									Gerente
+									@break
+								@case(3)
+									Director
+									@break
+								@case(4)
+									Jefe Área
+									@break
+								@case(5)
+									User
+									@break
+							@endswitch
+						</td>
 					</tr>
 				</tbody>
 			</table>

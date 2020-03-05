@@ -30,6 +30,12 @@ class Indicators extends Model
         //Relación de la tabla indicadores y la tabla usuarios 
     }
 
+    public function procesos()
+    {
+        return $this->belongsToMany('App\Process','indicators_processes');
+        //Relación de la tabla processes y la tabla inputs 
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

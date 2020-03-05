@@ -62,11 +62,16 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('comites','ComitesController');
 	Route::resource('proceso','ProcessController');
 	Route::resource('entrada','InputController');
+	Route::post('actualizarentrada','InputController@actualizar')->name('entrada.actualizar');
+	Route::post('actualizaractividad','ActivityController@actualizar')->name('actividad.actualizar');
+	Route::post('actualizarsalida','OutputController@actualizar')->name('salida.actualizar');
+	Route::post('actualizarseguimiento','SeguimientoController@actualizar')->name('seguimiento.actualizar');
 	Route::resource('salida','OutputController');
 	Route::resource('actividad','ActivityController');
 	Route::resource('releases','ReleasesController');
 	Route::resource('requisitos','RequisitosController');
 	Route::resource('alerts','AlertsController');
+	Route::resource('seguimiento','SeguimientoController');
 
 
 	/*rutas a metodos especificos de los controladores*/
@@ -79,6 +84,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('index2', ['as' => 'indicators.index2', 'uses' => 'IndicatorsController@index2']);
 	Route::get('calendario', ['as' => 'alerts.calendario', 'uses' => 'AlertsController@calendario']);
 	Route::put('/CambioDeFechaAlerts/{id}', 'AjaxController@CambioDeFecha');
+	Route::put('/CambioDeBoton/{id}', 'AjaxController@CambioDeBoton');
 	/*Route::put('/CambioDeFechaAlerts/{id}', 'AjaxController@CambioDeFecha');*/
 	// Route::get('areas', ['as' => 'areas.index', 'uses' => 'AreasController@index']);
 	// Route::get('indicators', ['as' => 'indicators.index', 'uses' => 'IndicatorsController@index']);

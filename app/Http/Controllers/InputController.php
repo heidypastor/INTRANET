@@ -28,6 +28,13 @@ class InputController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -71,9 +78,23 @@ class InputController extends Controller
      * @param  \App\Entradas  $entradas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Entradas $entradas)
+
+    public function actualizar(Request $request)
     {
-        //
+        // return $request;
+        $entrada = Input::find($request->input('idoculto'));
+        $entrada->InputName = $request->input('InputName');
+        $entrada->save();
+
+        return redirect()->route('proceso.create')->withStatus(__('Entrada actualizada correctamente'));
+    }
+
+    
+    public function update(Request $request, Input $entrada)
+    {
+        /*return $request;*/
+        $entrada->update($request->all());
+        return redirect()->route('proceso.create')->withStatus(__('Entrada actualizada correctamente'));
     }
 
     /**
@@ -82,8 +103,14 @@ class InputController extends Controller
      * @param  \App\Entradas  $entradas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Entradas $entradas)
+    public function destroy(Input $entrada)
     {
-        //
+        if ($entrada->id == 0) {
+            return redirect()->route('proceso.create')->withStatus(__('la entrada no fue eliminada... intente nuevamente escogiendo una salida existente'));
+        }
+        $entrada->delete();
+
+        return redirect()->route('proceso.create')->withStatus(__('Entrada Eliminada correctamente'));
+    
     }
 }

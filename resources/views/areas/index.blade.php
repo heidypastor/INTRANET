@@ -14,7 +14,7 @@
 		  <h4 class="card-title">Listado de Áreas</h4>
 		</div>
 		<div>
-			<button type="submit" class="fas fa-plus btn btn-fill btn-success b-create" data-toggle="modal" data-target="#createmodalarea"> Crear</button>
+			<button class="fas fa-plus btn btn-sm btn-fill btn-success b-create" data-toggle="modal" data-target="#createmodalarea"> Crear</button>
 
 			{{-- Parate del documento de la creación de áreas --}}
 
@@ -46,8 +46,8 @@
 			            </div>		          
 			      </div>
 			      <div class="modal-footer">
-			        <button type="button" class="fas fa-times btn btn-secondary" data-dismiss="modal"> Cerrar</button>
-			        <button type="submit" class="fas fa-plus btn btn-fill btn-success"> Crear</button>
+			        <button type="button" class="fas fa-times btn btn-secondary" data-dismiss="modal"> Cancelar</button>
+			        <button type="submit" class="btn btn-fill btn-primary"> Guardar</button>
 			      </div>
 			      </form>
 			    </div>
@@ -110,7 +110,7 @@
 		                    </div>		          
 		              </div>
 		              <div class="modal-footer">
-		                <button type="submit" class="fas fa-arrow-circle-up btn btn-fill btn-warning "> Actualizar</button>
+		                <button type="submit" class="btn btn-fill btn-primary ">Guardar</button>
 		                </form>
 		                	<form id="eliminararea" action="" method="POST" class="pull-right">
 		                		@method('DELETE')

@@ -29,7 +29,10 @@ class RequisitosController extends Controller
     public function create()
     {
         $areas = Areas::get();
-        return view('requisitos.create', compact('areas'));
+        $todasAreas = Areas::get(['id', 'AreaName']);
+        /*explode ( $delimitador , $string [, $limite ] )*/
+        /*return $todasAreas;*/
+        return view('requisitos.create', compact(['areas', 'todasAreas']));
     }
 
     /**
@@ -40,8 +43,30 @@ class RequisitosController extends Controller
      */
     public function store(Request $request)
     {
-        /*return $request;*/
-        $areaid = $request->input('areas');
+        /*$areaid = $request->input('areas');*/
+        foreach ($request->input('areas') as $key => $value) {
+            if ($value == null) {
+                $areaid = Areas::get('id');
+                break;
+            }else{
+                $areaid = $request->input('areas');
+            }
+        }
+
+        /*El foreach de arriba es que el que manda un array de todas lasáreas en el option de areas llamado Todas las áreas*/
+
+
+        if ($request->hasFile('ReqSrc')) {
+            $path = $request->file('ReqSrc')->store('public/'.'Requisitos');
+        }else{
+            $path = "N";
+        }
+
+        if ($request->ReqLink != "") {
+            $Link = $request->input('ReqLink');;
+        }else{
+            $Link = "N";
+        }
 
         $requisito = new Requisitos();
         $requisito->ReqName = $request->input('ReqName');
@@ -49,6 +74,8 @@ class RequisitosController extends Controller
         $requisito->ReqDate = $request->input('ReqDate');
         $requisito->ReqEnte = $request->input('ReqEnte');
         $requisito->ReqQueDice = $request->input('ReqQueDice');
+        $requisito->ReqSrc = $path;
+        $requisito->ReqLink = $Link;
         $requisito->save();
 
         $requisito->areas()->attach($areaid);
@@ -76,10 +103,14 @@ class RequisitosController extends Controller
     public function edit(Requisitos $requisito)
     {
         $areas = Areas::get();
+        /*$todasAreas = Areas::get(['id', 'AreaName']);*/
+        /*$array = in_array($todasAreas);
+        return $array;*/
+
         return view('requisitos.edit', compact('requisito', 'areas'));
     }
 
-    /**
+    /**e
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -88,10 +119,24 @@ class RequisitosController extends Controller
      */
     public function update(Request $request, Requisitos $requisito)
     {
+        /*$areas = array($request->areas);*/
+
+        foreach ($request->input('areas') as $key => $value) {
+            if ($value == null) {
+                $areaid = Areas::get('id');
+                break;
+            }else{
+                $areaid = $request->input('areas');
+            }
+        }
+
+        /*return $areaid;*/
+
         $requisito->update($request->all());
 
-        $areaid = $request->input('areas');
-        $requisito->areas()->attach($areaid);
+        /*$areaid = $request->input('areas');*/
+
+        $requisito->areas()->sync($areaid);
 
         return redirect()->route('requisitos.index')->withStatus(__('Requisito y documento legal actualizado correctamente'));
     }

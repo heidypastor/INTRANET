@@ -71,9 +71,25 @@ class ActivityController extends Controller
      * @param  \App\Actividades  $actividades
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Actividades $actividades)
+
+
+
+    public function actualizar(Request $request)
     {
-        //
+        // return $request;
+        $actividad = Activity::find($request->input('idocultoActi'));
+        $actividad->ActiName = $request->input('ActiName');
+        $actividad->save();
+
+        return redirect()->route('proceso.create')->withStatus(__('Actividad actualizada correctamente'));
+    }
+
+
+
+    public function update(Request $request, Activity $actividad)
+    {
+        $actividad->update($request->all());
+        return redirect()->route('proceso.create')->withStatus(__('Actividad actualizada correctamente'));
     }
 
     /**
@@ -82,8 +98,14 @@ class ActivityController extends Controller
      * @param  \App\Actividades  $actividades
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Actividades $actividades)
+    public function destroy(Activity $actividad)
     {
-        //
+        if ($actividad->id == 0) {
+            return redirect()->route('proceso.create')->withStatus(__('la actividad no fue eliminada... intente nuevamente escogiendo una salida existente'));
+        }
+        $actividad->delete();
+
+        return redirect()->route('proceso.create')->withStatus(__('Actividad Eliminada correctamente'));
+    
     }
 }

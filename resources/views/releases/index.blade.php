@@ -19,7 +19,7 @@ Comunicados
 			<h2>Comunicados</h2>
 		</div>
 		<div class="float-right">
-			<a href="{{ route('releases.create') }}" class="fas fa-plus btn btn-fill btn-success b-create"> Crear</a>
+			<a href="{{ route('releases.create') }}" class="fas fa-plus btn btn-sm btn-fill btn-success b-create"> Crear</a>
 		</div>
         @include('alerts.success')
 		<div class="card-body">
@@ -43,11 +43,11 @@ Comunicados
                         @if($release->RelSrc === "")
                             <img src="/white/img/bloc.jpg">
                         @else
-                            <img src="{{Storage::url($release->RelSrc)}}" width="100" height="100">
+                            <img src="{{Storage::url($release->RelSrc)}}" class="responsive">
                         @endif
                     </td>
 		            <td class="text-center">{{$release->RelType}}</td>
-		            <td class="text-center"><a href="releases/{{$release->id}}" class="btn btn-fill btn-warning far fa-edit"> Ver Más..</a></td>
+		            <td class="text-center"><a href="releases/{{$release->id}}" class="btn btn-secondary tim-icons icon-double-right"> Ver Más..</a></td>
 		          </tr>
 		        @endforeach
 		      </tbody>

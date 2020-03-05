@@ -15,6 +15,9 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
 
+        {{-- Link correspndiente a los nuevos tipos de letra --}}
+        <link href="https://fonts.googleapis.com/css?family=Inria+Serif:300,300i,400,400i,700,700i|Lora:400,400i,700,700i&display=swap" rel="stylesheet"> 
+
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
         <!-- Icons -->
         <link href="{{ asset('white') }}/css/nucleo-icons.css" rel="stylesheet"/>
@@ -277,7 +280,7 @@
                             message: "Su color a sido actualizado correctamente por el color "+colorespañol
 
                           }, {
-                            type: 'info',
+                            type: 'danger',
                             timer: 8000,
                             placement: {
                               from: 'top',

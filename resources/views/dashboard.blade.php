@@ -11,79 +11,86 @@ Home
 @section('content')
     <div class="card">
         <div class="col-md-12 card-body">
-            <div class="content">
-                <h1 class="card-title text-center col-md-12">NOVEDADES <strong>PROSARC</strong></h1>
-                <div id="carousel" class="col-md-8 col-sm-12 mx-auto">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                      <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-                      </ol>
-                      <div class="carousel-inner" id="imagen-carousel">
-                        <div class="carousel-item active">
-                          <img class="d-block w-100 responsive" src="white/img/DJI_0127.jpg" alt="First slide" width="640" height="360">
-                          <div class="carousel-caption d-none d-md-block">
-                            <h3 id="text-carousel" class="texto-carousel">Conoce PROSARC</h3>
-                            <p id="text-carousel" class="texto-carousel"></p>
-                          </div>
-                        </div>
-                        <div class="carousel-item">
-                          <img class="d-block w-100 responsive" src="white/img/bombero.png" alt="Second slide"  width="640" height="360">
-                          <div class="carousel-caption d-none d-md-block">
-                            <h3 id="text-carousel" class="texto-carousel"></h3>
-                            <h3 id="text-carousel" class="texto-carousel"></h3>
-                          </div>
-                        </div>
-                        <div class="carousel-item">
-                          <a href="indicators/{{$indicator->id}}"><img class="d-block w-100 responsive" src="{{Storage::url($indicator->IndGraphic)}}" alt="Thrid slide"  width="640" height="360"></a>
-                          <div class="carousel-caption d-none d-md-block">
-                            <h3 id="text-carousel" class="texto-carousel">Indicador Actualizado</h3>
-                            <h3 id="text-carousel" class="texto-carousel">{{$indicator->IndName}}</h3>
-                          </div>
-                        </div>
-                        <div class="carousel-item">
-                          <a href="comites/{{$comitesCarousel->id}}"><img class="d-block w-100 responsive" src="{{Storage::url($comitesCarousel->ComiImage)}}" alt="Four slide"  width="640" height="360"></a>
-                          <div class="carousel-caption d-none d-md-block">
-                            <h3 id="text-carousel" class="texto-carousel">Comite Actualizado</h3>
-                            <h3 id="text-carousel" class="texto-carousel">{{$comitesCarousel->ComiName}}</h3>
-                          </div>
-                        </div>
-                        <div class="carousel-item">
-                          <a href="releases/{{$release->id}}"><img class="d-block w-100 responsive" src="{{Storage::url($release->RelSrc)}}" alt="Six slide"  width="640" height="360"></a>
-                          <div class="carousel-caption d-none d-md-block">
-                            <h3 id="text-carousel" class="texto-carousel">
-                              @if($release->RelType === 'Comunicado')
-                                ¡¡Nuevo {{$release->RelType}}!!
-                              @else
-                                ¡¡Nueva {{$release->RelType}}!!
-                              @endif
-                            </h3>
-                            <h3 id="text-carousel" class="texto-carousel">{{$release->RelName}}</h3>
-                          </div>
-                        </div>
-                        <div class="carousel-item">
-                          <img class="d-block w-100 responsive" src="white/img/docu.jpg" alt="Five slide"  width="640" height="360">
-                          <div class="carousel-caption d-none d-md-block">
-                            <h3 id="text-carousel" class="texto-carousel">Documento Actualizado</h3>
-                            <h3 id="text-carousel" class="texto-carousel">{{$document->DocName}}</h3>
-                          </div>
+          <div class="content">
+              <h1 class="card-title text-center col-md-12">NOVEDADES <strong>PROSARC</strong></h1>
+              <div id="carousel" class="col-md-8 col-sm-12 mx-auto">
+                  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                    </ol>
+                    <div class="carousel-inner" id="imagen-carousel">
+                      <div class="carousel-item active">
+                        <img class="d-block w-100 alto" src="white/img/DJI_0127.jpg" alt="First slide">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h3 id="text-carousel" class="texto-carousel">Conoce PROSARC</h3>
+                          <p id="text-carousel" class="texto-carousel"></p>
                         </div>
                       </div>
-                      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                      </a>
-                      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                      </a>
+                      <div class="carousel-item">
+                        <img class="d-block w-100 alto" src="white/img/bombero.png" alt="Second slide">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h3 id="text-carousel" class="texto-carousel"></h3>
+                          <h3 id="text-carousel" class="texto-carousel"></h3>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <a href="indicators/{{$indicator->id}}"><img class="d-block w-100 alto" src="{{Storage::url($indicator->IndGraphic)}}" alt="Thrid slide"></a>
+                        <div class="carousel-caption d-none d-md-block">
+                          <h3 id="text-carousel" class="texto-carousel">Indicador Actualizado</h3>
+                          <h3 id="text-carousel" class="texto-carousel">{{$indicator->IndName}}</h3>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <a href="comites/{{$comitesCarousel->id}}"><img class="d-block w-100 alto" src="{{Storage::url($comitesCarousel->ComiImage)}}" alt="Four slide"></a>
+                        <div class="carousel-caption d-none d-md-block">
+                          <h3 id="text-carousel" class="texto-carousel">Comite Actualizado</h3>
+                          <h3 id="text-carousel" class="texto-carousel">{{$comitesCarousel->ComiName}}</h3>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <a href="releases/{{$release->id}}"><img class="d-block w-100 alto" src="{{Storage::url($release->RelSrc)}}" alt="Five slide"></a>
+                        <div class="carousel-caption d-none d-md-block">
+                          <h3 id="text-carousel" class="texto-carousel">
+                            @if($release->RelType === 'Comunicado')
+                              ¡¡Nuevo {{$release->RelType}}!!
+                            @else
+                              ¡¡Nueva {{$release->RelType}}!!
+                            @endif
+                          </h3>
+                          <h3 id="text-carousel" class="texto-carousel">{{$release->RelName}}</h3>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100 alto" src="white/img/docu.jpg" alt="Six slide">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h3 id="text-carousel" class="texto-carousel">Documento Actualizado</h3>
+                          <h3 id="text-carousel" class="texto-carousel">{{$document->DocName}}</h3>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <a href="{{$requisito->ReqLink}}"><img class="d-block w-100 alto" src="white/img/requisito.png" alt="Six slide"></a>
+                        <div class="carousel-caption d-none d-md-block">
+                          <h3 id="text-carousel" class="texto-carousel">Nuevo Requisito y documento legal</h3>
+                          <h3 id="text-carousel" class="texto-carousel">{{$requisito->ReqName}}</h3>
+                        </div>
+                      </div>
                     </div>
-                </div>
-            </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+              </div>
+          </div>
         </div>
     </div>
     <div class="text-center">

@@ -19,7 +19,7 @@ Permisos
                                 <h4 class="card-title mb-0">{{ __('Nuevo permiso') }}</h4>
                             </div>
                             <div class="col-md-4 col-sm-12 text-right">
-                                <a href="{{ route('permissions.index') }}" class="btn btn-sm btn-primary">{{ __('lista de Permisos') }}</a>
+                                <a href="{{ route('permissions.index') }}" class="btn btn-sm btn-secondary">{{ __('lista de Permisos') }}</a>
                             </div>
                         </div>
                     </div>
@@ -35,8 +35,18 @@ Permisos
                                     @include('alerts.feedback', ['field' => 'name'])
                                 </div>
 
+                                <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-name">{{ __('Nombre') }}</label>
+                                    @include('alerts.feedback', ['field' => 'roles[]'])
+                                    <select multiple class="form-control form-control-alternative{{ $errors->has('roles[]') ? ' is-invalid' : '' }}" placeholder="{{ __('Seleccione los permisos para el usuario') }}" name="roles[]">
+                                        @foreach($roles as $role)
+                                        <option value="{{$role->name}}">{{$role->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-success mt-4">{{ __('Crear') }}</button>
+                                    <button type="submit" class="btn btn-primary mt-4">{{ __('Guardar') }}</button>
                                 </div>
                             </div>
                         </form>

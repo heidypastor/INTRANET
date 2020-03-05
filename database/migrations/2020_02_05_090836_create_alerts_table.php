@@ -20,9 +20,9 @@ class CreateAlertsTable extends Migration
             $table->string('AlertName');
             $table->string('AlertDescription');
             $table->date('AlertDateNotifi');
-            $table->boolean('AlertNotification');
+            $table->unsignedTinyInteger('AlertNotification')->default(0); /*0 = Sin notificar y 1 = Notificado Verde 2 = Notificado Amarillo y 3 = Notificado Rojo  4 = Notificado Realizado 5 = Notificado NO Realizado*/
             $table->softDeletes();
-            $table->unsignedBigInteger('user_id')->default(1);  /*Relación con la tabla areas*/
+            $table->unsignedBigInteger('user_id')->default(1);  /*Relación con la tabla usuarios*/
             $table->foreign('user_id')->references('id')->on('users');
             $table->engine = 'InnoDB';
             $table->charset = 'utf8';

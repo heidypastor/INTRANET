@@ -45,15 +45,17 @@ Alertas - Calendario
             eventSources:[{
             events: [
                     @foreach($alerts as $alert)
-                    {
-                    id: '{{$alert->id}}',
-                    title: '{{$alert->AlertName}}',
-                    url: "alerts/{{$alert->id}}/edit",
-                    color: '#23ff00',
-                    start: '{{$alert->AlertDateEvent}}',
-                    end: '{{$alert->AlertDateEvent}}',
-                    textColor: 'black'
-                    },
+                        @if($alert->user_id == Auth::user()->id)
+                            {
+                            id: '{{$alert->id}}',
+                            title: '{{$alert->AlertName}}',
+                            url: "alerts/{{$alert->id}}/edit",
+                            color: '#23ff00',
+                            start: '{{$alert->AlertDateEvent}}',
+                            end: '{{$alert->AlertDateEvent}}',
+                            textColor: 'black'
+                            },
+                        @endif
                     @endforeach
                 ],
             }],
@@ -127,10 +129,34 @@ Alertas - Calendario
                     type: "PUT",
                     data: data,
                     success: function (msg) {
-                        alert(msg);
+                        /*alert(msg);*/
+                        $.notify({
+                          icon: "far fa-calendar-alt",
+                          message: msg
+
+                        }, {
+                          type: 'info',
+                          timer: 8000,
+                          placement: {
+                            from: 'top',
+                            align: 'right'
+                          }
+                        });
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
-                        alert("Hay un error, no esta pasando por el AjaxController");
+
+                        $.notify({
+                          icon: "far fa-calendar-alt",
+                          message: "Solo puede programar una alerta apartir del dia de mañana"
+                          
+                        }, {
+                          type: 'danger',
+                          timer: 8000,
+                          placement: {
+                            from: 'top',
+                            align: 'right'
+                          }
+                        });
                         // for (var i = jqXHR.responseJSON.errors.Event.length - 1; i >= 0; i--) {
                         //     NotifiFalse(jqXHR.responseJSON.errors.Event[i]);
                         // }

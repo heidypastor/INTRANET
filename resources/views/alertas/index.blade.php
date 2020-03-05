@@ -21,10 +21,10 @@ Alertas
 		</div>
 		<div class="col-md-12 row">
 			<div class="col-md-6 text-center">
-				<a href="{{ route('alerts.create') }}" class="fas fa-plus btn btn-fill btn-success" style="margin: 0em 0em 0em 2em;"> Crear</a>
+				<a href="{{ route('alerts.create') }}" class="fas fa-plus btn btn-sm btn-fill btn-success" style="margin: 0em 0em 0em 2em;"> Crear</a>
 			</div>
 			<div class="col-md-6 text-center">
-				<a href="{{ route('alerts.calendario') }}" class="far fa-calendar-alt btn btn-fill btn-success" style="margin: 0em 0em 0em 2em;"> Calendario</a>
+				<a href="{{ route('alerts.calendario') }}" class="far fa-calendar-alt btn btn-sm btn-fill btn-success" style="margin: 0em 0em 0em 2em;"> Calendario</a>
 			</div>
 		</div>
         @include('alerts.success')
@@ -36,24 +36,48 @@ Alertas
 		        <th class="text-center">Nombre</th>
 		        <th class="text-center">Descripción</th>
 		        <th class="text-center">Fecha Notificación</th>
-		        <th class="text-center">Notificado</th>
+                <th class="text-center">Notificado</th>
+		        <th class="text-center">Realizado</th>
 		        <th class="text-center">Editar</th>
 		      </thead>
 		      <tbody>
 		      	@foreach($alerts as $alert)
 		      		@if($alert->user_id === Auth::user()->id)
 			          <tr>
-			            <td class="text-center">{{$alert->AlertDateEvent}}</td>
+			            <td class="text-center">{{date_format($alert->AlertDateEvent, 'Y-m-d')}}</td>
 			            <td class="text-center">{{$alert->AlertName}}</td>
 			            <td class="text-center">{{$alert->AlertDescription}}</td>
-			            <td class="text-center">{{$alert->AlertDateNotifi}}</td>
+                        <td class="text-center">{{date_format($alert->AlertDateNotifi, 'Y-m-d')}}
+                        </td>
 			            <td class="text-center">
-			            	@if($alert->AlertNotification == 0)
-			            		<p>Sin Notificar</p>
-			            	@else
-			            		<p>Notificado</p>
-			            	@endif
+			            	@switch($alert->AlertNotification)
+                                @case(0)
+                                    Sin Notificar
+                                    @break
+
+                                @case(1)
+                                    <font color="#ff0000">Alerta Roja</font>
+                                    @break
+
+                                @case(2)
+                                    <font color="#ffd100">Alerta Amarilla</font>
+                                    @break
+
+                                @case(3)
+                                   <font color="#42ff00"> Alerta Verde</font>
+                                    @break
+
+                                @default
+                                    Por notificar...
+                            @endswitch
 			            </td>
+			            <td class="text-center" id="Boton-alert-{{$alert->id}}">
+                            @if($alert->AlertRealizado === 0)
+                                <button class="btn-success" onclick="editBoton({{$alert->id}})">Realizado</button>
+                            @else
+                                <i><strong>Realizado</strong></i>
+                            @endif
+                        </td>
 			            <td class="text-center"><a href="alerts/{{$alert->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a></td>
 			          </tr>
 			        @endif
@@ -136,5 +160,31 @@ Alertas
     		body.highlight(table.search());
     	});
     });
+</script>
+<script type="text/javascript">
+
+    function editBoton(id){
+        var data = id;
+        var token = '{{csrf_token()}}';
+        var data = {id,_token:token};
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: 'PUT',
+            url: "{{url('/CambioDeBoton')}}/"+id,
+            data: data,
+            success: function (msg) {
+                $('#Boton-alert-'+id).empty();
+                $('#Boton-alert-'+id).append(`<i><strong>Realizado</strong></i>`);
+                alert(msg);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("Hay un error, no esta pasando por el AjaxController");
+            }
+        });
+    }
 </script>
 @endpush

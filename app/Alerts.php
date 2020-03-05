@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Alerts extends Model
 {
+
+    use SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
@@ -37,6 +40,14 @@ class Alerts extends Model
      * @var array
      */
     protected $casts = [
+        
+    ];
+
+    protected $dates = [
+        
+        'AlertDateEvent',
+        'AlertDateNotifi',
+        'deleted_at',
         
     ];
 }

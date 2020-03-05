@@ -10,9 +10,11 @@ use App\Output;
 use App\Activity;
 use App\Indicators;
 use App\Areas;
-
+use App\Seguimiento;
+use App\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProcessController extends Controller
 {
@@ -23,11 +25,14 @@ class ProcessController extends Controller
      */
     public function index()
     {
-        $procesos = Process::all();
+        /*$procesos = Process::all();*/
+        $procesos = Process::with('requisitos')->paginate(10);
+
+        /*$requisitos = Requisitos::all(['id', 'ReqName']);*/
 
         // return $procesos;
 
-        return view('process.index', compact('procesos'));
+        return view('process.index', compact('procesos'/*, 'requisitos'*/));
     }
 
     /**
@@ -37,18 +42,37 @@ class ProcessController extends Controller
      */
     public function create()
     {
-        $roles = Role::all(['id', 'name']);
-        $areas = Areas::all(['id', 'AreaName']);
-        $requisitos = Requisitos::all(['id', 'ReqName']);
-        $documentos = Documents::all(['id', 'DocName']);
-        $entradas = Input::all(['id', 'InputName']);
-        $salidas = Output::all(['id', 'OutputName']);
-        $actividades = Activity::all(['id', 'ActiName']);
-        $indicadores = Indicators::all(['id', 'IndName']);
-        $soportes = Process::all(['id', 'ProcName']);
+        if (auth()->user()->can('createProcess')) {
 
+            $roles = Role::all(['id', 'name']);
+            /*$users = User::all(['id', 'name']);*/
+            $areas = Areas::all(['id', 'AreaName']);
+            $requisitos = Requisitos::all(['id', 'ReqName']);
+            $documentos = Documents::all(['id', 'DocName']);
+            $entradas = Input::all(['id', 'InputName']);
+            $salidas = Output::all(['id', 'OutputName']);
+            $actividades = Activity::all(['id', 'ActiName']);
+            $indicadores = Indicators::all(['id', 'IndName']);
+            $soportes = Process::all(['id', 'ProcName']);
+            $seguimientos = Seguimiento::all(['id', 'SeguiName']);
 
-        return view('process.create', compact(['roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas']));
+            /*return $actividades;*/
+            return view('process.create', compact(['roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'seguimientos']));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para crear Procesos');
+        }
+
+        /* variables para los formularios de destroy */
+        $salidasDrop = Output::doesntHave('procesos')->get();
+        $entradasDrop = Input::doesntHave('procesos')->get();
+        $actividadesDrop = Activity::doesntHave('procesos')->get();
+        $seguimientosDrop = Seguimiento::doesntHave('procesos')->get();
+
+        $usuario = Auth::user()->id;
+        
+        // return $seguimientosDrop;
+        return view('process.create', compact(['roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'seguimientos', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'seguimientosDrop', 'usuario']));
+
     }
 
     /**
@@ -59,7 +83,7 @@ class ProcessController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        /*return $request;*/
 
         $path = $request->file('ProcImage')->store('public/Procesos');
 
@@ -76,7 +100,7 @@ class ProcessController extends Controller
         $process->ProcReviso = $request->input('ProcReviso');
         $process->ProcAprobo = $request->input('ProcAprobo');
         $process->ProcImage = $path;
-        $process->ProcChangesDescription = "añadido mediante intranet recientemente";
+        $process->ProcDate = $request->input('ProcDate');
         $process->save();
 
         $process->entradas()->attach($request->input('Entradas'));
@@ -87,10 +111,11 @@ class ProcessController extends Controller
         $process->indicadores()->attach($request->input('Indicadores'));
         $process->procesosDeSoporte()->attach($request->input('Soporte'));
         $process->requisitos()->attach($request->input('ProcRequsitos'));
+        $process->seguimientos()->attach($request->input('Seguimientos'));
         /*$document->assignAreas($areas);*/
 
         // redireccionamiento al index de documentos
-        return redirect()->route('proceso.index'); 
+        return redirect()->route('proceso.index')->withStatus(__('Proceso creado correctamente')); 
     }
 
     /**
@@ -101,19 +126,23 @@ class ProcessController extends Controller
      */
     public function show(Process $proceso)
     {
-        // $proceso['entradas'] = $proceso->entradas()->get();
-        // $proceso['salidas'] = $proceso->salidas()->get();
-        // $proceso['actividades'] = $proceso->actividades()->get();
-        // $proceso['documentos'] = $proceso->documentos()->get();
-        // $proceso['areas'] = $proceso->areas()->get();
-        // $proceso['indicadores'] = $proceso->indicadores()->get();
-        // $proceso['procesosDeSoporte'] = $proceso->procesosDeSoporte()->get();
-        // $proceso['requisitos'] = $proceso->requisitos()->get();
+        $proceso['entradas'] = $proceso->entradas()->get();
+        $proceso['salidas'] = $proceso->salidas()->get();
+        $proceso['actividades'] = $proceso->actividades()->get();
+        $proceso['documentos'] = $proceso->documentos()->get();
+        $proceso['areas'] = $proceso->areas()->get();
+        $proceso['indicadores'] = $proceso->indicadores()->get();
+        $proceso['procesosDeSoporte'] = $proceso->procesosDeSoporte()->get();
+        $proceso['requisitos'] = $proceso->requisitos()->get();
+        $proceso['seguimientos'] = $proceso->seguimientos()->get();
 
-        // return $proceso;
+        /*return $proceso;*/
+        /*$users = User::all(['id', 'name']);*/
         $responsable = Role::findById($proceso->ProcResponsable);
+
+        $usuario = Auth::user()->id;
         // return $responsable;
-        return view('process.show', compact('proceso'));
+        return view('process.show', compact('proceso', 'usuario'));
     }
 
     /**
@@ -124,7 +153,27 @@ class ProcessController extends Controller
      */
     public function edit(Process $proceso)
     {
-        //
+        if (auth()->user()->can('updateProcess')) {
+            
+            $roles = Role::all(['id', 'name']);
+            $areas = Areas::all(['id', 'AreaName']);
+            $requisitos = Requisitos::all(['id', 'ReqName']);
+            $documentos = Documents::all(['id', 'DocName']);
+            $entradas = Input::all(['id', 'InputName']);
+            $salidas = Output::all(['id', 'OutputName']);
+            $actividades = Activity::all(['id', 'ActiName']);
+            $indicadores = Indicators::all(['id', 'IndName']);
+            $soportes = Process::all(['id', 'ProcName']);
+            $seguimientos = Seguimiento::all(['id', 'SeguiName']);
+
+            /*return $proceso->entradas;*/
+
+            return view('process.edit', compact(['roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'proceso', 'seguimientos']));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para editar Procesos');
+        }
+
+
     }
 
     /**
@@ -134,9 +183,10 @@ class ProcessController extends Controller
      * @param  \App\Procesos  $procesos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Procesos $proceso)
+    public function update(Request $request, Process $proceso)
     {
-        //
+        $proceso->update($request->all());
+        return redirect()->route('proceso.index')->withStatus(__('Proceso actualizado correctamente'));
     }
 
     /**
@@ -147,6 +197,16 @@ class ProcessController extends Controller
      */
     public function destroy(Process $proceso)
     {
-        //
+        $proceso->Actividades()->detach();
+        $proceso->Areas()->detach();
+        $proceso->Documentos()->detach();
+        $proceso->Indicadores()->detach();
+        $proceso->Entradas()->detach();
+        $proceso->Salidas()->detach();
+        $proceso->procesosDeSoporte()->detach();
+        $proceso->Requisitos()->detach();
+        $proceso->Seguimientos()->detach();
+        $proceso->delete();
+        return redirect()->route('proceso.index')->withStatus(__('Proceso eliminado correctamente'));
     }
 }

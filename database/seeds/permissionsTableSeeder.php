@@ -55,6 +55,12 @@ class permissionsTableSeeder extends Seeder
         Permission::create(['guard_name' => 'web', 'name' => 'deleteProcess']);
 
 
+        Permission::create(['guard_name' => 'web', 'name' => 'readPermissions']);
+        Permission::create(['guard_name' => 'web', 'name' => 'createPermissions']);
+        Permission::create(['guard_name' => 'web', 'name' => 'updatePermissions']);
+        Permission::create(['guard_name' => 'web', 'name' => 'deletePermissions']);
+
+
         $role = Role::findByName('Gerente');
         $role->syncPermissions(['readAreas',
             'readComites',
@@ -62,7 +68,8 @@ class permissionsTableSeeder extends Seeder
             'readIndicators',
             'readReleases',
             'readUser',
-            'readProcess']);
+            'readProcess',
+            'updatePermissions']);
 
 
         $role = Role::findByName('Director');
@@ -85,7 +92,9 @@ class permissionsTableSeeder extends Seeder
             'deleteIndicators',
             'readReleases',
             'readUser',
-            'readProcess']);
+            'readProcess',
+            'updateProcess',
+            'createProcess']);
 
 
         $role = Role::findByName('User');
