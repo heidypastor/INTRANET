@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $admin = new User();
-        $admin->name = 'Luis';
+        $admin->name = 'Luis De la hoz Ricaurte';
         $admin->email = 'Sistemas@prosarc.com.co';
         $admin->email_verified_at = now();
         $admin->password = bcrypt('secret');
@@ -27,7 +27,7 @@ class UsersTableSeeder extends Seeder
         $admin->assignRole('Super Admin');
 
         $admin = new User();
-        $admin->name = 'Heidy';
+        $admin->name = 'Heidy Pastor Muñoz';
         $admin->email = 'Sistemas2@prosarc.com.co';
         $admin->email_verified_at = now();
         $admin->password = bcrypt('secret');
@@ -39,7 +39,7 @@ class UsersTableSeeder extends Seeder
 
 
         $user = new User();
-        $user->name = 'Victor';
+        $user->name = 'Victor Velasco Parrado';
         $user->email = 'dirtecnica@prosarc.com.co';
         $user->email_verified_at = now();
         $user->password = bcrypt('secret');
@@ -50,7 +50,7 @@ class UsersTableSeeder extends Seeder
         $user->assignRole('JefeArea');
 
         $user = new User();
-        $user->name = 'Jhon';
+        $user->name = 'Jhon Gonzales Bravo';
         $user->email = 'logistica@prosarc.com.co';
         $user->email_verified_at = now();
         $user->password = bcrypt('secret');
@@ -61,7 +61,7 @@ class UsersTableSeeder extends Seeder
         $user->assignRole('JefeArea');
 
         $user = new User();
-        $user->name = 'Duvan';
+        $user->name = 'Duvan Campos Moncada';
         $user->email = 'asistentelogistica@prosarc.com.co';
         $user->email_verified_at = now();
         $user->password = bcrypt('secret');
@@ -72,7 +72,7 @@ class UsersTableSeeder extends Seeder
         $user->assignRole('User');
 
         $user = new User();
-        $user->name = 'Jhonatan';
+        $user->name = 'Alejandro Gamba Cubillos';
         $user->email = 'auxiliarlogistico@prosarc.com.co';
         $user->email_verified_at = now();
         $user->password = bcrypt('secret');
@@ -83,7 +83,7 @@ class UsersTableSeeder extends Seeder
         $user->assignRole('User');
 
         $user = new User();
-        $user->name = 'Andres';
+        $user->name = 'Andres Moreno Bello';
         $user->email = 'ingenierohseq@prosarc.com.co';
         $user->email_verified_at = now();
         $user->password = bcrypt('secret');
@@ -94,7 +94,7 @@ class UsersTableSeeder extends Seeder
         $user->assignRole('User');
 
         $user = new User();
-        $user->name = 'David';
+        $user->name = 'David Pizza';
         $user->email = 'gerenteplanta@prosarc.com.co';
         $user->email_verified_at = now();
         $user->password = bcrypt('secret');
@@ -105,7 +105,7 @@ class UsersTableSeeder extends Seeder
         $user->assignRole('Director');
 
         $user = new User();
-        $user->name = 'Camilo';
+        $user->name = 'Camilo Triviño Suarez';
         $user->email = 'ingtratamiento1@prosarc.com.co';
         $user->email_verified_at = now();
         $user->password = bcrypt('secret');
@@ -116,7 +116,7 @@ class UsersTableSeeder extends Seeder
         $user->assignRole('User');
 
         $user = new User();
-        $user->name = 'Oscar';
+        $user->name = 'Oscar Vasquez Hernandez';
         $user->email = 'ingtratamiento3@prosarc.com.co';
         $user->email_verified_at = now();
         $user->password = bcrypt('secret');
@@ -127,7 +127,7 @@ class UsersTableSeeder extends Seeder
         $user->assignRole('User');
 
         $user = new User();
-        $user->name = 'William';
+        $user->name = 'William Cendales Arevalo';
         $user->email = 'ingtratamiento2@prosarc.com.co';
         $user->email_verified_at = now();
         $user->password = bcrypt('secret');
@@ -138,7 +138,7 @@ class UsersTableSeeder extends Seeder
         $user->assignRole('User');
 
         $user = new User();
-        $user->name = 'Orlando';
+        $user->name = 'Orlando Pinillos';
         $user->email = 'subgerencia@prosarc.com.co';
         $user->email_verified_at = now();
         $user->password = bcrypt('secret');
@@ -149,7 +149,7 @@ class UsersTableSeeder extends Seeder
         $user->assignRole('JefeArea');
 
         $user = new User();
-        $user->name = 'Maria';
+        $user->name = 'Maria Molano González';
         $user->email = 'CuentasCorporativas@prosarc.com.co';
         $user->email_verified_at = now();
         $user->password = bcrypt('secret');
@@ -160,7 +160,7 @@ class UsersTableSeeder extends Seeder
         $user->assignRole('User');
 
         $user = new User();
-        $user->name = 'Lorena';
+        $user->name = 'Lorena Urriago Javela';
         $user->email = 'Comercial2@prosarc.com.co';
         $user->email_verified_at = now();
         $user->password = bcrypt('secret');
@@ -171,7 +171,7 @@ class UsersTableSeeder extends Seeder
         $user->assignRole('User');
 
         $user = new User();
-        $user->name = 'Briyith';
+        $user->name = 'Briyith Rodriguez Sanchez';
         $user->email = 'Comercial1@prosarc.com.co';
         $user->email_verified_at = now();
         $user->password = bcrypt('secret');
@@ -182,7 +182,7 @@ class UsersTableSeeder extends Seeder
         $user->assignRole('User');
 
         $user = new User();
-        $user->name = 'Miguel';
+        $user->name = 'Miguel Martinez';
         $user->email = 'Comercial3@prosarc.com.co';
         $user->email_verified_at = now();
         $user->password = bcrypt('secret');
@@ -204,7 +204,7 @@ class UsersTableSeeder extends Seeder
         $user->assignRole('User');
 
         $user = new User();
-        $user->name = 'Lady';
+        $user->name = 'Lady Céspedes Moreno';
         $user->email = 'servicomercial@prosarc.com.co';
         $user->email_verified_at = now();
         $user->password = bcrypt('secret');
@@ -215,7 +215,7 @@ class UsersTableSeeder extends Seeder
         $user->assignRole('User');
 
         $user = new User();
-        $user->name = 'Nidia';
+        $user->name = 'Nidia Zorillo';
         $user->email = 'Gestion@prosarc.com.co';
         $user->email_verified_at = now();
         $user->password = bcrypt('secret');
@@ -226,7 +226,7 @@ class UsersTableSeeder extends Seeder
         $user->assignRole('JefeArea');
 
         $user = new User();
-        $user->name = 'Andres';
+        $user->name = 'Andres Cardenas';
         $user->email = 'gerencia@prosarc.com.co';
         $user->email_verified_at = now();
         $user->password = bcrypt('secret');
@@ -237,7 +237,7 @@ class UsersTableSeeder extends Seeder
         $user->assignRole('Gerente');
 
         $user = new User();
-        $user->name = 'Leider';
+        $user->name = 'Leider Osorio Hoyos';
         $user->email = 'jefehseq@prosarc.com.co';
         $user->email_verified_at = now();
         $user->password = bcrypt('secret');
