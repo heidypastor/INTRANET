@@ -40,9 +40,9 @@ Comunicados
 				</div>
 				<div class="form-group">
 				  <label>Clasificación del anuncio</label>
-				  <select name="RelGeneral" id="RelGeneral" class="text-center form-control" >
-				  	<option value="0" onclick="General()">General</option>
-				  	<option value="1" onclick="Restringido()">Restringido</option>
+				  <select name="RelGeneral" id="RelGeneral" class="text-center form-control" onchange="clasificacion()" >
+				  	<option value="0">General</option>
+				  	<option value="1">Restringido</option>
 				  </select>
 				</div>
 
@@ -51,7 +51,7 @@ Comunicados
 				</div>
 
 				<div class="form-group">
-					<button type="submit" class="fas fa-plus btn btn-fill btn-success"> Crear</button>
+					<button type="submit" class="btn btn-fill btn-primary"> Guardar</button>
 				</div>
 			</form>
 		</div>
@@ -91,27 +91,24 @@ Comunicados
 </script>
 
 <script type="text/javascript">
-	
-	function Restringido() {
-		$('#div-contenedor').empty();
-		$('#div-contenedor').append(`
-			<div class="form-group">
-				<label class="form-control-label">Anuncio emitido para:</label>
-				<select multiple name="users[]" id="input-users" class="form-control form-control-alternative" placeholder="{{ __('Selecciona los usuarios a los cuales se les enviara el correo')}}" value="{{ old('users[]') }}"  required>
-					@foreach($users as $user)
-					<option value="{{$user->email}}">{{$user->name}}  -  {{$user->email}}</option>
-					@endforeach
-				</select>
-			</div>
-		`);
-		alert(msg);
+	function clasificacion(){
+		var clasificacion = $('#RelGeneral').val();
+		if (clasificacion == 0) {
+			$('#div-contenedor').empty();
+		}else{
+			$('#div-contenedor').empty();
+			$('#div-contenedor').append(`
+				<div class="form-group">
+					<label class="form-control-label">Anuncio emitido para:</label>
+					<select multiple name="users[]" id="input-users" class="form-control form-control-alternative" placeholder="{{ __('Selecciona los usuarios a los cuales se les enviara el correo')}}" value="{{ old('users[]') }}"  required>
+						@foreach($users as $user)
+						<option value="{{$user->email}}">{{$user->name}}  -  {{$user->email}}</option>
+						@endforeach
+					</select>
+				</div>
+			`);
+		}
 	}
-
-	function General() {
-		$('#div-contenedor').empty();
-		alert(msg);
-	}
-
 </script>
 
 @endpush

@@ -23,7 +23,7 @@ Usuarios
                             <h4 class="card-title">{{ __('Usuarios') }}</h4>
                         </div>
                         <div class="col-6 text-right">
-                            <a href="{{ route('user.create') }}" class="btn btn-sm btn-success">{{ __('Crear usuario') }}</a>
+                            <a href="{{ route('user.create') }}" class="btn btn-sm btn-success fas fa-plus"> {{ __('Crear') }}</a>
                         </div>
                     </div>
                 </div>
@@ -31,8 +31,8 @@ Usuarios
                     @include('alerts.success')
 
                     <div class="">
-                        <table class="table tablesorter " id="">
-                            <thead class=" text-primary">
+                        <table class="table tablesorter" id="">
+                            <thead>
                                 <th scope="col">{{ __('Nombre') }}</th>
                                 <th scope="col">{{ __('Correo Electronico') }}</th>
                                 <th scope="col">{{ __('Fecha de creación') }}</th>

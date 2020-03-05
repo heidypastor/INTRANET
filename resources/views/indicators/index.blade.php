@@ -14,7 +14,7 @@ Indicadores
 		  <h3 class="card-title"><strong>INDICADORES</strong></h3>
 		</div>
 		<div class="col-md-12">
-			<a href="{{ route('indicators.create') }}" class="float-right fas fa-plus btn btn-fill btn-success b-create"> Crear</a>
+			<a href="{{ route('indicators.create') }}" class="float-right fas fa-plus btn btn-sm btn-fill btn-success b-create"> Crear</a>
 		</div>
 		@include('alerts.success')
 		<div class="row mx-auto">

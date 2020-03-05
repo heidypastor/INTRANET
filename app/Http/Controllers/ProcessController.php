@@ -62,6 +62,17 @@ class ProcessController extends Controller
             abort(403, 'El usuario no se encuentra autorizado para crear Procesos');
         }
 
+        /* variables para los formularios de destroy */
+        $salidasDrop = Output::doesntHave('procesos')->get();
+        $entradasDrop = Input::doesntHave('procesos')->get();
+        $actividadesDrop = Activity::doesntHave('procesos')->get();
+        $seguimientosDrop = Seguimiento::doesntHave('procesos')->get();
+
+        $usuario = Auth::user()->id;
+        
+        // return $seguimientosDrop;
+        return view('process.create', compact(['roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'seguimientos', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'seguimientosDrop', 'usuario']));
+
     }
 
     /**

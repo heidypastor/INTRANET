@@ -19,7 +19,7 @@ Usuarios
                                 <h3 class="mb-0">{{ __('Gestión de usuarios') }}</h3>
                             </div>
                             <div class="col-md-4 col-sm-12 text-right">
-                                <a href="{{ route('user.index') }}" class="btn btn-sm btn-primary">{{ __('Volver a la lista') }}</a>
+                                <a href="{{ route('user.index') }}" class="btn btn-sm btn-secondary">{{ __('Volver a la lista') }}</a>
                             </div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@ Usuarios
                                 </div>
 
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-success mt-4">{{ __('Guardar') }}</button>
+                                    <button type="submit" class="btn btn-primary mt-4">{{ __('Guardar') }}</button>
                                 </div>
                             </div>
                         </form>

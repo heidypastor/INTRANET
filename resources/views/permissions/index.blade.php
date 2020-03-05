@@ -34,7 +34,7 @@ Permisos
 
                     <div class="">
                         <table class="table tablesorter " id="RolesTable">
-                            <thead class=" text-primary">
+                            <thead>
                                 <th scope="col">{{ __('Id') }}</th>
                                 <th scope="col">{{ __('nombre') }}</th>
                                 <th scope="col">{{ __('Roles') }}</th>

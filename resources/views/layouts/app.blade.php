@@ -280,7 +280,7 @@
                             message: "Su color a sido actualizado correctamente por el color "+colorespañol
 
                           }, {
-                            type: 'info',
+                            type: 'danger',
                             timer: 8000,
                             placement: {
                               from: 'top',
