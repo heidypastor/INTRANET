@@ -238,17 +238,34 @@ estilo de imput para input personalizade del documentos.edit*/
 
 .actividades {
   background-color: #FFFFFF;
-  border-radius: 15px;
   margin: 5px 5px 5px 5px;
-  border: solid 1px; 
+  border-radius: 10px;
+  box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
+  5px 5px 6px gray !important;
+  border: 1px solid  rgba(0,0,0,.3);
 }
 
 .procesos {
   background-color: #FFFFFF;
-  border-radius: 15px;
   margin: 5px 5px 5px 5px; 
-  border: solid 1px;
+  border-radius: 10px;
+  box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
+  5px 5px 6px gray !important;
+  border: 1px solid  rgba(0,0,0,.3);
 }
 
+.letra-titulo {
+  font-family: 'lora';
+  font-size: 1rem;
+}
 
-/*aqui va la parte de los bordes del carousel
+.letra-contenido {
+  font-family: 'inria serif';
+  font-size: 1rem;
+  color: #000000;
+}
+
+.alto {
+  height: 353px;
+  min-height: 153px;
+}

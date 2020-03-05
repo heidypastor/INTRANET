@@ -50,23 +50,12 @@ Comunicados
 					
 				</div>
 
-				{{-- <div class="form-group">
-					<label class="form-control-label">Anuncio emitido para:</label>
-					<select multiple name="users[]" id="input-users" class="form-control form-control-alternative" placeholder="{{ __('Selecciona los usuarios a los cuales se les enviara el correo')}}" value="{{ old('areas[]') }}"  required>
-						@foreach($users as $user)
-						<option value="{{$user->email}}">{{$user->name}}  -  {{$user->email}}</option>
-						@endforeach
-					</select>
-				</div> --}}
-
-
 				<div class="form-group">
 					<button type="submit" class="fas fa-plus btn btn-fill btn-success"> Crear</button>
 				</div>
 			</form>
 		</div>
 	</div>
-
 @endsection
 
 @push('js')

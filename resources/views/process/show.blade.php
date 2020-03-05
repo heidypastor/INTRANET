@@ -82,11 +82,28 @@ Proceso de {{$proceso->ProcName}}
 								<ul class="list-group">
 									<a href="#" class="list-group-item list-group-item-action">
 										{{-- {{$proceso->ProcResponsable}} --}}
-										@foreach($users as $user)
+										{{-- @foreach($users as $user)
 											@if($proceso->ProcResponsable == $user->id)
 												{{$user->name}}
 											@endif
-										@endforeach
+										@endforeach --}}
+										@switch($proceso->ProcResponsable)
+											@case(1) 
+												Super Admin
+												@break
+											@case(2)
+												Gerente
+												@break
+											@case(3)
+												Director
+												@break
+											@case(4)
+												Jefe Área
+												@break
+											@case(5)
+												User
+												@break
+										@endswitch
 									</a>
 								</ul>
 							</span>
@@ -106,11 +123,28 @@ Proceso de {{$proceso->ProcName}}
 							<ul class="list-group">
 								<a href="#" class="list-group-item list-group-item-action">
 									{{-- {{$proceso->ProcAutoridad}} --}}
-									@foreach($users as $user)
+									{{-- @foreach($users as $user)
 										@if($proceso->ProcAutoridad == $user->id)
 											{{$user->name}}
 										@endif
-									@endforeach
+									@endforeach --}}
+									@switch($proceso->ProcAutoridad)
+										@case(1) 
+											Super Admin
+											@break
+										@case(2)
+											Gerente
+											@break
+										@case(3)
+											Director
+											@break
+										@case(4)
+											Jefe Área
+											@break
+										@case(5)
+											User
+											@break
+									@endswitch
 								</a>
 							</ul>
 						</div>
@@ -339,27 +373,78 @@ Proceso de {{$proceso->ProcName}}
 						<td class="text-center">{{$proceso->ProcChangesDescription}}</td>
 						<td class="text-center">
 							{{-- {{$proceso->ProcElaboro}} --}}
-							@foreach($users as $user)
+							{{-- @foreach($users as $user)
 								@if($proceso->ProcElaboro == $user->id)
 									{{$user->name}}
 								@endif
-							@endforeach
+							@endforeach --}}
+							@switch($proceso->ProcElaboro)
+								@case(1) 
+									Super Admin
+									@break
+								@case(2)
+									Gerente
+									@break
+								@case(3)
+									Director
+									@break
+								@case(4)
+									Jefe Área
+									@break
+								@case(5)
+									User
+									@break
+							@endswitch
 						</td>
 						<td class="text-center">
 							{{-- {{$proceso->ProcRevis}} --}}
-							@foreach($users as $user)
+							{{-- @foreach($users as $user)
 								@if($proceso->ProcReviso == $user->id)
 									{{$user->name}}
 								@endif
-							@endforeach
+							@endforeach --}}
+							@switch($proceso->ProcReviso)
+								@case(1) 
+									Super Admin
+									@break
+								@case(2)
+									Gerente
+									@break
+								@case(3)
+									Director
+									@break
+								@case(4)
+									Jefe Área
+									@break
+								@case(5)
+									User
+									@break
+							@endswitch
 						</td>
 						<td class="text-center">
 							{{-- {{$proceso->ProcAprobo}} --}}
-							@foreach($users as $user)
+							{{-- @foreach($users as $user)
 								@if($proceso->ProcAprobo == $user->id)
 									{{$user->name}}
 								@endif
-							@endforeach
+							@endforeach --}}
+							@switch($proceso->ProcAprobo)
+								@case(1) 
+									Super Admin
+									@break
+								@case(2)
+									Gerente
+									@break
+								@case(3)
+									Director
+									@break
+								@case(4)
+									Jefe Área
+									@break
+								@case(5)
+									User
+									@break
+							@endswitch
 						</td>
 					</tr>
 				</tbody>

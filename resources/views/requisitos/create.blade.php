@@ -28,7 +28,7 @@ Requisitos y Documentos Legales
 					<input name="ReqType" type="text" id="ReqType" class="text-center form-control" required="">
 				</div>
 				<div class="form-group">
-				    <label>Fecha de publicación del requisito legal</label>
+				    <label>Fecha de emisión del requisito</label>
 					<input name="ReqDate" type="date" placeholder="" id="ReqDate" class="text-center form-control" required="">
 				</div>
 				<div class="form-group">
@@ -50,11 +50,13 @@ Requisitos y Documentos Legales
 				<div class="form-group">
 					<label class="form-control-label">Áreas implicadas al requisito legal</label>
 					<select multiple name="areas[]" id="input-area" class="form-control form-control-alternative" placeholder="{{ __('Selecciona las áreas a las que pertenece')}}" value="{{ old('areas[]') }}"  required>
+						<option value="">Todas las áreas</option>
 						@foreach($areas as $area)
 						<option value="{{$area->id}}">{{$area->AreaName}}</option>
 						@endforeach
 					</select>
 				</div>
+
 				<div class="form-group">
 					<button type="submit" class="btn btn-fill btn-success fas fa-plus"> Crear</button>
 				</div>

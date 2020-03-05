@@ -198,7 +198,7 @@ Nosotros
 
 			<div class="col-md-12 mx-auto">
 				<h3 class="text-center"><strong>Mapa de Proceso</strong></h3>
-				<div class="col-md-10 mx-auto" {{-- style="margin-left: auto;" --}}>
+				<div class="col-md-10 mx-auto">
 					<img src="white/img/Mapa_proceso.png" class="responsive imagen-prosarc" width="600" height="400">
 				</div>
 			</div>
