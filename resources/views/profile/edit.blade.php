@@ -133,7 +133,7 @@ Perfil de usuario
                                     @switch(Auth::user()->ColorUser)
                                         @case(0)
                                             @php
-                                            $colormainpanel="#fc4fff";
+                                            $colormainpanel="#86db3e";
                                             @endphp
                                             @break
                                         @case(1)

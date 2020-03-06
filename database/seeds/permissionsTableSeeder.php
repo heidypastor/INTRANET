@@ -69,12 +69,14 @@ class permissionsTableSeeder extends Seeder
             'readReleases',
             'readUser',
             'readProcess',
-            'updatePermissions']);
+            'updatePermissions',
+            'createAreas', 
+            'updateAreas',
+            'readAreas']);
 
 
         $role = Role::findByName('Director');
-        $role->syncPermissions(['readAreas',
-            'readComites',
+        $role->syncPermissions(['readComites',
             'readDocuments',
             'readIndicators',
             'readReleases',
@@ -83,8 +85,7 @@ class permissionsTableSeeder extends Seeder
 
 
         $role = Role::findByName('JefeArea');
-        $role->syncPermissions(['readAreas',
-            'readComites',
+        $role->syncPermissions(['readComites',
             'readDocuments',
             'readIndicators',
             'createIndicators',
@@ -98,8 +99,7 @@ class permissionsTableSeeder extends Seeder
 
 
         $role = Role::findByName('User');
-        $role->syncPermissions(['readAreas',
-            'readComites',
+        $role->syncPermissions(['readComites',
             'readDocuments',
             'readIndicators',
             'readReleases',

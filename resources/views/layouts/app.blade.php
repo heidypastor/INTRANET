@@ -228,7 +228,7 @@
 
                         switch(new_color) {
                             case "primary":
-                            $iconolapiz.css('background',"#fc4fff");
+                            $iconolapiz.css('background',"#86db3e");
                             break;
                             case "blue":
                             $iconolapiz.css('background',"#359fe9");
@@ -257,13 +257,13 @@
 
                         switch(new_color) {
                           case "primary":
-                            colorespañol ="lila";                                
+                            colorespañol ="verde";                                
                             break;
                           case "blue":
                             colorespañol ="azul";
                             break;
                           case "green":
-                            colorespañol ="verde";                                
+                            colorespañol ="turquesa";                                
                             break;
                           case "red":
                             colorespañol ="rojo";                                
@@ -280,7 +280,7 @@
                             message: "Su color a sido actualizado correctamente por el color "+colorespañol
 
                           }, {
-                            type: 'danger',
+                            type: 'info',
                             timer: 8000,
                             placement: {
                               from: 'top',

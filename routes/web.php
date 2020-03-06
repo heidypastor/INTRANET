@@ -80,6 +80,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('GHumana', ['as' => 'prosarc.GHumana', 'uses' => 'ProsarcController@GHumana']);
 	Route::get('GAmbiental', ['as' => 'prosarc.GAmbiental', 'uses' => 'ProsarcController@GAmbiental']);
 	Route::get('GCalidad', ['as' => 'prosarc.GCalidad', 'uses' => 'ProsarcController@GCalidad']);
+	Route::get('search', ['as' => 'prosarc.search', 'uses' => 'ProsarcController@search']);
 	Route::get('SST', ['as' => 'prosarc.SST', 'uses' => 'ProsarcController@SST']);
 	Route::get('index2', ['as' => 'indicators.index2', 'uses' => 'IndicatorsController@index2']);
 	Route::get('calendario', ['as' => 'alerts.calendario', 'uses' => 'AlertsController@calendario']);
