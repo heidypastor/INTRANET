@@ -59,7 +59,7 @@
 		</div>
 
 
-		{{-- Parate del documento del index  --}}
+		{{-- Parte del documento del index  --}}
 		@include('alerts.success')
 
 		<div class="card-body">

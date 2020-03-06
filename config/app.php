@@ -175,6 +175,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*Service Provider correspondiente a el laravel para la busqueda*/
+
+        /*Laravel\Scout\ScoutServiceProvider::class*/
+
     ],
 
     /*
