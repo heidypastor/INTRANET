@@ -113,19 +113,104 @@ Home
                     
                     <div class="sp-layer sp-static">Static content</div>
                   </div>
-                  
                   <!-- Slide 2 -->
                   <div class="sp-slide">
                     <img class="sp-image" src="white/img/bombero.png" alt="Second slide">
                   </div>
-                  
                   <!-- Slide 3 -->
                   <div class="sp-slide">
                     <a href="indicators/{{$indicator->id}}"><img class="sp-image" src="{{Storage::url($indicator->IndGraphic)}}" alt="Thrid slide"></a>
+                    
+                    <p class="sp-layer sp-black sp-rounded sp-padding" style="color:white; box-shadow:20px 20px 10px grey important!;" data-position="centerCenter" data-show-transition="left" data-show-delay="500" data-vertical="-50" data-hide-transition="right" data-show-duration="750">
+                      Indicador Actualizado
+                    </p>
+
+                    <p class="sp-layer sp-white sp-rounded sp-padding hide-small-screen" data-position="centerCenter" data-show-transition="right" data-show-delay="500" data-vertical="50" data-hide-transition="left" data-show-duration="750">
+                      <b>{{$indicator->IndName}}</b>
+                    </p>
+                  </div>
+                  <!-- Slide 4 -->
+                  <div class="sp-slide">
+                    <a href="comites/{{$comitesCarousel->id}}"><img class="sp-image" src="{{Storage::url($comitesCarousel->ComiImage)}}" alt="Fourth slide"></a>
+                    <h3 class="sp-layer sp-white sp-padding" class="">Comite Actualizado</h3>
+                    <h3 id="sp-layer sp-black sp-padding hide-small-screen" class="">{{$comitesCarousel->ComiName}}</h3>
+                  </div>
+                  <!-- Slide 5 -->
+                  <div class="sp-slide">
+                    <a href="releases/{{$release->id}}"><img class="sp-image" src="{{Storage::url($release->RelSrc)}}" alt="Five slide"></a>
                     <div class="sp-layer">
-                      <h3 id="text-carousel">Indicador Actualizado</h3>
-                      <h3 id="text-carousel">{{$indicator->IndName}}</h3>
+                      <h3 id="text-carousel" class="">
+                        @if($release->RelType === 'Comunicado')
+                          ¡¡Nuevo {{$release->RelType}}!!
+                        @else
+                          ¡¡Nueva {{$release->RelType}}!!
+                        @endif
+                      </h3>
+                      <h3 id="text-carousel" class="">{{$release->RelName}}</h3>
                     </div>
+                  </div>
+                  <!-- Slide 6 -->
+                  <div class="sp-slide">
+                    <img class="sp-image" src="white/img/docu.jpg" alt="Six slide">
+                    <div class="sp-layer">
+                      <h3 id="text-carousel" class="">Documento Actualizado</h3>
+                      <h3 id="text-carousel" class="">{{$document->DocName}}</h3>
+                    </div>
+                  </div>
+                  <!-- Slide 7 -->
+                  <div class="sp-slide">
+                    <a href="{{$requisito->ReqLink}}"><img class="sp-image" src="white/img/requisito.png" alt="Six slide"></a>
+                    <div class="sp-layer">
+                      <h3 id="text-carousel" class="">Nuevo Requisito y documento legal</h3>
+                      <h3 id="text-carousel" class="">{{$requisito->ReqName}}</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="sp-thumbnails">
+                  {{-- <img class="sp-thumbnail" src="path/to/thumbnail.jpg"/> --}}
+              
+                  {{-- <p class="sp-thumbnail">Thumbnail 2</p> --}}
+
+                  <!-- thumbnail 1 -->
+                  <div class="sp-thumbnail">
+                    <img class="sp-thumbnail-image" src="white/img/DJI_0127.jpg"/>
+                    <p class="sp-thumbnail-text">Conoce PROSARC S.A. ESP</p>
+                  </div>
+
+                  <!-- thumbnail 2 -->
+                  <div class="sp-thumbnail">
+                    <img class="sp-thumbnail-image" src="white/img/bombero.png"/>
+                    <p class="sp-thumbnail-text">Numeros de Emergencia</p>
+                  </div>
+
+                  <!-- thumbnail 2 -->
+                  <div class="sp-thumbnail">
+                    <img class="sp-thumbnail-image" src="{{Storage::url($indicator->IndGraphic)}}"/>
+                    <p class="sp-thumbnail-text">Indicador Actualizado</p>
+                  </div>
+
+                  <!-- thumbnail 2 -->
+                  <div class="sp-thumbnail">
+                    <img class="sp-thumbnail-image" src="{{Storage::url($comitesCarousel->ComiImage)}}"/>
+                    <p class="sp-thumbnail-text">Comite Actualizado</p>
+                  </div>
+
+                  <!-- thumbnail 2 -->
+                  <div class="sp-thumbnail">
+                    <img class="sp-thumbnail-image" src="{{Storage::url($release->RelSrc)}}"/>
+                    <p class="sp-thumbnail-text">¡¡{{ $release->RelType === 'Comunicado' ? "Nuevo" : "Nueva" }}{{$release->RelType}}!!</p>
+                  </div>
+
+                  <!-- thumbnail 2 -->
+                  <div class="sp-thumbnail">
+                    <img class="sp-thumbnail-image" src="white/img/docu.jpg"/>
+                    <p class="sp-thumbnail-text">Documento Actualizado</p>
+                  </div>
+
+                  <!-- thumbnail 2 -->
+                  <div class="sp-thumbnail">
+                    <img class="sp-thumbnail-image" src="white/img/requisito.png"/>
+                    <p class="sp-thumbnail-text">Nuevo Requisito/Documento Legal</p>
                   </div>
                 </div>
               </div>
@@ -210,19 +295,34 @@ Home
           width: 960, 
           height: 400,
           orientation: 'horizontal',
-          thumbnailPosition: 'right',
+          thumbnailWidth: 0,
+          thumbnailHeight: 0,
+          buttons:false,
+          arrows: false,
+          keyboard: true,
+          waitForLayers: true,
+          imageScaleMode: 'contain',
           // fade: true,
+          // fadeDuration:1000,
+          fullScreen:true,
           breakpoints: {
+            1100: {
+              thumbnailWidth: 0,
+              thumbnailHeight: 0,
+              // thumbnailPointer:true,
+            },
             800: {
-              thumbnailsPosition: 'bottom',
+              thumbnailsPosition: 'right',
               thumbnailWidth: 270,
-              thumbnailHeight: 100
+              thumbnailHeight: 100,
+              thumbnailPointer:true,
             },
             500: {
-              orientation: 'horizontal',
-              thumbnailsPosition: 'bottom',
-              thumbnailWidth: 120,
-              thumbnailHeight: 50
+              orientation: 'vertical',
+              // thumbnailsPosition: 'bottom',
+              // thumbnailPointer:true,
+              thumbnailWidth: 0,
+              thumbnailHeight: 0
             }
           }
         });

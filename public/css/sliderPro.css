@@ -811,6 +811,7 @@ a.sp-video:after {
 	font-size: 14px;
 	line-height: 1.4;
 	margin: 0;
+	box-shadow:20px 20px 10px grey;
 }
 
 .slider-pro h1.sp-layer {
