@@ -1,4 +1,4 @@
-@extends('layouts.app', ['class' => 'login-page', 'page' => __('Login Page'), 'contentClass' => 'login-page'])
+@extends('layouts.app', ['class' => 'login-page', 'page' => __(''), 'contentClass' => 'login-page'])
 
 @section('htmlheader_titleicon')
 /img/LogoProsarc.ico
@@ -10,7 +10,7 @@ Inicio de sesión
 
 @section('content')
     <div class="col-lg-3 col-md-6 ml-1s position-login">
-        <form class="form" method="post" action="{{ route('login') }}">
+        <form class="form texto-carousel" method="post" action="{{ route('login') }}">
             @csrf
             {{-- <div class="degradado">
             </div> --}}
