@@ -13,7 +13,7 @@ Home
         <div class="col-md-12 card-body">
           <div class="content">
               <h1 class="card-title text-center col-md-12">NOVEDADES <strong>PROSARC</strong></h1>
-              <div id="carousel" class="col-md-8 col-sm-12 mx-auto">
+              {{-- <div id="carousel" class="col-md-8 col-sm-12 mx-auto">
                   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -89,6 +89,45 @@ Home
                       <span class="sr-only">Next</span>
                     </a>
                   </div>
+              </div> --}}
+              <div class="slider-pro" id="my-slider">
+                <div class="sp-slides">
+                  <!-- Slide 1 -->
+                  <div class="sp-slide">
+                    {{-- <img class="sp-image" src="https://picsum.photos/200/300"/> --}}
+                    <img class="sp-image" src="white/img/DJI_0127.jpg" alt="First slide">
+                    {{-- <h3 id="text-carousel" class="sp-layer">Conoce PROSARC</h3> --}}
+                    {{-- <p id="text-carousel" class="sp-layer"></p> --}}
+
+                    <h3 id="text-carousel" class="sp-layer sp-black"
+                      data-position="bottomLeft" data-horizontal="10%"
+                      data-show-transition="left" data-show-delay="300" data-hide-transition="right">
+                      Conoce PROSARC
+                    </h3>
+
+                    <p id="text-carousel" class="sp-layer sp-white sp-padding"
+                      data-width="200" data-horizontal="center" data-vertical="40%"
+                      data-show-transition="down" data-hide-transition="up">
+                      consectetur adipisicing elit
+                    </p>
+                    
+                    <div class="sp-layer sp-static">Static content</div>
+                  </div>
+                  
+                  <!-- Slide 2 -->
+                  <div class="sp-slide">
+                    <img class="sp-image" src="white/img/bombero.png" alt="Second slide">
+                  </div>
+                  
+                  <!-- Slide 3 -->
+                  <div class="sp-slide">
+                    <a href="indicators/{{$indicator->id}}"><img class="sp-image" src="{{Storage::url($indicator->IndGraphic)}}" alt="Thrid slide"></a>
+                    <div class="sp-layer">
+                      <h3 id="text-carousel">Indicador Actualizado</h3>
+                      <h3 id="text-carousel">{{$indicator->IndName}}</h3>
+                    </div>
+                  </div>
+                </div>
               </div>
           </div>
         </div>
@@ -150,11 +189,43 @@ Home
     </div>
 @endsection
 
+@push('css')
+    <link rel="stylesheet" href="{{ asset('css') }}/sliderPro.css"/>
+
+@endpush
+
 @push('js')
     <script src="{{ asset('white') }}/js/plugins/chartjs.min.js"></script>
+    <script src="{{ asset('js') }}/sliderPro.js"></script>
+
     {{-- <script>
         $(document).ready(function() {
           demo.initDashboardPageCharts();
         });
     </script> --}}
+
+    <script type="text/javascript">
+      jQuery( document ).ready(function( $ ) {
+        $( '#my-slider' ).sliderPro({
+          width: 960, 
+          height: 400,
+          orientation: 'horizontal',
+          thumbnailPosition: 'right',
+          // fade: true,
+          breakpoints: {
+            800: {
+              thumbnailsPosition: 'bottom',
+              thumbnailWidth: 270,
+              thumbnailHeight: 100
+            },
+            500: {
+              orientation: 'horizontal',
+              thumbnailsPosition: 'bottom',
+              thumbnailWidth: 120,
+              thumbnailHeight: 50
+            }
+          }
+        });
+      });
+    </script>
 @endpush
