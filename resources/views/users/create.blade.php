@@ -30,7 +30,9 @@ Usuarios
                             <h6 class="heading-small text-muted mb-4">{{ __('Información de usuario') }}</h6>
                             <div class="pl-lg-4">
                                 <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-name">{{ __('Nombre') }}</label>
+                                    <label class="form-control-label" for="input-name" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Título de prueba</b>" data-content="Contenido de prueba"><i class="far fa-question-circle"></i>{{ __(' Nombre') }}</label>
+
+
                                     <input type="text" name="name" id="input-name" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Nombre') }}" value="{{ old('name') }}" required autofocus>
                                     @include('alerts.feedback', ['field' => 'name'])
                                 </div>
@@ -69,3 +71,21 @@ Usuarios
         </div>
     </div>
 @endsection
+
+
+@push('js')
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        popover();
+    });
+    function popover(){
+        $('[data-toggle="popover"]').popover({
+            container: 'body',
+            html: true,
+            placement: 'auto',
+        });
+    }
+    </script>
+
+@endpush
