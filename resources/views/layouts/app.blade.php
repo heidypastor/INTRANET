@@ -37,53 +37,50 @@
     <body class="white-content {{ $class ?? '' }} tipo-letra">
         @auth()
             <div class="wrapper">
-                    @include('layouts.navbars.sidebar')
-                    @php
-                    $colorsidebar="";
-                    @endphp
-                    @switch(Auth::user()->ColorUser)
-                        @case(0)
-                            @php
-                            $colormainpanel="primary";
-                            @endphp
-                            @break
-                        @case(1)
-                            @php
-                            $colormainpanel="blue";
-                            @endphp
-                            @break
-                        @case(2)
-                            @php
-                            $colormainpanel="green";
-                            @endphp
-                            @break
-                        @case(3)
-                            @php
-                            $colormainpanel="red";
-                            @endphp
-                            @break
-                        @case(4)
-                            @php
-                            $colormainpanel="yellow";
-                            @endphp
-                            @break
-                        @default
-                            @php
-                            $colormainpanel="green";
-                            @endphp
-                    @endswitch
+                @php
+                $colorsidebar="";
+                @endphp
+                @switch(Auth::user()->ColorUser)
+                    @case(0)
+                        @php
+                        $colormainpanel="primary";
+                        @endphp
+                        @break
+                    @case(1)
+                        @php
+                        $colormainpanel="blue";
+                        @endphp
+                        @break
+                    @case(2)
+                        @php
+                        $colormainpanel="green";
+                        @endphp
+                        @break
+                    @case(3)
+                        @php
+                        $colormainpanel="red";
+                        @endphp
+                        @break
+                    @case(4)
+                        @php
+                        $colormainpanel="yellow";
+                        @endphp
+                        @break
+                    @default
+                        @php
+                        $colormainpanel="green";
+                        @endphp
+                @endswitch
+                
+                @include('layouts.navbars.sidebar')
+                <div class="main-panel" data="{{$colormainpanel}}">
+                    @include('layouts.navbars.navbar')
 
-                <div class="wrapper">
-                        @include('layouts.navbars.sidebar')
-                    <div class="main-panel" data="{{$colormainpanel}}">
-                        @include('layouts.navbars.navbar')
-
-                        <div class="content">
-                            @yield('content')
-                        </div>
-
-                        @include('layouts.footer')
+                    <div class="content">
+                        @yield('content')
                     </div>
+
+                    @include('layouts.footer')
                 </div>
             </div>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
