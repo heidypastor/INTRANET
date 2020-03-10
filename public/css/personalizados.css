@@ -84,6 +84,15 @@ estilo de imput para input personalizade del documentos.edit*/
   margin: 3em 0em 3em 0em;
 }
 
+.div-slider-pro {
+  background-image: linear-gradient(to bottom right, rgb(230, 244, 255), rgb(243, 250, 255), rgb(250, 253, 255), white);
+  border-radius: 10px;
+  box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
+  15px 15px 16px gray;
+  border: 1px solid silver;
+  margin: 0em 0em 3em 0em;
+}
+
 .div-comites-ahora {
   background-image: linear-gradient(to bottom right, #5efc03, #81ff39, #a3ff6e);
   border-radius: 10px;
