@@ -25,6 +25,7 @@
         <link href="{{ asset('white') }}/css/white-dashboard.css?v=1.0.0" rel="stylesheet"/>
         <link href="{{ asset('white') }}/css/theme.css" rel="stylesheet"/>
         <link href="{{ asset('css') }}/all.css" rel="stylesheet"/>
+        
 
         {{-- stack de hojas de estilo css --}}
         @stack('css')
@@ -36,53 +37,52 @@
     <body class="white-content {{ $class ?? '' }} tipo-letra">
         @auth()
             <div class="wrapper">
-                    @include('layouts.navbars.sidebar')
-                    @php
-                    $colorsidebar="";
-                    @endphp
-                    @switch(Auth::user()->ColorUser)
-                        @case(0)
-                            @php
-                            $colormainpanel="primary";
-                            @endphp
-                            @break
-                        @case(1)
-                            @php
-                            $colormainpanel="blue";
-                            @endphp
-                            @break
-                        @case(2)
-                            @php
-                            $colormainpanel="green";
-                            @endphp
-                            @break
-                        @case(3)
-                            @php
-                            $colormainpanel="red";
-                            @endphp
-                            @break
-                        @case(4)
-                            @php
-                            $colormainpanel="yellow";
-                            @endphp
-                            @break
-                        @default
-                            @php
-                            $colormainpanel="green";
-                            @endphp
-                    @endswitch
+                @php
+                $colorsidebar="";
+                @endphp
+                @switch(Auth::user()->ColorUser)
+                    @case(0)
+                        @php
+                        $colormainpanel="primary";
+                        @endphp
+                        @break
+                    @case(1)
+                        @php
+                        $colormainpanel="blue";
+                        @endphp
+                        @break
+                    @case(2)
+                        @php
+                        $colormainpanel="green";
+                        @endphp
+                        @break
+                    @case(3)
+                        @php
+                        $colormainpanel="red";
+                        @endphp
+                        @break
+                    @case(4)
+                        @php
+                        $colormainpanel="yellow";
+                        @endphp
+                        @break
+                    @default
+                        @php
+                        $colormainpanel="green";
+                        @endphp
+                @endswitch
+                
+                @include('layouts.navbars.sidebar')
+                <div class="main-panel" data="{{$colormainpanel}}">
+                    @include('layouts.navbars.navbar')
 
-                <div class="wrapper">
-                        @include('layouts.navbars.sidebar')
-                    <div class="main-panel" data="{{$colormainpanel}}">
-                        @include('layouts.navbars.navbar')
-
-                        <div class="content">
+                    {{-- estructura de contenido --}}
+                    {{-- @include('layouts.partials.loading') --}}
+                    <div class="content" id="contenido" style="display: none;">
                             @yield('content')
-                        </div>
-
-                        @include('layouts.footer')
                     </div>
+
+                    @include('layouts.footer')
                 </div>
             </div>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -346,25 +346,22 @@
             });
         </script>
         <script type="text/javascript">
-            // Echo.private('user-login').notification((notification) => {
-            //    console.log(notification.type);
-            // });
             
             Echo.private(`user-login`)
                 .listen('Userlogin', (e) => {
                     console.log(e.user.name);
                     $.notify({
-                        icon: "tim-icons icon-single-02",
-                        message: "El Usuario <b>"+e.user.name+" - "+e.user.email+"</b> - a ha iniciado sesión."
+                    icon: "tim-icons icon-single-02",
+                    message: "El Usuario <b>"+e.user.name+" - "+e.user.email+"</b> - a ha iniciado sesión."
 
-                      }, {
-                        type: 'info',
-                        timer: 4000,
-                        placement: {
-                          from: 'top',
-                          align: 'left'
-                        }
-                      });
+                    }, {
+                    type: 'info',
+                    timer: 4000,
+                    placement: {
+                        from: 'top',
+                        align: 'left'
+                    }
+                    });
             });
 
             Echo.channel(`channel-message`)
@@ -447,8 +444,17 @@
                     })
                 });
             });
+            </script>
+        <script type="text/javascript">
+        window.onload =function(){
+            $('#my-slider').resize();
+            $('#contenedor_carga').css('opacity', '0');
+            $('#contenido').fadeIn(2000);
+            setTimeout(function(){
+            $('#contenedor_carga').remove();
+            }, 2000);
+        }
         </script>
-
         @stack('scripts')
     </body>
 </html>

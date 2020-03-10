@@ -92,6 +92,9 @@ mix.js('resources/js/app.js', 'public/js')
                 'node_modules/@fortawesome/fontawesome-free/webfonts'
             ], 'public/webfonts')
     .combine([
+                'node_modules/slider-pro/dist/css/slider-pro.css'
+            ], 'public/css/sliderPro.css')
+    .combine([
                 'node_modules/@fullcalendar/core/main.css',
                 'node_modules/@fullcalendar/daygrid/main.css',
                 'node_modules/@fullcalendar/timegrid/main.css'
@@ -102,4 +105,7 @@ mix.js('resources/js/app.js', 'public/js')
                 'node_modules/@fullcalendar/timegrid/main.js',
                 'node_modules/@fullcalendar/interaction/main.min.js',
                 'node_modules/@fullcalendar/core/locales/es.js'
-            ], 'public/js/fullcalendar.js');
+            ], 'public/js/fullcalendar.js')
+    .scripts([
+                'node_modules/slider-pro/dist/js/jquery.sliderPro.js'
+            ], 'public/js/sliderPro.js');
