@@ -9,7 +9,6 @@ Home
 @endsection
 
 @section('content')
-{{-- @include('layouts.partials.loading') --}}
     <div class="card">
       <div class="col-md-12 card-body">
         <h1 class="card-title text-center col-md-12">NOVEDADES <strong>PROSARC</strong></h1>
@@ -19,19 +18,11 @@ Home
             <div class="sp-slide">
               <img class="sp-image" src="white/img/DJI_0127.jpg" alt="First slide">
 
-              {{-- <h3 id="text-carousel" class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;"
-                data-position="bottomLeft" data-horizontal="10%"
-                data-show-transition="left" data-show-delay="300" data-hide-transition="right">
-                Conoce PROSARC
-              </h3> --}}
-
               <a href="/nosotros"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;"
-                data-width="200" data-horizontal="10%" data-vertical="28%"
+                data-width="200" data-horizontal="15%" data-vertical="28%"
                 data-show-transition="right" data-hide-transition="up" data-show-delay="500">
                 Conoce PROSARC
               </p></a>
-              
-              {{-- <div class="sp-layer sp-static">Static content</div> --}}
             </div>
             <!-- Slide 2 -->
             <div class="sp-slide">
