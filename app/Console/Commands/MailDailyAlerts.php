@@ -50,7 +50,7 @@ class MailDailyAlerts extends Command
      */
     public function handle()
     {
-        $alerts = Alerts::with('user')->where('AlertDateNotifi', '<=', today())->get();
+        $alerts = Alerts::with('user')->where('AlertDateNotifi', '<=', today())->where('deleted_at', '=', Null)->get();
         for ($i=0; $i < count($alerts); $i++) { 
 
             $FechaNotificacion = $alerts[$i]->AlertDateNotifi;
@@ -91,7 +91,7 @@ class MailDailyAlerts extends Command
             }
 
 
-            if ($alerts[$i]->AlertRealizado == 0) {
+            if ($alerts[$i]->AlertRealizado == 0 & $alerts[$i]->AlertNotification !=5 & $alerts[$i]->AlertDateEvent >= today()) {
                 switch ($alerts[$i]->AlertType) {
                     case 'Global':
 
@@ -397,9 +397,63 @@ class MailDailyAlerts extends Command
 
             if (($alerts[$i]->AlertDateEvent < today()) && ($alerts[$i]->AlertRealizado == 0)) {
                 if ($alerts[$i]->AlertNotification !== 5) {
-                    Mail::to($alerts[$i]->user->email)->queue(new sendAlertNoRealizado($alerts[$i]));
+                    /*Mail::to($alerts[$i]->user->email)->queue(new sendAlertNoRealizado($alerts[$i]));
                     $alerts[$i]->AlertNotification = 5;
-                    $alerts[$i]->save();
+                    $alerts[$i]->save();*/
+                    switch ($alerts[$i]->AlertType) {
+                        case 'Global':
+                            switch ($areadelusuario->AreaSede) {
+                                case 'Planta':
+                                    Mail::to($destinatariosGlobal)->queue(new sendAlertNoRealizado($alerts[$i]));
+                                    $alerts[$i]->AlertNotification = 5;
+                                    $alerts[$i]->save();
+                                    break;
+                                
+                                case 'Bogotá':
+                                    Mail::to($destinatariosGlobalBogota)->queue(new sendAlertNoRealizado($alerts[$i]));
+                                    $alerts[$i]->AlertNotification = 5;
+                                    $alerts[$i]->save();
+                                    break;
+                                
+                                default:
+                                    # code...
+                                    break;
+                            }
+
+                            break;
+                        
+                        case 'Sede':
+
+                            switch ($areadelusuario->AreaSede) {
+                                case 'Planta':
+                                    Mail::to($destinatariosSede)->queue(new sendAlertNoRealizado($alerts[$i]));
+                                    $alerts[$i]->AlertNotification = 5;
+                                    $alerts[$i]->save();
+                                    break;
+                                
+                                case 'Bogotá':
+                                    Mail::to($destinatariosSedeBogota)->queue(new sendAlertNoRealizado($alerts[$i]));
+                                    $alerts[$i]->AlertNotification = 5;
+                                    $alerts[$i]->save();
+                                    break;
+                                
+                                default:
+                                    # code...
+                                    break;
+                            }
+
+                            break;
+                        
+                        case 'Area':
+                            Mail::to($destinatariosArea)->queue(new sendAlertNoRealizado($alerts[$i]));
+                            $alerts[$i]->AlertNotification = 5;
+                            $alerts[$i]->save();
+                            break;
+                        
+                        default:
+                            # code...
+                            break;
+                    }
                 }
             }
 

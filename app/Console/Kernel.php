@@ -30,7 +30,8 @@ class Kernel extends ConsoleKernel
         /*$schedule->command('inspire')
                  ->hourly();*/
 
-        $schedule->command('mail:dailyalerts')->dailyAt('07:00');
+        $schedule->command('mail:dailyalerts')->everyFiveMinutes();
+        /*$schedule->command('mail:dailyalerts')->dailyAt('07:00');*/
 
         // $schedule->call(function () {
         //    /*$alerts = Alert::where('AlertDateNotifi', today())->get();*/
