@@ -39,13 +39,19 @@ Comunicados
 						<option value="Noticia">Noticia</option>
 					</select>
 				</div>
+
 				<div class="form-group">
 				  <label>Clasificación del anuncio</label>
-				  <select name="RelGeneral" id="RelGeneral" class="text-center form-control">
+				  <select name="RelGeneral" id="RelGeneral" class="text-center form-control" onchange="clasificacion()" >
 				  	<option value="0">General</option>
 				  	<option value="1">Restringido</option>
 				  </select>
 				</div>
+
+				<div class="col-md-12" id="div-contenedor">
+					
+				</div>
+
 				<div class="form-group">
 					<button type="submit" class="fas fa-arrow-circle-up btn btn-fill btn-success"> Actualizar</button>
 				</div>
@@ -53,3 +59,32 @@ Comunicados
 		</div>
 	</div>
 @endsection
+
+@push('js')
+	<script src="{{ asset('js') }}/datatable-depen.js"></script>
+	<script src="{{ asset('js') }}/datatable-plugins.js"></script>
+@endpush
+
+@push('script')
+<script type="text/javascript">
+	function clasificacion(){
+		var clasificacion = $('#RelGeneral').val();
+		if (clasificacion == 0) {
+			$('#div-contenedor').empty();
+		}else{
+			$('#div-contenedor').empty();
+			$('#div-contenedor').append(`
+				<div class="form-group">
+					<label class="form-control-label">Anuncio emitido para:</label>
+					<select multiple name="users[]" id="input-users" class="form-control form-control-alternative" placeholder="{{ __('Selecciona los usuarios a los cuales se les enviara el correo')}}" value="{{ old('users[]') }}"  required>
+						@foreach($users as $user)
+						<option value="{{$user->email}}">{{$user->name}}  -  {{$user->email}}</option>
+						@endforeach
+					</select>
+				</div>
+			`);
+		}
+	}
+</script>
+
+@endpush

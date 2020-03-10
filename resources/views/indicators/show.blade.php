@@ -150,7 +150,7 @@ Indicadores
 			<div class="col-md-12">
 				<div class="row mx-auto">
 					<div class="col-md-3 recuadro mx-auto">
-						<h4 class="text-center negrilla">Tabla</h4>
+						<h4 class="text-center negrilla" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tabla</b>" data-content="Archivo que contiene la información correspondiente a la grafica."><i class="far fa-question-circle"></i> Tabla</h4>
 					</div>
 					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						@if($indicator->IndTable === "")

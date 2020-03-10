@@ -37,7 +37,7 @@ Permisos
                             <thead>
                                 <th scope="col">{{ __('Id') }}</th>
                                 <th scope="col">{{ __('nombre') }}</th>
-                                <th scope="col">{{ __('Roles') }}</th>
+                                <th scope="col" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Roles</b>" data-content="Listado de roles con su respectivo permiso."><i class="far fa-question-circle"></i>{{ __(' Roles') }}</th>
                                 <th scope="col">{{ __('Fecha de Creación') }}</th>
                                 @can('updatePermissions')
                                 <th scope="col"></th>

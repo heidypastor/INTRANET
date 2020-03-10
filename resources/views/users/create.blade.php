@@ -30,19 +30,26 @@ Usuarios
                             <h6 class="heading-small text-muted mb-4">{{ __('Información de usuario') }}</h6>
                             <div class="pl-lg-4">
                                 <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-name" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Título de prueba</b>" data-content="Contenido de prueba"><i class="far fa-question-circle"></i>{{ __(' Nombre') }}</label>
+
+                                    <label class="form-control-label" for="input-name" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Nombre</b>" data-content="Nombre del usuario a ingresar"><i class="far fa-question-circle"></i>{{ __(' Nombre') }}</label>
 
 
                                     <input type="text" name="name" id="input-name" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Nombre') }}" value="{{ old('name') }}" required autofocus>
                                     @include('alerts.feedback', ['field' => 'name'])
+
                                 </div>
                                 <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-email">{{ __('Correo Electronico') }}</label>
+
+                                    <label class="form-control-label" for="input-email" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Correo Electronico</b>" data-content="Ingresar el correo electronico del usuario a ingresar"><i class="far fa-question-circle"></i>{{ __(' Correo Electronico') }}</label>
+
                                     <input type="email" name="email" id="input-email" class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Correo Electronico') }}" value="{{ old('email') }}" required>
                                     @include('alerts.feedback', ['field' => 'email'])
+
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-control-label" for="input-roles">{{ __('Roles') }}</label>
+
+                                    <label class="form-control-label" for="input-roles" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Roles</b>" data-content="Ingresa los roles que le quieres asignar al usuario."><i class="far fa-question-circle"></i>{{ __(' Roles') }}</label>
+
                                     <select multiple name="roles[]" id="input-role" class="form-control form-control-alternative" placeholder="{{ __('Selecciona los roles del usuario') }}" value="{{ old('roles[]') }}" required autofocus>
                                         @foreach($roles as $role)
                                         <option{{--  {{ in_array($role->name, $user->roles) ? 'Selected' : ""}} --}} value="{{$role->name}}">{{$role->name}}</option>

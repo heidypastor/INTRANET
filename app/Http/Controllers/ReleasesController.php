@@ -99,7 +99,8 @@ class ReleasesController extends Controller
     {
 
         if ($release->user_id == Auth::user()->id) {
-            return view('releases.edit', compact('release'));
+            $users = User::get();
+            return view('releases.edit', compact('release', 'users'));
         }else{
             abort(403, 'El usuario no se encuentra autorizado para editar comunicados');
         }

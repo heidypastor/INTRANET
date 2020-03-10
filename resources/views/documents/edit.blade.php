@@ -46,11 +46,15 @@ Documentos
 					<input name="DocSrc" type="file" id="DocSrc">
 				</div>
 				<div class="form-group">
-					<label>Versión</label>
+
+					<label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Versión</b>" data-content="Ingresar la versión a la cual corresponde el documento."><i class="far fa-question-circle"></i> Versión</label>
+
 					<input name="DocVersion" type="text" placeholder="{{$document->DocVersion}}" id="DocVersion" class="text-center form-control" required="" value="{{$document->DocVersion}}">
 				</div>
 				<div class="form-group">
-					<label>Tipo de documento</label>
+
+					<label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tipo de documento</b>" data-content="Ingresa la categoria a la cual pertenece dicho documento."><i class="far fa-question-circle"></i> Tipo de documento</label>
+
 					<select class="text-center form-control" name="DocType" id="DocType" required>
 						<option {{$document->DocType == 'Manuales' ? 'selected' : ''}} value="Manuales">Manuales</option>
 						<option {{$document->DocType == 'Procedimientos' ? 'selected' : ''}} value="Procedimientos">Procedimientos</option>
@@ -62,21 +66,27 @@ Documentos
 					</select>
 				</div>
 				<div class="form-group">
-					<label>Público o borrador</label>
+
+					<label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Publicado o borrador</b>" data-content="Ingresar si el documento es provicional o puede ser público."><i class="far fa-question-circle"></i> Publicado o borrador</label>
+				
 					<select class="text-center form-control" placeholder="{{$document->DocPublisher}}" required="" name="DocPublisher" id="DocPublisher">
 						<option {{$document->DocPublisher == 0 ? 'selected' : ''}} value="0">Borrador</option>
 						<option {{$document->DocPublisher == 1 ? 'selected' : ''}} value="1">Publico</option>
 					</select>
 				</div>
 				<div class="form-group">
-					<label>General o Restringido</label>
+
+					<label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>General o Restringido</b>" data-content="Ingresar si el documento es general o restringido para las áreas involucradas."><i class="far fa-question-circle"></i> General o Restringido</label>
+
 					<select class="text-center form-control" placeholder="{{$document->DocGeneral}}" required="" name="DocGeneral" id="DocGeneral">
 						<option {{$document->DocGeneral == 0 ? 'selected' : ''}} value="0">Restringido</option>
 						<option {{$document->DocGeneral == 1 ? 'selected' : ''}} value="1">General</option>
 					</select>
 				</div>
 				<div class="form-group">
-					<label class="form-control-label">Área a la que pertenece dicho documento</label>
+
+					<label class="form-control-label" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Áreas a la que pertenece el documento</b>" data-content="Ingresar las áreas a las cuales pertenece el documento y en caso de que este sea restringido, solo los usuarios pertenecientes a dicha área tendran permitido visualizar el documento."><i class="far fa-question-circle"></i> Áreas a la que pertenece el documento</label>
+
 					<select multiple name="areas[]" id="input-area" class="form-control form-control-alternative" placeholder="{{ __('Selecciona las áreas a las que pertenece')}}" value="{{ old('areas[]') }}">
 						@foreach($areas as $area)
 							<option 

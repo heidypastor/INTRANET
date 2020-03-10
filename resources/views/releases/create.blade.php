@@ -32,14 +32,15 @@ Comunicados
 					<input type="text" name="RelMessage" id="RelMessage" class="text-center form-control">
 				</div>
 				<div class="form-group">
-				    <label>Tipo de anuncio</label>
+				    <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tipo de anuncio</b>" data-content="Ingresar el tipo de anuncio al que pertenece, es decir, comunicado o noticia."><i class="far fa-question-circle"></i> Tipo de anuncio</label>
 					<select name="RelType" id="RelType" class="text-center form-control">
 						<option value="Comunicado">Comunicado</option>
 						<option value="Noticia">Noticia</option>
 					</select>
 				</div>
 				<div class="form-group">
-				  <label>Clasificación del anuncio</label>
+				  <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Clasificación del anuncio</b>" data-content="Ingresar si el comunicado o anuncio es de tipo restringido o general"><i class="far fa-question-circle"></i> Clasificación del anuncio</label>
+				  
 				  <select name="RelGeneral" id="RelGeneral" class="text-center form-control" onchange="clasificacion()" >
 				  	<option value="0">General</option>
 				  	<option value="1">Restringido</option>

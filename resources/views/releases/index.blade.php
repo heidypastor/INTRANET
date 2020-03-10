@@ -29,7 +29,7 @@ Comunicados
 		        <th class="text-center">Nombre</th>
 		        <th class="text-center">Mensaje</th>
 		        <th class="text-center">Fecha</th>
-		        <th class="text-center">Imagen</th>
+		        <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Imagen</b>" data-content="Imagen referencia al comunicado emitido."><i class="far fa-question-circle"></i> Imagen</th>
 		        <th class="text-center">Tipo de anuncio</th>
 		        <th class="text-center">Ver Más..</th>
 		      </thead>

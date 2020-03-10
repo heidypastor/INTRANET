@@ -29,12 +29,12 @@ Documentos
 			<table class="table table-bordered table-striped" id="tabledata">
 			  <thead>
 			    <th class="text-center">Nombre</th>
-			    <th class="text-center">Archivo</th>
-			    <th class="text-center">Versión</th>
+			    <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Archivo</b>" data-content="Listado de archivos.">Archivo</th>
+			    <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Versión</b>" data-content="Versión correspondiente a cada documento.">Versión</th>
 			    {{-- <th class="text-center">Tamaño Archivo</th> --}}
-			    <th class="text-center">Publicado</th>
-			    <th class="text-center">Tipo de documento</th>
-			    <th class="text-center">áreas</th>
+			    <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Publicado</b>" data-content="Informa si el documento se encuentra publicado (general) o en restringido.">Publicado</th>
+			    <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tipo de documento</b>" data-content="Categoria a la cual pertenece el documento">Tipo de documento</th>
+			    <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Áreas</b>" data-content="Áreas a las cuales pertenece el documento.">Áreas</th>
 			    @hasrole('Super Admin')
 			    	<th class="text-center">Editar</th>
 			    @else

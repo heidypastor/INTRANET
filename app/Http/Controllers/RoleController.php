@@ -30,8 +30,9 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('roles.create');
-
+        $permissions = Permission::all();
+        /*return $role;*/
+        return view('roles.create', compact('permissions'));
     }
 
     /**
@@ -44,6 +45,7 @@ class RoleController extends Controller
     {
         // return $request;
         $role = Role::Create(['guard_name' => 'web', 'name' => $request->input('name')]);
+        $role->syncPermissions($request->input('permissions'));
 
         return redirect()->route('roles.index')->withStatus(__('Rol creado exitosamente.'));
     }
