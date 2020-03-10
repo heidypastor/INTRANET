@@ -19,19 +19,19 @@ Home
             <div class="sp-slide">
               <img class="sp-image" src="white/img/DJI_0127.jpg" alt="First slide">
 
-              <h3 id="text-carousel" class="sp-layer sp-black"
+              {{-- <h3 id="text-carousel" class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;"
                 data-position="bottomLeft" data-horizontal="10%"
                 data-show-transition="left" data-show-delay="300" data-hide-transition="right">
                 Conoce PROSARC
-              </h3>
+              </h3> --}}
 
-              <p id="text-carousel" class="sp-layer sp-white sp-padding"
-                data-width="200" data-horizontal="center" data-vertical="40%"
-                data-show-transition="down" data-hide-transition="up">
-                consectetur adipisicing elit
-              </p>
+              <a href="/nosotros"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;"
+                data-width="200" data-horizontal="10%" data-vertical="28%"
+                data-show-transition="right" data-hide-transition="up" data-show-delay="500">
+                Conoce PROSARC
+              </p></a>
               
-              <div class="sp-layer sp-static">Static content</div>
+              {{-- <div class="sp-layer sp-static">Static content</div> --}}
             </div>
             <!-- Slide 2 -->
             <div class="sp-slide">
