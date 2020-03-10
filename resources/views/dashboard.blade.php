@@ -9,14 +9,14 @@ Home
 @endsection
 
 @section('content')
-    <div class="card">
+    <div class="div-slider-pro">
       <div class="col-md-12 card-body">
         <h1 class="card-title text-center col-md-12">NOVEDADES <strong>PROSARC</strong></h1>
         <div class="slider-pro" id="my-slider">
           <div class="sp-slides">
             <!-- Slide 1 -->
             <div class="sp-slide">
-              <img class="sp-image" src="white/img/DJI_0127.jpg" alt="First slide">
+              <img class="sp-image" style="border-radius: 5px !important;" src="white/img/DJI_0127.jpg" alt="First slide">
 
               <a href="/nosotros"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;"
                 data-width="200" data-horizontal="15%" data-vertical="28%"
@@ -26,11 +26,11 @@ Home
             </div>
             <!-- Slide 2 -->
             <div class="sp-slide">
-              <img class="sp-image" src="white/img/bombero.png" alt="Second slide">
+              <img class="sp-image" style="border-radius: 5px !important;" src="white/img/bombero.png" alt="Second slide">
             </div>
             <!-- Slide 3 -->
             <div class="sp-slide">
-              <img class="sp-image" src="{{Storage::url($indicator->IndGraphic) ? Storage::url($indicator->IndGraphic) : 'white/img/no_image.png'}}" alt="Thrid slide">
+              <img class="sp-image" style="border-radius: 5px !important;" src="{{Storage::url($indicator->IndGraphic) ? Storage::url($indicator->IndGraphic) : 'white/img/no_image.png'}}" alt="Thrid slide">
               <a href="indicators/{{$indicator->id}}"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;" data-position="centerCenter" data-show-transition="left" data-show-delay="500" data-vertical="-50" data-hide-transition="left" data-show-duration="750">
                 Indicador Actualizado
                 </p>
@@ -43,7 +43,7 @@ Home
             </div>
             <!-- Slide 4 -->
             <div class="sp-slide">
-              <img class="sp-image" src="{{(Storage::url($release->RelSrc) == '') || (Storage::url($release->RelSrc) == Null) ? Storage::url($comitesCarousel->ComiImage) : 'white/img/no_image.png'}}" alt="Fourth slide">
+              <img class="sp-image" style="border-radius: 5px !important;" src="{{(Storage::url($release->RelSrc) == '') || (Storage::url($release->RelSrc) == Null) ? Storage::url($comitesCarousel->ComiImage) : 'white/img/no_image.png'}}" alt="Fourth slide">
               <a href="indicators/{{$indicator->id}}"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;" data-position="centerCenter" data-show-transition="left" data-show-delay="500" data-vertical="-50" data-hide-transition="left" data-show-duration="750">
                 Comite Actualizado
                 </p>
@@ -56,7 +56,7 @@ Home
             </div>
             <!-- Slide 5 -->
             <div class="sp-slide">
-              <img class="sp-image" src="{{(Storage::url($release->RelSrc) == '') || (Storage::url($release->RelSrc) == Null) ? Storage::url($release->RelSrc) : 'white/img/no_image.png'}}" alt="Five slide">
+              <img class="sp-image" style="border-radius: 5px !important;" src="{{(Storage::url($release->RelSrc) == '') || (Storage::url($release->RelSrc) == Null) ? Storage::url($release->RelSrc) : 'white/img/no_image.png'}}" alt="Five slide">
                 <a href="indicators/{{$indicator->id}}"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;" data-position="centerCenter" data-show-transition="left" data-show-delay="500" data-vertical="-50" data-hide-transition="left" data-show-duration="750">
                   @if($release->RelType === 'Comunicado')
                       ¡¡Nuevo {{$release->RelType}}!!
@@ -73,7 +73,7 @@ Home
             </div>
             <!-- Slide 6 -->
             <div class="sp-slide">
-              <img class="sp-image" src="white/img/docu.jpg" alt="Six slide">
+              <img class="sp-image" style="border-radius: 5px !important;" src="white/img/docu.jpg" alt="Six slide">
               <a href="indicators/{{$indicator->id}}"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;" data-position="centerCenter" data-show-transition="left" data-show-delay="500" data-vertical="-50" data-hide-transition="left" data-show-duration="750">
                 Documento Actualizado
                 </p>
@@ -86,7 +86,7 @@ Home
             </div>
             <!-- Slide 7 -->
             <div class="sp-slide">
-              <img class="sp-image" src="white/img/requisito.png" alt="Six slide">
+              <img class="sp-image" style="border-radius: 5px !important;" src="white/img/requisito.png" alt="Six slide">
                 <a href="indicators/{{$indicator->id}}"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;" data-position="centerCenter" data-show-transition="left" data-show-delay="500" data-vertical="-50" data-hide-transition="left" data-show-duration="750">
                 Nuevo Requisito y documento legal
                 </p>
