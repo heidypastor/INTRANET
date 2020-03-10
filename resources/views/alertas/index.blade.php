@@ -67,15 +67,27 @@ Alertas
                                    <font color="#42ff00"> Alerta Verde</font>
                                     @break
 
+                                @case(4)
+                                   <font color="#00a2ff"> Realizado</font>
+                                    @break
+
+                                @case(5)
+                                   <font color="#525f7f">NO Realizado</font>
+                                    @break
+
                                 @default
                                     Por notificar...
                             @endswitch
 			            </td>
 			            <td class="text-center" id="Boton-alert-{{$alert->id}}">
-                            @if($alert->AlertRealizado === 0)
-                                <button class="btn-success" onclick="editBoton({{$alert->id}})">Realizado</button>
+                            @if($alert->AlertNotification === 5)
+                                <i><strong>NO Realizado</strong>
                             @else
-                                <i><strong>Realizado</strong></i>
+                                @if($alert->AlertRealizado === 0)
+                                    <button class="btn-success" onclick="editBoton({{$alert->id}})">Realizado</button>
+                                @else
+                                    <i><strong>Realizado</strong></i>
+                                @endif
                             @endif
                         </td>
 			            <td class="text-center"><a href="alerts/{{$alert->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a></td>

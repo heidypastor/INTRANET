@@ -90,10 +90,14 @@ class AjaxController extends Controller
                     switch ($areadelusuario->AreaSede) {
                         case 'Planta':
                             Mail::to($destinatariosGlobal)->queue(new sendAlertRealizado($eventos));
+                            $eventos->AlertNotification = 4;
+                            $eventos->save();
                             break;
                         
                         case 'Bogotá':
                             Mail::to($destinatariosGlobalBogota)->queue(new sendAlertRealizado($eventos));
+                            $eventos->AlertNotification = 4;
+                            $eventos->save();
                             break;
                         
                         default:
@@ -108,10 +112,14 @@ class AjaxController extends Controller
                     switch ($areadelusuario->AreaSede) {
                         case 'Planta':
                             Mail::to($destinatariosSede)->queue(new sendAlertRealizado($eventos));
+                            $eventos->AlertNotification = 4;
+                            $eventos->save();
                             break;
                         
                         case 'Bogotá':
                             Mail::to($destinatariosSedeBogota)->queue(new sendAlertRealizado($eventos));
+                            $eventos->AlertNotification = 4;
+                            $eventos->save();
                             break;
                         
                         default:
@@ -123,6 +131,8 @@ class AjaxController extends Controller
                 
                 case 'Area':
                     Mail::to($destinatariosArea)->queue(new sendAlertRealizado($eventos));
+                    $eventos->AlertNotification = 4;
+                    $eventos->save();
                     break;
                 
                 default:
