@@ -19,6 +19,9 @@ class CreateClientesTable extends Migration
             $table->string('CliType'); /* planear; hacer; verificar; actuar */
             $table->timestamps();
             $table->softDeletes();
+            $table->engine = 'InnoDB';
+            $table->charset = 'utf8';
+            $table->collation = 'utf8_unicode_ci';
         });
     }
 

@@ -19,6 +19,9 @@ class CreateProveedorsTable extends Migration
             $table->string('ProvType'); /* planear; hacer; verificar; actuar */
             $table->timestamps();
             $table->softDeletes();
+            $table->engine = 'InnoDB';
+            $table->charset = 'utf8';
+            $table->collation = 'utf8_unicode_ci';
         });
     }
 
