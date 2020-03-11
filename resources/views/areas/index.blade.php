@@ -19,7 +19,7 @@
 				<button class="fas fa-plus btn btn-sm btn-fill btn-success b-create" data-toggle="modal" data-target="#createmodalarea"> Crear</button>
 			@endcan
 
-			{{-- Parate del documento de la creación de áreas --}}
+			{{-- Parte del documento de la creación de áreas --}}
 
 			<div class="modal fade" id="createmodalarea" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			  <div class="modal-dialog" role="document">
@@ -41,7 +41,7 @@
 			              <input name="AreaName" type="text" placeholder="Ej: Sistemas" class="text-center form-control" required="">
 			            </div>
 			            <div class="form-group">
-			                <label>Sede del Área</label>
+			                <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Sede del Área</b>" data-content="Sede a la que corresponde el área en cuestión."><i class="far fa-question-circle"></i> Sede del Área</label>
 			            	<select class="text-center form-control" required="" name="AreaSede" id="sedeedit">
 	                    		<option value="Planta">Planta</option>
 	                    		<option value="Bogota">Bogota</option>
@@ -105,7 +105,7 @@
 		                      <input name="AreaName" type="text" placeholder="Ej: Sistemas" id="nameedit" value="" class="text-center form-control" required="">
 		                    </div>
 		                    <div class="box-body form-group">
-		                        <label>Sede del Área</label>
+		                        <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Sede del Área</b>" data-content="Sede a la que corresponde el área en cuestión."><i class="far fa-question-circle"></i> Sede del Área</label>
 		                    	<select class="text-center form-control" required="" name="AreaSede" id="sedeedit">
 		                    		<option value="Planta">Planta</option>
 		                    		<option value="Bogota">Bogota</option>

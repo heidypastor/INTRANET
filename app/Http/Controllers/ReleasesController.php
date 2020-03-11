@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\Mail\ReleaseStored;
+use App\Mail\ReleaseUpdate;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Mail;
 
@@ -99,7 +100,8 @@ class ReleasesController extends Controller
     {
 
         if ($release->user_id == Auth::user()->id) {
-            return view('releases.edit', compact('release'));
+            $users = User::get();
+            return view('releases.edit', compact('release', 'users'));
         }else{
             abort(403, 'El usuario no se encuentra autorizado para editar comunicados');
         }
@@ -115,6 +117,27 @@ class ReleasesController extends Controller
      */
     public function update(Request $request, Releases $release)
     {
+
+
+
+        /*Cambios para envio de correo por el update. NO LOS HE VERIFICADO*/
+
+
+        $usuarios = $request->input('users');
+
+        $general = User::all('email');
+
+        if ($release->RelGeneral == 0) {
+            Mail::to($general)->queue(new ReleaseUpdate($release));
+        }else{
+            Mail::to($usuarios)->queue(new ReleaseUpdate($release));
+        }
+
+
+
+
+
+
         $release->update($request->except(['RelSrc']));
 
         if ($request->hasFile('RelSrc')){
@@ -124,6 +147,7 @@ class ReleasesController extends Controller
         }
 
         return redirect()->route('releases.index')->withStatus(__('Comunicado actualizado correctamente'));
+
     }
 
     /**

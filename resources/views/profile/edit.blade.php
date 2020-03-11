@@ -24,15 +24,20 @@ Perfil de usuario
                             @include('alerts.success')
 
                             <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                <label>{{ __('Nombre') }}</label>
+
+                                <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Nombre</b>" data-content="Nombre del usuario."><i class="far fa-question-circle"></i>{{ __(' Nombre') }}</label>
+
                                 <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}">
                                 @include('alerts.feedback', ['field' => 'name'])
                             </div>
 
                             <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                                <label>{{ __('Correo Electronico') }}</label>
+
+                                <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Correo Electronico</b>" data-content="Correo Electronico corresondiente al actual usuario."><i class="far fa-question-circle"></i>{{ __(' Correo Electronico') }}</label>
+
                                 <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email address') }}" value="{{ old('email', auth()->user()->email) }}">
                                 @include('alerts.feedback', ['field' => 'email'])
+
                             </div>
 
                             <div class="form-group{{ $errors->has('Avatar') ? ' has-danger' : '' }}">
@@ -59,18 +64,26 @@ Perfil de usuario
                         @include('alerts.success', ['key' => 'password_status'])
 
                         <div class="form-group{{ $errors->has('old_password') ? ' has-danger' : '' }}">
-                            <label>{{ __('Contraseña Actual') }}</label>
+
+                            <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Contraseña Actual</b>" data-content="Ingrese la contraseña actual de su usuario."><i class="far fa-question-circle"></i>{{ __(' Contraseña Actual') }}</label>
+
                             <input type="password" name="old_password" class="form-control{{ $errors->has('old_password') ? ' is-invalid' : '' }}" placeholder="{{ __('Contraseña Actual') }}" value="" required>
                             @include('alerts.feedback', ['field' => 'old_password'])
+
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
-                            <label>{{ __('Nueva Contraseña') }}</label>
+
+                            <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Nueva Contraseña</b>" data-content="Ingresar la nueva contraseña que desea asignar al usuario"><i class="far fa-question-circle"></i>{{ __(' Nueva Contraseña') }}</label>
+
                             <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('Nueva Contraseña') }}" value="" required>
                             @include('alerts.feedback', ['field' => 'password'])
+
                         </div>
                         <div class="form-group">
-                            <label>{{ __('Confirmar Nueva Contraseña') }}</label>
+
+                            <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Confirmar Nueva Contraseña</b>" data-content="Ingresar la confirmación de contraseña del campo anterior."><i class="far fa-question-circle"></i>{{ __(' Confirmar Nueva Contraseña') }}</label>
+                            
                             <input type="password" name="password_confirmation" class="form-control" placeholder="{{ __('Confirmar Nueva Contraseña') }}" value="" required>
                         </div>
                     </div>
@@ -162,7 +175,7 @@ Perfil de usuario
                                             @endphp
                                     @endswitch
                                 @endauth
-                                <i id="iconolapiz" class="tim-icons icon-pencil" style="background: {{$colormainpanel}}; border-radius: 50%; padding: 0.4em 0.4em 0.4em 0.4em; margin: 0em 0em 0em -1.5em; position: relative;"></i>
+                                <i id="iconolapiz" class="tim-icons icon-pencil" style="background: {{$colormainpanel}}; border-radius: 50%; padding: 0.4em 0.4em 0.4em 0.4em; margin: 0em 0em 0em -1.5em; position: relative;" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Cambio de Avatar</b>" data-content="Ingrese una nueva imagen para actualizar su avatar."></i>
                                 {{--/images/{{$cita->usuario}}--}}
                                 <h5 class="title">{{ auth()->user()->name }}</h5>
                                 {{-- <h5 class="title">{{ auth()->user()->name }}</h5>

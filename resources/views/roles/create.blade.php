@@ -35,6 +35,17 @@ Roles
                                     @include('alerts.feedback', ['field' => 'name'])
                                 </div>
 
+                                <div class="form-group{{ $errors->has('permissions[]') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-permissions" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Permisos</b>" data-content="Ingresa los permisos que le quieres asignar al usuario."><i class="far fa-question-circle"></i>{{ __(' Permisos') }}</label>
+
+                                    @include('alerts.feedback', ['field' => 'permissions[]'])
+                                    <select multiple class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Seleccione los permisos para el usuario') }}" name="permissions[]">
+                                        @foreach($permissions as $permission)
+                                        <option value="{{$permission->name}}">{{$permission->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary mt-4">{{ __('Guardar') }}</button>
                                 </div>
