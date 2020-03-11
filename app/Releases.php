@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 // use Laravel\Scout\Searchable;
 
 class Releases extends Model
@@ -41,4 +43,7 @@ class Releases extends Model
     protected $casts = [
         
     ];
+
+    protected $dates = ['deleted_at', 'updated_at', 'created_at'];
+
 }

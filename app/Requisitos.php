@@ -3,9 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Requisitos extends Model
 {
+    use SoftDeletes;
+
     // use Searchable;
     /**
      * The attributes that are mass assignable.
@@ -48,4 +52,7 @@ class Requisitos extends Model
     protected $casts = [
         
     ];
+
+    protected $dates = ['deleted_at', 'updated_at', 'created_at'];
+
 }

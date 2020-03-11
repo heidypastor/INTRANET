@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Cliente extends Model
 {
+    use SoftDeletes;
+
         /**
      * The attributes that are mass assignable.
      *
@@ -39,5 +42,8 @@ class Cliente extends Model
 	{
 	    return $this->belongsToMany('App\Process','clientes_processes');
 	    //Relación de la tabla processes y la tabla inputs 
-	}
+    }
+    
+    protected $dates = ['deleted_at', 'updated_at', 'created_at'];
+
 }
