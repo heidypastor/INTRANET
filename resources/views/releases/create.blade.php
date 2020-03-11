@@ -24,7 +24,7 @@ Comunicados
 				  <input name="RelName" type="text" id="RelName" class="text-center form-control" required="">
 				</div>
 				<div class="custom-input-file">
-					<label>Imagen del anuncio</label>
+					<label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Imagen del anuncio</b>" data-content="Imagen referencia a la noticia o comunicado emitido."><i class="far fa-question-circle"></i>Imagen del anuncio</label>
 					<input name="RelSrc" type="file" id="RelSrc" required="">
 				</div>
 				<div class="form-group">
@@ -39,7 +39,7 @@ Comunicados
 					</select>
 				</div>
 				<div class="form-group">
-				  <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Clasificación del anuncio</b>" data-content="Ingresar si el comunicado o anuncio es de tipo restringido o general"><i class="far fa-question-circle"></i> Clasificación del anuncio</label>
+				  <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Clasificación del anuncio</b>" data-content="Ingresar si el comunicado o anuncio es de tipo restringido o general."><i class="far fa-question-circle"></i> Clasificación del anuncio</label>
 				  
 				  <select name="RelGeneral" id="RelGeneral" class="text-center form-control" onchange="clasificacion()" >
 				  	<option value="0">General</option>
@@ -65,51 +65,26 @@ Comunicados
 @endpush
 
 @push('scripts')
-<script type="text/javascript">
-    function editBoton(id){
-        var data = id;
-        var token = '{{csrf_token()}}';
-        var data = {id,_token:token};
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-            }
-        });
-        $.ajax({
-            type: 'PUT',
-            url: "{{url('/CambioDeBoton')}}/"+id,
-            data: data,
-            success: function (msg) {
-                $('#Boton-alert-'+id).empty();
-                $('#Boton-alert-'+id).append(`<i><strong>Realizado</strong></i>`);
-                alert(msg);
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert("Hay un error, no esta pasando por el AjaxController");
-            }
-        });
-    }
-</script>
 
-<script type="text/javascript">
-	function clasificacion(){
-		var clasificacion = $('#RelGeneral').val();
-		if (clasificacion == 0) {
-			$('#div-contenedor').empty();
-		}else{
-			$('#div-contenedor').empty();
-			$('#div-contenedor').append(`
-				<div class="form-group">
-					<label class="form-control-label">Anuncio emitido para:</label>
-					<select multiple name="users[]" id="input-users" class="form-control form-control-alternative" placeholder="{{ __('Selecciona los usuarios a los cuales se les enviara el correo')}}" value="{{ old('users[]') }}"  required>
-						@foreach($users as $user)
-						<option value="{{$user->email}}">{{$user->name}}  -  {{$user->email}}</option>
-						@endforeach
-					</select>
-				</div>
-			`);
+	<script type="text/javascript">
+		function clasificacion(){
+			var clasificacion = $('#RelGeneral').val();
+			if (clasificacion == 0) {
+				$('#div-contenedor').empty();
+			}else{
+				$('#div-contenedor').empty();
+				$('#div-contenedor').append(`
+					<div class="form-group">
+						<label class="form-control-label">Anuncio emitido para:</label>
+						<select multiple name="users[]" id="input-users" class="form-control form-control-alternative" placeholder="{{ __('Selecciona los usuarios a los cuales se les enviara el correo')}}" value="{{ old('users[]') }}"  required>
+							@foreach($users as $user)
+							<option value="{{$user->email}}">{{$user->name}}  -  {{$user->email}}</option>
+							@endforeach
+						</select>
+					</div>
+				`);
+			}
 		}
-	}
-</script>
+	</script>
 
 @endpush

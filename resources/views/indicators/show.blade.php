@@ -48,7 +48,6 @@ Indicadores
 									<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a><br><br><br>
 								</div>
 							</div>
-
 						@else
 							@hasrole('Super Admin')
 								<div class="row">
