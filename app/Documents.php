@@ -20,7 +20,7 @@ class Documents extends Model
 
     public function areas()
     {
-        return $this->belongsToMany('App\Areas')->withTimestamps();
+        return $this->belongsToMany('App\Areas','areas_documents');
         //Relación de la tabla areas y la tabla documentos 
     }
 

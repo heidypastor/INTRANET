@@ -59,8 +59,12 @@ class DocumentsController extends Controller
     public function store(Request $request, Documents $document)
     {
         /*$areas = Areas::whereIn('id', $request->input('areas'))->get();*/
-        $areaid = $request->input('areas');
-        /*return $areaid;*/
+        if ($request->input('DocGeneral') == 1) {
+            $areaid = Areas::pluck('id');
+        }else{
+            $areaid = $request->input('areas');
+        }
+       
         // se almacena el archivo
         $path = $request->file('DocSrc')->store('public/'.$request->input('DocType'));
 
@@ -125,11 +129,15 @@ class DocumentsController extends Controller
     public function update(Request $request, Documents $document)
     {
         /*return $document;*/
+        if ($request->input('DocGeneral') == 1) {
+            $areaid = Areas::pluck('id');
+        }else{
+            $areaid = $request->input('areas');
+        }
+        // return $areaid;
         if ($request->hasFile('DocSrc')) {
             $docActual = $document->DocSrc;
             Storage::disk('local')->delete($docActual);
-
-            // $document->update($request->except('DocSrc'));
 
             $path = $request->file('DocSrc')->store('public/'.$request->input('DocType'));
 
@@ -137,7 +145,7 @@ class DocumentsController extends Controller
             $mime = $archivo->getClientMimeType();
             $nombreorigi = $archivo->getClientOriginalName();
             $tamaño = ceil(($archivo->getClientSize())/1024);
-            $areaid = $request->input('areas');
+            
 
             $document->update([
                 'DocName' => $request->input('DocName'), 
@@ -151,14 +159,12 @@ class DocumentsController extends Controller
                 'DocPublisher' => $request->input('DocPublisher'), 
                 'users_id' => auth()->user()->id,
             ]);
-            $document->areas()->sync($areaid);
-
         }else{
             $document->update($request->except('DocSrc'));
-            $areaid = $request->input('areas');
-            $document->areas()->sync($areaid);
         }
-        /*$tratamiento = Tratamiento::find($id);*/
+
+        $document->areas()->sync($areaid);
+        
         return redirect()->route('documents.index')->withStatus(__('Documento actualizado correctamente'));
     }
 

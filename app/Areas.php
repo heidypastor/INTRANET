@@ -3,10 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Areas extends Model
 {
-
+    use SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
@@ -63,4 +64,6 @@ class Areas extends Model
     protected $casts = [
         
     ];
+
+    protected $dates = ['deleted_at', 'updated_at', 'created_at'];
 }
