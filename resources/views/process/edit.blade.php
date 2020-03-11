@@ -71,18 +71,6 @@ Procesos
 					  </div>
 					</div>
 				</div>
-				{{-- <div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Seguimientos
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateSeguimientos">Nuevo</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteSeguimientos">Eliminar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditSeguimientos">Actualizar</a>
-					  </div>
-					</div>
-				</div> --}}
 				<div class="col-md-2 float-right">
 					<div class="dropdown">
 					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -160,24 +148,6 @@ Procesos
 			    	</div>
 			    </div>
 
-
-			    <div class="col-md-6 col-xs-12">
-			    	<div class="form-group">
-			    		<label class="input-label" for="Seguimiento">Seguimiento</label>
-			    		{{-- <input type="text" class="form-control" id="Seguimiento" placeholder="lista de controles, auditorias, seguimientos, etc..." name="Seguimiento"> --}}
-			      		<select multiple id="Seguimiento" class="form-control" name="Seguimiento[]" placeholder="seleccione">
-			    			@foreach($seguimientos as $seguimiento)
-			    				<option 
-			    				@foreach($proceso->seguimientos as $seguiSelect)
-			    				@if($seguiSelect->id == $seguimiento->id)
-			    				selected
-			    				@endif
-			    				@endforeach 
-			    				value="{{$seguimiento->id}}">{{$seguimiento->SeguiName}}</option>
-			    			@endforeach
-			    		</select>
-			    	</div>
-			    </div>
 
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
@@ -269,11 +239,11 @@ Procesos
 			      		<select multiple id="Salidas" required class="form-control" name="Salidas[]" placeholder="seleccione">
 			    			@foreach($salidas as $salida)
 			    				<option 
-			    				{{-- @foreach($proceso->salidas == $salidaSelect)
+			    				@foreach($proceso->salidas as $salidaSelect)
 			    				@if($salidaSelect->id == $salida->id)
 			    				selected
 			    				@endif
-			    				@endforeach --}}
+			    				@endforeach
 			    				value="{{$salida->id}}">{{$salida->OutputName}}</option>
 			    			@endforeach
 			    		</select>
@@ -321,11 +291,11 @@ Procesos
 			      		<select multiple id="Soporte" required class="form-control" name="Soporte[]" placeholder="seleccione">
 			    			@foreach($soportes as $soporte)
 			    				<option 
-			    				{{-- @foreach($proceso->soportes as $sopoSelect)
+			    				@foreach($proceso->procesosDeSoporte as $sopoSelect)
 			    				@if($sopoSelect->id == $soporte->id)
 			    				selected 
 			    				@endif
-			    				@endforeach --}}
+			    				@endforeach
 			    				value="{{$soporte->id}}">{{$soporte->ProcName}}</option>
 			    			@endforeach
 			    		</select>
@@ -498,26 +468,6 @@ Procesos
 		@endslot
 	@endcomponent
 
-	{{-- Este modal corresponde a los seguimientos --}}
-
-	@component('layouts.partials.modalCreate')
-		@slot('idModal')
-			modalCreateSeguimientos
-		@endslot
-		@slot('titulo')
-			Nuevo Seguimiento
-		@endslot
-		@slot('action')
-			{{ route('seguimiento.store')}}
-		@endslot
-		@slot('form')
-			@csrf
-			<div class="form-group">
-				<label>Nombre del seguimiento</label>	      
-				<input type="text" name="SeguiName" class="text-center form-control" required="">
-			</div>
-		@endslot
-	@endcomponent
 
 	{{-- Este modal corresponde a los clientes --}}
 
@@ -849,64 +799,6 @@ Procesos
 		@endslot
 	@endcomponent
 
-	{{-- Modal de edición de Seguimientos --}}
-	@component('layouts.partials.modalEdit')
-		@slot('idModal')
-			modalEditSeguimientos
-		@endslot
-		@slot('titulo')
-			Editar Seguimiento
-		@endslot
-		@slot('action')
-			{{ route('seguimiento.actualizar') }}
-		@endslot
-		@slot('form')
-			@csrf
-			<div class="form-group">
-				<select id="IdSelectSeguimiento" class="form-control" onchange="cambiarSeguimientoId()">
-					@foreach($seguimientos as $seguimiento)
-						<option value="{{$seguimiento->id}}">{{$seguimiento->SeguiName}}</option>
-					@endforeach
-				</select>
-			</div>
-			<input id="idocultoSegui" type="text" value="1" name="idocultoSegui" style="display:none;">
-			<div class="form-group">
-				<label>Nuevo Nombre</label>
-				<input type="text" name="SeguiName" class="text-center form-control" required="">
-			</div>
-		@endslot
-	@endcomponent 
-	
-	{{-- Modal de eliminar seguimientos --}}
-	@component('layouts.partials.modalDelete')
-		@slot('idModal')
-			modalDeleteSeguimientos
-		@endslot
-		@slot('idform')
-			formDeleteSeguimientos
-		@endslot
-		@slot('titulo')
-			Eliminar Seguimiento
-		@endslot
-		@slot('action')
-			{{ route('seguimiento.destroy', 0) }}
-		@endslot
-		@slot('form')
-				@method('DELETE')
-				@csrf
-				<div class="form-group">
-					<select id="SelectEliminarSeguimiento" class="form-control" onchange="eliminarSeguimiento()">
-						<option value="0" selected>Seleccionar seguimiento a Eliminar</option>
-						@foreach($seguimientosDrop as $seguimientoDrop)
-						<option value="{{$seguimientoDrop->id}}">{{$seguimientoDrop->SeguiName}}</option>
-						@endforeach
-					</select>
-				</div>
-		@endslot
-		@slot('submitbutton')
-			<button form="formDeleteSeguimientos" disabled id="eliminarSubmitSeguimiento" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
-		@endslot
-	@endcomponent
 @endsection
 
 
@@ -1009,18 +901,6 @@ Procesos
 		// console.log(id);
 	};
 
-	function eliminarSeguimiento(){
-		let formulario = $('#formDeleteSeguimientos');
-		let botonsubmit = $('#eliminarSubmitSeguimiento');
-		var id = $('#SelectEliminarSeguimiento').val();
-		formulario.attr('action', '{{ url('seguimiento') }}/'+id);
-		if (id > 0) {
-			botonsubmit.attr('disabled', false);
-		}else{
-			botonsubmit.attr('disabled', true);
-		}
-		// console.log(id);
-	};
 </script>
 <script>
 	$(document).ready( function(){
@@ -1040,11 +920,6 @@ Procesos
 			console.log(id);
 	};
 
-	function cambiarSeguimientoId(){
-		var id = $('#IdSelectSeguimiento').val();
-		var inputoculto = $('#idocultoSegui');
-			inputoculto.attr('value', id);
-			console.log(id);
-	};
+
 </script>
 @endpush

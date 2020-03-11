@@ -17,7 +17,7 @@ class CreateProcessesProveedorsTable extends Migration
             $table->unsignedBigInteger('process_id');  /*Relación con la tabla processes*/
             $table->foreign('process_id')->references('id')->on('processes');
             $table->unsignedBigInteger('proveedors_id');  /*Relación con la tabla proveedors*/
-            $table->foreign('proveedors_id')->references('id')->on('proveedors');
+            $table->foreign('proveedor_id')->references('id')->on('proveedors');
         });
     }
 

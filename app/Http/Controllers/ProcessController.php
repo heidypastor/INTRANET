@@ -56,7 +56,7 @@ class ProcessController extends Controller
             $actividades = Activity::all(['id', 'ActiName']);
             $indicadores = Indicators::all(['id', 'IndName']);
             $soportes = Process::all(['id', 'ProcName']);
-            $seguimientos = Seguimiento::all(['id', 'SeguiName']);
+            // $seguimientos = Seguimiento::all(['id', 'SeguiName']);
             $clientes = Cliente::all(['id', 'CliName']);
             $proveedores = Proveedor::all(['id', 'ProvName']);
 
@@ -64,7 +64,7 @@ class ProcessController extends Controller
             $salidasDrop = Output::doesntHave('procesos')->get();
             $entradasDrop = Input::doesntHave('procesos')->get();
             $actividadesDrop = Activity::doesntHave('procesos')->get();
-            $seguimientosDrop = Seguimiento::doesntHave('procesos')->get();
+            // $seguimientosDrop = Seguimiento::doesntHave('procesos')->get();
             $clientesDrop = Cliente::doesntHave('procesos')->get();
             $proveedoresDrop = Proveedor::doesntHave('procesos')->get();
 
@@ -72,7 +72,7 @@ class ProcessController extends Controller
 
 
             /*return $actividades;*/
-            return view('process.create', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'seguimientos', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'seguimientosDrop', 'usuario']));
+            return view('process.create', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'usuario']));
         }else{
             abort(403, 'El usuario no se encuentra autorizado para crear Procesos');
         }
@@ -116,7 +116,7 @@ class ProcessController extends Controller
         $process->indicadores()->attach($request->input('Indicadores'));
         $process->procesosDeSoporte()->attach($request->input('Soporte'));
         $process->requisitos()->attach($request->input('ProcRequsitos'));
-        $process->seguimientos()->attach($request->input('Seguimientos'));
+        // $process->seguimientos()->attach($request->input('Seguimientos'));
         /*$document->assignAreas($areas);*/
 
         // redireccionamiento al index de documentos
@@ -139,7 +139,7 @@ class ProcessController extends Controller
         $proceso['indicadores'] = $proceso->indicadores()->get();
         $proceso['procesosDeSoporte'] = $proceso->procesosDeSoporte()->get();
         $proceso['requisitos'] = $proceso->requisitos()->get();
-        $proceso['seguimientos'] = $proceso->seguimientos()->get();
+        // $proceso['seguimientos'] = $proceso->seguimientos()->get();
         $proceso['clientes'] = $proceso->clientes()->get();
         $proceso['proveedores'] = $proceso->proveedores()->get();
 
@@ -171,13 +171,21 @@ class ProcessController extends Controller
             $actividades = Activity::all(['id', 'ActiName']);
             $indicadores = Indicators::all(['id', 'IndName']);
             $soportes = Process::all(['id', 'ProcName']);
-            $seguimientos = Seguimiento::all(['id', 'SeguiName']);
+            // $seguimientos = Seguimiento::all(['id', 'SeguiName']);
             $clientes = Cliente::all(['id', 'CliName']);
             $proveedores = Proveedor::all(['id', 'ProvName']);
 
-            /*return $proceso->entradas;*/
+            /* variables para los formularios de destroy */
+            $salidasDrop = Output::doesntHave('procesos')->get();
+            $entradasDrop = Input::doesntHave('procesos')->get();
+            $actividadesDrop = Activity::doesntHave('procesos')->get();
+            // $seguimientosDrop = Seguimiento::doesntHave('procesos')->get();
+            $clientesDrop = Cliente::doesntHave('procesos')->get();
+            $proveedoresDrop = Proveedor::doesntHave('procesos')->get();
 
-            return view('process.edit', compact(['clientes', 'proveedores', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'proceso', 'seguimientos']));
+            /*return $proceso->entradas;*/
+            return view('process.edit', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'usuario', 'proceso']));
+
         }else{
             abort(403, 'El usuario no se encuentra autorizado para editar Procesos');
         }
@@ -214,7 +222,7 @@ class ProcessController extends Controller
         $proceso->Salidas()->detach();
         $proceso->procesosDeSoporte()->detach();
         $proceso->Requisitos()->detach();
-        $proceso->Seguimientos()->detach();
+        // $proceso->Seguimientos()->detach();
         $proceso->delete();
         return redirect()->route('proceso.index')->withStatus(__('Proceso eliminado correctamente'));
     }

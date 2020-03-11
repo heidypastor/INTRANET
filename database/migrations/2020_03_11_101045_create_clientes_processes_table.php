@@ -17,7 +17,7 @@ class CreateClientesProcessesTable extends Migration
             $table->unsignedBigInteger('process_id');  /*Relación con la tabla processes*/
             $table->foreign('process_id')->references('id')->on('processes');
             $table->unsignedBigInteger('clientes_id');  /*Relación con la tabla clientes*/
-            $table->foreign('clientes_id')->references('id')->on('clientes');
+            $table->foreign('cliente_id')->references('id')->on('clientes');
         });
     }
 

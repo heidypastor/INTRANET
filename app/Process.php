@@ -103,11 +103,11 @@ class Process extends Model
         //Relación de la tabla processes y la tabla inputs 
     }
 
-    public function seguimientos()
-    {
-        return $this->belongsToMany('App\Seguimiento','processes_seguimientos');
-        //Relación de la tabla processes y la tabla inputs 
-    }
+    // public function seguimientos()
+    // {
+    //     return $this->belongsToMany('App\Seguimiento','processes_seguimientos');
+    //     //Relación de la tabla processes y la tabla inputs 
+    // }
 
 
 	/**

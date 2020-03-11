@@ -17,7 +17,7 @@ class Proveedor extends Model
 
 	public function procesos()
 	{
-	    return $this->belongsToMany('App\Process','processes_provedors');
+	    return $this->belongsToMany('App\Process','processes_proveedors');
 	    //Relación de la tabla processes y la tabla inputs 
 	}
 

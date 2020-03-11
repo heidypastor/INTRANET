@@ -68,7 +68,7 @@ class ClienteController extends Controller
     public function actualizar(Request $request)
     {
         // return $request;
-        $cliente = Cliente::find($request->input('idocultoCliente'));
+        $cliente = Cliente::find($request->input('idocultoCli'));
         $cliente->CliName = $request->input('CliName');
         $cliente->save();
 

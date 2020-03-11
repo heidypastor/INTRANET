@@ -309,7 +309,7 @@ Proceso de {{$proceso->ProcName}}
 						</div>
 					</div>
 				</div>
-				<div class="card">
+				{{-- <div class="card">
 					<div class="card-header">
 						<a role="button" data-toggle="collapse" href="#collapse10" aria-expanded="false">
 							<h4 class="text-info text-center">
@@ -328,7 +328,7 @@ Proceso de {{$proceso->ProcName}}
 							</ul>
 						</div>
 					</div>
-				</div>
+				</div> --}}
 				<div class="card">
 					<div class="card-header">
 						<a role="button" data-toggle="collapse" href="#collapse1" aria-expanded="false">

@@ -69,7 +69,7 @@ class ProveedorController extends Controller
     public function actualizar(Request $request)
     {
         // return $request;
-        $proveedor = Cliente::find($request->input('idocultoCliente'));
+        $proveedor = Proveedor::find($request->input('idocultoProv'));
         $proveedor->ProvName = $request->input('ProvName');
         $proveedor->save();
 
