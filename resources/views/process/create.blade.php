@@ -382,7 +382,7 @@ Procesos
 			modalCreateSeguimientos
 		@endslot
 		@slot('titulo')
-			Nueva Seguimiento
+			Nuevo Seguimiento
 		@endslot
 		@slot('action')
 			{{ route('seguimiento.store')}}
