@@ -35,7 +35,7 @@ Procesos
 
 			  		{{-- <th class="">Objetivo</th> --}}
 			  		{{-- <th class="">Imagen</th> --}}
-			  		<th class="">Responsable</th>
+			  		<th class="">Responsables</th>
 
 			  		{{-- <th class="">Autoridad</th> --}}
 			  		<th class="">Requisitos</th>
@@ -77,24 +77,13 @@ Procesos
 
 			        {{-- <td class="text-center">{{$proceso->ProcObjetivo}}</td> --}}
 			        {{-- <td class="text-center"><a target="_blank" href="{{Storage::url($proceso->ProcImage)}}">{{$proceso->ProcImage}}</td> --}}
-			        <td class="text-center">{{-- {{$proceso->ProcResponsable}} --}}
-			        	@switch($proceso->ProcResponsable)
-			        		@case(1) 
-			        			Super Admin
-			        			@break
-			        		@case(2)
-			        			Gerente
-			        			@break
-			        		@case(3)
-			        			Director
-			        			@break
-			        		@case(4)
-			        			Jefe Área
-			        			@break
-			        		@case(5)
-			        			User
-			        			@break
-			        	@endswitch
+			        <td class="text-center">
+						<ul>
+							@foreach($proceso->ProcResponsable as $responsable)
+								<li>{{$responsable}}</li>
+							@endforeach
+							{{-- <li>{{$proceso->ProcResponsable}}</li> --}}
+						</ul>
 			        </td>
 
 			        {{-- <td class="text-center">{{$proceso->ProcAutoridad}}</td> --}}

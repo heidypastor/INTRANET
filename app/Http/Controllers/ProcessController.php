@@ -86,7 +86,7 @@ class ProcessController extends Controller
      */
     public function store(Request $request)
     {
-        /*return $request;*/
+        // return json_encode($request->input('ProcResponsable'));
 
         $path = $request->file('ProcImage')->store('public/Procesos');
 

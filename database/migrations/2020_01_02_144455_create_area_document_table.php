@@ -29,6 +29,6 @@ class CreateAreaDocumentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('area_document');
+        Schema::dropIfExists('areas_documents');
     }
 }

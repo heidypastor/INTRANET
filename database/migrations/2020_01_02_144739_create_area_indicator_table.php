@@ -29,6 +29,6 @@ class CreateAreaIndicatorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('area_indicator');
+        Schema::dropIfExists('areas_indicators');
     }
 }

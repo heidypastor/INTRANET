@@ -122,9 +122,9 @@ Procesos
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="ProcResponsable">Responsable del Proceso</label>
-			    		<select id="ProcResponsable" class="form-control" name="ProcResponsable" placeholder="seleccione">
+			    		<select id="ProcResponsable" class="form-control" name="ProcResponsable[]" placeholder="seleccione" multiple>
 			    			@foreach($roles as $rol)
-			    				<option value="{{$rol->id}}">{{$rol->name}}</option>
+			    				<option value="{{$rol->name}}">{{$rol->name}}</option>
 			    			@endforeach
 			    			{{-- @foreach($users as $user)
 			    				<option value="{{$user->id}}">{{$user->name}}</option>

@@ -145,7 +145,7 @@ class Process extends Model
 	 * @var array
 	 */
 	protected $casts = [
-	    
+	    'ProcResponsable' => 'array',
     ];
     
     protected $dates = ['deleted_at', 'updated_at', 'created_at'];
