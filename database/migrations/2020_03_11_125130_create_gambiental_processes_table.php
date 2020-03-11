@@ -13,9 +13,9 @@ class CreateGambientalProcessesTable extends Migration
      */
     public function up()
     {
-        Schema::create('gambiental_processes', function (Blueprint $table) {
+        Schema::create('gambientals_processes', function (Blueprint $table) {
             $table->unsignedBigInteger('gambiental_id');  /*Relación con la tabla Gestion ambiental*/
-            $table->foreign('gambiental_id')->references('id')->on('gambiental');
+            $table->foreign('gambiental_id')->references('id')->on('gambientals');
             $table->unsignedBigInteger('process_id');  /*Relación con la tabla processes*/
             $table->foreign('process_id')->references('id')->on('processes');
         });
