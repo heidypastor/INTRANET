@@ -390,7 +390,7 @@ Procesos
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<label>Nombre de la salida</label>	      
+				<label>Nombre del seguimiento</label>	      
 				<input type="text" name="SeguiName" class="text-center form-control" required="">
 			</div>
 		@endslot
