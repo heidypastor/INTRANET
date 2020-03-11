@@ -4,22 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Activity extends Model
+class Cliente extends Model
 {
-    /**
+        /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'ActiName', 'ActiType'
+        'CliName', 'CliType'
     ];
-
-    public function procesos()
-    {
-        return $this->belongsToMany('App\Process','activities_processes');
-        //Relación de la tabla processes y la tabla inputs 
-    }
 
     /**
      * The attributes that should be hidden for arrays.
@@ -38,4 +32,12 @@ class Activity extends Model
     protected $casts = [
         
     ];
+
+
+    
+    public function procesos()
+	{
+	    return $this->belongsToMany('App\Process','clientes_processes');
+	    //Relación de la tabla processes y la tabla inputs 
+	}
 }

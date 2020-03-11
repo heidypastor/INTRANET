@@ -65,7 +65,11 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('actualizarentrada','InputController@actualizar')->name('entrada.actualizar');
 	Route::post('actualizaractividad','ActivityController@actualizar')->name('actividad.actualizar');
 	Route::post('actualizarsalida','OutputController@actualizar')->name('salida.actualizar');
+	Route::post('actualizarcliente','ClienteController@actualizar')->name('cliente.actualizar');
+	Route::post('actualizarproveedor','ProveedorController@actualizar')->name('proveedor.actualizar');
 	Route::post('actualizarseguimiento','SeguimientoController@actualizar')->name('seguimiento.actualizar');
+	Route::resource('cliente','ClienteController');
+	Route::resource('proveedor','ProveedorController');
 	Route::resource('salida','OutputController');
 	Route::resource('actividad','ActivityController');
 	Route::resource('releases','ReleasesController');

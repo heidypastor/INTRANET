@@ -4,20 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Output extends Model
+class Proveedor extends Model
 {
-	/**
+    /**
 	 * The attributes that are mass assignable.
 	 *
 	 * @var array
 	 */
 	protected $fillable = [
-	    'OutputName', 'OutputType'
+	    'ProvName', 'ProvType'
 	];
 
 	public function procesos()
 	{
-	    return $this->belongsToMany('App\Process','processes_outputs');
+	    return $this->belongsToMany('App\Process','processes_proveedors');
 	    //Relación de la tabla processes y la tabla inputs 
 	}
 

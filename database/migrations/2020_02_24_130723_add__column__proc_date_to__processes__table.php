@@ -26,7 +26,7 @@ class AddColumnProcDateToProcessesTable extends Migration
     public function down()
     {
         Schema::table('processes', function (Blueprint $table) {
-            //
+            $table->dropColumn('ProcDate');
         });
     }
 }
