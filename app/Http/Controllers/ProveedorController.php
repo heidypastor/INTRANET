@@ -35,7 +35,11 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $proveedor = new Proveedor();
+        $proveedor->ProvName = $request->input('ProvName');
+        $proveedor->save();
+        
+        return redirect()->route('proceso.create')->withStatus(__('Proveedor creado correctamente'));
     }
 
     /**
@@ -60,6 +64,18 @@ class ProveedorController extends Controller
         //
     }
 
+
+
+    public function actualizar(Request $request)
+    {
+        // return $request;
+        $proveedor = Cliente::find($request->input('idocultoCliente'));
+        $proveedor->ProvName = $request->input('ProvName');
+        $proveedor->save();
+
+        return redirect()->route('proceso.create')->withStatus(__('Proveedor actualizado correctamente'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -80,6 +96,11 @@ class ProveedorController extends Controller
      */
     public function destroy(Proveedor $proveedor)
     {
-        //
+        if ($proveedor->id == 0) {
+            return redirect()->route('proceso.create')->withStatus(__('el proveedor no fue eliminado... intente nuevamente escogiendo un proveedor existente'));
+        }
+        $proveedor->delete();
+
+        return redirect()->route('proceso.create')->withStatus(__('Proveedor Eliminado correctamente'));
     }
 }

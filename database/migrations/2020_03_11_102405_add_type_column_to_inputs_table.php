@@ -14,7 +14,7 @@ class AddTypeColumnToInputsTable extends Migration
     public function up()
     {
         Schema::table('inputs', function (Blueprint $table) {
-            $table->string('InputType'); /* planear; hacer; verificar; actuar */
+            $table->string('InputType')->nullable(); /* planear; hacer; verificar; actuar */
         });
     }
 

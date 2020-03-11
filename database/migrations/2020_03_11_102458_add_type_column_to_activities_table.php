@@ -14,7 +14,7 @@ class AddTypeColumnToActivitiesTable extends Migration
     public function up()
     {
         Schema::table('activities', function (Blueprint $table) {
-            $table->string('ActiType'); /* planear; hacer; verificar; actuar */
+            $table->string('ActiType')->nullable(); /* planear; hacer; verificar; actuar */
         });
     }
 

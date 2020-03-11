@@ -14,7 +14,7 @@ class AddTypeColumnToOutputsTable extends Migration
     public function up()
     {
         Schema::table('outputs', function (Blueprint $table) {
-            $table->string('OutputType'); /* planear; hacer; verificar; actuar */
+            $table->string('OutputType')->nullable(); /* planear; hacer; verificar; actuar */
         });
     }
 

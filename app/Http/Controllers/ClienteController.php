@@ -35,7 +35,11 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cliente = new Cliente();
+        $cliente->CliName = $request->input('CliName');
+        $cliente->save();
+        
+        return redirect()->route('proceso.create')->withStatus(__('Cliente creado correctamente'));
     }
 
     /**
@@ -60,6 +64,17 @@ class ClienteController extends Controller
         //
     }
 
+
+    public function actualizar(Request $request)
+    {
+        // return $request;
+        $cliente = Cliente::find($request->input('idocultoCliente'));
+        $cliente->CliName = $request->input('CliName');
+        $cliente->save();
+
+        return redirect()->route('proceso.create')->withStatus(__('Cliente actualizado correctamente'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -69,7 +84,7 @@ class ClienteController extends Controller
      */
     public function update(Request $request, Cliente $cliente)
     {
-        //
+        
     }
 
     /**
@@ -80,6 +95,11 @@ class ClienteController extends Controller
      */
     public function destroy(Cliente $cliente)
     {
-        //
+        if ($cliente->id == 0) {
+            return redirect()->route('proceso.create')->withStatus(__('el cliente no fue eliminado... intente nuevamente escogiendo un cliente existente'));
+        }
+        $cliente->delete();
+
+        return redirect()->route('proceso.create')->withStatus(__('Cliente Eliminado correctamente'));
     }
 }

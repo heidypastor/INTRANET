@@ -16,7 +16,7 @@ class CreateProveedorsTable extends Migration
         Schema::create('proveedors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('ProvName');
-            $table->string('ProvType'); /* planear; hacer; verificar; actuar */
+            $table->string('ProvType')->nullable(); /* planear; hacer; verificar; actuar */
             $table->timestamps();
             $table->softDeletes();
             $table->engine = 'InnoDB';

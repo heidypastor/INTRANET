@@ -12,6 +12,8 @@ use App\Indicators;
 use App\Areas;
 use App\Seguimiento;
 use App\User;
+use App\Cliente;
+use App\Proveedor;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -55,18 +57,22 @@ class ProcessController extends Controller
             $indicadores = Indicators::all(['id', 'IndName']);
             $soportes = Process::all(['id', 'ProcName']);
             $seguimientos = Seguimiento::all(['id', 'SeguiName']);
+            $clientes = Cliente::all(['id', 'CliName']);
+            $proveedores = Proveedor::all(['id', 'ProvName']);
 
             /* variables para los formularios de destroy */
             $salidasDrop = Output::doesntHave('procesos')->get();
             $entradasDrop = Input::doesntHave('procesos')->get();
             $actividadesDrop = Activity::doesntHave('procesos')->get();
             $seguimientosDrop = Seguimiento::doesntHave('procesos')->get();
+            $clientesDrop = Cliente::doesntHave('procesos')->get();
+            $proveedoresDrop = Proveedor::doesntHave('procesos')->get();
 
             $usuario = Auth::user()->id;
 
 
             /*return $actividades;*/
-            return view('process.create', compact(['roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'seguimientos', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'seguimientosDrop', 'usuario']));
+            return view('process.create', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'seguimientos', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'seguimientosDrop', 'usuario']));
         }else{
             abort(403, 'El usuario no se encuentra autorizado para crear Procesos');
         }
@@ -103,6 +109,8 @@ class ProcessController extends Controller
         $process->entradas()->attach($request->input('Entradas'));
         $process->salidas()->attach($request->input('Salidas'));
         $process->actividades()->attach($request->input('Actividades'));
+        $process->clientes()->attach($request->input('Clientes'));
+        $process->proveedores()->attach($request->input('Provedores'));
         $process->documentos()->attach($request->input('Docs'));
         $process->areas()->attach($request->input('Areas'));
         $process->indicadores()->attach($request->input('Indicadores'));
@@ -132,6 +140,8 @@ class ProcessController extends Controller
         $proceso['procesosDeSoporte'] = $proceso->procesosDeSoporte()->get();
         $proceso['requisitos'] = $proceso->requisitos()->get();
         $proceso['seguimientos'] = $proceso->seguimientos()->get();
+        $proceso['clientes'] = $proceso->clientes()->get();
+        $proceso['proveedores'] = $proceso->proveedores()->get();
 
         /*return $proceso;*/
         /*$users = User::all(['id', 'name']);*/
@@ -162,10 +172,12 @@ class ProcessController extends Controller
             $indicadores = Indicators::all(['id', 'IndName']);
             $soportes = Process::all(['id', 'ProcName']);
             $seguimientos = Seguimiento::all(['id', 'SeguiName']);
+            $clientes = Cliente::all(['id', 'CliName']);
+            $proveedores = Proveedor::all(['id', 'ProvName']);
 
             /*return $proceso->entradas;*/
 
-            return view('process.edit', compact(['roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'proceso', 'seguimientos']));
+            return view('process.edit', compact(['clientes', 'proveedores', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'proceso', 'seguimientos']));
         }else{
             abort(403, 'El usuario no se encuentra autorizado para editar Procesos');
         }

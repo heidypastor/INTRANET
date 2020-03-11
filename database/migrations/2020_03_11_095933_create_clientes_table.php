@@ -16,7 +16,7 @@ class CreateClientesTable extends Migration
         Schema::create('clientes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('CliName');
-            $table->string('CliType'); /* planear; hacer; verificar; actuar */
+            $table->string('CliType')->nullable(); /* planear; hacer; verificar; actuar */
             $table->timestamps();
             $table->softDeletes();
             $table->engine = 'InnoDB';
