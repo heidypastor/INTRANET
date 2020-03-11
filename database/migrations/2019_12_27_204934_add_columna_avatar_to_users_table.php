@@ -13,8 +13,7 @@ class AddColumnaAvatarToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            
+        Schema::table('users', function (Blueprint $table) {    
             $table->string('Avatar', 255)->default('/white/img/emilyz.jpg');
         });
     }
@@ -27,7 +26,6 @@ class AddColumnaAvatarToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            
             $table->dropColumn('Avatar');
         });
     }

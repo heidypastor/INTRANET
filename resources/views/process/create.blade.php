@@ -18,10 +18,22 @@ Procesos
 	<div class="card">
 		<div class="card-header">
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-2">
 					<h2>
 						<b>{{'Nuevo Proceso'}}</b>
 					</h2>
+				</div>
+				<div class="col-md-2 float-right">
+					<div class="dropdown">
+					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    Proveedores
+					  </button>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateProveedores">Nuevo</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditProveedores">Actualizar</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteProveedores">Eliminar</a>
+					  </div>
+					</div>
 				</div>
 				<div class="col-md-2 float-right">
 					<div class="dropdown">
@@ -59,15 +71,16 @@ Procesos
 					  </div>
 					</div>
 				</div>
+
 				<div class="col-md-2 float-right">
 					<div class="dropdown">
 					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Seguimientos
+					    Clientes
 					  </button>
 					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateSeguimientos">Nuevo</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteSeguimientos">Eliminar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditSeguimientos">Actualizar</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateClientes">Nuevo</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditClientes">Actualizar</a>
+					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteClientes">Eliminar</a>
 					  </div>
 					</div>
 				</div>
@@ -185,17 +198,18 @@ Procesos
 			    	</div>
 			    </div>
 
-			    <div class="col-md-6 col-xs-12">
+				
+				<div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
-			    		<label class="input-label" for="Seguimiento">Seguimiento</label>
-			      		<select multiple id="Seguimiento" class="form-control" name="Seguimiento[]" placeholder="seleccione">
-			    			@foreach($seguimientos as $seguimiento)
-			    				<option value="{{$seguimiento->id}}">{{$seguimiento->SeguiName}}</option>
+			    		<label class="input-label" for="Clientes">Clientes</label>
+			      		<select multiple id="Clientes" class="form-control" name="Clientes[]" placeholder="seleccione">
+			    			@foreach($clientes as $cliente)
+			    				<option value="{{$cliente->id}}">{{$cliente->CliName}}</option>
 			    			@endforeach
 			    		</select>
 			    	</div>
-			    </div>
-			    
+				</div>
+				
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="Entradas">Entradas</label>
@@ -224,6 +238,17 @@ Procesos
 			      		<select multiple id="Salidas" class="form-control" name="Salidas[]" placeholder="seleccione">
 			    			@foreach($salidas as $salida)
 			    				<option value="{{$salida->id}}">{{$salida->OutputName}}</option>
+			    			@endforeach
+			    		</select>
+			    	</div>
+				</div>
+				
+				<div class="col-md-6 col-xs-12">
+			    	<div class="form-group">
+			    		<label class="input-label" for="Provedores">Provedores</label>
+			      		<select multiple id="Provedores" class="form-control" name="Provedores[]" placeholder="seleccione">
+			    			@foreach($proveedores as $proveedor)
+			    				<option value="{{$proveedor->id}}">{{$proveedor->ProvName}}</option>
 			    			@endforeach
 			    		</select>
 			    	</div>
@@ -312,6 +337,29 @@ Procesos
 
 	{{-- Esta es la sección de los modal --}}
 
+	{{-- Este modal corresponde a los Proveedores --}}
+	
+	@component('layouts.partials.modalCreate')
+		@slot('idModal')
+			modalCreateProveedores
+		@endslot
+		@slot('titulo')
+			Nuevo Proveedor
+		@endslot
+		@slot('action')
+			{{ route('proveedor.store')}}
+		@endslot
+		@slot('form')
+			@csrf
+			<div class="form-group">
+				<label>Nombre del proveedor</label>	      
+				<input type="text" name="ProvName" class="text-center form-control" required="">
+			</div>
+		@endslot
+	@endcomponent
+
+	{{-- Este modal corresponde a los seguimientos --}}
+
 	@component('layouts.partials.modalCreate')
 		@slot('idModal')
 			modalCreateEntradas
@@ -375,29 +423,62 @@ Procesos
 		@endslot
 	@endcomponent
 
-	{{-- Este modal corresponde a los seguimientos --}}
+
+	{{-- Este modal corresponde a los clientes --}}
+
 
 	@component('layouts.partials.modalCreate')
 		@slot('idModal')
-			modalCreateSeguimientos
+			modalCreateClientes
 		@endslot
 		@slot('titulo')
-			Nuevo Seguimiento
+			Nuevo Cliente
 		@endslot
 		@slot('action')
-			{{ route('seguimiento.store')}}
+			{{ route('cliente.store')}}
 		@endslot
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<label>Nombre de la salida</label>	      
-				<input type="text" name="SeguiName" class="text-center form-control" required="">
+				<label>Nombre del cliente</label>	      
+				<input type="text" name="CliName" class="text-center form-control" required="">
 			</div>
 		@endslot
 	@endcomponent
 
 
 	{{-- Parte del documento donde se encuentran los modales de edición --}}
+
+
+	
+	{{-- Modal de edición de proveedores --}}
+	@component('layouts.partials.modalEdit')
+		@slot('idModal')
+			modalEditProveedores
+		@endslot
+		@slot('titulo')
+			Editar Proveedor
+		@endslot
+		@slot('action')
+			{{ route('proveedor.actualizar') }}
+		@endslot
+		@slot('form')
+			@csrf
+			<div class="form-group">
+				<select id="IdSelectProveedor" class="form-control" onchange="cambiarProveedorId()">
+					@foreach($proveedores as $proveedor)
+					<option value="{{$proveedor->id}}">{{$proveedor->ProvName}}</option>
+					@endforeach
+				</select>
+			</div>
+			<input id="idocultoProv" type="text" value="1" name="idocultoProv" style="display:none;">
+			<div class="form-group">
+				<label>Nuevo Nombre</label>
+				<input type="text" name="ProvName" class="text-center form-control" required="">
+			</div>
+		@endslot
+	@endcomponent
+
 
 	{{-- Modal de edición de Entradas --}}
 	@component('layouts.partials.modalEdit')
@@ -487,6 +568,67 @@ Procesos
 			</div>
 		@endslot
 	@endcomponent
+
+	{{-- Modal de edición de clientes --}}
+	@component('layouts.partials.modalEdit')
+		@slot('idModal')
+			modalEditClientes
+		@endslot
+		@slot('titulo')
+			Editar Cliente
+		@endslot
+		@slot('action')
+			{{ route('cliente.actualizar') }}
+		@endslot
+		@slot('form')
+			@csrf
+			<div class="form-group">
+				<select id="IdSelectCliente" class="form-control" onchange="cambiarClienteId()">
+					@foreach($clientes as $cliente)
+					<option value="{{$cliente->id}}">{{$cliente->CliName}}</option>
+					@endforeach
+				</select>
+			</div>
+			<input id="idocultoCli" type="text" value="1" name="idocultoCli" style="display:none;">
+			<div class="form-group">
+				<label>Nuevo Nombre</label>
+				<input type="text" name="CliName" class="text-center form-control" required="">
+			</div>
+		@endslot
+	@endcomponent
+
+
+	{{-- Modal de eliminar proveedores --}}
+	@component('layouts.partials.modalDelete')
+		@slot('idModal')
+			modalDeleteProveedores
+		@endslot
+		@slot('idform')
+			formDeleteProveedores
+		@endslot
+		@slot('titulo')
+			Eliminar Proveedores
+			@endslot
+		@slot('action')
+			{{ route('proveedor.destroy', 0) }}
+		@endslot
+		@slot('form')
+	         	@method('DELETE')
+				@csrf
+				<div class="form-group">
+					<select id="SelectEliminarProveedores" class="form-control" onchange="eliminarProveedor()">
+						<option value="0" selected>Seleccionar proveedor a Eliminar</option>
+						@foreach($proveedoresDrop as $proveedorDrop)
+						<option value="{{$proveedorDrop->id}}">{{$proveedorDrop->ProvName}}</option>
+						@endforeach
+					</select>
+				</div>
+		@endslot
+		@slot('submitbutton')
+		<button form="formDeleteProveedores" disabled id="eliminarSubmitProveedores" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
+		@endslot
+	@endcomponent
+
 
 	{{-- Modal de eliminar Salidas --}}
 	@component('layouts.partials.modalDelete')
@@ -581,63 +723,34 @@ Procesos
 		@endslot
 	@endcomponent
 
-
-	{{-- Modal de edición de Seguimientos --}}
-	@component('layouts.partials.modalEdit')
-		@slot('idModal')
-			modalEditSeguimientos
-		@endslot
-		@slot('titulo')
-			Editar Seguimiento
-		@endslot
-		@slot('action')
-			{{ route('seguimiento.actualizar') }}
-		@endslot
-		@slot('form')
-			@csrf
-			<div class="form-group">
-				<select id="IdSelectSeguimiento" class="form-control" onchange="cambiarSeguimientoId()">
-					@foreach($seguimientos as $seguimiento)
-						<option value="{{$seguimiento->id}}">{{$seguimiento->SeguiName}}</option>
-					@endforeach
-				</select>
-			</div>
-			<input id="idocultoSegui" type="text" value="1" name="idocultoSegui" style="display:none;">
-			<div class="form-group">
-				<label>Nuevo Nombre</label>
-				<input type="text" name="SeguiName" class="text-center form-control" required="">
-			</div>
-		@endslot
-	@endcomponent 
-	
-	{{-- Modal de eliminar seguimientos --}}
+	{{-- Modal de eliminar clientes --}}
 	@component('layouts.partials.modalDelete')
 		@slot('idModal')
-			modalDeleteSeguimientos
+			modalDeleteClientes
 		@endslot
 		@slot('idform')
-			formDeleteSeguimientos
+			formDeleteClientes
 		@endslot
 		@slot('titulo')
-			Eliminar Seguimiento
-		@endslot
+			Eliminar Clientes
+			@endslot
 		@slot('action')
-			{{ route('seguimiento.destroy', 0) }}
+			{{ route('cliente.destroy', 0) }}
 		@endslot
 		@slot('form')
-				@method('DELETE')
+	         	@method('DELETE')
 				@csrf
 				<div class="form-group">
-					<select id="SelectEliminarSeguimiento" class="form-control" onchange="eliminarSeguimiento()">
-						<option value="0" selected>Seleccionar seguimiento a Eliminar</option>
-						@foreach($seguimientosDrop as $seguimientoDrop)
-						<option value="{{$seguimientoDrop->id}}">{{$seguimientoDrop->SeguiName}}</option>
+					<select id="SelectEliminarClientes" class="form-control" onchange="eliminarCliente()">
+						<option value="0" selected>Seleccionar cliente a Eliminar</option>
+						@foreach($clientesDrop as $clienteDrop)
+						<option value="{{$clienteDrop->id}}">{{$clienteDrop->CliName}}</option>
 						@endforeach
 					</select>
 				</div>
 		@endslot
 		@slot('submitbutton')
-			<button form="formDeleteSeguimientos" disabled id="eliminarSubmitSeguimiento" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
+		<button form="formDeleteClientes" disabled id="eliminarSubmitClientes" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
 		@endslot
 	@endcomponent
 @endsection
@@ -654,6 +767,21 @@ Procesos
 {{-- scripts adicionales para el funcionmiento de la vista --}}
 @push('scripts')
 <script>
+
+	function cambiarClienteId(){
+		var id = $('#IdSelectCliente').val();
+		var inputoculto = $('#idocultoCli');
+		inputoculto.attr('value', id);
+		// console.log(id);
+	};
+
+	function cambiarProveedorId(){
+		var id = $('#IdSelectProveedor').val();
+		var inputoculto = $('#idocultoProv');
+		inputoculto.attr('value', id);
+		// console.log(id);
+	};
+
 	function cambiarEntradaId(){
 		var id = $('#IdSelectEntrada').val();
 		var inputoculto = $('#idoculto');
@@ -666,6 +794,33 @@ Procesos
 		let botonsubmit = $('#eliminarSubmitSalidas');
 		var id = $('#SelectEliminarSalidas').val();
 		formulario.attr('action', '{{ url('salida') }}/'+id);
+		if (id > 0) {
+			botonsubmit.attr('disabled', false);
+		}else{
+			botonsubmit.attr('disabled', true);
+		}
+		// console.log(id);
+	};
+
+	function eliminarCliente(){
+		let formulario = $('#formDeleteClientes');
+		let botonsubmit = $('#eliminarSubmitClientes');
+		var id = $('#SelectEliminarClientes').val();
+		formulario.attr('action', '{{ url('cliente') }}/'+id);
+		if (id > 0) {
+			botonsubmit.attr('disabled', false);
+		}else{
+			botonsubmit.attr('disabled', true);
+		}
+		// console.log(id);
+	};
+
+
+	function eliminarProveedor(){
+		let formulario = $('#formDeleteProveedores');
+		let botonsubmit = $('#eliminarSubmitProveedores');
+		var id = $('#SelectEliminarProveedores').val();
+		formulario.attr('action', '{{ url('proveedor') }}/'+id);
 		if (id > 0) {
 			botonsubmit.attr('disabled', false);
 		}else{
@@ -699,19 +854,6 @@ Procesos
 		}
 		// console.log(id);
 	};
-
-	function eliminarSeguimiento(){
-		let formulario = $('#formDeleteSeguimientos');
-		let botonsubmit = $('#eliminarSubmitSeguimiento');
-		var id = $('#SelectEliminarSeguimiento').val();
-		formulario.attr('action', '{{ url('seguimiento') }}/'+id);
-		if (id > 0) {
-			botonsubmit.attr('disabled', false);
-		}else{
-			botonsubmit.attr('disabled', true);
-		}
-		// console.log(id);
-	};
 </script>
 <script>
 	$(document).ready( function(){
@@ -727,13 +869,6 @@ Procesos
 	function cambiarSalidaId(){
 		var id = $('#IdSelectSalida').val();
 		var inputoculto = $('#idocultoSali');
-			inputoculto.attr('value', id);
-			console.log(id);
-	};
-
-	function cambiarSeguimientoId(){
-		var id = $('#IdSelectSeguimiento').val();
-		var inputoculto = $('#idocultoSegui');
 			inputoculto.attr('value', id);
 			console.log(id);
 	};

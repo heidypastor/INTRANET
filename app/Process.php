@@ -35,6 +35,20 @@ class Process extends Model
 	 */
 	protected $table = 'processes';
 
+
+    public function clientes()
+    {
+        return $this->belongsToMany('App\Cliente','clientes_processes');
+        //Relación de la tabla processes y la tabla inputs 
+    }
+
+    
+    public function proveedores()
+    {
+        return $this->belongsToMany('App\Proveedor','processes_proveedors');
+        //Relación de la tabla processes y la tabla inputs 
+    }
+
 	public function entradas()
     {
         return $this->belongsToMany('App\Input','inputs_processes');
@@ -89,11 +103,11 @@ class Process extends Model
         //Relación de la tabla processes y la tabla inputs 
     }
 
-    public function seguimientos()
-    {
-        return $this->belongsToMany('App\Seguimiento','processes_seguimientos');
-        //Relación de la tabla processes y la tabla inputs 
-    }
+    // public function seguimientos()
+    // {
+    //     return $this->belongsToMany('App\Seguimiento','processes_seguimientos');
+    //     //Relación de la tabla processes y la tabla inputs 
+    // }
 
     public function gambientals()
     {
