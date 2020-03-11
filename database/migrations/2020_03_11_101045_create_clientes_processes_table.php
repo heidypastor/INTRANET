@@ -16,7 +16,7 @@ class CreateClientesProcessesTable extends Migration
         Schema::create('clientes_processes', function (Blueprint $table) {
             $table->unsignedBigInteger('process_id');  /*Relación con la tabla processes*/
             $table->foreign('process_id')->references('id')->on('processes');
-            $table->unsignedBigInteger('clientes_id');  /*Relación con la tabla clientes*/
+            $table->unsignedBigInteger('cliente_id');  /*Relación con la tabla clientes*/
             $table->foreign('cliente_id')->references('id')->on('clientes');
         });
     }

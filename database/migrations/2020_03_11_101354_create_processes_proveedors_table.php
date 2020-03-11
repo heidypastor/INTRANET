@@ -16,7 +16,7 @@ class CreateProcessesProveedorsTable extends Migration
         Schema::create('processes_proveedors', function (Blueprint $table) {
             $table->unsignedBigInteger('process_id');  /*Relación con la tabla processes*/
             $table->foreign('process_id')->references('id')->on('processes');
-            $table->unsignedBigInteger('proveedors_id');  /*Relación con la tabla proveedors*/
+            $table->unsignedBigInteger('proveedor_id');  /*Relación con la tabla proveedors*/
             $table->foreign('proveedor_id')->references('id')->on('proveedors');
         });
     }
