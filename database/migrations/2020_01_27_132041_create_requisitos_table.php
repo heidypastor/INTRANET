@@ -17,7 +17,10 @@ class CreateRequisitosTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('ReqName');
-            $table->string('ReqType');
+            $table->string('ReqType'); /*Este campo hace referencia a la clasificación de la caracterización de proceso es decir
+                0 = Legales
+                1 = Empresariales
+                2 = Otras - Cliente*/
             $table->date('ReqDate');
             $table->string('ReqEnte');
             $table->string('ReqQueDice');

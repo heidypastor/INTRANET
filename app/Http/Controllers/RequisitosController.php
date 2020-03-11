@@ -130,9 +130,9 @@ class RequisitosController extends Controller
             }
         }
 
-        /*return $areaid;*/
 
         $requisito->update($request->all());
+        /*return $request;*/
 
         /*$areaid = $request->input('areas');*/
 

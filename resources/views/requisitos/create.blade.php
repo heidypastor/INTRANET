@@ -25,7 +25,12 @@ Requisitos y Documentos Legales
 				</div>
 				<div class="custom-input-file">
 					<label>Tipo de requisito legal</label>
-					<input name="ReqType" type="text" id="ReqType" class="text-center form-control" required="">
+					{{-- <input name="ReqType" type="text" id="ReqType" class="text-center form-control" required=""> --}}
+					<select name="ReqType" id="ReqType" class="text-center form-control" required="">
+						<option value="0">Legales</option>
+						<option value="1">Empresariales</option>
+						<option value="2">Otras - Cliente</option>
+					</select>
 				</div>
 				<div class="form-group">
 				    <label>Fecha de emisión del requisito</label>
