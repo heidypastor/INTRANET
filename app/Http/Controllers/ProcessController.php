@@ -56,23 +56,20 @@ class ProcessController extends Controller
             $soportes = Process::all(['id', 'ProcName']);
             $seguimientos = Seguimiento::all(['id', 'SeguiName']);
 
+            /* variables para los formularios de destroy */
+            $salidasDrop = Output::doesntHave('procesos')->get();
+            $entradasDrop = Input::doesntHave('procesos')->get();
+            $actividadesDrop = Activity::doesntHave('procesos')->get();
+            $seguimientosDrop = Seguimiento::doesntHave('procesos')->get();
+
+            $usuario = Auth::user()->id;
+
+
             /*return $actividades;*/
-            return view('process.create', compact(['roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'seguimientos']));
+            return view('process.create', compact(['roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'seguimientos', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'seguimientosDrop', 'usuario']));
         }else{
             abort(403, 'El usuario no se encuentra autorizado para crear Procesos');
         }
-
-        /* variables para los formularios de destroy */
-        $salidasDrop = Output::doesntHave('procesos')->get();
-        $entradasDrop = Input::doesntHave('procesos')->get();
-        $actividadesDrop = Activity::doesntHave('procesos')->get();
-        $seguimientosDrop = Seguimiento::doesntHave('procesos')->get();
-
-        $usuario = Auth::user()->id;
-        
-        // return $seguimientosDrop;
-        return view('process.create', compact(['roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'seguimientos', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'seguimientosDrop', 'usuario']));
-
     }
 
     /**
