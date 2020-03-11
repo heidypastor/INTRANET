@@ -27,7 +27,7 @@ class AddColumnReqLinkToRequisitosTable extends Migration
     public function down()
     {
         Schema::table('_requisitos_', function (Blueprint $table) {
-            //
+            $table->dropColumn('ReqLink');
         });
     }
 }

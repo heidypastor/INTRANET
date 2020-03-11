@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnReqSrcToRequisitosTable extends Migration
+class AddTypeColumnToActivitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddColumnReqSrcToRequisitosTable extends Migration
      */
     public function up()
     {
-        Schema::table('requisitos', function (Blueprint $table) {
-            $table->string('ReqSrc');
+        Schema::table('activities', function (Blueprint $table) {
+            $table->string('ActiType'); /* planear; hacer; verificar; actuar */
         });
     }
 
@@ -25,8 +25,8 @@ class AddColumnReqSrcToRequisitosTable extends Migration
      */
     public function down()
     {
-        Schema::table('requisitos', function (Blueprint $table) {
-            $table->dropColumn('ReqSrc');
+        Schema::table('activities', function (Blueprint $table) {
+            $table->dropColumn('ActiType');
         });
     }
 }

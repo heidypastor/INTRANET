@@ -28,7 +28,9 @@ class AddSomeColumnsToAlertsTable extends Migration
     public function down()
     {
         Schema::table('alerts', function (Blueprint $table) {
-            //
+            $table->dropColumn('AlertType');
+            $table->dropColumn('AlertPercentage');
+            $table->dropColumn('AlertRealizado');
         });
     }
 }

@@ -14,7 +14,6 @@ class AddColumnaColorToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            
             $table->unsignedTinyInteger('ColorUser')->default(2);
         });
     }
@@ -27,7 +26,6 @@ class AddColumnaColorToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            
             $table->dropColumn('ColorUser');
         });
     }
