@@ -28,7 +28,6 @@ Comités
 		      <thead>
 		        <th class="text-center">Nombre del Cómite</th>
 		        <th class="text-center">Telefono de contacto</th>
-		        <th class="text-center">Email de contacto</th>
 		        <th class="text-center">Ver más..</th>
 		      </thead>
 		      <tbody>
@@ -36,7 +35,6 @@ Comités
 		          <tr>
 		            <td class="text-center"><strong>{{$comite->ComiName}}</strong></td>
 		            <td class="text-center">{{$comite->ComiTelefono}}</td>
-		            <td class="text-center">{{$comite->ComiEmail}}</td>
 		            <td class="text-center"><a href="comites/{{$comite->id}}" class="btn btn-secondary tim-icons icon-double-right"> Ver más..</a></td>
 		          </tr>
 		        @endforeach

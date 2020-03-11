@@ -455,6 +455,19 @@
             }, 2000);
         }
         </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                popover();
+            });
+            function popover(){
+                $('[data-toggle="popover"]').popover({
+                    container: 'body',
+                    html: true,
+                    placement: 'auto',
+                });
+            }
+        </script>
+
         @stack('scripts')
     </body>
 </html>

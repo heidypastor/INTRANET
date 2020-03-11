@@ -34,9 +34,9 @@ Roles
                         <table class="table tablesorter " id="RolesTable">
                             <thead>
                                 <th scope="col">{{ __('Rol') }}</th>
-                                <th scope="col">{{ __('Permisos') }}</th>
+                                <th scope="col" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Permisos</b>" data-content="Listado de permisos que tienen asignados cada rol."><i class="far fa-question-circle"></i>{{ __(' Permisos') }}</th>
                                 <th scope="col">{{ __('Fecha de creación') }}</th>
-                                <th scope="col"></th>
+                                <th scope="col">{{ __('Editar')}}</th>
                             </thead>
                             <tbody>
                                 @foreach ($roles as $role)

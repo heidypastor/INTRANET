@@ -37,7 +37,7 @@ Roles
                                 </div>
 
                                 <div class="form-group{{ $errors->has('permissions[]') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-permissions">{{ __('Permisos') }}</label>
+                                    <label class="form-control-label" for="input-permissions" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Permisos</b>" data-content="Ingresa los permisos que le quieres asignar al usuario."><i class="far fa-question-circle"></i>{{ __(' Permisos') }}</label>
 
                                     @include('alerts.feedback', ['field' => 'permissions[]'])
                                     <select multiple class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Seleccione los permisos para el usuario') }}" value="{{ old('name', $role->name) }}" name="permissions[]">
