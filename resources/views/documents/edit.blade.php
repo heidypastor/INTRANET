@@ -102,11 +102,5 @@ Documentos
 				<button type="submit" class="btn btn-fill btn-success fas fa-arrow-circle-up"> Actualizar</button>
 			</form>
 		</div>
-<<<<<<< Updated upstream
 	</div>
-=======
-		<button type="submit" class="fas fa-arrow-circle-up btn btn-fill btn-warning"> Actualizar</button>
-	</form>
-</div>
->>>>>>> Stashed changes
 @endsection
