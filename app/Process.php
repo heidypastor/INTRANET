@@ -109,6 +109,24 @@ class Process extends Model
     //     //Relación de la tabla processes y la tabla inputs 
     // }
 
+    public function gambientals()
+    {
+        return $this->belongsToMany('App\Gambiental','gambientals_processes');
+        //Relación de la tabla processes y la tabla gambiental 
+    }
+
+    public function gseguridads()
+    {
+        return $this->belongsToMany('App\Gseguridad','gseguridads_processes');
+        //Relación de la tabla processes y la tabla gseguridad 
+    }
+
+    public function recursos()
+    {
+        return $this->belongsToMany('App\Recursos','processes_recursos');
+        //Relación de la tabla processes y la tabla recursos 
+    }
+
 
 	/**
 	 * The attributes that should be hidden for arrays.
