@@ -14,7 +14,7 @@ class AddColumnDocidentificationToDocumentsTable extends Migration
     public function up()
     {
         Schema::table('documents', function (Blueprint $table) {
-            //
+            $table->string('DocIdentification')->default('Prosarc');
         });
     }
 

@@ -24,9 +24,14 @@ Requisitos y Documentos Legales
 				  <label>Nombre del requisito legal</label>
 				  <input name="ReqName" type="text" placeholder="" id="ReqName" class="text-center form-control" value="{{$requisito->ReqName}}">
 				</div>
-				<div class="custom-input-file">
+				<div class="form-group">
 					<label>Tipo de requisito legal</label>
-					<input name="ReqType" type="text" id="ReqType" class="text-center form-control" value="{{$requisito->ReqType}}">
+					{{-- <input name="ReqType" type="text" id="ReqType" class="text-center form-control" value="{{$requisito->ReqType}}"> --}}
+					<select name="ReqType" id="ReqType" class="text-center form-control">
+						<option value="0">Legales</option>
+						<option value="1">Empresariales</option>
+						<option value="2">Otras - Cliente</option>
+					</select>
 				</div>
 				<div class="form-group">
 				    <label>Fecha de emisión del requisito</label>
