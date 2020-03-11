@@ -12,7 +12,7 @@ class Input extends Model
 	 * @var array
 	 */
 	protected $fillable = [
-	    'InputName', 
+	    'InputName', 'InputType'
 	];
 
 	public function procesos()

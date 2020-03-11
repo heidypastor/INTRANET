@@ -12,7 +12,7 @@ class Output extends Model
 	 * @var array
 	 */
 	protected $fillable = [
-	    'OutputName', 
+	    'OutputName', 'OutputType'
 	];
 
 	public function procesos()

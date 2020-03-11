@@ -12,15 +12,8 @@ class Cliente extends Model
      * @var array
      */
     protected $fillable = [
-        'ComiName', 'ComiSrc', 'ComiImage', 'ComiParaQueSirve', 'ComiTelefono', 'ComiEmail', 'ComiDateLast', 'ComiObservations', 'ComiDateNext', 'ComiIntegrantes',
+        'CliName', 'CliType'
     ];
-
-
-    public function users()
-    {
-        return $this->belongsToMany('App\User');
-    }
-
 
     /**
      * The attributes that should be hidden for arrays.
@@ -39,4 +32,12 @@ class Cliente extends Model
     protected $casts = [
         
     ];
+
+
+    
+    public function procesos()
+	{
+	    return $this->belongsToMany('App\Process','clientes_processes');
+	    //Relación de la tabla processes y la tabla inputs 
+	}
 }

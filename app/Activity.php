@@ -12,7 +12,7 @@ class Activity extends Model
      * @var array
      */
     protected $fillable = [
-        'ActiName', 
+        'ActiName', 'ActiType'
     ];
 
     public function procesos()
