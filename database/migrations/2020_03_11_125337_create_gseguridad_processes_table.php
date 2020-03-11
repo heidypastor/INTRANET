@@ -13,9 +13,9 @@ class CreateGseguridadProcessesTable extends Migration
      */
     public function up()
     {
-        Schema::create('gseguridad_processes', function (Blueprint $table) {
+        Schema::create('gseguridads_processes', function (Blueprint $table) {
             $table->unsignedBigInteger('gseguridad_id');  /*Relación con la tabla Gestion de seguridad y salud en el trabajo*/
-            $table->foreign('gseguridad_id')->references('id')->on('gseguridad');
+            $table->foreign('gseguridad_id')->references('id')->on('gseguridads');
             $table->unsignedBigInteger('process_id');  /*Relación con la tabla processes*/
             $table->foreign('process_id')->references('id')->on('processes');
         });

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGambientalTable extends Migration
+class CreateRecursosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,19 @@ class CreateGambientalTable extends Migration
      */
     public function up()
     {
-        Schema::create('gambiental', function (Blueprint $table) {
+        Schema::create('recursos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('GesName');
-            $table->string('GesType'); /*En este campo corresponden los tres campos de la caracterización de proceso de Gestion Ambiental es decir 
-                0 = Aspectos Ambientales
-                1 = Impactos Ambientales
-                2 = Controles Operacionales */
-            $table->softDeletes(); 
+            $table->string('RecName');
+            $table->string('RecType'); /*En este campo corresponden los tres datos de la caracterización de proceso de Recursos, es decir:
+                0 = Fisico
+                1 = Humano
+                2 = Financiero   */
+            $table->softDeletes();  
             $table->engine = 'InnoDB';
             $table->charset = 'utf8';
             $table->collation = 'utf8_unicode_ci';
+
         });
     }
 
@@ -35,6 +36,6 @@ class CreateGambientalTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gambiental');
+        Schema::dropIfExists('recursos');
     }
 }
