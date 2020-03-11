@@ -35,7 +35,20 @@ Requisitos y Documentos Legales
 					      	<table>
 					      		<tr>
 					      			<td><strong>Tipo:</strong></td> 
-					      			<td>{{$requisito->ReqType}}</td>
+					      			<td>
+					      				{{-- {{$requisito->ReqType}} --}}
+					      				@switch($requisito->ReqType)
+					      					@case(1)
+					      					Legal
+					      						@break
+					      					@case(2)
+					      					Empresarial
+					      						@break
+					      					@case(3)
+					      					Otro - Cliente
+					      						@break
+					      				@endswitch
+					      			</td>
 					      		</tr>
 				      			<tr>
 				      				<td><strong>Fecha:</strong></td> 

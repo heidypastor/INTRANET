@@ -446,14 +446,14 @@
             });
             </script>
         <script type="text/javascript">
-        window.onload =function(){
-            $('#my-slider').resize();
-            $('#contenedor_carga').css('opacity', '0');
-            $('#contenido').fadeIn(2000);
-            setTimeout(function(){
-            $('#contenedor_carga').remove();
-            }, 2000);
-        }
+            window.onload =function(){
+                $('#my-slider').resize();
+                $('#contenedor_carga').css('opacity', '0');
+                $('#contenido').fadeIn(2000);
+                setTimeout(function(){
+                $('#contenedor_carga').remove();
+                }, 2000);
+            }
         </script>
         <script type="text/javascript">
             $(document).ready(function() {
