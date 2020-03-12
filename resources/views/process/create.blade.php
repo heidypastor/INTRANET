@@ -126,9 +126,6 @@ Procesos
 			    			@foreach($roles as $rol)
 			    				<option value="{{$rol->name}}">{{$rol->name}}</option>
 			    			@endforeach
-			    			{{-- @foreach($users as $user)
-			    				<option value="{{$user->id}}">{{$user->name}}</option>
-			    			@endforeach --}}
 			    		</select>
 			    	</div>
 			    </div>

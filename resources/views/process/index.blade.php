@@ -78,9 +78,9 @@ Procesos
 			        {{-- <td class="text-center">{{$proceso->ProcObjetivo}}</td> --}}
 			        {{-- <td class="text-center"><a target="_blank" href="{{Storage::url($proceso->ProcImage)}}">{{$proceso->ProcImage}}</td> --}}
 			        <td class="text-center">
-						<ul>
+						<ul class="list-group">
 							@foreach($proceso->ProcResponsable as $responsable)
-								<li>{{$responsable}}</li>
+								<li class="list-group-item">{{$responsable}}</li>
 							@endforeach
 							{{-- <li>{{$proceso->ProcResponsable}}</li> --}}
 						</ul>
