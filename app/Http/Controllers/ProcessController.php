@@ -102,6 +102,8 @@ class ProcessController extends Controller
         $process->ProcRevVersion = $request->input('ProcRevVersion');
         $process->ProcChangesDescription = $request->input('ProcChangesDescription');
         $process->ProcObjetivo = $request->input('ProcObjetivo');
+        $process->ProcAlcance = $request->input('ProcAlcance');
+        $process->ProcAmbienTrabajo = $request->input('ProcAmbienTrabajo');
         $process->ProcResponsable = $request->input('ProcResponsable');
         $process->ProcAutoridad = $request->input('ProcAutoridad');
         $process->ProcRecursos = $request->input('ProcRecursos');

@@ -105,12 +105,30 @@ Procesos
 			    	</div>
 			    </div>
 
-			    <div class="col-md-6 col-xs-12">
+				<div class="col-md-6 col-xs-12">
+			    	<div class="form-group">
+			    		<label class="input-label" for="ProcAlcance">Alcance del Proceso</label>
+			      		 <textarea class="form-control" id="ProcAlcance" name="ProcAlcance">
+			      		alcance de ejemplo maximo 500 caracteres
+			      		</textarea> 
+			    	</div>
+				</div>
+
+				<div class="col-md-6 col-xs-12">
+			    	<div class="form-group">
+			    		<label class="input-label" for="ProcAmbienTrabajo">Ambiente de Trabajo</label>
+			      		 <textarea class="form-control" id="ProcAmbienTrabajo" name="ProcAmbienTrabajo">
+							Ambiente de Trabajo de ejemplo maximo 500 caracteres
+			      		</textarea> 
+			    	</div>
+				</div>
+				
+			    {{-- <div class="col-md-6 col-xs-12">
 			    	<div class="form-group">
 			    		<label class="input-label" for="ProcRevVersion">Descripción del cambio</label>
 			      		<input type="text" class="form-control" id="email" placeholder="descripcion del cambio" name="ProcChangesDescription">
 			    	</div>
-			    </div>
+			    </div> --}}
 
 			    <div class="col-md-6 col-xs-12">
 			    	<div class="custom-input-file">
