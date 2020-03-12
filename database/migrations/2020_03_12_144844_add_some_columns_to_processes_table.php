@@ -14,8 +14,8 @@ class AddSomeColumnsToProcessesTable extends Migration
     public function up()
     {
         Schema::table('processes', function (Blueprint $table) {
-            $table->string('ProcAlcance', 500);
-            $table->string('ProcAmbienTrabajo', 500);
+            $table->string('ProcAlcance', 500)->nullable();
+            $table->string('ProcAmbienTrabajo', 500)->nullable();
             $table->json('ProcPolitOperacion');
         });
     }
