@@ -14,6 +14,9 @@ use App\Seguimiento;
 use App\User;
 use App\Cliente;
 use App\Proveedor;
+use App\Recursos;
+use App\Gambiental;
+use App\Gseguridad;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -59,6 +62,9 @@ class ProcessController extends Controller
             // $seguimientos = Seguimiento::all(['id', 'SeguiName']);
             $clientes = Cliente::all(['id', 'CliName']);
             $proveedores = Proveedor::all(['id', 'ProvName']);
+            $recursos = Recursos::all(['id', 'RecName', 'RecType']);
+            $gambientales = Gambiental::all(['id', 'GesName', 'GesType']);
+            $gseguridades = Gseguridad::all(['id', 'SeguName', 'SeguType']);
 
             /* variables para los formularios de destroy */
             $salidasDrop = Output::doesntHave('procesos')->get();
@@ -67,12 +73,15 @@ class ProcessController extends Controller
             // $seguimientosDrop = Seguimiento::doesntHave('procesos')->get();
             $clientesDrop = Cliente::doesntHave('procesos')->get();
             $proveedoresDrop = Proveedor::doesntHave('procesos')->get();
+            $recursosDrop = Recursos::doesntHave('procesos')->get();
+            $gambientalesDrop = Gambiental::doesntHave('procesos')->get();
+            $gseguridadesDrop = Gseguridad::doesntHave('procesos')->get();
 
             $usuario = Auth::user()->id;
 
 
             /*return $actividades;*/
-            return view('process.create', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'usuario']));
+            return view('process.create', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'usuario', 'recursos', 'recursosDrop', 'gambientales', 'gambientalesDrop', 'gseguridades', 'gseguridadesDrop']));
         }else{
             abort(403, 'El usuario no se encuentra autorizado para crear Procesos');
         }

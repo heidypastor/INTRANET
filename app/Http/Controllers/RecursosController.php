@@ -35,7 +35,12 @@ class RecursosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $recurso = new Recursos();
+        $recurso->RecName = $request->input('RecName');
+        $recurso->RecType = $request->input('RecType');
+        $recurso->save();
+
+        return redirect()->route('proceso.create')->withStatus(__('Recurso creado correctamente'));
     }
 
     /**
@@ -67,6 +72,21 @@ class RecursosController extends Controller
      * @param  \App\Recursos  $recursos
      * @return \Illuminate\Http\Response
      */
+
+
+    public function actualizar(Request $request)
+    {
+        // return $request;
+        $recurso = Recursos::find($request->input('idocultoRec'));
+        $recurso->RecName = $request->input('RecName');
+        $recurso->RecType = $request->input('RecType');
+        $recurso->save();
+
+        return redirect()->route('proceso.create')->withStatus(__('Recurso actualizado correctamente'));
+    }
+
+
+
     public function update(Request $request, Recursos $recursos)
     {
         //
@@ -78,8 +98,13 @@ class RecursosController extends Controller
      * @param  \App\Recursos  $recursos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Recursos $recursos)
+    public function destroy(Recursos $recurso)
     {
-        //
+        if ($recurso->id == 0) {
+            return redirect()->route('proceso.create')->withStatus(__('el recurso no fue eliminado... intente nuevamente escogiendo una salida existente'));
+        }
+        $recurso->delete();
+
+        return redirect()->route('proceso.create')->withStatus(__('Recurso Eliminado correctamente'));
     }
 }
