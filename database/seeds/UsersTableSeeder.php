@@ -32,7 +32,7 @@ class UsersTableSeeder extends Seeder
         $admin->email_verified_at = now();
         $admin->password = bcrypt('secret');
         $admin->Avatar = 'robot400x400.gif';
-        $admin->ColorUser = 4;
+        $admin->ColorUser = 2;
         $admin->areas_id = 1;
         $admin->save();
         $admin->assignRole('Super Admin');

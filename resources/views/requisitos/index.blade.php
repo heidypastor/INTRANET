@@ -72,13 +72,13 @@ Requisitos y Documentos Legales
 				      				<td> {{$requisito->ReqQueDice}}</td>
 				      			</tr>
 				      			<tr>
-				      				<td><strong>Este requisto aplica para las áreas de </strong></td>
+				      				<td><strong>Aplicable:</strong></td>
 				      			</tr>
 				      			<tr>
 				      				<td>
 				      					<ul>
 					      					@foreach($requisito->areas as $area)
-					      					<li style="background-color: ##ffffff;"><font color="#525f7f">{{$area->AreaName}}</font></li>
+					      					<li style="background-color: #ffffff;"><font color="#525f7f">{{$area->AreaName}}</font></li>
 					      					@endforeach
 				      					</ul>
 				      				</td>

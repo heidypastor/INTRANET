@@ -200,7 +200,7 @@
                     <i class="fas fa-user-clock"></i>
                     <p>{{ __('Alertas') }}</p>
                 </a>
-            </li><br><br><br>{{-- <br><br><br> --}}
+            </li><br><br><br><br><br><br>
         </ul>
     </div>
 </div>

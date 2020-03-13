@@ -24,8 +24,12 @@ class CreateDocumentsTable extends Migration
             $table->string('DocMime', 32)->default('PDF'); /*Extensión interna del documento .jpg*/
             $table->string('DocOriginalName', 128)->default('test.pdf'); /*Nombre original del documento*/
             $table->unsignedInteger('DocSize')->default(82); /*Tamaño del documento*/
-            $table->boolean('DocGeneral')->default(0);/*Documento en general o restringido  0=Restringido*/
-            $table->boolean('DocPublisher'); /*Si es un borrador o publicado*/
+            $table->boolean('DocGeneral')->default(0);/*Documento en general o restringido
+                0 = Restringido
+                1 = General  */
+            $table->boolean('DocPublisher'); /*Si es un borrador o publicado 
+                0 = Borrador 
+                1 = Publicado  */
             $table->unsignedBigInteger('users_id')->default(3); /*relación con la tabla usuarios*/
             $table->foreign('users_id')->references('id')->on('users');
             $table->engine = 'InnoDB';
