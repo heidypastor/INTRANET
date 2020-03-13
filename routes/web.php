@@ -67,7 +67,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('actualizarsalida','OutputController@actualizar')->name('salida.actualizar');
 	Route::post('actualizarcliente','ClienteController@actualizar')->name('cliente.actualizar');
 	Route::post('actualizarproveedor','ProveedorController@actualizar')->name('proveedor.actualizar');
+	Route::post('actualizarrecurso','RecursosController@actualizar')->name('recursos.actualizar');
 	Route::post('actualizarseguimiento','SeguimientoController@actualizar')->name('seguimiento.actualizar');
+	Route::post('actualizargambiental','GambientalController@actualizar')->name('gambiental.actualizar');
+	Route::post('actualizargseguridad','GseguridadController@actualizar')->name('gseguridad.actualizar');
 	Route::resource('cliente','ClienteController');
 	Route::resource('proveedor','ProveedorController');
 	Route::resource('salida','OutputController');
@@ -76,6 +79,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('requisitos','RequisitosController');
 	Route::resource('alerts','AlertsController');
 	Route::resource('seguimiento','SeguimientoController');
+	Route::resource('recursos','RecursosController');
+	Route::resource('gambiental','GambientalController');
+	Route::resource('gseguridad','GseguridadController');
 
 
 	/*rutas a metodos especificos de los controladores*/

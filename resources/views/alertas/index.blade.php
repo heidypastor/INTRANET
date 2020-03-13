@@ -35,9 +35,9 @@ Alertas
 		        <th class="text-center">Fecha Evento</th>
 		        <th class="text-center">Nombre</th>
 		        <th class="text-center">Descripción</th>
-		        <th class="text-center">Fecha Notificación</th>
-                <th class="text-center">Notificado</th>
-		        <th class="text-center">Realizado</th>
+		        <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Fecha de Notificación</b>" data-content="Fecha en la cual se iniciaran las notificaciones de alerta.">Fecha Notificación</th>
+                <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Notificado</b>" data-content="Informa en que estado de notificación se encuentra la alerta.">Notificado</th>
+		        <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Realizado</b>" data-content="Permite marcar la notificación como <i>Realizada</i>, de este modo no se recibiran más notificaciones de dicha alerta.">Realizado</th>
 		        <th class="text-center">Editar</th>
 		      </thead>
 		      <tbody>

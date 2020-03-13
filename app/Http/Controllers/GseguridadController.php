@@ -35,7 +35,12 @@ class GseguridadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $gseguridad = new Gseguridad();
+        $gseguridad->SeguName = $request->input('SeguName');
+        $gseguridad->SeguType = $request->input('SeguType');
+        $gseguridad->save();
+
+        return redirect()->route('proceso.create')->withStatus(__('Gestión de Seguridad y Salud en el trabajo creada correctamente'));
     }
 
     /**
@@ -67,6 +72,20 @@ class GseguridadController extends Controller
      * @param  \App\Gseguridad  $gseguridad
      * @return \Illuminate\Http\Response
      */
+
+
+    public function actualizar(Request $request)
+    {
+        // return $request;
+        $gseguridad = Gseguridad::find($request->input('idocultoGsegu'));
+        $gseguridad->SeguName = $request->input('SeguName');
+        $gseguridad->SeguType = $request->input('SeguType');
+        $gseguridad->save();
+
+        return redirect()->route('proceso.create')->withStatus(__('Gestión de Seguridad y Salud en el Trabajo actualizada correctamente'));
+    }
+
+
     public function update(Request $request, Gseguridad $gseguridad)
     {
         //
@@ -80,6 +99,11 @@ class GseguridadController extends Controller
      */
     public function destroy(Gseguridad $gseguridad)
     {
-        //
+        if ($gseguridad->id == 0) {
+            return redirect()->route('proceso.create')->withStatus(__('la gestión de seguridad y salud en el trabajo no fue eliminada... intente nuevamente escogiendo una salida existente'));
+        }
+        $gseguridad->delete();
+
+        return redirect()->route('proceso.create')->withStatus(__('Gestión de Seguridad y Salud en el Trabajo Eliminada correctamente'));
     }
 }
