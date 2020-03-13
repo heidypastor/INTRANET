@@ -29,24 +29,22 @@ Procesos
 			<table class="table table-bordered table-striped" id="tableProcesses">
 			  <thead>
 			  	<tr>
-			  		<th class="">Nombre</th>
-			  		<th class="">Revisión</th>
-			  		{{-- <th class="">Descripción ultimo cambio</th> --}}
+			  		<th data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Nombre</b>" data-content="Nombre del proceso en cuestión.">Nombre</th>
+			  		
+			  		<th data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Revisión</b>" data-content="Número de revisiones realizadas al documento">Revisión</th>
+			  		
+			  		<th data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Responsable</b>" data-content="Usuario responsable del proceso.">Responsable</th>
 
-			  		{{-- <th class="">Objetivo</th> --}}
-			  		{{-- <th class="">Imagen</th> --}}
-			  		<th class="">Responsable</th>
+			  		<th data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Requisitos</b>" data-content="Requisitos y documentos legales asociados al proceso.">Requisitos</th>
 
-			  		{{-- <th class="">Autoridad</th> --}}
-			  		<th class="">Requisitos</th>
-			  		<th class="">Recursos Necesarios</th>
+			  		<th data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Recursos Necesarios</b>" data-content="Recursos necesarios para el desarrollo del proceso ya sean de tipo: <br> <ul> <li>Fisico <li>Humano <li>Financiero </ul>">Recursos Necesarios</th>
 
-			  		<th class="">Elaborado por:</th>
-			  		{{-- <th class="">Revisado por:</th> --}}
-			  		<th class="">Aprobado por:</th>
+			  		<th data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Elaborado por:</b>" data-content="Usuario que elaboro el proceso.">Elaborado por:</th>
+			  		
+			  		<th data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Aprobado por:</b>" data-content="Usuario que aprobo el proceso.">Aprobado por:</th>
 
-			  		{{-- <th class="">Creado el:</th> --}}
-			  		<th class="">Actualizado el:</th>
+			  		<th data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Actualizado el:</b>" data-content="Última fecha de actualización del proceso en cuestión.">Actualizado el:</th>
+
 			  		<th class="">Más Información</th>
 			  	</tr>
 			  </thead>
