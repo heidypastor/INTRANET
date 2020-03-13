@@ -92,8 +92,8 @@ class ProcessController extends Controller
      */
     public function store(Request $request)
     {
-        // return json_encode($request->input('ProcResponsable'));
 
+        return $request;
         $path = $request->file('ProcImage')->store('public/Procesos');
 
         // se crea el registro del documento en la base de datos

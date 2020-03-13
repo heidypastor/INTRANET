@@ -79,7 +79,9 @@
                     {{-- estructura de contenido --}}
                     {{-- @include('layouts.partials.loading') --}}
                     <div class="content" id="contenido" style="display: none;">
+                        <div class="container">
                             @yield('content')
+                        </div>
                     </div>
 
                     @include('layouts.footer')
