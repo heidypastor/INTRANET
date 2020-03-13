@@ -183,6 +183,9 @@ class ProcessController extends Controller
             // $seguimientos = Seguimiento::all(['id', 'SeguiName']);
             $clientes = Cliente::all(['id', 'CliName']);
             $proveedores = Proveedor::all(['id', 'ProvName']);
+            $recursos = Recursos::all(['id', 'RecName', 'RecType']);
+            $gambientales = Gambiental::all(['id', 'GesName', 'GesType']);
+            $gseguridades = Gseguridad::all(['id', 'SeguName', 'SeguType']);
 
             /* variables para los formularios de destroy */
             $salidasDrop = Output::doesntHave('procesos')->get();
@@ -191,9 +194,12 @@ class ProcessController extends Controller
             // $seguimientosDrop = Seguimiento::doesntHave('procesos')->get();
             $clientesDrop = Cliente::doesntHave('procesos')->get();
             $proveedoresDrop = Proveedor::doesntHave('procesos')->get();
+            $recursosDrop = Recursos::doesntHave('procesos')->get();
+            $gambientalesDrop = Gambiental::doesntHave('procesos')->get();
+            $gseguridadesDrop = Gseguridad::doesntHave('procesos')->get();
 
             /*return $proceso->entradas;*/
-            return view('process.edit', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'usuario', 'proceso']));
+            return view('process.edit', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'usuario', 'proceso', 'recursos', 'gambientales', 'gseguridades', 'recursosDrop', 'gambientalesDrop', 'gseguridadesDrop']));
 
         }else{
             abort(403, 'El usuario no se encuentra autorizado para editar Procesos');

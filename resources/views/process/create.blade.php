@@ -112,7 +112,6 @@ Procesos
 					</div>
 				</div>
 
-
 				<div class="col-md-2 float-right">
 					<div class="dropdown">
 					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -125,7 +124,6 @@ Procesos
 					  </div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 		@include('alerts.success')
@@ -456,7 +454,6 @@ Procesos
 
 
 	{{-- Este modal corresponde a los Gestión de seguridad y salud en el trabajo--}}
-	
 	@component('layouts.partials.modalCreate')
 		@slot('idModal')
 			modalCreateGseguridad
@@ -485,9 +482,7 @@ Procesos
 	@endcomponent
 
 
-
-	{{-- Este modal corresponde a los Gambiental --}}
-	
+	{{-- Este modal corresponde a la Gestión ambiental --}}
 	@component('layouts.partials.modalCreate')
 		@slot('idModal')
 			modalCreateGambiental
@@ -517,7 +512,6 @@ Procesos
 
 
 	{{-- Este modal corresponde a los Recursos --}}
-	
 	@component('layouts.partials.modalCreate')
 		@slot('idModal')
 			modalCreateRecursos
@@ -546,9 +540,7 @@ Procesos
 	@endcomponent
 
 
-
 	{{-- Este modal corresponde a los Proveedores --}}
-	
 	@component('layouts.partials.modalCreate')
 		@slot('idModal')
 			modalCreateProveedores
@@ -569,7 +561,6 @@ Procesos
 	@endcomponent
 
 	{{-- Este modal corresponde a los seguimientos --}}
-
 	@component('layouts.partials.modalCreate')
 		@slot('idModal')
 			modalCreateEntradas
@@ -591,7 +582,6 @@ Procesos
 
 
 	{{-- Este modal corresponde a las actividades --}}
-
 	@component('layouts.partials.modalCreate')
 		@slot('idModal')
 			modalCreateActividades
@@ -613,7 +603,6 @@ Procesos
 
 
 	{{-- Este modal corresponde a las Salidas --}}
-
 	@component('layouts.partials.modalCreate')
 		@slot('idModal')
 			modalCreateSalidas
@@ -635,8 +624,6 @@ Procesos
 
 
 	{{-- Este modal corresponde a los clientes --}}
-
-
 	@component('layouts.partials.modalCreate')
 		@slot('idModal')
 			modalCreateClientes
@@ -657,7 +644,8 @@ Procesos
 	@endcomponent
 
 
-	{{-- Parte del documento donde se encuentran los modales de edición --}}
+	{{-- Parte del documento donde se encuentran los modales de EDIT --}}
+
 
 
 	{{-- Modal de edición de Gestión de Seguridad y Salud en el Trabajo --}}
@@ -680,7 +668,13 @@ Procesos
 					@endforeach
 				</select>
 			</div>
-			<input id="idocultoGsegu" type="text" value="1" name="idocultoGsegu" style="display:none;">
+			<input id="idocultoGsegu" type="text" value="
+			@foreach($gseguridades as $gseguridad)
+				@if($loop->first)
+					{{$gseguridad->id}}
+				@endif
+			@endforeach
+			" name="idocultoGsegu" style="display:none;">
 			<div class="form-group">
 				<label>Nuevo Nombre</label>
 				<input type="text" name="SeguName" class="text-center form-control" required="">
@@ -695,7 +689,6 @@ Procesos
 			</div>
 		@endslot
 	@endcomponent
-
 
 
 	{{-- Modal de edición de Gestión Ambiental --}}
@@ -718,7 +711,13 @@ Procesos
 					@endforeach
 				</select>
 			</div>
-			<input id="idocultoGambi" type="text" value="1" name="idocultoGambi" style="display:none;">
+			<input id="idocultoGambi" type="text" value="
+			@foreach($gambientales as $gambiental)
+				@if($loop->first)
+					{{$gambiental->id}}
+				@endif
+			@endforeach
+			" name="idocultoGambi" style="display:none;">
 			<div class="form-group">
 				<label>Nuevo Nombre</label>
 				<input type="text" name="GesName" class="text-center form-control" required="">
@@ -733,7 +732,6 @@ Procesos
 			</div>
 		@endslot
 	@endcomponent
-
 
 
 	{{-- Modal de edición de Recursos --}}
@@ -756,7 +754,13 @@ Procesos
 					@endforeach
 				</select>
 			</div>
-			<input id="idocultoRec" type="text" value="1" name="idocultoRec" style="display:none;">
+			<input id="idocultoRec" type="text" value="
+			@foreach($recursos as $recurso)
+				@if($loop->first)
+					{{$recurso->id}}
+				@endif
+			@endforeach
+			" name="idocultoRec" style="display:none;">
 			<div class="form-group">
 				<label>Nuevo Nombre</label>
 				<input type="text" name="RecName" class="text-center form-control" required="">
@@ -793,7 +797,13 @@ Procesos
 					@endforeach
 				</select>
 			</div>
-			<input id="idocultoProv" type="text" value="1" name="idocultoProv" style="display:none;">
+			<input id="idocultoProv" type="text" value="
+			@foreach($proveedores as $proveedor)
+				@if($loop->first)
+					{{$proveedor->id}}
+				@endif
+			@endforeach
+			" name="idocultoProv" style="display:none;">
 			<div class="form-group">
 				<label>Nuevo Nombre</label>
 				<input type="text" name="ProvName" class="text-center form-control" required="">
@@ -822,14 +832,19 @@ Procesos
 					@endforeach
 				</select>
 			</div>
-			<input id="idoculto" type="text" value="1" name="idoculto" style="display:none;">
+			<input id="idoculto" type="text" value="
+			@foreach($entradas as $entrada)
+				@if($loop->first)
+					{{$entrada->id}}
+				@endif
+			@endforeach
+			" name="idoculto" style="display:none;">
 			<div class="form-group">
 				<label>Nuevo Nombre</label>
 				<input type="text" name="InputName" class="text-center form-control" required="">
 			</div>
 		@endslot
 	@endcomponent
-
 
 
 	{{-- Modal de edición de Actividades --}}
@@ -852,15 +867,19 @@ Procesos
 					@endforeach
 				</select>
 			</div>
-			<input id="idocultoActi" type="text" value="1" name="idocultoActi" style="display:none;">
+			<input id="idocultoActi" type="text" value="
+			@foreach($actividades as $actividad)
+				@if($loop->first)
+					{{$actividad->id}}
+				@endif
+			@endforeach
+			" name="idocultoActi" style="display:none;">
 			<div class="form-group">
 				<label>Nuevo Nombre</label>
 				<input type="text" name="ActiName" class="text-center form-control" required="">
 			</div>
 		@endslot
 	@endcomponent
-
-
 
 
 	{{-- Modal de edición de Salidas --}}
@@ -883,7 +902,13 @@ Procesos
 					@endforeach
 				</select>
 			</div>
-			<input id="idocultoSali" type="text" value="1" name="idocultoSali" style="display:none;">
+			<input id="idocultoSali" type="text" value="
+			@foreach($salidas as $salida)
+				@if($loop->first)
+					{{$salida->id}}
+				@endif
+			@endforeach
+			" name="idocultoSali" style="display:none;">
 			<div class="form-group">
 				<label>Nuevo Nombre</label>
 				<input type="text" name="OutputName" class="text-center form-control" required="">
@@ -911,7 +936,13 @@ Procesos
 					@endforeach
 				</select>
 			</div>
-			<input id="idocultoCli" type="text" value="1" name="idocultoCli" style="display:none;">
+			<input id="idocultoCli" type="text" value="
+			@foreach($clientes as $cliente)
+				@if($loop->first)
+					{{$cliente->id}}
+				@endif
+			@endforeach
+			" name="idocultoCli" style="display:none;">
 			<div class="form-group">
 				<label>Nuevo Nombre</label>
 				<input type="text" name="CliName" class="text-center form-control" required="">
@@ -953,7 +984,6 @@ Procesos
 		<button form="formDeleteProveedores" disabled id="eliminarSubmitProveedores" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
 		@endslot
 	@endcomponent
-
 
 
 	{{-- Modal de eliminar recursos --}}
@@ -1041,7 +1071,6 @@ Procesos
 	@endcomponent
 
 
-
 	{{-- Modal de eliminar gestión ambiental --}}
 	@component('layouts.partials.modalDelete')
 		@slot('idModal')
@@ -1086,8 +1115,6 @@ Procesos
 	@endcomponent
 
 
-
-
 	{{-- Modal de eliminar Salidas --}}
 	@component('layouts.partials.modalDelete')
 		@slot('idModal')
@@ -1118,6 +1145,7 @@ Procesos
 		<button form="formDeleteSalidas" disabled id="eliminarSubmitSalidas" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
 		@endslot
 	@endcomponent
+
 
 	{{-- Modal de eliminar entradas --}}
 	@component('layouts.partials.modalDelete')
@@ -1150,6 +1178,7 @@ Procesos
 		@endslot
 	@endcomponent
 
+
 	{{-- Modal de eliminar actividades --}}
 	@component('layouts.partials.modalDelete')
 		@slot('idModal')
@@ -1180,6 +1209,7 @@ Procesos
 			<button form="formDeleteActividad" disabled id="eliminarSubmitActividad" type="submit" class="btn btn-fill btn-danger fas fa-arrow-circle-up"> Eliminar</button>
 		@endslot
 	@endcomponent
+
 
 	{{-- Modal de eliminar clientes --}}
 	@component('layouts.partials.modalDelete')
@@ -1226,6 +1256,8 @@ Procesos
 @push('scripts')
 <script>
 
+	{{-- Parte de los script de actualizar --}}
+
 	function cambiarClienteId(){
 		var id = $('#IdSelectCliente').val();
 		var inputoculto = $('#idocultoCli');
@@ -1268,6 +1300,8 @@ Procesos
 		// console.log(id);
 	};
 
+	/*Parte de los scripts de ELIMINAR*/
+
 	function eliminarSalida(){
 		let formulario = $('#formDeleteSalidas');
 		let botonsubmit = $('#eliminarSubmitSalidas');
@@ -1294,7 +1328,6 @@ Procesos
 		// console.log(id);
 	};
 
-
 	function eliminarProveedor(){
 		let formulario = $('#formDeleteProveedores');
 		let botonsubmit = $('#eliminarSubmitProveedores');
@@ -1307,7 +1340,6 @@ Procesos
 		}
 		// console.log(id);
 	};
-
 
 	function eliminarRecurso(){
 		let formulario = $('#formDeleteRecursos');
@@ -1322,8 +1354,6 @@ Procesos
 		// console.log(id);
 	};
 
-
-
 	function eliminarGambiental(){
 		let formulario = $('#formDeleteGambientales');
 		let botonsubmit = $('#eliminarSubmitGambientales');
@@ -1337,7 +1367,6 @@ Procesos
 		// console.log(id);
 	};
 
-
 	function eliminarGseguridad(){
 		let formulario = $('#formDeleteGseguridades');
 		let botonsubmit = $('#eliminarSubmitGseguridades');
@@ -1350,8 +1379,6 @@ Procesos
 		}
 		// console.log(id);
 	};
-
-
 
 	function eliminarActividad(){
 		let formulario = $('#formDeleteActividad');

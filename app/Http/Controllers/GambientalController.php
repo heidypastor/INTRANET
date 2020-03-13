@@ -77,8 +77,8 @@ class GambientalController extends Controller
 
     public function actualizar(Request $request)
     {
-        // return $request;
         $gambiental = Gambiental::find($request->input('idocultoGambi'));
+        /*return $gambiental;*/
         $gambiental->GesName = $request->input('GesName');
         $gambiental->GesType = $request->input('GesType');
         $gambiental->save();
