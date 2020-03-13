@@ -80,31 +80,11 @@ Proceso de {{$proceso->ProcName}}
 						<div class="card-body">
 							<span>
 								<ul class="list-group">
+									@foreach ($proceso->ProcResponsable as $item)
 									<a href="#" class="list-group-item list-group-item-action">
-										{{-- {{$proceso->ProcResponsable}} --}}
-										{{-- @foreach($users as $user)
-											@if($proceso->ProcResponsable == $user->id)
-												{{$user->name}}
-											@endif
-										@endforeach --}}
-										@switch($proceso->ProcResponsable)
-											@case(1) 
-												Super Admin
-												@break
-											@case(2)
-												Gerente
-												@break
-											@case(3)
-												Director
-												@break
-											@case(4)
-												Jefe Área
-												@break
-											@case(5)
-												User
-												@break
-										@endswitch
+										{{$item}}
 									</a>
+									@endforeach
 								</ul>
 							</span>
 						</div>

@@ -3,11 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Permission\Traits\HasRoles;
 
 
 class Process extends Model
 {
+    use SoftDeletes;
 	use HasRoles;
 	/**
 	 * The attributes that are mass assignable.
@@ -143,6 +145,9 @@ class Process extends Model
 	 * @var array
 	 */
 	protected $casts = [
-	    
-	];
+	    'ProcResponsable' => 'array',
+    ];
+    
+    protected $dates = ['deleted_at', 'updated_at', 'created_at'];
+
 }

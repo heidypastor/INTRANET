@@ -20,7 +20,9 @@ class ProcessesSeeder extends Seeder
         $process->ProcImage = 'https://i.picsum.photos/id/475/536/354.jpg';
         $process->ProcObjetivo = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
         $process->ProcElaboro = 'SuperIntendente de planta';
-        $process->ProcResponsable = 4;
+        $process->ProcResponsable = ['gerencia@prosarc.com.co', 'usuariox'];
+        $process->ProcAmbienTrabajo = 'Ambiente de Trabajo de ejemplo maximo 500 caracteres';
+        $process->ProcAlcance = 'Alcance de Trabajo de ejemplo maximo 500 caracteres';
         $process->ProcAutoridad = 'Gerente General';
         $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
@@ -37,7 +39,9 @@ class ProcessesSeeder extends Seeder
         $process->ProcImage = 'https://i.picsum.photos/id/475/536/354.jpg';
         $process->ProcObjetivo = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
         $process->ProcElaboro = 'SuperIntendente de planta';
-        $process->ProcResponsable = 4;
+        $process->ProcResponsable = ['gerencia@prosarc.com.co', 'usuariox'];
+        $process->ProcAmbienTrabajo = 'Ambiente de Trabajo de ejemplo maximo 500 caracteres';
+        $process->ProcAlcance = 'Alcance de Trabajo de ejemplo maximo 500 caracteres';
         $process->ProcAutoridad = 'Gerente General';
         $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
@@ -53,7 +57,9 @@ class ProcessesSeeder extends Seeder
         $process->ProcImage = 'https://i.picsum.photos/id/475/536/354.jpg';
         $process->ProcObjetivo = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
         $process->ProcElaboro = 'SuperIntendente de planta';
-        $process->ProcResponsable = 4;
+        $process->ProcResponsable = ['gerencia@prosarc.com.co', 'usuariox'];
+        $process->ProcAmbienTrabajo = 'Ambiente de Trabajo de ejemplo maximo 500 caracteres';
+        $process->ProcAlcance = 'Alcance de Trabajo de ejemplo maximo 500 caracteres';
         $process->ProcAutoridad = 'Gerente General';
         $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
@@ -70,7 +76,9 @@ class ProcessesSeeder extends Seeder
         $process->ProcImage = 'https://i.picsum.photos/id/475/536/354.jpg';
         $process->ProcObjetivo = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
         $process->ProcElaboro = 'SuperIntendente de planta';
-        $process->ProcResponsable = 4;
+        $process->ProcResponsable = ['gerencia@prosarc.com.co', 'usuariox'];
+        $process->ProcAmbienTrabajo = 'Ambiente de Trabajo de ejemplo maximo 500 caracteres';
+        $process->ProcAlcance = 'Alcance de Trabajo de ejemplo maximo 500 caracteres';
         $process->ProcAutoridad = 'Gerente General';
         $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';

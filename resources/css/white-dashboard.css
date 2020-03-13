@@ -4333,9 +4333,11 @@ input[type="button"].btn-block {
 
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-  color: #525f7f;
-  background-color: #1e1e2f;
-  border-color: #e3e3e3 #e3e3e3 #1e1e2f;
+  color: #555555;
+  cursor: default;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
 }
 
 .nav-tabs .dropdown-menu {
@@ -18249,4 +18251,15 @@ Copyright (c) 2015 Daniel Eden
   color: rgba(34, 42, 66, 0.7);
 }
 
+.eliminarpolitica {
+  border: 0px solid #ffffff;
+}
+
+.eliminarpolitica button {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: -1px;
+  padding-bottom: 7px;
+  padding-top: 7px;
+}
 /*# sourceMappingURL=dashboard-free.css.map */

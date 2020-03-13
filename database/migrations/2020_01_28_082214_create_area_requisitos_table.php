@@ -29,6 +29,6 @@ class CreateAreaRequisitosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('area_requisitos');
+        Schema::dropIfExists('areas_requisitos');
     }
 }

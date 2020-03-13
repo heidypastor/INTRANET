@@ -31,6 +31,6 @@ class CreateInputsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entradas');
+        Schema::dropIfExists('inputs');
     }
 }

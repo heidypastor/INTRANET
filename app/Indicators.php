@@ -3,10 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 // use Laravel\Scout\Searchable;
 
 class Indicators extends Model
 {
+    use SoftDeletes;
+
     // use Searchable;
     
     /**
@@ -53,4 +57,7 @@ class Indicators extends Model
     protected $casts = [
         
     ];
+
+    protected $dates = ['deleted_at', 'updated_at', 'created_at'];
+
 }

@@ -78,13 +78,13 @@ Documentos
 
 					<label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>General o Restringido</b>" data-content="Ingresar si el documento es general o restringido para las áreas involucradas."><i class="far fa-question-circle"></i> General o Restringido</label>
 
-					<select class="text-center form-control" placeholder="{{$document->DocGeneral}}" required="" name="DocGeneral" id="DocGeneral">
-						<option {{$document->DocGeneral == 0 ? 'selected' : ''}} value="0">Restringido</option>
+					<select class="text-center form-control" placeholder="{{$document->DocGeneral}}" required="" name="DocGeneral" id="DocGeneral" onchange="clasificacion()">
 						<option {{$document->DocGeneral == 1 ? 'selected' : ''}} value="1">General</option>
+						<option {{$document->DocGeneral == 0 ? 'selected' : ''}} value="0">Restringido</option>
 					</select>
 				</div>
-				<div class="form-group">
-
+				<div class="form-group" id="div-contenedor">
+					@if($document->DocGeneral == 0)
 					<label class="form-control-label" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Áreas a la que pertenece el documento</b>" data-content="Ingresar las áreas a las cuales pertenece el documento y en caso de que este sea restringido, solo los usuarios pertenecientes a dicha área tendran permitido visualizar el documento."><i class="far fa-question-circle"></i> Áreas a la que pertenece el documento</label>
 
 					<select multiple name="areas[]" id="input-area" class="form-control form-control-alternative" placeholder="{{ __('Selecciona las áreas a las que pertenece')}}" value="{{ old('areas[]') }}">
@@ -98,9 +98,31 @@ Documentos
 							value="{{$area->id}}">{{$area->AreaName}}</option>
 						@endforeach
 					</select>
+					@endif
 				</div>
 				<button type="submit" class="btn btn-fill btn-success fas fa-arrow-circle-up"> Actualizar</button>
 			</form>
 		</div>
 	</div>
 @endsection
+@push('scripts')
+<script type="text/javascript">
+	function clasificacion(){
+		var clasificacion = $('#DocGeneral').val();
+		if (clasificacion == 1) {
+			$('#div-contenedor').empty();
+		}else{
+			$('#div-contenedor').empty();
+			$('#div-contenedor').append(`
+				<label class="form-control-label" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Áreas a la que pertenece el documento</b>" data-content="Ingresar las áreas a las cuales pertenece el documento y en caso de que este sea restringido, solo los usuarios pertenecientes a dicha área tendran permitido visualizar el documento."><i class="far fa-question-circle"></i> Áreas a la que pertenece el documento</label>
+
+				<select multiple name="areas[]" id="input-area" class="form-control form-control-alternative" placeholder="{{ __('Selecciona las áreas a las que pertenece')}}" value="{{ old('areas[]') }}"  required>
+					@foreach($areas as $area)
+					<option value="{{$area->id}}">{{$area->AreaName}}</option>
+					@endforeach
+				</select>
+			`);
+		}
+	}
+</script>
+@endpush

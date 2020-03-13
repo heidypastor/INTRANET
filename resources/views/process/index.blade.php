@@ -75,24 +75,13 @@ Procesos
 
 			        {{-- <td class="text-center">{{$proceso->ProcObjetivo}}</td> --}}
 			        {{-- <td class="text-center"><a target="_blank" href="{{Storage::url($proceso->ProcImage)}}">{{$proceso->ProcImage}}</td> --}}
-			        <td class="text-center">{{-- {{$proceso->ProcResponsable}} --}}
-			        	@switch($proceso->ProcResponsable)
-			        		@case(1) 
-			        			Super Admin
-			        			@break
-			        		@case(2)
-			        			Gerente
-			        			@break
-			        		@case(3)
-			        			Director
-			        			@break
-			        		@case(4)
-			        			Jefe Área
-			        			@break
-			        		@case(5)
-			        			User
-			        			@break
-			        	@endswitch
+			        <td class="text-center">
+						<ul class="list-group">
+							@foreach($proceso->ProcResponsable as $responsable)
+								<li class="list-group-item">{{$responsable}}</li>
+							@endforeach
+							{{-- <li>{{$proceso->ProcResponsable}}</li> --}}
+						</ul>
 			        </td>
 
 			        {{-- <td class="text-center">{{$proceso->ProcAutoridad}}</td> --}}

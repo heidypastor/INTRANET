@@ -49,7 +49,13 @@ class ProcessController extends Controller
     {
         if (auth()->user()->can('createProcess')) {
 
-            $roles = Role::all(['id', 'name']);
+            /* se añade validacion para excluir el rol Super Admin */
+            if (auth()->user()->hasRole(['Super Admin'])) {
+                $roles = Role::all(['id', 'name']);
+            }else{
+                $roles = Role::all(['id', 'name'])->where('name', '!=', 'Super Admin');
+            }
+            
             /*$users = User::all(['id', 'name']);*/
             $areas = Areas::all(['id', 'AreaName']);
             $requisitos = Requisitos::all(['id', 'ReqName']);
@@ -95,8 +101,8 @@ class ProcessController extends Controller
      */
     public function store(Request $request)
     {
-        /*return $request;*/
 
+        return $request;
         $path = $request->file('ProcImage')->store('public/Procesos');
 
         // se crea el registro del documento en la base de datos
@@ -105,6 +111,8 @@ class ProcessController extends Controller
         $process->ProcRevVersion = $request->input('ProcRevVersion');
         $process->ProcChangesDescription = $request->input('ProcChangesDescription');
         $process->ProcObjetivo = $request->input('ProcObjetivo');
+        $process->ProcAlcance = $request->input('ProcAlcance');
+        $process->ProcAmbienTrabajo = $request->input('ProcAmbienTrabajo');
         $process->ProcResponsable = $request->input('ProcResponsable');
         $process->ProcAutoridad = $request->input('ProcAutoridad');
         $process->ProcRecursos = $request->input('ProcRecursos');
@@ -152,12 +160,7 @@ class ProcessController extends Controller
         $proceso['clientes'] = $proceso->clientes()->get();
         $proceso['proveedores'] = $proceso->proveedores()->get();
 
-        /*return $proceso;*/
-        /*$users = User::all(['id', 'name']);*/
-        $responsable = Role::findById($proceso->ProcResponsable);
-
         $usuario = Auth::user()->id;
-        // return $responsable;
         return view('process.show', compact('proceso', 'usuario'));
     }
 
@@ -170,8 +173,14 @@ class ProcessController extends Controller
     public function edit(Process $proceso)
     {
         if (auth()->user()->can('updateProcess')) {
-            
-            $roles = Role::all(['id', 'name']);
+
+            /* se añade validacion para excluir el rol Super Admin */
+            if (auth()->user()->hasRole(['Super Admin'])) {
+                $roles = Role::all(['id', 'name']);
+            }else{
+                $roles = Role::all(['id', 'name'])->where('name', '!=', 'Super Admin');
+            }
+
             $areas = Areas::all(['id', 'AreaName']);
             $requisitos = Requisitos::all(['id', 'ReqName']);
             $documentos = Documents::all(['id', 'DocName']);

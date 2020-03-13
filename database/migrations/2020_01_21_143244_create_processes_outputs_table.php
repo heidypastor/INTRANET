@@ -28,6 +28,6 @@ class CreateProcessesOutputsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('outputs_processes');
+        Schema::dropIfExists('processes_outputs');
     }
 }

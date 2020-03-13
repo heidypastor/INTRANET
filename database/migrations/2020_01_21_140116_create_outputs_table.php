@@ -31,6 +31,6 @@ class CreateOutputsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('salidas');
+        Schema::dropIfExists('outputs');
     }
 }
