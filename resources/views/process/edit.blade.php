@@ -123,8 +123,14 @@ Procesos
 					  </div>
 					</div>
 				</div>
+				<div class="col-md-2 float-right">
+					<button class="btn btn-info" type="button" id="addpoliticbutton" onclick="addPolitica()">
+					Añadir politica
+					</button>
+				</div>
 			</div>
 		</div>
+			@include('alerts.success')
 			 <form role="form" method="POST" action="{{ route('proceso.update', $proceso) }}" enctype="multipart/form-data">
 			 @csrf
 			 @method('PUT')
@@ -1468,6 +1474,25 @@ Procesos
 			console.log(id);
 	};
 
+	var contadorPoliticas = 0;
+	function addPolitica(){
+		contadorPoliticas++
+		container = $('#containerDePoliticas')
+		container.append(`<div class="col-md-6 col-xs-12" id="politicaOperacion`+contadorPoliticas+`">
+						<div class="form-group">
+							<label class="input-label" for="ProcPolitOperacion`+contadorPoliticas+`">Politica de Operación</label>
+							<div class="input-group">
+								<input type="text" required id="ProcPolitOperacioninput`+contadorPoliticas+`" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2" name="ProcPolitOperacion[]">
+								<div class="input-group-append eliminarpolitica">
+								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropPolitica(`+contadorPoliticas+`)">Borrar</button>
+								</div>
+							</div>
+						</div>
+					</div>`)
+	};
 
+	function dropPolitica(id){
+		var id = $('#politicaOperacion'+id).remove();
+	};
 </script>
 @endpush
