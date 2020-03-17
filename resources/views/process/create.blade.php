@@ -124,6 +124,11 @@ Procesos
 					  </div>
 					</div>
 				</div>
+				<div class="col-md-2 float-right">
+					<button class="btn btn-info" type="button" id="addpoliticbutton" onclick="addPolitica()">
+					Añadir politica
+					</button>
+				</div>
 			</div>
 		</div>
 		@include('alerts.success')
@@ -341,26 +346,6 @@ Procesos
 				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcRequsitos">Requisitos por cumplir</label>
-							<select multiple class="form-control" name="ProcRequsitos[]" placeholder="seleccione" id="ProcRequsitos">
-								@foreach($requisitos as $requisito)
-									<option value="{{$requisito->id}}">{{$requisito->ReqName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcRequsitos">Fecha</label>
-							<input type="date" name="ProcDate" class="form-control">
-						</div>
-					</div>
-				</div>
-					
-				<div class="form-row">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
 							<label class="input-label" for="ProcObjetivo">Alcance del Proceso</label>
 							<textarea class="form-control" id="ProcObjetivo" name="ProcObjetivo">
 							Objetivo de ejemplo para el proceso de compras
@@ -383,13 +368,13 @@ Procesos
 							<input type="text" required class="form-control" id="ProcAmbienTrabajo" placeholder="Compras" name="ProcAmbienTrabajo" max="500">
 						</div>
 					</div>
-					<div class="col-md-6 col-xs-12">
+					<div class="col-md-6 col-xs-12" id="politicaOperacion0">
 						<div class="form-group">
-							<label class="input-label" for="ProcPolitOperacion[]">Politica de Operación</label>
+							<label class="input-label" for="ProcPolitOperacioninput0">Politica de Operación</label>
 							<div class="input-group">
-								<input type="text" required id="ProcPolitOperacion[]" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2">
+								<input type="text" required id="ProcPolitOperacioninput0" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2" name="ProcPolitOperacion[]">
 								<div class="input-group-append eliminarpolitica">
-								<button class="btn btn-danger" type="button" id="button-addon2">Borrar</button>
+								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropPolitica(0)">Borrar</button>
 								</div>
 							</div>
 						</div>
@@ -1499,17 +1484,23 @@ Procesos
 
 	var contadorPoliticas = 0;
 	function addPolitica(){
-		var id = $('#IdSelectSalida').val();
-		var inputoculto = $('#idocultoSali');
-			inputoculto.attr('value', id);
-			console.log(id);
+		contadorPoliticas++
+		container = $('#containerDePoliticas')
+		container.append(`<div class="col-md-6 col-xs-12" id="politicaOperacion`+contadorPoliticas+`">
+						<div class="form-group">
+							<label class="input-label" for="ProcPolitOperacion`+contadorPoliticas+`">Politica de Operación</label>
+							<div class="input-group">
+								<input type="text" required id="ProcPolitOperacioninput`+contadorPoliticas+`" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2" name="ProcPolitOperacion[]">
+								<div class="input-group-append eliminarpolitica">
+								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropPolitica(`+contadorPoliticas+`)">Borrar</button>
+								</div>
+							</div>
+						</div>
+					</div>`)
 	};
 
-	function dropPolitica(){
-		var id = $('#IdSelectSalida').val();
-		var inputoculto = $('#idocultoSali');
-			inputoculto.attr('value', id);
-			console.log(id);
+	function dropPolitica(id){
+		var id = $('#politicaOperacion'+id).remove();
 	};
 
 

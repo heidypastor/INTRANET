@@ -28,6 +28,7 @@ class ProcessesSeeder extends Seeder
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
         $process->ProcReviso = 'Gerente General';
         $process->ProcAprobo = 'Presidencia';
+        $process->ProcPolitOperacion = ['Presidencia'];
         $process->save();
 
 
@@ -47,6 +48,7 @@ class ProcessesSeeder extends Seeder
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
         $process->ProcReviso = 'Gerente General';
         $process->ProcAprobo = 'Presidencia';
+        $process->ProcPolitOperacion = ['Presidencia'];
         $process->save();
 
         // id = 03
@@ -65,6 +67,7 @@ class ProcessesSeeder extends Seeder
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
         $process->ProcReviso = 'Gerente General';
         $process->ProcAprobo = 'Presidencia';
+        $process->ProcPolitOperacion = ['Presidencia'];
         $process->save();
 
 
@@ -84,6 +87,7 @@ class ProcessesSeeder extends Seeder
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
         $process->ProcReviso = 'Gerente General';
         $process->ProcAprobo = 'Presidencia';
+        $process->ProcPolitOperacion = ['Presidencia'];
         $process->save();
     }
 }
