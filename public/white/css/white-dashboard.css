@@ -18263,7 +18263,6 @@ Copyright (c) 2015 Daniel Eden
   padding-top: 7px;
 }
 
-<<<<<<< HEAD
 @media only screen and (max-width : 768px) {
     .dropdown-menu .show {
       top: 0;
@@ -18272,49 +18271,6 @@ Copyright (c) 2015 Daniel Eden
       margin-top: 0;
       margin-left: 0.125rem;
     }
-=======
-.margen {
-  border: solid 0.5px #555555;
-}
-
-.color {
- /* background-color: rgba(74, 229, 37, .7);*/
- background: linear-gradient(to bottom right, #3bbe78, #4bd28a, #5ee29c);
-}
-
-.color1 {
-  /*background-color: rgba(87, 192, 199, .7);*/
-  background: linear-gradient(to bottom right, #535fc9, #636fd9, #727de7);
-
-}
-
-.color1-1 {
-  /*background-color: rgba(255, 127, 63, .7);*/
-  background: linear-gradient(to bottom right, #ff7f3f, #fd915b, #fda579);
-}
-
-.color1-2 {
-  /*background-color: rgba(255, 229, 63, .7);*/
-  background: linear-gradient(to bottom right, #ffe53f, #ffe95c, #ffed7a);
-}
-
-.color1-3 {
-  /*background-color: rgba(63, 197, 255, .7);*/
-  background: linear-gradient(to bottom right, #3fc5ff, #5acdff, #71d3fe);
-}
-
-.blanco {
-  background-image: #FFFFFF;
-}
-
-.degradado-procesos {
-  border-radius: 10px;
-  box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
-  15px 15px 16px gray !important;
-  border: 1px solid #555555;
-  margin: 0em 0em 3em 0em;
-  padding: 3em 3em 3em 3em;
->>>>>>> master
 }
 
 /*# sourceMappingURL=dashboard-free.css.map */
