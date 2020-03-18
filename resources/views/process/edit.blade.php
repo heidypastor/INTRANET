@@ -16,117 +16,110 @@ Procesos
 @section('content')
 	{{-- contenido de la pagina --}}
 	<div class="card">
-		<div class="card-header">
-			<div class="row">
-				<div class="col-md-2">
+		<div class="card-header px-4">
+			<div class="row justify-content-between">
+				<div>
 					<h2>
 						<b>{{'Editar Proceso'}}</b>
 					</h2>
 				</div>
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Proveedores
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateProveedores">Nuevo</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditProveedores">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteProveedores">Eliminar</a>
-					  </div>
+				<div>
+					 <!-- Level one dropdown -->
+					 <div class="btn-group">
+						<a type="button" id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class=" btn btn-info dropdown-toggle">Modificar Elementos</a>
+						<ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow dropdown-menu-left">
+							<!-- Level two dropdown-->
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Recursos</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateRecursos">Nuevo</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditRecursos">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteRecursos">Eliminar</a>
+								</ul>
+							</li>
+							<!-- End Level two -->
+							<!-- Level two dropdown-->
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Gestión de SST</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateGseguridad">Nuevo</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditGseguridad">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteGseguridad">Eliminar</a>
+								</ul>
+							</li>
+							<!-- End Level two -->
+							<!-- Level two dropdown-->
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Proveedores</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateProveedores">Nuevo</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditProveedores">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteProveedores">Eliminar</a>
+								</ul>
+							</li>
+							<!-- End Level two -->
+							<!-- Level two dropdown-->
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Entradas</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateEntradas">Nueva</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditEntradas">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteEntradas">Eliminar</a>
+								</ul>
+							</li>
+							<!-- End Level two -->
+							<!-- Level two dropdown-->
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Actividades</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateActividades">Nueva</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditActividades">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteActividad">Eliminar</a>
+								</ul>
+							</li>
+							<!-- End Level two -->
+							<!-- Level two dropdown-->
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Salidas</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateSalidas">Nueva</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditSalidas">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteSalidas">Eliminar</a>
+								</ul>
+							</li>
+							<!-- End Level two -->
+							<!-- Level two dropdown-->
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Gestión Ambiental</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateGambiental">Nuevo</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditGambiental">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteGambiental">Eliminar</a>
+								</ul>
+							</li>
+							<!-- End Level two -->
+							<!-- Level two dropdown-->
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Clientes</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateClientes">Nuevo</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditClientes">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteClientes">Eliminar</a>
+								</ul>
+							</li>
+							<!-- End Level two -->
+							<!-- Level two dropdown-->
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Politicas</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<button class="dropdown-item" id="addpoliticbutton" onclick="addPolitica()">
+									Añadir politica
+									</button>
+								</ul>
+							</li>
+							<!-- End Level two -->
+						</ul>
 					</div>
-				</div>
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Entradas
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateEntradas">Nueva</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditEntradas">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteEntradas">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Actividades
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateActividades">Nueva</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditActividades">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteActividad">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Salidas
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateSalidas">Nueva</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditSalidas">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteSalidas">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Clientes
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateClientes">Nuevo</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditClientes">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteClientes">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Recursos
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateRecursos">Nuevo</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditRecursos">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteRecursos">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-
-				<div class="col-md-3 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Gestión Ambiental
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateGambiental">Nuevo</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditGambiental">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteGambiental">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Gestión de SST
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateGseguridad">Nuevo</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditGseguridad">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteGseguridad">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-md-2 float-right">
-					<button class="btn btn-info m-0" type="button" id="addpoliticbutton" onclick="addPolitica()" style="padding:10px 20px 10px 20px;">
-					Añadir politica
-					</button>
 				</div>
 			</div>
 		</div>
@@ -1506,4 +1499,45 @@ Procesos
 		var id = $('#politicaOperacion'+id).remove();
 	};
 </script>
+<script>
+$(function() {
+  // ------------------------------------------------------- //
+  // Multi Level dropdowns
+  // ------------------------------------------------------ //
+  $("ul.dropdown-menu [data-toggle='dropdown']").on("click", function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    $(this).siblings().toggleClass("show");
+
+
+    if (!$(this).next().hasClass('show')) {
+      $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+    }
+    $(this).parents('div.dropdown.show').on('hidden.bs.dropdown', function(e) {
+      $('.dropdown-submenu .show').removeClass("show");
+    });
+
+  });
+});
+var dropUp = function() {
+    var windowHeight = $(window).innerHeight();
+    var pageScroll = $('body').scrollTop();
+
+    $( ".dropleft" ).each( function() {
+        var offset = $( this ).offset().top;
+        var space = windowHeight - ( offset - pageScroll );
+
+        if( space < 150 ) {
+            $( this ).addClass( "dropup" );
+        } else  {
+            $( this ).removeClass( "dropup" );
+        }
+    });
+}
+
+$(window).load(dropUp);
+$(window).bind('resize scroll mousewheel', dropUp);
+</script>
+
 @endpush

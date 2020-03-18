@@ -12029,7 +12029,7 @@ fieldset[disabled] .btn-link.active {
   -ms-transform: translate3d(0, -20px, 0) !important;
   transform: translate3d(0, -20px, 0) !important;
   visibility: hidden;
-  display: block;
+  /* display: block; */
   opacity: 0;
   filter: alpha(opacity=0);
   top: 100% !important;
@@ -18262,4 +18262,15 @@ Copyright (c) 2015 Daniel Eden
   padding-bottom: 7px;
   padding-top: 7px;
 }
+
+@media only screen and (max-width : 768px) {
+    .dropdown-menu .show {
+      top: 0;
+      right: auto;
+      left: 100%;
+      margin-top: 0;
+      margin-left: 0.125rem;
+    }
+}
+
 /*# sourceMappingURL=dashboard-free.css.map */
