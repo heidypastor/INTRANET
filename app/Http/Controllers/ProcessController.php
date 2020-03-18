@@ -104,7 +104,7 @@ class ProcessController extends Controller
         $process = new Process();
         $process->ProcName = $request->input('ProcName');
         $process->ProcRevVersion = $request->input('ProcRevVersion');
-        $process->ProcChangesDescription = $request->input('ProcChangesDescription');
+        /*$process->ProcChangesDescription = $request->input('ProcChangesDescription');*/
         $process->ProcObjetivo = $request->input('ProcObjetivo');
         $process->ProcAlcance = $request->input('ProcAlcance');
         $process->ProcAmbienTrabajo = $request->input('ProcAmbienTrabajo');
@@ -112,6 +112,9 @@ class ProcessController extends Controller
         $process->ProcAutoridad = $request->input('ProcAutoridad');
         $process->ProcRecursos = 'ninguno';
         $process->ProcElaboro = $request->input('ProcElaboro');
+
+        /*$process->ProcPolitOperacion = $request->input('ProcPolitOperacion');*/
+
         $process->ProcReviso = $request->input('ProcReviso');
         $process->ProcAprobo = $request->input('ProcAprobo');
         $process->ProcImage = $path;
@@ -159,9 +162,16 @@ class ProcessController extends Controller
         // $proceso['seguimientos'] = $proceso->seguimientos()->get();
         $proceso['clientes'] = $proceso->clientes()->get();
         $proceso['proveedores'] = $proceso->proveedores()->get();
+        $proceso['recursos'] = $proceso->recursos()->get();
+        $proceso['gambientals'] = $proceso->gambientals()->get();
+        $proceso['gseguridads'] = $proceso->gseguridads()->get();
+
+
+        $roles = Role::all(['id', 'name']);
+
 
         $usuario = Auth::user()->id;
-        return view('process.show', compact('proceso', 'usuario'));
+        return view('process.show', compact('proceso', 'usuario', 'roles'));
     }
 
     /**

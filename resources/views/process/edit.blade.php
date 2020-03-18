@@ -20,7 +20,7 @@ Procesos
 			<div class="row justify-content-between">
 				<div>
 					<h2>
-						<b>{{'Editar Proceso'}}</b>
+						<b>{{'Hola Angie'}}</b>
 					</h2>
 				</div>
 				<div>

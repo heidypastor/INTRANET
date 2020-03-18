@@ -62,7 +62,7 @@ Procesos
 			        </td>
 			        <td class="text-center">
 				        	@foreach($proceso->requisitos as $requisito)
-				        		{{$requisito->ReqName}}
+				        		{{$requisito->ReqName}}<br>
 				        	@endforeach
 			        </td>
 					<td class="text-center">
