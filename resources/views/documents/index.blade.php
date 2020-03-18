@@ -41,36 +41,38 @@ Documentos
     			    	
     			    @endhasrole
                 </thead>
-                <tbody>
-                    @foreach($Documents as $Document)
-                    <tr>
-    			        <td class="text-center">{{$Document->DocName}}</td>
-    			        <td class="text-center">
-                            @if($Document->DocSrc === "")
-                                <p><a href="/white/img/test.pdf"><strong>Archivo</strong></a></p>
-                            @else
-                                <p><a target="_blank" href="{{Storage::url($Document->DocSrc)}}">{{$Document->DocOriginalName}}</a></p>
-                            @endif
-                        </td>
-    		        	<td class="text-center">{{$Document->DocVersion}}</td>
-    		        	{{-- <td class="text-center">{{$Document->DocSize}}</td> --}}
-    		        	<td class="text-center">{{ $Document->DocPublisher === 0 ? "No Publicado" : "Publicado" }}</td>
-    		        	<td class="text-center">{{$Document->DocType}}</td>
-    		        	<td class="text-center">
-    		        		<ul class="list-group list-group-flush">
-    		        		    @foreach($Document->areas as $area)
-    		        		    <li class="list-group-item" style="background-color: #ffffff;"><font color="#525f7f">{{$area->AreaName}}</font></li>
-    		        		    @endforeach  
-    		        		</ul>
-    		        	</td>
-    		        	@hasrole('Super Admin')
-    		        		<td class="text-center"><a href="documents/{{$Document->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a></td>
-    		        	@else
-    		        		
-    		        	@endhasrole
-                    </tr>
-                    @endforeach
-                </tbody>
+                    @can('indexDocuments')
+                        <tbody>
+                            @foreach($Documents as $Document)
+                            <tr>
+            			        <td class="text-center">{{$Document->DocName}}</td>
+            			        <td class="text-center">
+                                    @if($Document->DocSrc === "")
+                                        <p><a href="/white/img/test.pdf"><strong>Archivo</strong></a></p>
+                                    @else
+                                        <p><a target="_blank" href="{{Storage::url($Document->DocSrc)}}">{{$Document->DocOriginalName}}</a></p>
+                                    @endif
+                                </td>
+            		        	<td class="text-center">{{$Document->DocVersion}}</td>
+            		        	{{-- <td class="text-center">{{$Document->DocSize}}</td> --}}
+            		        	<td class="text-center">{{ $Document->DocPublisher === 0 ? "No Publicado" : "Publicado" }}</td>
+            		        	<td class="text-center">{{$Document->DocType}}</td>
+            		        	<td class="text-center">
+            		        		<ul class="list-group list-group-flush">
+            		        		    @foreach($Document->areas as $area)
+            		        		    <li class="list-group-item" style="background-color: #ffffff;"><font color="#525f7f">{{$area->AreaName}}</font></li>
+            		        		    @endforeach  
+            		        		</ul>
+            		        	</td>
+            		        	@hasrole('Super Admin')
+            		        		<td class="text-center"><a href="documents/{{$Document->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a></td>
+            		        	@else
+            		        		
+            		        	@endhasrole
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    @endcan
 			</table>
 		</div>
 	</div>

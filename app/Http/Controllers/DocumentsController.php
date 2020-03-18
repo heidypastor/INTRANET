@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Documents;
 use App\Areas;
+use App\User;
 /*use App\User;*/
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+/*use Spatie\Permission\Models\User;*/
 
 class DocumentsController extends Controller
 {
@@ -21,11 +23,15 @@ class DocumentsController extends Controller
     {
        /*$Documents = DB::table('documents')->get();*/
        $Documents = Documents::with('areas')->paginate(10);
+       $borradordocumentos = Documents::where('DocGeneral', 1)->get();
+       /*return $borradordocumentos;*/
        /*return $Documents;*/
+       $user = User::where('id', 2)->first();
+       $user->givePermissionTo('indexDocuments');
        /*$users = User::with('roles')->paginate(10);*/
 
 
-       return view('documents.index', compact('Documents'));
+       return view('documents.index', compact('Documents', 'borradordocumentos', 'user'));
     }
 
     /**
