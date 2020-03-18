@@ -124,7 +124,7 @@ Procesos
 					</div>
 				</div>
 				<div class="col-md-2 float-right">
-					<button class="btn btn-info m-0 py-10" type="button" id="addpoliticbutton" onclick="addPolitica()">
+					<button class="btn btn-info m-0" type="button" id="addpoliticbutton" onclick="addPolitica()" style="padding:10px 20px 10px 20px;">
 					Añadir politica
 					</button>
 				</div>
