@@ -164,9 +164,15 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcResponsable">Responsable del Proceso</label>
-							<select id="ProcResponsable" required class="form-control" name="ProcResponsable" placeholder="seleccione">
+							<select id="ProcResponsable" required class="form-control" name="ProcResponsable" placeholder="seleccione" multiple>
 								@foreach($roles as $rol)
-								<option value="{{$rol->id}}">{{$rol->name}}</option>
+								<option value="{{$rol->name}}"
+									@foreach ($proceso->ProcResponsable as $responsable)
+										@if ($responsable == $rol->name)
+											selected
+										@endif
+									@endforeach
+									>{{$rol->name}}</option>
 								@endforeach
 							</select>
 						</div>
@@ -177,7 +183,11 @@ Procesos
 							<label class="input-label" for="ProcAutoridad">Autoridad del Proceso</label>
 							<select id="ProcAutoridad" required class="form-control" name="ProcAutoridad" placeholder="seleccione">
 								@foreach($roles as $rol)
-								<option value="{{$rol->id}}">{{$rol->name}}</option>
+								<option value="{{$rol->name}}"
+									@if ($proceso->ProcAutoridad == $rol->id)
+										selected
+									@endif
+									>{{$rol->name}}</option>
 								@endforeach
 							</select>
 						</div>
@@ -188,8 +198,29 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcRecursos">Recursos Necesarios</label>
-							<input type="text" value="{{$proceso->ProcRecursos}}" class="form-control" id="ProcRecursos"
-								placeholder="Vehiculo; Computador; Celular; Papel carta; etc..." name="ProcRecursos">
+							<select multiple id="Recursos" class="form-control" name="Recursos[]" placeholder="seleccione">
+								@foreach($recursos as $recursoitem)
+									<option value="{{$recursoitem->id}}"
+										@foreach($proceso->recursos as $recurso)
+											@if($recurso->id == $recursoitem->id)
+												selected  
+											@endif
+										@endforeach
+										>{{$recursoitem->RecName}} - 
+										@switch($recursoitem->RecType)
+											@case(0)
+												Fisico
+												@break
+											@case(1)
+												Humano
+												@break
+											@case(2)
+												Financiero
+												@break
+										@endswitch
+									</option>
+								@endforeach
+							</select>
 						</div>
 					</div>
 
@@ -198,7 +229,11 @@ Procesos
 							<label class="input-label" for="ProcElaboro">Elaborado Por</label>
 							<select id="ProcElaboro" required class="form-control" name="ProcElaboro" placeholder="seleccione">
 								@foreach($roles as $rol)
-								<option value="{{$rol->id}}">{{$rol->name}}</option>
+								<option value="{{$rol->name}}"
+									@if($rol->name == $proceso->ProcElaboro)
+										selected  
+									@endif
+									>{{$rol->name}}</option>
 								@endforeach
 							</select>
 						</div>
@@ -211,7 +246,11 @@ Procesos
 							<label class="input-label" for="ProcReviso">Revisado Por</label>
 							<select id="ProcReviso" required class="form-control" name="ProcReviso" placeholder="seleccione">
 								@foreach($roles as $rol)
-								<option value="{{$rol->id}}">{{$rol->name}}</option>
+								<option value="{{$rol->name}}"
+									@if($rol->name == $proceso->ProcReviso)
+										selected  
+									@endif
+									>{{$rol->name}}</option>
 								@endforeach
 							</select>
 						</div>
@@ -222,7 +261,11 @@ Procesos
 							<label class="input-label" for="ProcAprobo">Aprobado Por</label>
 							<select id="ProcAprobo" required class="form-control" name="ProcAprobo" placeholder="seleccione">
 								@foreach($roles as $rol)
-								<option value="{{$rol->id}}">{{$rol->name}}</option>
+								<option value="{{$rol->name}}"
+									@if($rol->name == $proceso->ProcAprobo)
+										selected  
+									@endif
+									>{{$rol->name}}</option>
 								@endforeach
 							</select>
 						</div>
@@ -234,35 +277,13 @@ Procesos
 							<label class="input-label" for="Proveedores">Proveedores</label>
 							<select multiple id="Proveedores" required class="form-control" name="Proveedores[]" placeholder="seleccione">
 								@foreach($proveedores as $proveedor)
-								<option @foreach($proceso->proveedores as $proveedorSelect)
-									@if($proveedorSelect->id == $proveedor->id)
-									selected
-									@endif
+								<option value="{{$proveedor->id}}"
+									@foreach($proceso->proveedores as $proveedorSelect)
+										@if($proveedorSelect->id == $proveedor->id)
+										selected
+										@endif
 									@endforeach
-									value="{{$proveedor->id}}">{{$proveedor->ProvName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="Recursos">Recursos</label>
-							<select multiple id="Recursos" class="form-control" name="Recursos[]" placeholder="seleccione">
-								@foreach($recursos as $recurso)
-								<option value="{{$recurso->id}}">{{$recurso->RecName}} -
-									@switch($recurso->RecType)
-									@case(0)
-									Fisico
-									@break
-									@case(1)
-									Humano
-									@break
-									@case(2)
-									Financiero
-									@break
-									@endswitch
-								</option>
+									>{{$proveedor->ProvName}}</option>
 								@endforeach
 							</select>
 						</div>
@@ -275,7 +296,13 @@ Procesos
 							<label class="input-label" for="Gambiental">Gestión Ambiental</label>
 							<select multiple id="Gambiental" class="form-control" name="Gambiental[]" placeholder="seleccione">
 								@foreach($gambientales as $gambiental)
-								<option value="{{$gambiental->id}}">{{$gambiental->GesName}} -
+								<option value="{{$gambiental->id}}"
+									@foreach($proceso->gambientals as $gambientalSelect)
+										@if($gambientalSelect->id == $gambiental->id)
+										selected
+										@endif
+									@endforeach
+									>{{$gambiental->GesName}} -
 									@switch($gambiental->GesType)
 									@case(0)
 									Aspectos Ambientales
@@ -298,7 +325,13 @@ Procesos
 							<label class="input-label" for="Gseguridad">Gestión de Seguridad y Salud en el Trabajo</label>
 							<select multiple id="Gseguridad" class="form-control" name="Gseguridad[]" placeholder="seleccione">
 								@foreach($gseguridades as $gseguridad)
-								<option value="{{$gseguridad->id}}">{{$gseguridad->SeguName}} -
+								<option value="{{$gseguridad->id}}"
+									@foreach($proceso->gseguridads as $gseguridadselect)
+										@if($gseguridadselect->id == $gseguridad->id)
+										selected
+										@endif
+									@endforeach
+									>{{$gseguridad->SeguName}} -
 									@switch($gseguridad->SeguType)
 									@case(0)
 									Peligros

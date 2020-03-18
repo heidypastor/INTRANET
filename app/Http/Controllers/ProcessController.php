@@ -30,14 +30,9 @@ class ProcessController extends Controller
      */
     public function index()
     {
-        /*$procesos = Process::all();*/
-        $procesos = Process::with('requisitos')->paginate(10);
-
-        /*$requisitos = Requisitos::all(['id', 'ReqName']);*/
-
+        $procesos = Process::all();
         // return $procesos;
-
-        return view('process.index', compact('procesos'/*, 'requisitos'*/));
+        return view('process.index', compact('procesos'));
     }
 
     /**
@@ -86,7 +81,7 @@ class ProcessController extends Controller
             $usuario = Auth::user()->id;
 
 
-            /*return $actividades;*/
+            // return $actividades;
             return view('process.create', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'usuario', 'recursos', 'recursosDrop', 'gambientales', 'gambientalesDrop', 'gseguridades', 'gseguridadesDrop']));
         }else{
             abort(403, 'El usuario no se encuentra autorizado para crear Procesos');
@@ -115,7 +110,7 @@ class ProcessController extends Controller
         $process->ProcAmbienTrabajo = $request->input('ProcAmbienTrabajo');
         $process->ProcResponsable = $request->input('ProcResponsable');
         $process->ProcAutoridad = $request->input('ProcAutoridad');
-        $process->ProcRecursos = ($request->input('ProcRecursos')=="")? 'ninguno' : $request->input('ProcRecursos');
+        $process->ProcRecursos = 'ninguno';
         $process->ProcElaboro = $request->input('ProcElaboro');
         $process->ProcReviso = $request->input('ProcReviso');
         $process->ProcAprobo = $request->input('ProcAprobo');
@@ -137,6 +132,7 @@ class ProcessController extends Controller
         $process->indicadores()->attach($request->input('Indicadores'));
         $process->procesosDeSoporte()->attach($request->input('Soporte'));
         $process->requisitos()->attach($request->input('ProcRequsitos'));
+        $process->recursos()->attach($request->input('ProcRecursos'));
         // $process->seguimientos()->attach($request->input('Seguimientos'));
         /*$document->assignAreas($areas);*/
 
@@ -177,7 +173,7 @@ class ProcessController extends Controller
     public function edit(Process $proceso)
     {
         if (auth()->user()->can('updateProcess')) {
-
+            // return $proceso;
             /* se añade validacion para excluir el rol Super Admin */
             if (auth()->user()->hasRole(['Super Admin'])) {
                 $roles = Role::all(['id', 'name']);
