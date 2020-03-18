@@ -383,17 +383,20 @@ Procesos
 							<input type="text" required class="form-control" id="ProcAmbienTrabajo" placeholder="Compras" name="ProcAmbienTrabajo" max="500">
 						</div>
 					</div>
-					<div class="col-md-6 col-xs-12">
+
+					{{-- Div correspondiente a Póliticas de Operación --}}
+
+					{{-- <div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcPolitOperacion[]">Politica de Operación</label>
 							<div class="input-group">
-								<input type="text" required id="ProcPolitOperacion[]" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2">
+								<input type="text" required id="ProcPolitOperacion" name="ProcPolitOperacion[]" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2">
 								<div class="input-group-append eliminarpolitica">
 								<button class="btn btn-danger" type="button" id="button-addon2">Borrar</button>
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> --}}
 				</div>
 
 				<div class="form-row">

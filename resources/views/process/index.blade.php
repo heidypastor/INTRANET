@@ -75,11 +75,12 @@ Procesos
 
 			        {{-- <td class="text-center">{{$proceso->ProcObjetivo}}</td> --}}
 			        {{-- <td class="text-center"><a target="_blank" href="{{Storage::url($proceso->ProcImage)}}">{{$proceso->ProcImage}}</td> --}}
+			        	
 			        <td class="text-center">
 						<ul class="list-group">
-							@foreach($proceso->ProcResponsable as $responsable)
+							{{-- @foreach($proceso->ProcResponsable as $responsable)
 								<li class="list-group-item">{{$responsable}}</li>
-							@endforeach
+							@endforeach --}}
 							{{-- <li>{{$proceso->ProcResponsable}}</li> --}}
 						</ul>
 			        </td>
@@ -87,7 +88,7 @@ Procesos
 			        {{-- <td class="text-center">{{$proceso->ProcAutoridad}}</td> --}}
 			        <td class="text-center">{{$proceso->ProcRequsitos}}
 				        	@foreach($proceso->requisitos as $requisito)
-				        		{{$requisito->ReqName}}
+				        		{{$requisito->ReqName}}<br>
 				        	@endforeach
 			        </td>
 			        <td class="text-center">{{$proceso->ProcRecursos}}</td>
