@@ -227,6 +227,20 @@ class ProcessController extends Controller
     public function update(Request $request, Process $proceso)
     {
         $proceso->update($request->all());
+
+        $process->entradas()->sync($request->input('Entradas'));
+        $process->salidas()->sync($request->input('Salidas'));
+        $process->actividades()->sync($request->input('Actividades'));
+        $process->clientes()->sync($request->input('Clientes'));
+        $process->proveedores()->sync($request->input('Provedores'));
+        $process->documentos()->sync($request->input('Docs'));
+        $process->areas()->sync($request->input('Areas'));
+        $process->indicadores()->sync($request->input('Indicadores'));
+        $process->procesosDeSoporte()->sync($request->input('Soporte'));
+        $process->requisitos()->sync($request->input('ProcRequsitos'));
+        $process->recursos()->sync($request->input('ProcRecursos'));
+
+
         return redirect()->route('proceso.index')->withStatus(__('Proceso actualizado correctamente'));
     }
 
