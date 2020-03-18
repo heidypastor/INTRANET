@@ -125,7 +125,7 @@ Procesos
 					</div>
 				</div>
 				<div class="col-md-2 float-right">
-					<button class="btn btn-info" type="button" id="addpoliticbutton" onclick="addPolitica()">
+					<button class="btn btn-info m-0" type="button" id="addpoliticbutton" onclick="addPolitica()">
 					Añadir politica
 					</button>
 				</div>
@@ -147,17 +147,6 @@ Procesos
 						<div class="form-group">
 							<label class="input-label" for="ProcRevVersion">N° de Revisión</label>
 							<input type="text" required class="form-control" id="ProcRevVersion" placeholder="N° de Revisión" name="ProcRevVersion">
-						</div>
-					</div>
-				</div>
-				
-				<div class="form-row">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcAmbienTrabajo">Ambiente de Trabajo</label>
-							<textarea class="form-control" id="ProcAmbienTrabajo" name="ProcAmbienTrabajo">
-								Ambiente de Trabajo de ejemplo maximo 500 caracteres
-							</textarea> 
 						</div>
 					</div>
 				</div>
@@ -194,13 +183,31 @@ Procesos
 						</div>
 					</div>
 
-					{{-- <div class="col-md-6 col-xs-12">
+					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcRecursos">Recursos Necesarios</label>
-							<input type="text" required class="form-control" id="ProcRecursos" placeholder="Vehiculo; Computador; Celular; Papel carta; etc..." name="ProcRecursos">
+							<label class="input-label" for="Recursos">Recursos</label>
+							  <select multiple id="Recursos" class="form-control" name="Recursos[]" placeholder="seleccione">
+								@foreach($recursos as $recurso)
+									<option value="{{$recurso->id}}">{{$recurso->RecName}} - 
+										@switch($recurso->RecType)
+											@case(0)
+												Fisico
+												@break
+											@case(1)
+												Humano
+												@break
+											@case(2)
+												Financiero
+												@break
+										@endswitch
+									</option>
+								@endforeach
+							</select>
 						</div>
-					</div> --}}
+					</div>
 				</div>
+
+				
 					
 				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
@@ -352,36 +359,15 @@ Procesos
 							</textarea> 
 						</div>
 					</div>
-					
-					{{-- <div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcAlcance">Alcance del Proceso</label>
-							<input type="text" required class="form-control" id="ProcAlcance" placeholder="Compras" name="ProcAlcance" max="500">
-						</div>
-					</div> --}}
-				</div>
-					
-				<div class="form-row" id="containerDePoliticas">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcAmbienTrabajo">Ambiente de trabajo</label>
 							<input type="text" required class="form-control" id="ProcAmbienTrabajo" placeholder="Compras" name="ProcAmbienTrabajo" max="500">
 						</div>
 					</div>
-					<div class="col-md-6 col-xs-12" id="politicaOperacion0">
-						<div class="form-group">
-							<label class="input-label" for="ProcPolitOperacioninput0">Politica de Operación</label>
-							<div class="input-group">
-								<input type="text" required id="ProcPolitOperacioninput0" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2" name="ProcPolitOperacion[]">
-								<div class="input-group-append eliminarpolitica">
-								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropPolitica(0)">Borrar</button>
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
-
-				<div class="form-row">
+					
+				<div class="form-row" id="containerDePoliticas">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Provedores">Provedores</label>
@@ -392,27 +378,16 @@ Procesos
 							</select>
 						</div>
 					</div>
-	
-					<div class="col-md-6 col-xs-12">
+					
+					<div class="col-md-6 col-xs-12" id="politicaOperacion0">
 						<div class="form-group">
-							<label class="input-label" for="Recursos">Recursos</label>
-							  <select multiple id="Recursos" class="form-control" name="Recursos[]" placeholder="seleccione">
-								@foreach($recursos as $recurso)
-									<option value="{{$recurso->id}}">{{$recurso->RecName}} - 
-										@switch($recurso->RecType)
-											@case(0)
-												Fisico
-												@break
-											@case(1)
-												Humano
-												@break
-											@case(2)
-												Financiero
-												@break
-										@endswitch
-									</option>
-								@endforeach
-							</select>
+							<label class="input-label" for="ProcPolitOperacioninput0">Politica de Operación</label>
+							<div class="input-group">
+								<input type="text" required id="ProcPolitOperacioninput0" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2" name="ProcPolitOperacion[]">
+								<div class="input-group-append eliminarpolitica">
+								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropPolitica(0)">Borrar</button>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -464,9 +439,15 @@ Procesos
 					</div>
 				</div>
 
-	    
-
 				<div class="form-row">
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcAmbienTrabajo">Ambiente de Trabajo</label>
+							<textarea class="form-control" id="ProcAmbienTrabajo" name="ProcAmbienTrabajo">
+								Ambiente de Trabajo de ejemplo maximo 500 caracteres
+							</textarea> 
+						</div>
+					</div>
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcRequsitos">Requisitos por cumplir</label>
@@ -477,15 +458,7 @@ Procesos
 							</select>
 						</div>
 					</div>
-	
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcRequsitos">Fecha</label>
-							  <input type="date" name="ProcDate" class="form-control">
-						</div>
-					</div>
 				</div>
-            	
 
 				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
@@ -494,6 +467,13 @@ Procesos
 							   <textarea class="form-control" id="ProcObjetivo" name="ProcObjetivo">
 							  Objetivo de ejemplo para el proceso de compras
 							  </textarea> 
+						</div>
+					</div>
+	
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcRequsitos">Fecha</label>
+							  <input type="date" name="ProcDate" class="form-control">
 						</div>
 					</div>
 				</div>
