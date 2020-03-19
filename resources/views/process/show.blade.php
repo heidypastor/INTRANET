@@ -65,7 +65,7 @@ Proceso de {{$proceso->ProcName}}
 			</div>
 			<div class="col-md-3 margen">
 				<h4>LIDER</h4><br>
-				<p></p>
+				<p>{{$proceso->ProcAutoridad}}</p>
 			</div>
 			<div class="col-md-3 margen">
 				<h4>RESPONSABLES</h4><br>
@@ -442,65 +442,17 @@ Proceso de {{$proceso->ProcName}}
 			<br><br><br>
 		</div>
 		<div class="row color">
-			<div class="col-md-4 margen">
-				<h4 class="text-center">Elaborado por</h4><br>
-				@switch($proceso->ProcElaboro)
-					@case(1)
-						SuperAdmin
-						@break
-					@case(2)
-						Gerente
-						@break
-					@case(3)
-						Director
-						@break
-					@case(4)
-						JefeArea
-						@break
-					@case(5)
-						User
-						@break
-				@endswitch
+			<div class="col-md-4 margen text-center">
+				<h4>Elaborado por</h4><br>
+				{{$proceso->ProcElaboro}}
 			</div>
-			<div class="col-md-4 margen">
-				<h4 class="text-center">Revisado Por</h4><br>
-				@switch($proceso->ProcReviso)
-					@case(1)
-						SuperAdmin
-						@break
-					@case(2)
-						Gerente
-						@break
-					@case(3)
-						Director
-						@break
-					@case(4)
-						JefeArea
-						@break
-					@case(5)
-						User
-						@break
-				@endswitch
+			<div class="col-md-4 margen text-center">
+				<h4>Revisado Por</h4><br>
+				{{$proceso->ProcReviso}}
 			</div>
-			<div class="col-md-4 margen">
-				<h4 class="text-center">Aprobado Por</h4><br>
-				@switch($proceso->ProcAprobo)
-					@case(1)
-						SuperAdmin
-						@break
-					@case(2)
-						Gerente
-						@break
-					@case(3)
-						Director
-						@break
-					@case(4)
-						JefeArea
-						@break
-					@case(5)
-						User
-						@break
-				@endswitch
+			<div class="col-md-4 margen text-center">
+				<h4>Aprobado Por</h4><br>
+				{{$proceso->ProcAprobo}}
 			</div>
 		</div>
 	</div>
