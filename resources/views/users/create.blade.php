@@ -54,7 +54,7 @@ Usuarios
                                         <option value="{{$role->name}}">{{$role->name}}</option>
                                         @endforeach
                                     </select>
-                                    @include('alerts.feedback', ['field' => 'roles'])
+                                    @include('alerts.feedback', ['field' => 'PermisosDirectos'])
                                 </div>
 
                                 <div class="form-group{{ $errors->has('PermisosDirectos') ? ' has-danger' : '' }}">
@@ -65,6 +65,16 @@ Usuarios
                                         @endforeach
                                     </select>
                                     @include('alerts.feedback', ['field' => 'roles'])
+                                </div>
+
+                                <div class="form-group{{ $errors->has('Cargos') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-roles">{{ __('Cargos') }}</label>
+                                    <select multiple name="Cargos[]" id="input-role" class="form-control form-control-alternative{{ $errors->has('Cargos') ? ' is-invalid' : '' }}" placeholder="{{ __('Seleccion los Cargos del usuario') }}" value="{{ old('Cargos[]') }}" autofocus>
+                                        @foreach($cargos as $cargo)
+                                        <option value="{{$cargo->id}}">{{$cargo->CargoName}}</option>
+                                        @endforeach
+                                    </select>
+                                    @include('alerts.feedback', ['field' => 'Cargos'])
                                 </div>
 
                                 <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
