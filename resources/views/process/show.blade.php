@@ -12,6 +12,36 @@ Proceso de {{$proceso->ProcName}}
 @endpush
 @section('content')
 	<div class="col-md-12 card degradado-procesos">
+		<div class="row">
+			<div class="col-md-2">
+				<a href="{{$proceso->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a>
+			</div>
+			<div class="col-md-8">
+			</div>
+			<div class="col-md-2">
+				<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$proceso->id}}">
+				  Eliminar
+				</button>
+				@component('layouts.partials.modal')
+					@slot('id')
+						{{$proceso->id}}
+					@endslot
+					@slot('textModal')
+						{{$proceso->ProcName}}
+					@endslot
+					@slot('botonModal')
+						<form action="{{ route('proceso.destroy', $proceso) }}" method="POST">
+						    @method('DELETE')
+						    @csrf 
+						    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
+						</form>
+					@endslot
+				@endcomponent
+			</div>
+		</div>
+		<div class="col-md-12">
+			<br><br>
+		</div>
 		<div class="row color">
 			<div class="col-md-3 margen">
 				<img src="white/img/logo_nombre.png">
@@ -220,7 +250,7 @@ Proceso de {{$proceso->ProcName}}
 		<div class="row">
 			<div class="col-md-12 text-center margen">
 				<h4>RIESGOS</h4><hr>
-				<p></p>
+				<p>{{$proceso->ProcRiesgos}}</p>
 			</div>
 		</div>
 		<div class="col-md-12">
@@ -454,6 +484,9 @@ Proceso de {{$proceso->ProcName}}
 				<h4>Aprobado Por</h4><br>
 				{{$proceso->ProcAprobo}}
 			</div>
+		</div>
+		<div class="col-md-12">
+			<br><br><br>
 		</div>
 	</div>
 @endsection
