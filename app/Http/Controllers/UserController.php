@@ -19,8 +19,8 @@ class UserController extends Controller
      */
     public function index(User $users)
     {
-        $users = User::with('roles')->paginate(10);
-        // return $users;
+        $users = User::with('roles')->get();
+
         return view('users.index', ['users' => $users]);
     }
 
@@ -32,8 +32,9 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::where('name', '!=', 'Super Admin')->get();
+        $permisos = Permission::all();
 
-        return view('users.create', compact('roles'));
+        return view('users.create', compact(['roles', 'permisos']));
     }
 
     /**
@@ -43,10 +44,8 @@ class UserController extends Controller
      * @param  \App\User  $model
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(UserRequest $request, User $user)
+    public function store(UserRequest $request)
     {
-        $roles = Role::whereIn('name', $request->input('roles'))->get();
-
         $user = new User();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
@@ -56,7 +55,9 @@ class UserController extends Controller
         $user->Avatar= 'images/robot400x400.gif';
         $user->save();
 
-        $user->assignRole($roles);
+        $user->syncRoles($request->input('roles'));
+        $user->syncPermissions($request->input('PermisosDirectos'));
+
 
         return redirect()->route('user.index')->withStatus(__('User successfully created.'));
     }

@@ -47,16 +47,26 @@ Usuarios
 
                                 </div>
                                 <div class="form-group">
-
                                     <label class="form-control-label" for="input-roles" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Roles</b>" data-content="Ingresa los roles que le quieres asignar al usuario."><i class="far fa-question-circle"></i>{{ __(' Roles') }}</label>
 
                                     <select multiple name="roles[]" id="input-role" class="form-control form-control-alternative" placeholder="{{ __('Selecciona los roles del usuario') }}" value="{{ old('roles[]') }}" required autofocus>
                                         @foreach($roles as $role)
-                                        <option{{--  {{ in_array($role->name, $user->roles) ? 'Selected' : ""}} --}} value="{{$role->name}}">{{$role->name}}</option>
+                                        <option value="{{$role->name}}">{{$role->name}}</option>
                                         @endforeach
                                     </select>
                                     @include('alerts.feedback', ['field' => 'roles'])
                                 </div>
+
+                                <div class="form-group{{ $errors->has('PermisosDirectos') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-roles">{{ __('Permisos Directos') }}</label>
+                                    <select multiple name="PermisosDirectos[]" id="input-role" class="form-control form-control-alternative{{ $errors->has('PermisosDirectos') ? ' is-invalid' : '' }}" placeholder="{{ __('Seleccion los permisos directos del usuario') }}" value="{{ old('PermisosDirectos[]') }}" autofocus>
+                                        @foreach($permisos as $permiso)
+                                        <option value="{{$permiso->name}}">{{$permiso->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    @include('alerts.feedback', ['field' => 'roles'])
+                                </div>
+
                                 <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-password">{{ __('Contraseña') }}</label>
                                     <input type="password" name="password" id="input-password" class="form-control form-control-alternative{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('Contraseña') }}" value="" required>

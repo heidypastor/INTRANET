@@ -54,8 +54,8 @@ Usuarios
                                     @include('alerts.feedback', ['field' => 'roles'])
                                 </div>
                                 <div class="form-group{{ $errors->has('PermisosDirectos') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-roles">{{ __('Permisos Exclusivos') }}</label>
-                                    <select multiple name="PermisosDirectos[]" id="input-role" class="form-control form-control-alternative{{ $errors->has('PermisosDirectos') ? ' is-invalid' : '' }}" placeholder="{{ __('Seleccion los permisos directos del usuario') }}" value="{{ old('PermisosDirectos', $user->PermisosDirectos) }}" required autofocus>
+                                    <label class="form-control-label" for="input-roles">{{ __('Permisos Directos') }}</label>
+                                    <select multiple name="PermisosDirectos[]" id="input-role" class="form-control form-control-alternative{{ $errors->has('PermisosDirectos') ? ' is-invalid' : '' }}" placeholder="{{ __('Seleccion los permisos directos del usuario') }}" value="{{ old('PermisosDirectos', $user->PermisosDirectos) }}" autofocus>
                                         @foreach($permisos as $permiso)
                                         <option 
                                         @foreach ($user->permissions as $permisosdeusuario)
