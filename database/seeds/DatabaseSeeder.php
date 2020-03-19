@@ -25,5 +25,6 @@ class DatabaseSeeder extends Seeder
         $this->call([ReleasesSeeder::class]);
         $this->call([RequisitosSeeder::class]);
         $this->call([AlertsSeeder::class]);
+        $this->call([RecursosSeeder::class]);
     }
 }
