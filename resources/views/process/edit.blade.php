@@ -147,8 +147,10 @@ Procesos
 				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcRevVersion">Descripción del cambio</label>
-							<input type="text" class="form-control" id="email" placeholder="descripcion del cambio" name="ProcChangesDescription" value="{{$proceso->ProcChangesDescription}}">
+							<label class="input-label" for="ProcAlcance">Alcance del Proceso</label>
+							<textarea  max="500" class="form-control" id="ProcAlcance" name="ProcAlcance" value="{{$proceso->ProcAlcance}}">
+							campo de texto para el alcance del proceso max 500 caracteres
+							</textarea> 
 						</div>
 					</div>
 
@@ -520,6 +522,13 @@ Procesos
 							<textarea class="form-control" id="ProcObjetivo" name="ProcObjetivo">
 								Objetivo de ejemplo para el proceso de compras
 							</textarea>
+						</div>
+					</div>
+					
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcRevVersion">Descripción del cambio</label>
+							<input type="text" class="form-control" id="email" placeholder="descripcion del cambio" name="ProcChangesDescription" value="{{$proceso->ProcChangesDescription}}">
 						</div>
 					</div>
 				</div>
