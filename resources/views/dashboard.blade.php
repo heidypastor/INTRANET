@@ -30,7 +30,7 @@ Home
             </div>
             <!-- Slide 3 -->
             <div class="sp-slide">
-              <img class="sp-image" style="border-radius: 5px !important;" src="{{Storage::url($indicator->IndGraphic) ? Storage::url($indicator->IndGraphic) : 'white/img/no_image.png'}}" alt="Thrid slide">
+              <img class="sp-image" style="border-radius: 5px !important;" src="{{(Storage::url($indicator->IndGraphic) == '') || (Storage::url($indicator->IndGraphic) == Null) ? Storage::url($indicator->IndGraphic) : 'white/img/no_image.png'}}">
               <a href="indicators/{{$indicator->id}}"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;" data-position="centerCenter" data-show-transition="left" data-show-delay="500" data-vertical="-50" data-hide-transition="left" data-show-duration="750">
                 Indicador Actualizado
                 </p>
