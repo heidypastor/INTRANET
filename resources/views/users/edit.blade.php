@@ -44,7 +44,24 @@ Usuarios
                                     <label class="form-control-label" for="input-roles">{{ __('Roles') }}</label>
                                     <select multiple name="roles[]" id="input-role" class="form-control form-control-alternative{{ $errors->has('roles') ? ' is-invalid' : '' }}" placeholder="{{ __('Seleccion los roles del usuario') }}" value="{{ old('roles', $user->roles) }}" required autofocus>
                                         @foreach($roles as $role)
-                                        <option{{--  {{ in_array($role->name, $user->roles) ? 'Selected' : ""}} --}} value="{{$role->name}}">{{$role->name}}</option>
+                                        <option 
+                                        @foreach ($user->roles as $rolesdeusuario)
+                                        {{ $role->name == $rolesdeusuario->name ? 'Selected' : ""}} 
+                                        @endforeach
+                                        value="{{$role->name}}">{{$role->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    @include('alerts.feedback', ['field' => 'roles'])
+                                </div>
+                                <div class="form-group{{ $errors->has('PermisosDirectos') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-roles">{{ __('Permisos Directos') }}</label>
+                                    <select multiple name="PermisosDirectos[]" id="input-role" class="form-control form-control-alternative{{ $errors->has('PermisosDirectos') ? ' is-invalid' : '' }}" placeholder="{{ __('Seleccion los permisos directos del usuario') }}" value="{{ old('PermisosDirectos', $user->PermisosDirectos) }}" autofocus>
+                                        @foreach($permisos as $permiso)
+                                        <option 
+                                        @foreach ($user->permissions as $permisosdeusuario)
+                                        {{ $permiso->name == $permisosdeusuario->name ? 'Selected' : ""}}
+                                        @endforeach
+                                        value="{{$permiso->name}}">{{$permiso->name}}</option>
                                         @endforeach
                                     </select>
                                     @include('alerts.feedback', ['field' => 'roles'])

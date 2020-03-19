@@ -16,112 +16,90 @@ Procesos
 @section('content')
 	{{-- contenido de la pagina --}}
 	<div class="card">
-		<div class="card-header">
-			<div class="row">
-				<div class="col-md-2">
+		<div class="card-header px-4">
+			<div class="row justify-content-between">
+				<div>
 					<h2>
 						<b>{{'Nuevo Proceso'}}</b>
 					</h2>
 				</div>
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Proveedores
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateProveedores">Nuevo</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditProveedores">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteProveedores">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Entradas
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateEntradas">Nueva</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditEntradas">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteEntradas">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Actividades
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateActividades">Nueva</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditActividades">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteActividad">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Salidas
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateSalidas">Nueva</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditSalidas">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteSalidas">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Clientes
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateClientes">Nuevo</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditClientes">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteClientes">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Recursos
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateRecursos">Nuevo</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditRecursos">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteRecursos">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-
-				<div class="col-md-3 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Gestión Ambiental
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateGambiental">Nuevo</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditGambiental">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteGambiental">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Gestión de SST
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateGseguridad">Nuevo</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditGseguridad">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteGseguridad">Eliminar</a>
-					  </div>
+				<div>
+					 <div class="btn-group">
+						<a type="button" id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class=" btn btn-info dropdown-toggle">Modificar Elementos</a>
+						<ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow dropdown-menu-left">
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Recursos</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateRecursos">Nuevo</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditRecursos">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteRecursos">Eliminar</a>
+								</ul>
+							</li>
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Gestión de SST</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateGseguridad">Nuevo</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditGseguridad">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteGseguridad">Eliminar</a>
+								</ul>
+							</li>
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Proveedores</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateProveedores">Nuevo</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditProveedores">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteProveedores">Eliminar</a>
+								</ul>
+							</li>
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Entradas</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateEntradas">Nueva</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditEntradas">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteEntradas">Eliminar</a>
+								</ul>
+							</li>
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Actividades</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateActividades">Nueva</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditActividades">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteActividad">Eliminar</a>
+								</ul>
+							</li>
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Salidas</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateSalidas">Nueva</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditSalidas">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteSalidas">Eliminar</a>
+								</ul>
+							</li>
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Gestión Ambiental</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateGambiental">Nuevo</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditGambiental">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteGambiental">Eliminar</a>
+								</ul>
+							</li>
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Clientes</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateClientes">Nuevo</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditClientes">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteClientes">Eliminar</a>
+								</ul>
+							</li>
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Politicas</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<button class="dropdown-item" id="addpoliticbutton" onclick="addPolitica()">
+									Añadir politica
+									</button>
+								</ul>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -142,17 +120,6 @@ Procesos
 						<div class="form-group">
 							<label class="input-label" for="ProcRevVersion">N° de Revisión</label>
 							<input type="text" required class="form-control" id="ProcRevVersion" placeholder="N° de Revisión" name="ProcRevVersion">
-						</div>
-					</div>
-				</div>
-				
-				<div class="form-row">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcAmbienTrabajo">Ambiente de Trabajo</label>
-							<textarea class="form-control" id="ProcAmbienTrabajo" name="ProcAmbienTrabajo">
-								Ambiente de Trabajo de ejemplo maximo 500 caracteres
-							</textarea> 
 						</div>
 					</div>
 				</div>
@@ -183,18 +150,34 @@ Procesos
 							<label class="input-label" for="ProcAutoridad">Autoridad del Proceso</label>
 							<select id="ProcAutoridad" class="form-control" name="ProcAutoridad" placeholder="seleccione">
 								@foreach($roles as $rol)
-									<option value="{{$rol->id}}">{{$rol->name}}</option>
+									<option value="{{$rol->name}}">{{$rol->name}}</option>
 								@endforeach
 							</select>
 						</div>
 					</div>
 
-					{{-- <div class="col-md-6 col-xs-12">
+					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcRecursos">Recursos Necesarios</label>
-							<input type="text" required class="form-control" id="ProcRecursos" placeholder="Vehiculo; Computador; Celular; Papel carta; etc..." name="ProcRecursos">
+							<label class="input-label" for="ProcRecursos">Recursos</label>
+							  <select multiple id="ProcRecursos" class="form-control" name="ProcRecursos[]" placeholder="seleccione">
+								@foreach($recursos as $recurso)
+									<option value="{{$recurso->id}}">{{$recurso->RecName}} - 
+										@switch($recurso->RecType)
+											@case(0)
+												Fisico
+												@break
+											@case(1)	
+												Humano
+												@break
+											@case(2)
+												Financiero
+												@break
+										@endswitch
+									</option>
+								@endforeach
+							</select>
 						</div>
-					</div> --}}
+					</div>
 				</div>
 					
 				<div class="form-row">
@@ -203,7 +186,7 @@ Procesos
 							<label class="input-label" for="ProcElaboro">Elaborado Por</label>
 							<select id="ProcElaboro" class="form-control" name="ProcElaboro" placeholder="seleccione">
 								@foreach($roles as $rol)
-									<option value="{{$rol->id}}">{{$rol->name}}</option>
+									<option value="{{$rol->name}}">{{$rol->name}}</option>
 								@endforeach
 								{{-- @foreach($users as $user)
 									<option value="{{$user->id}}">{{$user->name}}</option>
@@ -217,7 +200,7 @@ Procesos
 							<label class="input-label" for="ProcReviso">Revisado Por</label>
 							<select id="ProcReviso" class="form-control" name="ProcReviso" placeholder="seleccione">
 								@foreach($roles as $rol)
-									<option value="{{$rol->id}}">{{$rol->name}}</option>
+									<option value="{{$rol->name}}">{{$rol->name}}</option>
 								@endforeach
 								{{-- @foreach($users as $user)
 									<option value="{{$user->id}}">{{$user->name}}</option>
@@ -233,7 +216,7 @@ Procesos
 							<label class="input-label" for="ProcAprobo">Aprobado Por</label>
 							<select id="ProcAprobo" class="form-control" name="ProcAprobo" placeholder="seleccione">
 								@foreach($roles as $rol)
-									<option value="{{$rol->id}}">{{$rol->name}}</option>
+									<option value="{{$rol->name}}">{{$rol->name}}</option>
 								@endforeach
 							</select>
 						</div>
@@ -341,65 +324,21 @@ Procesos
 				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcRequsitos">Requisitos por cumplir</label>
-							<select multiple class="form-control" name="ProcRequsitos[]" placeholder="seleccione" id="ProcRequsitos">
-								@foreach($requisitos as $requisito)
-									<option value="{{$requisito->id}}">{{$requisito->ReqName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcRequsitos">Fecha</label>
-							<input type="date" name="ProcDate" class="form-control">
-						</div>
-					</div>
-				</div>
-					
-				<div class="form-row">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
 							<label class="input-label" for="ProcObjetivo">Alcance del Proceso</label>
 							<textarea class="form-control" id="ProcObjetivo" name="ProcObjetivo">
 							Objetivo de ejemplo para el proceso de compras
 							</textarea> 
 						</div>
 					</div>
-					
-					{{-- <div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcAlcance">Alcance del Proceso</label>
-							<input type="text" required class="form-control" id="ProcAlcance" placeholder="Compras" name="ProcAlcance" max="500">
-						</div>
-					</div> --}}
-				</div>
-					
-				<div class="form-row" id="containerDePoliticas">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcAmbienTrabajo">Ambiente de trabajo</label>
 							<input type="text" required class="form-control" id="ProcAmbienTrabajo" placeholder="Compras" name="ProcAmbienTrabajo" max="500">
 						</div>
 					</div>
-
-					{{-- Div correspondiente a Póliticas de Operación --}}
-
-					{{-- <div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcPolitOperacion[]">Politica de Operación</label>
-							<div class="input-group">
-								<input type="text" required id="ProcPolitOperacion" name="ProcPolitOperacion[]" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2">
-								<div class="input-group-append eliminarpolitica">
-								<button class="btn btn-danger" type="button" id="button-addon2">Borrar</button>
-								</div>
-							</div>
-						</div>
-					</div> --}}
 				</div>
-
-				<div class="form-row">
+					
+				<div class="form-row" id="containerDePoliticas">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Provedores">Provedores</label>
@@ -410,27 +349,16 @@ Procesos
 							</select>
 						</div>
 					</div>
-	
-					<div class="col-md-6 col-xs-12">
+					
+					<div class="col-md-6 col-xs-12" id="politicaOperacion0">
 						<div class="form-group">
-							<label class="input-label" for="Recursos">Recursos</label>
-							  <select multiple id="Recursos" class="form-control" name="Recursos[]" placeholder="seleccione">
-								@foreach($recursos as $recurso)
-									<option value="{{$recurso->id}}">{{$recurso->RecName}} - 
-										@switch($recurso->RecType)
-											@case(0)
-												Fisico
-												@break
-											@case(1)
-												Humano
-												@break
-											@case(2)
-												Financiero
-												@break
-										@endswitch
-									</option>
-								@endforeach
-							</select>
+							<label class="input-label" for="ProcPolitOperacioninput0">Politica de Operación</label>
+							<div class="input-group">
+								<input type="text" required id="ProcPolitOperacioninput0" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2" name="ProcPolitOperacion[]">
+								<div class="input-group-append eliminarpolitica">
+								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropPolitica(0)">Borrar</button>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -482,9 +410,15 @@ Procesos
 					</div>
 				</div>
 
-	    
-
 				<div class="form-row">
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcAmbienTrabajo">Ambiente de Trabajo</label>
+							<textarea class="form-control" id="ProcAmbienTrabajo" name="ProcAmbienTrabajo">
+								Ambiente de Trabajo de ejemplo maximo 500 caracteres
+							</textarea> 
+						</div>
+					</div>
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcRequsitos">Requisitos por cumplir</label>
@@ -495,15 +429,7 @@ Procesos
 							</select>
 						</div>
 					</div>
-	
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcRequsitos">Fecha</label>
-							  <input type="date" name="ProcDate" class="form-control">
-						</div>
-					</div>
 				</div>
-            	
 
 				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
@@ -512,6 +438,13 @@ Procesos
 							   <textarea class="form-control" id="ProcObjetivo" name="ProcObjetivo">
 							  Objetivo de ejemplo para el proceso de compras
 							  </textarea> 
+						</div>
+					</div>
+	
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcRequsitos">Fecha</label>
+							  <input type="date" name="ProcDate" class="form-control">
 						</div>
 					</div>
 				</div>
@@ -1502,19 +1435,47 @@ Procesos
 
 	var contadorPoliticas = 0;
 	function addPolitica(){
-		var id = $('#IdSelectSalida').val();
-		var inputoculto = $('#idocultoSali');
-			inputoculto.attr('value', id);
-			console.log(id);
+		contadorPoliticas++
+		container = $('#containerDePoliticas')
+		container.append(`<div class="col-md-6 col-xs-12" id="politicaOperacion`+contadorPoliticas+`">
+						<div class="form-group">
+							<label class="input-label" for="ProcPolitOperacion`+contadorPoliticas+`">Politica de Operación</label>
+							<div class="input-group">
+								<input type="text" required id="ProcPolitOperacioninput`+contadorPoliticas+`" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2" name="ProcPolitOperacion[]">
+								<div class="input-group-append eliminarpolitica">
+								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropPolitica(`+contadorPoliticas+`)">Borrar</button>
+								</div>
+							</div>
+						</div>
+					</div>`)
 	};
 
-	function dropPolitica(){
-		var id = $('#IdSelectSalida').val();
-		var inputoculto = $('#idocultoSali');
-			inputoculto.attr('value', id);
-			console.log(id);
+	function dropPolitica(id){
+		var id = $('#politicaOperacion'+id).remove();
 	};
 
+	
+</script>
+<script>
+$(function() {
+  // ------------------------------------------------------- //
+  // Multi Level dropdowns
+  // ------------------------------------------------------ //
+  $("ul.dropdown-menu [data-toggle='dropdown']").on("click", function(event) {
+    event.preventDefault();
+    event.stopPropagation();
 
+    $(this).siblings().toggleClass("show");
+
+
+    if (!$(this).next().hasClass('show')) {
+      $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+    }
+    $(this).parents('div.dropdown.show').on('hidden.bs.dropdown', function(e) {
+      $('.dropdown-submenu .show').removeClass("show");
+    });
+
+  });
+});
 </script>
 @endpush

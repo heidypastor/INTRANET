@@ -52,88 +52,42 @@ Procesos
 			  	@foreach($procesos as $proceso)
 			      <tr>
 			        <td class="text-center">{{$proceso->ProcName}}</td>
-			        <td class="text-center">{{-- {{$proceso->ProcReviso}} --}}
-			        	@switch($proceso->ProcReviso)
-			        		@case(1) 
-			        			Super Admin
-			        			@break
-			        		@case(2)
-			        			Gerente
-			        			@break
-			        		@case(3)
-			        			Director
-			        			@break
-			        		@case(4)
-			        			Jefe Área
-			        			@break
-			        		@case(5)
-			        			User
-			        			@break
-			        	@endswitch
-			        </td>
-			        {{-- <td class="text-center">{{$proceso->ProcChangesDescription}}</td> --}}
-
-			        {{-- <td class="text-center">{{$proceso->ProcObjetivo}}</td> --}}
-			        {{-- <td class="text-center"><a target="_blank" href="{{Storage::url($proceso->ProcImage)}}">{{$proceso->ProcImage}}</td> --}}
-			        	
+			        <td class="text-center">{{$proceso->ProcReviso}}</td>
 			        <td class="text-center">
 						<ul class="list-group">
-							{{-- @foreach($proceso->ProcResponsable as $responsable)
-								<li class="list-group-item">{{$responsable}}</li>
-							@endforeach --}}
-							{{-- <li>{{$proceso->ProcResponsable}}</li> --}}
+							@foreach($proceso->ProcResponsable as $key => $value)
+								<li class="list-group-item text-nowrap">{{$value}}</li>
+							@endforeach
 						</ul>
 			        </td>
-
-			        {{-- <td class="text-center">{{$proceso->ProcAutoridad}}</td> --}}
-			        <td class="text-center">{{$proceso->ProcRequsitos}}
+			        <td class="text-center">
 				        	@foreach($proceso->requisitos as $requisito)
 				        		{{$requisito->ReqName}}<br>
 				        	@endforeach
 			        </td>
-			        <td class="text-center">{{$proceso->ProcRecursos}}</td>
+					<td class="text-center">
+						<ul class="list-gruup">
+							@foreach($proceso->recursos as $recurso)
+							<li class="list-group-item text-nowrap">
+								{{$recurso->RecName}} -
+								@switch($recurso->RecType)
+									@case(0)
+										Fisico
+										@break
+									@case(1)	
+										Humano
+										@break
+									@case(2)
+										Financiero
+										@break
+								@endswitch
+							</li>
+							@endforeach
+						</ul>
+					</td>
 
-			        <td class="text-center">
-			        	@switch($proceso->ProcElaboro)
-			        		@case(1) 
-			        			Super Admin
-			        			@break
-			        		@case(2)
-			        			Gerente
-			        			@break
-			        		@case(3)
-			        			Director
-			        			@break
-			        		@case(4)
-			        			Jefe Área
-			        			@break
-			        		@case(5)
-			        			User
-			        			@break
-			        	@endswitch
-			        </td>
-			        {{-- <td class="text-center">{{$proceso->ProcReviso}}</td> --}}
-			        <td class="text-center">{{$proceso->ProcAprobo}}
-			        	@switch($proceso->ProcAprobo)
-			        		@case(1) 
-			        			Super Admin
-			        			@break
-			        		@case(2)
-			        			Gerente
-			        			@break
-			        		@case(3)
-			        			Director
-			        			@break
-			        		@case(4)
-			        			Jefe Área
-			        			@break
-			        		@case(5)
-			        			User
-			        			@break
-			        	@endswitch
-			        </td>
-
-			        {{-- <td class="text-center">{{$proceso->created_at}}</td> --}}
+			        <td class="text-center">{{$proceso->ProcElaboro}}</td>
+			        <td class="text-center">{{$proceso->ProcAprobo}}</td>
 			        <td class="text-center">{{$proceso->updated_at}}</td>
 		        	<td class="text-center">
 		        		<a href="{{ route('proceso.show', $proceso) }}" class="btn btn-fill btn-info">

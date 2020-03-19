@@ -60,6 +60,9 @@ class permissionsTableSeeder extends Seeder
         Permission::create(['guard_name' => 'web', 'name' => 'updatePermissions']);
         Permission::create(['guard_name' => 'web', 'name' => 'deletePermissions']);
 
+        Permission::create(['guard_name' => 'web', 'name' => 'indexDocuments']);
+
+
 
         $role = Role::findByName('Gerente');
         $role->syncPermissions(['readAreas',
