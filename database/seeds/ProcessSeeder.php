@@ -23,12 +23,12 @@ class ProcessesSeeder extends Seeder
         $process->ProcResponsable = ['gerencia@prosarc.com.co', 'usuariox'];
         $process->ProcAmbienTrabajo = 'Ambiente de Trabajo de ejemplo maximo 500 caracteres';
         $process->ProcAlcance = 'Alcance de Trabajo de ejemplo maximo 500 caracteres';
-        $process->ProcAutoridad = 'Gerente General';
-        $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
+        $process->ProcAutoridad = 'Gerente';
+        $process->ProcRecursos = 'ninguno';
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
-        $process->ProcReviso = 'Gerente General';
-        $process->ProcAprobo = 'Presidencia';
-        $process->ProcPolitOperacion = ['Presidencia'];
+        $process->ProcReviso = 'Gerente';
+        $process->ProcAprobo = 'Director';
+        $process->ProcPolitOperacion = ['Director'];
         $process->save();
 
 
@@ -43,12 +43,12 @@ class ProcessesSeeder extends Seeder
         $process->ProcResponsable = ['gerencia@prosarc.com.co', 'usuariox'];
         $process->ProcAmbienTrabajo = 'Ambiente de Trabajo de ejemplo maximo 500 caracteres';
         $process->ProcAlcance = 'Alcance de Trabajo de ejemplo maximo 500 caracteres';
-        $process->ProcAutoridad = 'Gerente General';
-        $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
+        $process->ProcAutoridad = 'Gerente';
+        $process->ProcRecursos = 'ninguno';
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
-        $process->ProcReviso = 'Gerente General';
-        $process->ProcAprobo = 'Presidencia';
-        $process->ProcPolitOperacion = ['Presidencia'];
+        $process->ProcReviso = 'Gerente';
+        $process->ProcAprobo = 'Director';
+        $process->ProcPolitOperacion = ['Director'];
         $process->save();
 
         // id = 03
@@ -62,12 +62,12 @@ class ProcessesSeeder extends Seeder
         $process->ProcResponsable = ['gerencia@prosarc.com.co', 'usuariox'];
         $process->ProcAmbienTrabajo = 'Ambiente de Trabajo de ejemplo maximo 500 caracteres';
         $process->ProcAlcance = 'Alcance de Trabajo de ejemplo maximo 500 caracteres';
-        $process->ProcAutoridad = 'Gerente General';
-        $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
+        $process->ProcAutoridad = 'Gerente';
+        $process->ProcRecursos = 'ninguno';
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
-        $process->ProcReviso = 'Gerente General';
-        $process->ProcAprobo = 'Presidencia';
-        $process->ProcPolitOperacion = ['Presidencia'];
+        $process->ProcReviso = 'Gerente';
+        $process->ProcAprobo = 'Director';
+        $process->ProcPolitOperacion = ['Director'];
         $process->save();
 
 
@@ -82,12 +82,12 @@ class ProcessesSeeder extends Seeder
         $process->ProcResponsable = ['gerencia@prosarc.com.co', 'usuariox'];
         $process->ProcAmbienTrabajo = 'Ambiente de Trabajo de ejemplo maximo 500 caracteres';
         $process->ProcAlcance = 'Alcance de Trabajo de ejemplo maximo 500 caracteres';
-        $process->ProcAutoridad = 'Gerente General';
-        $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
+        $process->ProcAutoridad = 'Gerente';
+        $process->ProcRecursos = 'ninguno';
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
-        $process->ProcReviso = 'Gerente General';
-        $process->ProcAprobo = 'Presidencia';
-        $process->ProcPolitOperacion = ['Presidencia'];
+        $process->ProcReviso = 'Gerente';
+        $process->ProcAprobo = 'Director';
+        $process->ProcPolitOperacion = ['Director'];
         $process->save();
     }
 }
