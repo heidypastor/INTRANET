@@ -24,10 +24,13 @@ class Process extends Model
 	    'ProcObjetivo',
 	    'ProcResponsable',
 	    'ProcAutoridad',
-	    'ProcRecursos',
 	    'ProcElaboro',
 	    'ProcReviso',
-	    'ProcAprobo'
+        'ProcAprobo',
+        'ProcDate',
+        'ProcAlcance',
+        'ProcAmbienTrabajo',
+        'ProcPolitOperacion'
 	];
 
 	/**
