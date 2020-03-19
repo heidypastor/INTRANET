@@ -324,9 +324,9 @@ Procesos
 				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcObjetivo">Alcance del Proceso</label>
-							<textarea class="form-control" id="ProcObjetivo" name="ProcObjetivo">
-							Objetivo de ejemplo para el proceso de compras
+							<label class="input-label" for="ProcAlcance">Alcance del Proceso</label>
+							<textarea max="500" class="form-control" id="ProcAlcance" name="ProcAlcance">
+							campo de texto para el alcance del proceso max 500 caracteres
 							</textarea> 
 						</div>
 					</div>

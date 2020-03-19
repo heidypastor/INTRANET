@@ -18,7 +18,7 @@ class DocumentsSeeder extends Seeder
        $document->DocName = 'Sistemas Doc';
        $document->DocSrc = '';
        $document->DocVersion = 'AC';
-       $document->DocType = 'Formatos';
+       $document->DocType = 'Formatos'; /*MANUALES O PROCEDIMIENTOS / INSTRUCTIVOS / FORMATOS*/
        $document->DocMime = 'PDF';
        $document->DocOriginalName = 'test.PDF';
        $document->DocSize = 82;
@@ -32,7 +32,7 @@ class DocumentsSeeder extends Seeder
        $document->DocName = 'Sistemas Doc';
        $document->DocSrc = '';
        $document->DocVersion = 'AC';
-       $document->DocType = 'Formatos';
+       $document->DocType = 'Formatos'; /*MANUALES O PROCEDIMIENTOS / INSTRUCTIVOS / FORMATOS*/
        $document->DocMime = 'PDF';
        $document->DocOriginalName = 'test.PDF';
        $document->DocSize = 82;
