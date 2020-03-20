@@ -67,7 +67,7 @@ class ProcessController extends Controller
             $recursos = Recursos::all(['id', 'RecName', 'RecType']);
             $gambientales = Gambiental::all(['id', 'GesName', 'GesType']);
             $gseguridades = Gseguridad::all(['id', 'SeguName', 'SeguType']);
-            $cargos = Cargo::all(['id', 'CargoName']);
+            $cargos = Cargo::orderBy('CargoName')->get(['id', 'CargoName']);
 
             /* variables para los formularios de destroy */
             $salidasDrop = Output::doesntHave('procesos')->get();
@@ -207,7 +207,7 @@ class ProcessController extends Controller
             $recursos = Recursos::all(['id', 'RecName', 'RecType']);
             $gambientales = Gambiental::all(['id', 'GesName', 'GesType']);
             $gseguridades = Gseguridad::all(['id', 'SeguName', 'SeguType']);
-            $cargos = Cargo::all(['id', 'CargoName']);
+            $cargos = Cargo::orderBy('CargoName')->get(['id', 'CargoName']);
 
 
             /* variables para los formularios de destroy */

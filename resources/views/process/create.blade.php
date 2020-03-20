@@ -137,9 +137,7 @@ Procesos
 							<label class="input-label" for="ProcResponsable">Responsable del Proceso</label>
 							<select id="ProcResponsable" class="form-control" name="ProcResponsable[]" placeholder="seleccione" multiple>
 								@foreach($cargos as $cargo)
-								@foreach ($areas as $area)
-								<option value="{{$cargo->CargoName}} {{$area->AreaName}}">{{$cargo->CargoName}} {{$area->AreaName}}</option>
-								@endforeach
+								<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
 							</select>
 						</div>

@@ -39,7 +39,7 @@ class AreasSeeder extends Seeder
 
         // id = 05
         $area = new Areas();
-        $area->AreaName = 'Direccion';
+        $area->AreaName = 'Direccion Planta';
         $area->AreaSede = 'Planta';
         $area->save();  
 
