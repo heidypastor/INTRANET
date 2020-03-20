@@ -243,17 +243,17 @@ class ProcessController extends Controller
     {
         $proceso->update($request->all());
 
-        $process->entradas()->sync($request->input('Entradas'));
-        $process->salidas()->sync($request->input('Salidas'));
-        $process->actividades()->sync($request->input('Actividades'));
-        $process->clientes()->sync($request->input('Clientes'));
-        $process->proveedores()->sync($request->input('Provedores'));
-        $process->documentos()->sync($request->input('Docs'));
-        $process->areas()->sync($request->input('Areas'));
-        $process->indicadores()->sync($request->input('Indicadores'));
-        $process->procesosDeSoporte()->sync($request->input('Soporte'));
-        $process->requisitos()->sync($request->input('ProcRequsitos'));
-        $process->recursos()->sync($request->input('ProcRecursos'));
+        $proceso->entradas()->sync($request->input('Entradas'));
+        $proceso->salidas()->sync($request->input('Salidas'));
+        $proceso->actividades()->sync($request->input('Actividades'));
+        $proceso->clientes()->sync($request->input('Clientes'));
+        $proceso->proveedores()->sync($request->input('Provedores'));
+        $proceso->documentos()->sync($request->input('Docs'));
+        $proceso->areas()->sync($request->input('Areas'));
+        $proceso->indicadores()->sync($request->input('Indicadores'));
+        $proceso->procesosDeSoporte()->sync($request->input('Soporte'));
+        $proceso->requisitos()->sync($request->input('ProcRequsitos'));
+        $proceso->recursos()->sync($request->input('ProcRecursos'));
 
 
         return redirect()->route('proceso.index')->withStatus(__('Proceso actualizado correctamente'));
