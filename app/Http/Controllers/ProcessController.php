@@ -171,6 +171,7 @@ class ProcessController extends Controller
         $proceso['gambientals'] = $proceso->gambientals()->get();
         $proceso['gseguridads'] = $proceso->gseguridads()->get();
 
+        /*return $proceso->proveedores;*/
 
         $roles = Role::all(['id', 'name']);
 

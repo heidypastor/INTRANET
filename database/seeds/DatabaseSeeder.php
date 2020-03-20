@@ -22,7 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call([ActivitiesSeeder::class]);
         $this->call([OutputsSeeder::class]);
         $this->call([InputsSeeder::class]);
-        /*$this->call([ProcessesSeeder::class]);*/
         $this->call([ReleasesSeeder::class]);
         $this->call([RequisitosSeeder::class]);
         $this->call([AlertsSeeder::class]);
@@ -32,5 +31,6 @@ class DatabaseSeeder extends Seeder
         $this->call([GambientalSeeder::class]);
         $this->call([GseguridadSeeder::class]);
         $this->call([ClienteSeeder::class]);
+        $this->call([ProcessesSeeder::class]);
     }
 }

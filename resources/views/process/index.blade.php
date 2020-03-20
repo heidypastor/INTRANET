@@ -35,9 +35,9 @@ Procesos
 			  		
 			  		<th data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Responsable</b>" data-content="Usuario responsable del proceso.">Responsable</th>
 
-			  		<th data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Requisitos</b>" data-content="Requisitos y documentos legales asociados al proceso.">Requisitos</th>
+			  		{{-- <th data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Requisitos</b>" data-content="Requisitos y documentos legales asociados al proceso.">Requisitos</th> --}}
 
-			  		<th data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Recursos Necesarios</b>" data-content="Recursos necesarios para el desarrollo del proceso ya sean de tipo: <br> <ul> <li>Fisico <li>Humano <li>Financiero </ul>">Recursos Necesarios</th>
+			  		{{-- <th data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Recursos Necesarios</b>" data-content="Recursos necesarios para el desarrollo del proceso ya sean de tipo: <br> <ul> <li>Fisico <li>Humano <li>Financiero </ul>">Recursos Necesarios</th> --}}
 
 			  		<th data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Elaborado por:</b>" data-content="Usuario que elaboro el proceso.">Elaborado por:</th>
 			  		
@@ -60,7 +60,7 @@ Procesos
 							@endforeach
 						</ul>
 			        </td>
-			        <td class="text-center">
+			        {{-- <td class="text-center">
 				        	@foreach($proceso->requisitos as $requisito)
 				        		{{$requisito->ReqName}}<br>
 				        	@endforeach
@@ -84,7 +84,7 @@ Procesos
 							</li>
 							@endforeach
 						</ul>
-					</td>
+					</td> --}}
 
 			        <td class="text-center">{{$proceso->ProcElaboro}}</td>
 			        {{-- <td class="text-center">{{$proceso->ProcAprobo}}</td> --}}

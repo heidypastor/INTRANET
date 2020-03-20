@@ -125,7 +125,7 @@ Proceso de {{$proceso->ProcName}}
 			<div class="col-md-9 margen">
 				<ul>
 					@foreach($proceso->proveedores as $proveedor)
-						<li>{{$proveedor->ProcName}}</li>
+						<li>{{$proveedor->ProvName}}</li>
 					@endforeach
 				</ul>
 			</div>
