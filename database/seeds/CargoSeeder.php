@@ -166,5 +166,10 @@ class CargoSeeder extends Seeder
         $cargo = new Cargo();
         $cargo->CargoName = 'Jefe de Tesoreria';
         $cargo->save();
+
+        // id = 32
+        $cargo = new Cargo();
+        $cargo->CargoName = 'Asesor Juridico';
+        $cargo->save();
     }
 }
