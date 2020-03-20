@@ -71,7 +71,11 @@ Usuarios
                                     <label class="form-control-label" for="input-roles">{{ __('Cargos') }}</label>
                                     <select multiple name="Cargos[]" id="input-role" class="form-control form-control-alternative{{ $errors->has('Cargos') ? ' is-invalid' : '' }}" placeholder="{{ __('Seleccion los Cargos del usuario') }}" value="{{ old('Cargos[]') }}" autofocus>
                                         @foreach($cargos as $cargo)
-                                        <option value="{{$cargo->id}}">{{$cargo->CargoName}}</option>
+                                        <option 
+                                        @foreach ($user->cargos as $cargodelusuario)
+                                        {{ $cargodelusuario->id == $cargo->id ? 'Selected' : ""}}
+                                        @endforeach
+                                        value="{{$cargo->id}}">{{$cargo->CargoName}}</option>
                                         @endforeach
                                     </select>
                                     @include('alerts.feedback', ['field' => 'Cargos'])
