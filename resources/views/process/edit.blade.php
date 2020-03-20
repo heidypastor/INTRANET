@@ -507,33 +507,37 @@ Procesos
 
 
 				<div class="form-row" id="containerDePoliticas">
+					@foreach($proceso->ProcPolitOperacion as $operacion)
 					<div class="col-md-6 col-xs-12" id="politicaOperacion0">
 						<div class="form-group">
 							<label class="input-label" for="ProcPolitOperacioninput0">Politica de Operación</label>
 							<div class="input-group">
-								<input type="text" required id="ProcPolitOperacioninput0" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2" name="ProcPolitOperacion[]">
+								<input type="text" required id="ProcPolitOperacioninput0" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2" name="ProcPolitOperacion[]" value="{{$operacion}}"> 
 								<div class="input-group-append eliminarpolitica">
 								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropPolitica(0)">Borrar</button>
 								</div>
 							</div>
 						</div>
 					</div>
+					@endforeach
 				</div>
 
 
 
 				<div class="form-row" id="containerDeRiesgos">
+					@foreach($proceso->ProcRiesgos as $riesgo)
 					<div class="col-md-6 col-xs-12" id="riesgos0">
 						<div class="form-group">
 							<label class="input-label" for="ProcRiesgosinput0">Riesgos</label>
 							<div class="input-group">
-								<input type="text" required id="ProcRiesgosinput0" class="form-control" placeholder="Riesgos" aria-label="Riesgos" aria-describedby="button-addon2" name="ProcRiesgos[]">
+								<input type="text" required id="ProcRiesgosinput0" class="form-control" placeholder="Riesgos" aria-label="Riesgos" aria-describedby="button-addon2" name="ProcRiesgos[]" value="{{$riesgo}}">
 								<div class="input-group-append eliminarpolitica">
 								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropRiesgo(0)">Borrar</button>
 								</div>
 							</div>
 						</div>
 					</div>
+					@endforeach
 				</div>
 
 

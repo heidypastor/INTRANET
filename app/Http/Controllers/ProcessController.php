@@ -139,6 +139,8 @@ class ProcessController extends Controller
         $process->procesosDeSoporte()->attach($request->input('Soporte'));
         $process->requisitos()->attach($request->input('ProcRequsitos'));
         $process->recursos()->attach($request->input('ProcRecursos'));
+        $process->gambientals()->attach($request->input('Gambiental'));
+        $process->gseguridads()->attach($request->input('Gseguridad'));
         // $process->seguimientos()->attach($request->input('Seguimientos'));
         /*$document->assignAreas($areas);*/
 
@@ -169,6 +171,7 @@ class ProcessController extends Controller
         $proceso['gambientals'] = $proceso->gambientals()->get();
         $proceso['gseguridads'] = $proceso->gseguridads()->get();
 
+        /*return $proceso->proveedores;*/
 
         $roles = Role::all(['id', 'name']);
 

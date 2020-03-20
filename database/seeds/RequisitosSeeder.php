@@ -12,7 +12,7 @@ class RequisitosSeeder extends Seeder
      */
     public function run()
     {
-    			// Id = 01
+    	// Id = 01
         $requisito = new Requisitos();
         $requisito->ReqName = 'Requisito #1';
         $requisito->ReqType = 'Prueba';
@@ -24,7 +24,7 @@ class RequisitosSeeder extends Seeder
         $requisito->save();
 
 
-        		// Id = 02
+        // Id = 02
         $requisito = new Requisitos();
         $requisito->ReqName = 'Requisito #2';
         $requisito->ReqType = 'Prueba';

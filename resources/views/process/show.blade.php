@@ -99,7 +99,11 @@ Proceso de {{$proceso->ProcName}}
 			</div>
 			<div class="col-md-3 margen">
 				<h4>RESPONSABLES</h4><br>
-				<p></p>
+				<p>
+					@foreach($proceso->ProcResponsable as $responsable)
+						<li>{{$responsable}}</li>
+					@endforeach
+				</p>
 			</div>
 		</div>
 		<div class="col-md-12">
@@ -121,7 +125,7 @@ Proceso de {{$proceso->ProcName}}
 			<div class="col-md-9 margen">
 				<ul>
 					@foreach($proceso->proveedores as $proveedor)
-						<li>{{$proveedor->ProcName}}</li>
+						<li>{{$proveedor->ProvName}}</li>
 					@endforeach
 				</ul>
 			</div>
@@ -250,7 +254,11 @@ Proceso de {{$proceso->ProcName}}
 		<div class="row">
 			<div class="col-md-12 text-center margen">
 				<h4>RIESGOS</h4><hr>
-				<p>{{$proceso->ProcRiesgos}}</p>
+				<p>
+					@foreach($proceso->ProcRiesgos as $riesgo)
+						<li>{{$riesgo}}</li>
+					@endforeach
+				</p>
 			</div>
 		</div>
 		<div class="col-md-12">
@@ -323,7 +331,11 @@ Proceso de {{$proceso->ProcName}}
 		<div class="row">
 			<div class="col-md-12 margen text-center">
 				<h4>POLITICA DE OPERACIÓN</h4><hr>
-				{{-- Espacio reservado para el foreach de politicas de operación --}}
+				<p>
+					@foreach($proceso->ProcPolitOperacion  as $operacion)
+						<li>{{$operacion}}</li>
+					@endforeach
+				</p>
 			</div>
 		</div>
 		<div class="col-md-12">
@@ -419,7 +431,7 @@ Proceso de {{$proceso->ProcName}}
 								<li>{{$documento->DocName}}</li><hr>
 							</div>
 							<div class="col-md-6">
-								<li>{{-- {{$documento->IndObjective}} --}}</li><hr>
+								<li>{{$documento->DocIdentification}}</li><hr>
 							</div>
 						@endif
 					@endforeach
@@ -440,7 +452,7 @@ Proceso de {{$proceso->ProcName}}
 								<li>{{$documento->DocName}}</li><hr>
 							</div>
 							<div class="col-md-6">
-								<li>{{-- {{$documento->Doc}} --}}</li><hr>
+								<li>{{$documento->DocIdentification}}</li><hr>
 							</div>
 						@endif
 					@endforeach
@@ -461,7 +473,7 @@ Proceso de {{$proceso->ProcName}}
 								<li>{{$documento->DocName}}</li><hr>
 							</div>
 							<div class="col-md-6">
-								<li>{{-- {{$documento->Doc}} --}}</li><hr>
+								<li>{{$documento->DocIdentification}}</li><hr>
 							</div>
 						@endif
 					@endforeach
