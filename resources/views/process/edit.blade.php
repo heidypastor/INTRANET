@@ -18,7 +18,7 @@ Procesos
 	<div class="card">
 		<div class="card-header px-4">
 			<div class="row justify-content-between">
-				<div>
+				<div> 
 					<h2>
 						<b>{{'Editar Proceso'}}</b>
 					</h2>
@@ -117,6 +117,14 @@ Procesos
 									</button>
 								</ul>
 							</li>
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Riesgos</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<button class="dropdown-item" id="addriesgobutton" onclick="addRiesgo()">
+									Añadir riesgo
+									</button>
+								</ul>
+							</li>
 							<!-- End Level two -->
 						</ul>
 					</div>
@@ -148,8 +156,8 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcAlcance">Alcance del Proceso</label>
-							<textarea  max="500" class="form-control" id="ProcAlcance" name="ProcAlcance" value="{{$proceso->ProcAlcance}}">
-							campo de texto para el alcance del proceso max 500 caracteres
+							<textarea  max="500" class="form-control" id="ProcAlcance" name="ProcAlcance">
+							{{$proceso->ProcAlcance}}
 							</textarea> 
 						</div>
 					</div>
@@ -288,6 +296,16 @@ Procesos
 									>{{$proveedor->ProvName}}</option>
 								@endforeach
 							</select>
+						</div>
+					</div>
+
+
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcAmbienTrabajo">Ambiente de Trabajo</label>
+							<textarea class="form-control" id="ProcAmbienTrabajo" name="ProcAmbienTrabajo">
+								{{$proceso->ProcAmbienTrabajo}}
+							</textarea> 
 						</div>
 					</div>
 				</div>
@@ -489,6 +507,39 @@ Procesos
 					</div>
 				</div>
 
+
+
+				<div class="form-row" id="containerDePoliticas">
+					<div class="col-md-6 col-xs-12" id="politicaOperacion0">
+						<div class="form-group">
+							<label class="input-label" for="ProcPolitOperacioninput0">Politica de Operación</label>
+							<div class="input-group">
+								<input type="text" required id="ProcPolitOperacioninput0" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2" name="ProcPolitOperacion[]">
+								<div class="input-group-append eliminarpolitica">
+								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropPolitica(0)">Borrar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+				<div class="form-row" id="containerDeRiesgos">
+					<div class="col-md-6 col-xs-12" id="riesgos0">
+						<div class="form-group">
+							<label class="input-label" for="ProcRiesgosinput0">Riesgos</label>
+							<div class="input-group">
+								<input type="text" required id="ProcRiesgosinput0" class="form-control" placeholder="Riesgos" aria-label="Riesgos" aria-describedby="button-addon2" name="ProcRiesgos[]">
+								<div class="input-group-append eliminarpolitica">
+								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropRiesgo(0)">Borrar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
 				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
@@ -520,7 +571,7 @@ Procesos
 						<div class="form-group">
 							<label class="input-label" for="ProcObjetivo">Objetivo del Proceso</label>
 							<textarea class="form-control" id="ProcObjetivo" name="ProcObjetivo">
-								Objetivo de ejemplo para el proceso de compras
+								{{$proceso->ProcObjetivo}}
 							</textarea>
 						</div>
 					</div>
@@ -1541,6 +1592,32 @@ Procesos
 		var id = $('#politicaOperacion'+id).remove();
 	};
 </script>
+
+
+<script type="text/javascript">
+	var contadorRiesgos = 0;
+	function addRiesgo(){
+		contadorRiesgos++
+		container = $('#containerDeRiesgos')
+		container.append(`<div class="col-md-6 col-xs-12" id="riesgos`+contadorRiesgos+`">
+						<div class="form-group">
+							<label class="input-label" for="ProcRiesgos`+contadorRiesgos+`">Riesgos</label>
+							<div class="input-group">
+								<input type="text" required id="ProcRiesgosinput`+contadorRiesgos+`" class="form-control" placeholder="Riesgos" aria-label="Riesgos" aria-describedby="button-addon2" name="ProcRiesgos[]">
+								<div class="input-group-append eliminarpolitica">
+								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropRiesgo(`+contadorRiesgos+`)">Borrar</button>
+								</div>
+							</div>
+						</div>
+					</div>`)
+	};
+
+	function dropRiesgo(id){
+		var id = $('#riesgos'+id).remove();
+	};
+</script>
+
+
 <script>
 $(function() {
   // ------------------------------------------------------- //

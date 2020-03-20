@@ -72,6 +72,37 @@ Documentos
                             </tr>
                             @endforeach
                         </tbody>
+                    @else
+                        <tbody>
+                            @foreach($publicadodocumentos as $publicadodocumento)
+                            <tr>
+                                <td class="text-center">{{$publicadodocumento->DocName}}</td>
+                                <td class="text-center">
+                                    @if($publicadodocumento->DocSrc === "")
+                                        <p><a href="/white/img/test.pdf"><strong>Archivo</strong></a></p>
+                                    @else
+                                        <p><a target="_blank" href="{{Storage::url($publicadodocumento->DocSrc)}}">{{$publicadodocumento->DocOriginalName}}</a></p>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{$publicadodocumento->DocVersion}}</td>
+                                {{-- <td class="text-center">{{$Document->DocSize}}</td> --}}
+                                <td class="text-center">{{ $publicadodocumento->DocPublisher === 0 ? "No Publicado" : "Publicado" }}</td>
+                                <td class="text-center">{{$publicadodocumento->DocType}}</td>
+                                <td class="text-center">
+                                    <ul class="list-group list-group-flush">
+                                        @foreach($publicadodocumento->areas as $area)
+                                        <li class="list-group-item" style="background-color: #ffffff;"><font color="#525f7f">{{$area->AreaName}}</font></li>
+                                        @endforeach  
+                                    </ul>
+                                </td>
+                                @hasrole('Super Admin')
+                                    <td class="text-center"><a href="documents/{{$Document->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a></td>
+                                @else
+                                    
+                                @endhasrole
+                            </tr>
+                            @endforeach
+                        </tbody>
                     @endcan
 			</table>
 		</div>
