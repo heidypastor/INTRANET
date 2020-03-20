@@ -17,6 +17,7 @@ use App\Proveedor;
 use App\Recursos;
 use App\Gambiental;
 use App\Gseguridad;
+use App\Cargo;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -66,6 +67,7 @@ class ProcessController extends Controller
             $recursos = Recursos::all(['id', 'RecName', 'RecType']);
             $gambientales = Gambiental::all(['id', 'GesName', 'GesType']);
             $gseguridades = Gseguridad::all(['id', 'SeguName', 'SeguType']);
+            $cargos = Cargo::orderBy('CargoName')->get(['id', 'CargoName']);
 
             /* variables para los formularios de destroy */
             $salidasDrop = Output::doesntHave('procesos')->get();
@@ -82,7 +84,7 @@ class ProcessController extends Controller
 
 
             // return $actividades;
-            return view('process.create', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'usuario', 'recursos', 'recursosDrop', 'gambientales', 'gambientalesDrop', 'gseguridades', 'gseguridadesDrop']));
+            return view('process.create', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'usuario', 'recursos', 'recursosDrop', 'gambientales', 'gambientalesDrop', 'gseguridades', 'gseguridadesDrop', 'cargos']));
         }else{
             abort(403, 'El usuario no se encuentra autorizado para crear Procesos');
         }
@@ -110,7 +112,7 @@ class ProcessController extends Controller
         $process->ProcAmbienTrabajo = $request->input('ProcAmbienTrabajo');
         $process->ProcResponsable = $request->input('ProcResponsable');
         $process->ProcAutoridad = $request->input('ProcAutoridad');
-        $process->ProcRecursos = 'ninguno';
+        // $process->ProcRecursos = 'ninguno';
         $process->ProcElaboro = $request->input('ProcElaboro');
 
         $process->ProcPolitOperacion = $request->input('ProcPolitOperacion');
@@ -206,6 +208,8 @@ class ProcessController extends Controller
             $recursos = Recursos::all(['id', 'RecName', 'RecType']);
             $gambientales = Gambiental::all(['id', 'GesName', 'GesType']);
             $gseguridades = Gseguridad::all(['id', 'SeguName', 'SeguType']);
+            $cargos = Cargo::orderBy('CargoName')->get(['id', 'CargoName']);
+
 
             /* variables para los formularios de destroy */
             $salidasDrop = Output::doesntHave('procesos')->get();
@@ -219,7 +223,7 @@ class ProcessController extends Controller
             $gseguridadesDrop = Gseguridad::doesntHave('procesos')->get();
 
             /*return $proceso->entradas;*/
-            return view('process.edit', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'usuario', 'proceso', 'recursos', 'gambientales', 'gseguridades', 'recursosDrop', 'gambientalesDrop', 'gseguridadesDrop']));
+            return view('process.edit', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'usuario', 'proceso', 'recursos', 'gambientales', 'gseguridades', 'recursosDrop', 'gambientalesDrop', 'gseguridadesDrop', 'cargos']));
 
         }else{
             abort(403, 'El usuario no se encuentra autorizado para editar Procesos');
