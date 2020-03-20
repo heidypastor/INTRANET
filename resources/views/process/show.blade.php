@@ -43,8 +43,8 @@ Proceso de {{$proceso->ProcName}}
 			<br><br>
 		</div>
 		<div class="row color">
-			<div class="col-md-3 margen">
-				<img src="white/img/logo_nombre.png">
+			<div class="col-md-3 margen" style="background-color:white;">
+			<img src="{{asset('white/img/logo_nombre.png')}}" class="py-5">
 			</div>
 			<div class="col-md-5 text-center margen">
 				<h4>CARACTERIZACIÓN DE PROCESO</h4><br>
