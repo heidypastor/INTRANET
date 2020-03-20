@@ -174,7 +174,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcResponsable">Responsable del Proceso</label>
-							<select id="ProcResponsable" required class="form-control" name="ProcResponsable" placeholder="seleccione" multiple>
+							<select id="ProcResponsable" required class="form-control" name="ProcResponsable[]" placeholder="seleccione" multiple>
 								@foreach($cargos as $cargo)
 									<option 
 									@foreach ($proceso->ProcResponsable as $responsable)
