@@ -97,7 +97,7 @@ class ProcessController extends Controller
     public function store(Request $request)
     {
 
-        // return $request;
+        /*return $request;*/
         $path = $request->file('ProcImage')->store('public/Procesos');
 
         // se crea el registro del documento en la base de datos
@@ -113,8 +113,8 @@ class ProcessController extends Controller
         $process->ProcRecursos = 'ninguno';
         $process->ProcElaboro = $request->input('ProcElaboro');
 
-        /*$process->ProcPolitOperacion = $request->input('ProcPolitOperacion');
-        $process->ProcRiesgos = $request->input('ProcRiesgos');*/
+        $process->ProcPolitOperacion = $request->input('ProcPolitOperacion');
+        $process->ProcRiesgos = $request->input('ProcRiesgos'); 
 
         $process->ProcReviso = $request->input('ProcReviso');
         $process->ProcAprobo = $request->input('ProcAprobo');

@@ -30,7 +30,8 @@ class Process extends Model
         'ProcDate',
         'ProcAlcance',
         'ProcAmbienTrabajo',
-        'ProcPolitOperacion'
+        'ProcPolitOperacion',
+        'ProcRiesgos'
 	];
 
 	/**
@@ -149,7 +150,8 @@ class Process extends Model
 	 */
 	protected $casts = [
 	    'ProcResponsable' => 'array',
-	    'ProcPolitOperacion' => 'array',
+        'ProcPolitOperacion' => 'array',
+	    'ProcRiesgos' => 'array'
     ];
     
     protected $dates = ['deleted_at', 'updated_at', 'created_at'];
