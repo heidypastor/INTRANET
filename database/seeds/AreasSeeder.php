@@ -79,5 +79,17 @@ class AreasSeeder extends Seeder
         $area->AreaSede = 'Bogotá';
         $area->save();
 
+        // id = 12
+        $area = new Areas();
+        $area->AreaName = 'PDA';
+        $area->AreaSede = 'Planta';
+        $area->save();
+
+        // id = 13
+        $area = new Areas();
+        $area->AreaName = 'Gestión Humana';
+        $area->AreaSede = 'Planta';
+        $area->save();
+
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Cargo;
+use App\Areas;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
@@ -35,8 +36,9 @@ class UserController extends Controller
         $roles = Role::where('name', '!=', 'Super Admin')->get();
         $permisos = Permission::all();
         $cargos = Cargo::all();
+        $areas = Areas::all();
 
-        return view('users.create', compact(['roles', 'permisos', 'cargos']));
+        return view('users.create', compact(['roles', 'permisos', 'cargos', 'areas']));
     }
 
     /**
@@ -77,9 +79,11 @@ class UserController extends Controller
         $roles = Role::where('name', '!=', 'Super Admin')->get();
         $permisos = Permission::all();
         $cargos = Cargo::all();
+        $areas = Areas::all();
 
         
-        return view('users.edit', compact(['user', 'roles', 'permisos', 'cargos']));
+        return view('users.edit', compact(['user', 'roles', 'permisos', 'cargos', 'areas']));
+        
     }
 
     /**

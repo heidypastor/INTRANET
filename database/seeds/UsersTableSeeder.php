@@ -25,6 +25,7 @@ class UsersTableSeeder extends Seeder
         $admin->areas_id = 1;
         $admin->save();
         $admin->assignRole('Super Admin');
+        $admin->cargo()->sync('1');
 
         $admin = new User();
         $admin->name = 'Heidy Pastor Muñoz';
@@ -36,6 +37,7 @@ class UsersTableSeeder extends Seeder
         $admin->areas_id = 1;
         $admin->save();
         $admin->assignRole('Super Admin');
+        $admin->cargo()->sync('22');
 
 
         $user = new User();
@@ -48,6 +50,7 @@ class UsersTableSeeder extends Seeder
         $user->areas_id = 3;
         $user->save();
         $user->assignRole('JefeArea');
+        $user->cargo()->sync('29');
 
         $user = new User();
         $user->name = 'Jhon Gonzales Bravo';
@@ -59,6 +62,7 @@ class UsersTableSeeder extends Seeder
         $user->areas_id = 2;
         $user->save();
         $user->assignRole('JefeArea');
+        $user->cargo()->sync('26');
 
         $user = new User();
         $user->name = 'Duvan Campos Moncada';
@@ -70,6 +74,7 @@ class UsersTableSeeder extends Seeder
         $user->areas_id = 2;
         $user->save();
         $user->assignRole('User');
+        $user->cargo()->sync('5');
 
         $user = new User();
         $user->name = 'Alejandro Gamba Cubillos';
@@ -81,6 +86,7 @@ class UsersTableSeeder extends Seeder
         $user->areas_id = 2;
         $user->save();
         $user->assignRole('User');
+        $user->cargo()->sync('4');
 
         $user = new User();
         $user->name = 'Andres Moreno Bello';
@@ -89,9 +95,22 @@ class UsersTableSeeder extends Seeder
         $user->password = bcrypt('secret');
         $user->Avatar = 'robot400x400.gif';
         $user->ColorUser = 1;
-        $user->areas_id = 6;
+        $user->areas_id = 13;
         $user->save();
         $user->assignRole('User');
+        $user->cargo()->sync('13');
+
+        $user = new User();
+        $user->name = 'Andres Moreno Bello';
+        $user->email = 'ingenierohseq@prosarc.com.co';
+        $user->email_verified_at = now();
+        $user->password = bcrypt('secret');
+        $user->Avatar = 'robot400x400.gif';
+        $user->ColorUser = 1;
+        $user->areas_id = 12;
+        $user->save();
+        $user->assignRole('User');
+        $user->cargo()->sync('20');
 
         $user = new User();
         $user->name = 'David Pizza';
@@ -103,6 +122,7 @@ class UsersTableSeeder extends Seeder
         $user->areas_id = 5;
         $user->save();
         $user->assignRole('Director');
+        $user->cargo()->sync('3');
 
         $user = new User();
         $user->name = 'Camilo Triviño Suarez';
@@ -114,9 +134,10 @@ class UsersTableSeeder extends Seeder
         $user->areas_id = 3;
         $user->save();
         $user->assignRole('User');
+        $user->cargo()->sync('28');
 
         $user = new User();
-        $user->name = 'Oscar Vasquez Hernandez';
+        $user->name = 'Andrea ';
         $user->email = 'ingtratamiento3@prosarc.com.co';
         $user->email_verified_at = now();
         $user->password = bcrypt('secret');
@@ -125,6 +146,7 @@ class UsersTableSeeder extends Seeder
         $user->areas_id = 3;
         $user->save();
         $user->assignRole('User');
+        $user->cargo()->sync('28');
 
         $user = new User();
         $user->name = 'William Cendales Arevalo';
@@ -136,6 +158,7 @@ class UsersTableSeeder extends Seeder
         $user->areas_id = 3;
         $user->save();
         $user->assignRole('User');
+        $user->cargo()->sync('28');
 
         $user = new User();
         $user->name = 'Orlando Pinillos';
@@ -147,6 +170,7 @@ class UsersTableSeeder extends Seeder
         $user->areas_id = 10;
         $user->save();
         $user->assignRole('JefeArea');
+        $user->cargo()->sync('17');
 
         $user = new User();
         $user->name = 'Maria Molano González';
@@ -158,6 +182,7 @@ class UsersTableSeeder extends Seeder
         $user->areas_id = 10;
         $user->save();
         $user->assignRole('User');
+        $user->cargo()->sync('7');
 
         $user = new User();
         $user->name = 'Lorena Urriago Javela';
@@ -169,6 +194,7 @@ class UsersTableSeeder extends Seeder
         $user->areas_id = 10;
         $user->save();
         $user->assignRole('User');
+        $user->cargo()->sync('7');
 
         $user = new User();
         $user->name = 'Briyith Rodriguez Sanchez';
@@ -180,6 +206,7 @@ class UsersTableSeeder extends Seeder
         $user->areas_id = 10;
         $user->save();
         $user->assignRole('User');
+        $user->cargo()->sync('7');
 
         $user = new User();
         $user->name = 'Miguel Martinez';
@@ -191,6 +218,7 @@ class UsersTableSeeder extends Seeder
         $user->areas_id = 10;
         $user->save();
         $user->assignRole('User');
+        $user->cargo()->sync('7');
 
         $user = new User();
         $user->name = 'Cesar';
@@ -202,6 +230,7 @@ class UsersTableSeeder extends Seeder
         $user->areas_id = 10;
         $user->save();
         $user->assignRole('User');
+        $user->cargo()->sync('7');
 
         $user = new User();
         $user->name = 'Lady Céspedes Moreno';
@@ -213,6 +242,7 @@ class UsersTableSeeder extends Seeder
         $user->areas_id = 10;
         $user->save();
         $user->assignRole('User');
+        $user->cargo()->sync('30');
 
         $user = new User();
         $user->name = 'Nidia Zorillo';
@@ -224,6 +254,7 @@ class UsersTableSeeder extends Seeder
         $user->areas_id = 11;
         $user->save();
         $user->assignRole('JefeArea');
+        $user->cargo()->sync('31');
 
         $user = new User();
         $user->name = 'Andres Cardenas';
@@ -235,6 +266,7 @@ class UsersTableSeeder extends Seeder
         $user->areas_id = 9;
         $user->save();
         $user->assignRole('Gerente');
+        $user->cargo()->sync('6');
 
         $user = new User();
         $user->name = 'Leider Osorio Hoyos';
@@ -246,6 +278,7 @@ class UsersTableSeeder extends Seeder
         $user->areas_id = 6;
         $user->save();
         $user->assignRole('JefeArea');
+        $user->cargo()->sync('27');
 
         $user = new User();
         $user->name = 'Sandro';
@@ -257,6 +290,7 @@ class UsersTableSeeder extends Seeder
         $user->areas_id = 7;
         $user->save();
         $user->assignRole('JefeArea');
+        $user->cargo()->sync('24');
 
         $user = new User();
         $user->name = 'Edwin';
@@ -268,6 +302,7 @@ class UsersTableSeeder extends Seeder
         $user->areas_id = 4;
         $user->save();
         $user->assignRole('JefeArea');
+        $user->cargo()->sync('25');
 
     }
 }

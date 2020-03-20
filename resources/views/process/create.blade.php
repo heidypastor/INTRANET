@@ -136,8 +136,10 @@ Procesos
 						<div class="form-group">
 							<label class="input-label" for="ProcResponsable">Responsable del Proceso</label>
 							<select id="ProcResponsable" class="form-control" name="ProcResponsable[]" placeholder="seleccione" multiple>
-								@foreach($roles as $rol)
-									<option value="{{$rol->name}}">{{$rol->name}}</option>
+								@foreach($cargos as $cargo)
+								@foreach ($areas as $area)
+								<option value="{{$cargo->CargoName}} {{$area->AreaName}}">{{$cargo->CargoName}} {{$area->AreaName}}</option>
+								@endforeach
 								@endforeach
 							</select>
 						</div>
@@ -149,8 +151,8 @@ Procesos
 						<div class="form-group">
 							<label class="input-label" for="ProcAutoridad">Autoridad del Proceso</label>
 							<select id="ProcAutoridad" class="form-control" name="ProcAutoridad" placeholder="seleccione">
-								@foreach($roles as $rol)
-									<option value="{{$rol->name}}">{{$rol->name}}</option>
+								@foreach($cargos as $cargo)
+									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
 							</select>
 						</div>
@@ -185,8 +187,8 @@ Procesos
 						<div class="form-group">
 							<label class="input-label" for="ProcElaboro">Elaborado Por</label>
 							<select id="ProcElaboro" class="form-control" name="ProcElaboro" placeholder="seleccione">
-								@foreach($roles as $rol)
-									<option value="{{$rol->name}}">{{$rol->name}}</option>
+								@foreach($cargos as $cargo)
+									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
 								{{-- @foreach($users as $user)
 									<option value="{{$user->id}}">{{$user->name}}</option>
@@ -199,8 +201,8 @@ Procesos
 						<div class="form-group">
 							<label class="input-label" for="ProcReviso">Revisado Por</label>
 							<select id="ProcReviso" class="form-control" name="ProcReviso" placeholder="seleccione">
-								@foreach($roles as $rol)
-									<option value="{{$rol->name}}">{{$rol->name}}</option>
+								@foreach($cargos as $cargo)
+									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
 								{{-- @foreach($users as $user)
 									<option value="{{$user->id}}">{{$user->name}}</option>
@@ -215,8 +217,8 @@ Procesos
 						<div class="form-group">
 							<label class="input-label" for="ProcAprobo">Aprobado Por</label>
 							<select id="ProcAprobo" class="form-control" name="ProcAprobo" placeholder="seleccione">
-								@foreach($roles as $rol)
-									<option value="{{$rol->name}}">{{$rol->name}}</option>
+								@foreach($cargos as $cargo)
+									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
 							</select>
 						</div>
