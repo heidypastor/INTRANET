@@ -54,17 +54,37 @@ Usuarios
                                         <option value="{{$role->name}}">{{$role->name}}</option>
                                         @endforeach
                                     </select>
-                                    @include('alerts.feedback', ['field' => 'roles'])
+                                    @include('alerts.feedback', ['field' => 'PermisosDirectos'])
                                 </div>
 
                                 <div class="form-group{{ $errors->has('PermisosDirectos') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-roles">{{ __('Permisos Directos') }}</label>
-                                    <select multiple name="PermisosDirectos[]" id="input-role" class="form-control form-control-alternative{{ $errors->has('PermisosDirectos') ? ' is-invalid' : '' }}" placeholder="{{ __('Seleccion los permisos directos del usuario') }}" value="{{ old('PermisosDirectos[]') }}" autofocus>
+                                    <select multiple name="PermisosDirectos[]" id="input-role" class="form-control form-control-alternative{{ $errors->has('PermisosDirectos') ? ' is-invalid' : '' }}" placeholder="{{ __('Seleccione los permisos directos del usuario') }}" value="{{ old('PermisosDirectos[]') }}" autofocus>
                                         @foreach($permisos as $permiso)
                                         <option value="{{$permiso->name}}">{{$permiso->name}}</option>
                                         @endforeach
                                     </select>
                                     @include('alerts.feedback', ['field' => 'roles'])
+                                </div>
+
+                                <div class="form-group{{ $errors->has('Cargos') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-roles">{{ __('Cargos') }}</label>
+                                    <select name="Cargos[]" id="input-role" class="form-control form-control-alternative{{ $errors->has('Cargos') ? ' is-invalid' : '' }}" placeholder="{{ __('Seleccione los Cargos del usuario') }}" value="{{ old('Cargos[]') }}" autofocus>
+                                        @foreach($cargos as $cargo)
+                                        <option value="{{$cargo->id}}">{{$cargo->CargoName}}</option>
+                                        @endforeach
+                                    </select>
+                                    @include('alerts.feedback', ['field' => 'Cargos'])
+                                </div>
+
+                                <div class="form-group{{ $errors->has('Area') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-roles">{{ __('Area') }}</label>
+                                    <select name="Area" id="input-role" class="form-control form-control-alternative{{ $errors->has('Area') ? ' is-invalid' : '' }}" placeholder="{{ __('Seleccione el Area del usuario') }}" value="{{ old('Area') }}" autofocus>
+                                        @foreach($areas as $area)
+                                        <option value="{{$area->id}}">{{$area->AreaName}}</option>
+                                        @endforeach
+                                    </select>
+                                    @include('alerts.feedback', ['field' => 'Area'])
                                 </div>
 
                                 <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">

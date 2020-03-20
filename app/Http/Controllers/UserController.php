@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Cargo;
+use App\Areas;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
@@ -33,8 +35,10 @@ class UserController extends Controller
     {
         $roles = Role::where('name', '!=', 'Super Admin')->get();
         $permisos = Permission::all();
+        $cargos = Cargo::all();
+        $areas = Areas::all();
 
-        return view('users.create', compact(['roles', 'permisos']));
+        return view('users.create', compact(['roles', 'permisos', 'cargos', 'areas']));
     }
 
     /**
@@ -55,6 +59,8 @@ class UserController extends Controller
         $user->Avatar= 'images/robot400x400.gif';
         $user->save();
 
+
+        $user->cargos()->sync($request->input('Cargos'));
         $user->syncRoles($request->input('roles'));
         $user->syncPermissions($request->input('PermisosDirectos'));
 
@@ -72,8 +78,12 @@ class UserController extends Controller
     {
         $roles = Role::where('name', '!=', 'Super Admin')->get();
         $permisos = Permission::all();
+        $cargos = Cargo::all();
+        $areas = Areas::all();
+
         
-        return view('users.edit', compact(['user', 'roles', 'permisos']));
+        return view('users.edit', compact(['user', 'roles', 'permisos', 'cargos', 'areas']));
+        
     }
 
     /**
@@ -92,6 +102,7 @@ class UserController extends Controller
                 ->except([$hasPassword ? '' : 'password']
         ));
 
+        $user->cargos()->sync($request->input('Cargos'));
         $user->syncRoles($request->input('roles'));
         $user->syncPermissions($request->input('PermisosDirectos'));
 

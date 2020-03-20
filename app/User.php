@@ -36,6 +36,12 @@ class User extends Authenticatable
         //Relación de la tabla documents y la tabla usuarios 
     }
 
+    public function cargos()
+    {
+        return $this->belongsToMany('App\Cargo','cargos_users');
+        //Relación de la tabla documents y la tabla usuarios 
+    }
+
     public function areas()
     {
         return $this->belongsTo('App\Areas');

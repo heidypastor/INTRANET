@@ -37,6 +37,7 @@ Usuarios
                                 <th scope="col">{{ __('Correo Electronico') }}</th>
                                 <th scope="col">{{ __('Fecha de creación') }}</th>
                                 <th scope="col">{{ __('Roles') }}</th>
+                                <th scope="col">{{ __('cargos') }}</th>
                                 <th scope="col"></th>
                             </thead>
                             <tbody>
@@ -51,6 +52,13 @@ Usuarios
                                             <ul class="list-group list-group-flush">
                                                 @foreach($user->roles as $rol)
                                                 <li class="list-group-item">{{$rol->name}}</li>
+                                                @endforeach  
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <ul class="list-group list-group-flush">
+                                                @foreach($user->cargos as $cargo)
+                                                <li class="list-group-item">{{$cargo->CargoName}}</li>
                                                 @endforeach  
                                             </ul>
                                         </td>
