@@ -495,3 +495,14 @@ estilo de imput para input personalizade del documentos.edit*/
   margin: 0em 0em 3em 0em;
   padding: 3em 3em 3em 3em;
 }
+
+/*ajustes para el select2*/
+.select2-container .select2-selection--single{
+  height:38px;
+  padding-top:5px;
+}
+
+.select2-container .select2-selection--multiple{
+  /* height:38px; */
+  padding-top:2px;
+}
