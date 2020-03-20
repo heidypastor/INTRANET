@@ -10,7 +10,8 @@ Procesos
 
 @push('css')
         {{-- <link href="{{ asset('css') }}/datatable-depen.css" rel="stylesheet"/>
-        <link href="{{ asset('css') }}/datatable-plugins.css" rel="stylesheet"/> --}}
+		<link href="{{ asset('css') }}/datatable-plugins.css" rel="stylesheet"/> --}}
+        <link href="{{ asset('css') }}/select2.css" rel="stylesheet"/>
 @endpush
 
 @section('content')
@@ -156,9 +157,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcAlcance">Alcance del Proceso</label>
-							<textarea  max="500" class="form-control" id="ProcAlcance" name="ProcAlcance">
-							{{$proceso->ProcAlcance}}
-							</textarea> 
+							<input  max="500" class="form-control" id="ProcAlcance" name="ProcAlcance" value="{{$proceso->ProcAlcance}}">
 						</div>
 					</div>
 
@@ -303,9 +302,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcAmbienTrabajo">Ambiente de Trabajo</label>
-							<textarea class="form-control" id="ProcAmbienTrabajo" name="ProcAmbienTrabajo">
-								{{$proceso->ProcAmbienTrabajo}}
-							</textarea> 
+							<input class="form-control" id="ProcAmbienTrabajo" name="ProcAmbienTrabajo" value="{{$proceso->ProcAmbienTrabajo}}">
 						</div>
 					</div>
 				</div>
@@ -574,9 +571,8 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcObjetivo">Objetivo del Proceso</label>
-							<textarea class="form-control" id="ProcObjetivo" name="ProcObjetivo">
-								{{$proceso->ProcObjetivo}}
-							</textarea>
+							<input class="form-control" id="ProcObjetivo" name="ProcObjetivo" value="{{$proceso->ProcObjetivo}}">
+							</input>
 						</div>
 					</div>
 					
@@ -1400,13 +1396,20 @@ Procesos
 @push('js')
 	{{-- <script src="{{ asset('js') }}/datatable-depen.js"></script>
 	<script src="{{ asset('js') }}/datatable-plugins.js"></script> --}}
+	<script src="{{ asset('js') }}/select2.js"></script>
 @endpush
 
 {{-- scripts adicionales para el funcionmiento de la vista --}}
 @push('scripts')
 <script>
+	/*script para activar el select 2*/
+	$(document).ready(function() {
+		$('select').select2({
+			placeholder: 'Selecciona...',
+		});
+	});
 
-	{{-- Parte de los script de actualizar --}}
+	// Parte de los script de actualizar 
 
 	function cambiarClienteId(){
 		var id = $('#IdSelectCliente').val();
