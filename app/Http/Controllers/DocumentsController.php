@@ -23,15 +23,15 @@ class DocumentsController extends Controller
     {
        /*$Documents = DB::table('documents')->get();*/
        $Documents = Documents::with('areas')->paginate(10);
-       $borradordocumentos = Documents::where('DocGeneral', 1)->get();
+       $publicadodocumentos = Documents::where('DocPublisher', 1)->get();/*Muestra los publicados*/
        /*return $borradordocumentos;*/
        /*return $Documents;*/
-       $user = User::where('id', 2)->first();
+       $user = User::where('id', [1, 2, 21])->first();
        $user->givePermissionTo('indexDocuments');
        /*$users = User::with('roles')->paginate(10);*/
 
 
-       return view('documents.index', compact('Documents', 'borradordocumentos', 'user'));
+       return view('documents.index', compact('Documents', 'publicadodocumentos', 'user'));
     }
 
     /**

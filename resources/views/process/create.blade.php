@@ -99,6 +99,14 @@ Procesos
 									</button>
 								</ul>
 							</li>
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Riesgos</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<button class="dropdown-item" id="addriesgobutton" onclick="addRiesgo()">
+									Añadir riesgo
+									</button>
+								</ul>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -321,7 +329,7 @@ Procesos
 					</div>
 				</div>
 					
-				<div class="form-row">
+				<div class="form-row" id="containerDeRiesgos">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcAlcance">Alcance del Proceso</label>
@@ -330,12 +338,19 @@ Procesos
 							</textarea> 
 						</div>
 					</div>
-					<div class="col-md-6 col-xs-12">
+
+					<div class="col-md-6 col-xs-12" id="riesgos0">
 						<div class="form-group">
-							<label class="input-label" for="ProcAmbienTrabajo">Ambiente de trabajo</label>
-							<input type="text" required class="form-control" id="ProcAmbienTrabajo" placeholder="Compras" name="ProcAmbienTrabajo" max="500">
+							<label class="input-label" for="ProcRiesgosinput0">Riesgos</label>
+							<div class="input-group">
+								<input type="text" required id="ProcRiesgosinput0" class="form-control" placeholder="Riesgos" aria-label="Riesgos" aria-describedby="button-addon2" name="ProcRiesgos[]">
+								<div class="input-group-append eliminarpolitica">
+								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropRiesgo(0)">Borrar</button>
+								</div>
+							</div>
 						</div>
 					</div>
+					
 				</div>
 					
 				<div class="form-row" id="containerDePoliticas">
@@ -1456,6 +1471,37 @@ Procesos
 
 	
 </script>
+
+
+
+
+<script type="text/javascript">
+	var contadorRiesgos = 0;
+	function addRiesgo(){
+		contadorRiesgos++
+		container = $('#containerDeRiesgos')
+		container.append(`<div class="col-md-6 col-xs-12" id="riesgos`+contadorRiesgos+`">
+						<div class="form-group">
+							<label class="input-label" for="ProcRiesgos`+contadorRiesgos+`">Riesgos</label>
+							<div class="input-group">
+								<input type="text" required id="ProcRiesgosinput`+contadorRiesgos+`" class="form-control" placeholder="Riesgos" aria-label="Riesgos" aria-describedby="button-addon2" name="ProcRiesgos[]">
+								<div class="input-group-append eliminarpolitica">
+								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropRiesgo(`+contadorRiesgos+`)">Borrar</button>
+								</div>
+							</div>
+						</div>
+					</div>`)
+	};
+
+	function dropRiesgo(id){
+		var id = $('#riesgos'+id).remove();
+	};
+</script>
+
+
+
+
+
 <script>
 $(function() {
   // ------------------------------------------------------- //

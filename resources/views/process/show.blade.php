@@ -12,6 +12,36 @@ Proceso de {{$proceso->ProcName}}
 @endpush
 @section('content')
 	<div class="col-md-12 card degradado-procesos">
+		<div class="row">
+			<div class="col-md-2">
+				<a href="{{$proceso->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a>
+			</div>
+			<div class="col-md-8">
+			</div>
+			<div class="col-md-2">
+				<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$proceso->id}}">
+				  Eliminar
+				</button>
+				@component('layouts.partials.modal')
+					@slot('id')
+						{{$proceso->id}}
+					@endslot
+					@slot('textModal')
+						{{$proceso->ProcName}}
+					@endslot
+					@slot('botonModal')
+						<form action="{{ route('proceso.destroy', $proceso) }}" method="POST">
+						    @method('DELETE')
+						    @csrf 
+						    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
+						</form>
+					@endslot
+				@endcomponent
+			</div>
+		</div>
+		<div class="col-md-12">
+			<br><br>
+		</div>
 		<div class="row color">
 			<div class="col-md-3 margen">
 				<img src="white/img/logo_nombre.png">
@@ -65,7 +95,7 @@ Proceso de {{$proceso->ProcName}}
 			</div>
 			<div class="col-md-3 margen">
 				<h4>LIDER</h4><br>
-				<p></p>
+				<p>{{$proceso->ProcAutoridad}}</p>
 			</div>
 			<div class="col-md-3 margen">
 				<h4>RESPONSABLES</h4><br>
@@ -220,7 +250,7 @@ Proceso de {{$proceso->ProcName}}
 		<div class="row">
 			<div class="col-md-12 text-center margen">
 				<h4>RIESGOS</h4><hr>
-				<p></p>
+				<p>{{$proceso->ProcRiesgos}}</p>
 			</div>
 		</div>
 		<div class="col-md-12">
@@ -442,66 +472,21 @@ Proceso de {{$proceso->ProcName}}
 			<br><br><br>
 		</div>
 		<div class="row color">
-			<div class="col-md-4 margen">
-				<h4 class="text-center">Elaborado por</h4><br>
-				@switch($proceso->ProcElaboro)
-					@case(1)
-						SuperAdmin
-						@break
-					@case(2)
-						Gerente
-						@break
-					@case(3)
-						Director
-						@break
-					@case(4)
-						JefeArea
-						@break
-					@case(5)
-						User
-						@break
-				@endswitch
+			<div class="col-md-4 margen text-center">
+				<h4>Elaborado por</h4><br>
+				{{$proceso->ProcElaboro}}
 			</div>
-			<div class="col-md-4 margen">
-				<h4 class="text-center">Revisado Por</h4><br>
-				@switch($proceso->ProcReviso)
-					@case(1)
-						SuperAdmin
-						@break
-					@case(2)
-						Gerente
-						@break
-					@case(3)
-						Director
-						@break
-					@case(4)
-						JefeArea
-						@break
-					@case(5)
-						User
-						@break
-				@endswitch
+			<div class="col-md-4 margen text-center">
+				<h4>Revisado Por</h4><br>
+				{{$proceso->ProcReviso}}
 			</div>
-			<div class="col-md-4 margen">
-				<h4 class="text-center">Aprobado Por</h4><br>
-				@switch($proceso->ProcAprobo)
-					@case(1)
-						SuperAdmin
-						@break
-					@case(2)
-						Gerente
-						@break
-					@case(3)
-						Director
-						@break
-					@case(4)
-						JefeArea
-						@break
-					@case(5)
-						User
-						@break
-				@endswitch
+			<div class="col-md-4 margen text-center">
+				<h4>Aprobado Por</h4><br>
+				{{$proceso->ProcAprobo}}
 			</div>
+		</div>
+		<div class="col-md-12">
+			<br><br><br>
 		</div>
 	</div>
 @endsection

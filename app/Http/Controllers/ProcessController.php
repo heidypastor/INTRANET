@@ -115,7 +115,8 @@ class ProcessController extends Controller
         // $process->ProcRecursos = 'ninguno';
         $process->ProcElaboro = $request->input('ProcElaboro');
 
-        /*$process->ProcPolitOperacion = $request->input('ProcPolitOperacion');*/
+        /*$process->ProcPolitOperacion = $request->input('ProcPolitOperacion');
+        $process->ProcRiesgos = $request->input('ProcRiesgos');*/
 
         $process->ProcReviso = $request->input('ProcReviso');
         $process->ProcAprobo = $request->input('ProcAprobo');

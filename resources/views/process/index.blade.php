@@ -41,7 +41,7 @@ Procesos
 
 			  		<th data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Elaborado por:</b>" data-content="Usuario que elaboro el proceso.">Elaborado por:</th>
 			  		
-			  		<th data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Aprobado por:</b>" data-content="Usuario que aprobo el proceso.">Aprobado por:</th>
+			  		{{-- <th data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Aprobado por:</b>" data-content="Usuario que aprobo el proceso.">Aprobado por:</th> --}}
 
 			  		<th data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Actualizado el:</b>" data-content="Última fecha de actualización del proceso en cuestión.">Actualizado el:</th>
 
@@ -87,7 +87,7 @@ Procesos
 					</td>
 
 			        <td class="text-center">{{$proceso->ProcElaboro}}</td>
-			        <td class="text-center">{{$proceso->ProcAprobo}}</td>
+			        {{-- <td class="text-center">{{$proceso->ProcAprobo}}</td> --}}
 			        <td class="text-center">{{$proceso->updated_at}}</td>
 		        	<td class="text-center">
 		        		<a href="{{ route('proceso.show', $proceso) }}" class="btn btn-fill btn-info">
