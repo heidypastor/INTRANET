@@ -37,11 +37,25 @@ mix.js('resources/js/app.js', 'public/js')
                 'node_modules/@fortawesome/fontawesome-free/css/all.css',
             ], 'public/css/all.css')
     .combine([
+                'node_modules/select2/dist/css/select2.css',
+            ], 'public/css/select2.css')
+    .combine([
                 'resources/css/stilospersonalizados.css'
             ], 'public/css/personalizados.css')
+    .combine([
+                'node_modules/slider-pro/dist/css/slider-pro.css'
+            ], 'public/css/sliderPro.css')
+    .combine([
+                'node_modules/@fullcalendar/core/main.css',
+                'node_modules/@fullcalendar/daygrid/main.css',
+                'node_modules/@fullcalendar/timegrid/main.css'
+            ], 'public/css/fullcalendar.css')
     .scripts([
                 'node_modules/@fortawesome/fontawesome-free/js/all.js'
             ], 'public/js/dependencias.js')
+    .scripts([
+                'node_modules/select2/dist/js/select2.full.js'
+            ], 'public/js/select2.js')
     .scripts([
                 'node_modules/datatables.net/js/jquery.dataTables.js',
                 'node_modules/datatables.net-dt/js/dataTables.dataTables.js',
@@ -88,17 +102,6 @@ mix.js('resources/js/app.js', 'public/js')
     .scripts([
                 'resources/js/scriptspersonalizados.js'
             ], 'public/js/all.js')
-    .copyDirectory([
-                'node_modules/@fortawesome/fontawesome-free/webfonts'
-            ], 'public/webfonts')
-    .combine([
-                'node_modules/slider-pro/dist/css/slider-pro.css'
-            ], 'public/css/sliderPro.css')
-    .combine([
-                'node_modules/@fullcalendar/core/main.css',
-                'node_modules/@fullcalendar/daygrid/main.css',
-                'node_modules/@fullcalendar/timegrid/main.css'
-            ], 'public/css/fullcalendar.css')
     .scripts([
                 'node_modules/@fullcalendar/core/main.js',
                 'node_modules/@fullcalendar/daygrid/main.js',
@@ -108,4 +111,7 @@ mix.js('resources/js/app.js', 'public/js')
             ], 'public/js/fullcalendar.js')
     .scripts([
                 'node_modules/slider-pro/dist/js/jquery.sliderPro.js'
-            ], 'public/js/sliderPro.js');
+            ], 'public/js/sliderPro.js')
+    .copyDirectory([
+                'node_modules/@fortawesome/fontawesome-free/webfonts'
+            ], 'public/webfonts');

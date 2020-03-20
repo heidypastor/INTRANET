@@ -10,7 +10,8 @@ Procesos
 
 @push('css')
         {{-- <link href="{{ asset('css') }}/datatable-depen.css" rel="stylesheet"/>
-        <link href="{{ asset('css') }}/datatable-plugins.css" rel="stylesheet"/> --}}
+		<link href="{{ asset('css') }}/datatable-plugins.css" rel="stylesheet"/> --}}
+        <link href="{{ asset('css') }}/select2.css" rel="stylesheet"/>
 @endpush
 
 @section('content')
@@ -143,7 +144,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcResponsable">Responsable del Proceso</label>
-							<select id="ProcResponsable" class="form-control" name="ProcResponsable[]" placeholder="seleccione" multiple>
+							<select id="ProcResponsable" class="form-control selectmultiple" name="ProcResponsable[]" placeholder="seleccione" multiple>
 								@foreach($cargos as $cargo)
 								<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
@@ -156,7 +157,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcAutoridad">Autoridad del Proceso</label>
-							<select id="ProcAutoridad" class="form-control" name="ProcAutoridad" placeholder="seleccione">
+							<select id="ProcAutoridad" class="form-control select" name="ProcAutoridad" placeholder="seleccione">
 								@foreach($cargos as $cargo)
 									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
@@ -167,7 +168,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcRecursos">Recursos</label>
-							  <select multiple id="ProcRecursos" class="form-control" name="ProcRecursos[]" placeholder="seleccione">
+							  <select multiple id="ProcRecursos" class="form-control select" name="ProcRecursos[]" placeholder="seleccione">
 								@foreach($recursos as $recurso)
 									<option value="{{$recurso->id}}">{{$recurso->RecName}} - 
 										@switch($recurso->RecType)
@@ -192,7 +193,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcElaboro">Elaborado Por</label>
-							<select id="ProcElaboro" class="form-control" name="ProcElaboro" placeholder="seleccione">
+							<select id="ProcElaboro" class="form-control select" name="ProcElaboro" placeholder="seleccione">
 								@foreach($cargos as $cargo)
 									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
@@ -206,7 +207,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcReviso">Revisado Por</label>
-							<select id="ProcReviso" class="form-control" name="ProcReviso" placeholder="seleccione">
+							<select id="ProcReviso" class="form-control select" name="ProcReviso" placeholder="seleccione">
 								@foreach($cargos as $cargo)
 									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
@@ -222,7 +223,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcAprobo">Aprobado Por</label>
-							<select id="ProcAprobo" class="form-control" name="ProcAprobo" placeholder="seleccione">
+							<select id="ProcAprobo" class="form-control select" name="ProcAprobo" placeholder="seleccione">
 								@foreach($cargos as $cargo)
 									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
@@ -234,7 +235,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Clientes">Clientes</label>
-							<select multiple id="Clientes" class="form-control" name="Clientes[]" placeholder="seleccione">
+							<select multiple id="Clientes" class="form-control selectmultiple" name="Clientes[]" placeholder="seleccione">
 								@foreach($clientes as $cliente)
 									<option value="{{$cliente->id}}">{{$cliente->CliName}}</option>
 								@endforeach
@@ -247,7 +248,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Entradas">Entradas</label>
-							<select multiple id="Entradas" class="form-control" name="Entradas[]" placeholder="seleccione">
+							<select multiple id="Entradas" class="form-control selectmultiple" name="Entradas[]" placeholder="seleccione">
 								@foreach($entradas as $entrada)
 									<option value="{{$entrada->id}}">{{$entrada->InputName}}</option>
 								@endforeach
@@ -258,7 +259,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Actividades">Actividades</label>
-							<select multiple id="Actividades" class="form-control" name="Actividades[]" placeholder="seleccione">
+							<select multiple id="Actividades" class="form-control selectmultiple" name="Actividades[]" placeholder="seleccione">
 								@foreach($actividades as $actividad)
 									<option value="{{$actividad->id}}">{{$actividad->ActiName}}</option>
 								@endforeach
@@ -271,11 +272,17 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Salidas">Salidas</label>
-							<select multiple id="Salidas" class="form-control" name="Salidas[]" placeholder="seleccione">
+							<select multiple id="Salidas" class="form-control selectmultiple" name="Salidas[]" placeholder="seleccione">
 								@foreach($salidas as $salida)
 									<option value="{{$salida->id}}">{{$salida->OutputName}}</option>
 								@endforeach
 							</select>
+						</div>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcObjetivo">Objetivo del Proceso</label>
+							   <input class="form-control" id="ProcObjetivo" name="ProcObjetivo">
 						</div>
 					</div>
 				</div>
@@ -284,7 +291,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Indicadores">Indicadores</label>
-							<select multiple id="Indicadores" class="form-control" name="Indicadores[]" placeholder="seleccione">
+							<select multiple id="Indicadores" class="form-control selectmultiple" name="Indicadores[]" placeholder="seleccione">
 								@foreach($indicadores as $indicador)
 									<option value="{{$indicador->id}}">{{$indicador->IndName}}</option>
 								@endforeach
@@ -296,7 +303,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Soporte">Procesos de Soporte</label>
-							<select multiple id="Soporte" class="form-control" name="Soporte[]" placeholder="seleccione">
+							<select multiple id="Soporte" class="form-control selectmultiple" name="Soporte[]" placeholder="seleccione">
 								@foreach($soportes as $soporte)
 									<option value="{{$soporte->id}}">{{$soporte->ProcName}}</option>
 								@endforeach
@@ -309,7 +316,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Docs">Documentación aplicable</label>
-							<select multiple id="Docs" class="form-control" name="Docs[]" placeholder="seleccione">
+							<select multiple id="Docs" class="form-control selectmultiple" name="Docs[]" placeholder="seleccione">
 								@foreach($documentos as $documento)
 									<option value="{{$documento->id}}">{{$documento->DocName}}</option>
 								@endforeach
@@ -320,7 +327,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Areas">Areas Que participan</label>
-							<select multiple id="Areas" class="form-control" name="Areas[]" placeholder="seleccione">
+							<select multiple id="Areas" class="form-control selectmultiple" name="Areas[]" placeholder="seleccione">
 								@foreach($areas as $area)
 									<option value="{{$area->id}}">{{$area->AreaName}}</option>
 								@endforeach
@@ -333,9 +340,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcAlcance">Alcance del Proceso</label>
-							<textarea max="500" class="form-control" id="ProcAlcance" name="ProcAlcance">
-							campo de texto para el alcance del proceso max 500 caracteres
-							</textarea> 
+							<input max="500" class="form-control" id="ProcAlcance" name="ProcAlcance">
 						</div>
 					</div>
 
@@ -357,7 +362,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Provedores">Provedores</label>
-							  <select multiple id="Provedores" class="form-control" name="Provedores[]" placeholder="seleccione">
+							  <select multiple id="Provedores" class="form-control selectmultiple" name="Provedores[]" placeholder="seleccione">
 								@foreach($proveedores as $proveedor)
 									<option value="{{$proveedor->id}}">{{$proveedor->ProvName}}</option>
 								@endforeach
@@ -382,7 +387,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Gambiental">Gestión Ambiental</label>
-							  <select multiple id="Gambiental" class="form-control" name="Gambiental[]" placeholder="seleccione">
+							  <select multiple id="Gambiental" class="form-control selectmultiple" name="Gambiental[]" placeholder="seleccione">
 								@foreach($gambientales as $gambiental)
 									<option value="{{$gambiental->id}}">{{$gambiental->GesName}} - 
 										@switch($gambiental->GesType)
@@ -404,7 +409,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Gseguridad">Gestión de Seguridad y Salud en el Trabajo</label>
-							  <select multiple id="Gseguridad" class="form-control" name="Gseguridad[]" placeholder="seleccione">
+							  <select multiple id="Gseguridad" class="form-control selectmultiple" name="Gseguridad[]" placeholder="seleccione">
 								@foreach($gseguridades as $gseguridad)
 									<option value="{{$gseguridad->id}}">{{$gseguridad->SeguName}} - 
 										@switch($gseguridad->SeguType)
@@ -429,15 +434,13 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcAmbienTrabajo">Ambiente de Trabajo</label>
-							<textarea class="form-control" id="ProcAmbienTrabajo" name="ProcAmbienTrabajo">
-								Ambiente de Trabajo de ejemplo maximo 500 caracteres
-							</textarea> 
+							<input class="form-control" id="ProcAmbienTrabajo" name="ProcAmbienTrabajo">
 						</div>
 					</div>
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcRequsitos">Requisitos por cumplir</label>
-							  <select multiple class="form-control" name="ProcRequsitos[]" placeholder="seleccione" id="ProcRequsitos">
+							  <select multiple class="form-control" name="ProcRequsitos[] selectmultiple" placeholder="seleccione" id="ProcRequsitos">
 								@foreach($requisitos as $requisito)
 									<option value="{{$requisito->id}}">{{$requisito->ReqName}}</option>
 								@endforeach
@@ -447,15 +450,6 @@ Procesos
 				</div>
 
 				<div class="form-row">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcObjetivo">Objetivo del Proceso</label>
-							   <textarea class="form-control" id="ProcObjetivo" name="ProcObjetivo">
-							  Objetivo de ejemplo para el proceso de compras
-							  </textarea> 
-						</div>
-					</div>
-	
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcRequsitos">Fecha</label>
@@ -495,7 +489,7 @@ Procesos
 			</div>
 			<div class="form-group">
 				<label>Tipo de Gestión SST</label>
-				<select name="SeguType" class="text-center form-control" required="">
+				<select name="SeguType" class="text-center form-control select" required="">
 					<option value="0">Peligros</option>
 					<option value="1">Riesgos</option>
 					<option value="2">Controles Operacionales</option>
@@ -524,7 +518,7 @@ Procesos
 			</div>
 			<div class="form-group">
 				<label>Tipo de Gestión Ambiental</label>
-				<select name="GesType" class="text-center form-control" required="">
+				<select name="GesType" class="text-center form-control select" required="">
 					<option value="0">Aspectos Ambientales</option>
 					<option value="1">Impactos Ambientales</option>
 					<option value="2">Controles Operacionales</option>
@@ -553,7 +547,7 @@ Procesos
 			</div>
 			<div class="form-group">
 				<label>Tipo de Recurso</label>	      
-				<select name="RecType" class="text-center form-control" required="">
+				<select name="RecType" class="text-center form-control select" required="">
 					<option value="0">Fisico</option>
 					<option value="1">Humano</option>
 					<option value="2">Financiero</option>
@@ -685,7 +679,7 @@ Procesos
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<select id="IdSelectGseguridad" class="form-control" onchange="cambiarGseguridadId()">
+				<select id="IdSelectGseguridad" class="form-control select" onchange="cambiarGseguridadId()">
 					@foreach($gseguridades as $gseguridad)
 						<option value="{{$gseguridad->id}}">{{$gseguridad->SeguName}}</option>
 					@endforeach
@@ -704,7 +698,7 @@ Procesos
 			</div>
 			<div class="form-group">
 				<label>Nuevo Tipo</label>
-				<select name="SeguType" class="text-center form-control" required="">
+				<select name="SeguType" class="text-center form-control select" required="">
 					<option value="0">Peligros</option>
 					<option value="1">Riesgos</option>
 					<option value="2">Controles Operacionales</option>
@@ -728,7 +722,7 @@ Procesos
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<select id="IdSelectGambiental" class="form-control" onchange="cambiarGambientalId()">
+				<select id="IdSelectGambiental" class="form-control select" onchange="cambiarGambientalId()">
 					@foreach($gambientales as $gambiental)
 						<option value="{{$gambiental->id}}">{{$gambiental->GesName}}</option>
 					@endforeach
@@ -747,7 +741,7 @@ Procesos
 			</div>
 			<div class="form-group">
 				<label>Nuevo Tipo</label>
-				<select name="GesType" class="text-center form-control" required="">
+				<select name="GesType" class="text-center form-control select" required="">
 					<option value="0">Aspectos Ambientales</option>
 					<option value="1">Impactos Ambientales</option>
 					<option value="2">Controles Operacionales</option>
@@ -771,7 +765,7 @@ Procesos
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<select id="IdSelectRecurso" class="form-control" onchange="cambiarRecursoId()">
+				<select id="IdSelectRecurso" class="form-control select" onchange="cambiarRecursoId()">
 					@foreach($recursos as $recurso)
 					<option value="{{$recurso->id}}">{{$recurso->RecName}}</option>
 					@endforeach
@@ -790,7 +784,7 @@ Procesos
 			</div>
 			<div class="form-group">
 				<label>Nuevo Tipo</label>
-				<select name="RecType" class="text-center form-control" required="">
+				<select name="RecType" class="text-center form-control select" required="">
 					<option value="0">Fisico</option>
 					<option value="1">Humano</option>
 					<option value="2">Financiero</option>
@@ -814,7 +808,7 @@ Procesos
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<select id="IdSelectProveedor" class="form-control" onchange="cambiarProveedorId()">
+				<select id="IdSelectProveedor" class="form-control select" onchange="cambiarProveedorId()">
 					@foreach($proveedores as $proveedor)
 					<option value="{{$proveedor->id}}">{{$proveedor->ProvName}}</option>
 					@endforeach
@@ -849,7 +843,7 @@ Procesos
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<select id="IdSelectEntrada" class="form-control" onchange="cambiarEntradaId()">
+				<select id="IdSelectEntrada" class="form-control select" onchange="cambiarEntradaId()">
 					@foreach($entradas as $entrada)
 					<option value="{{$entrada->id}}">{{$entrada->InputName}}</option>
 					@endforeach
@@ -884,7 +878,7 @@ Procesos
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<select id="IdSelectActividad" class="form-control" onchange="cambiarActividadId()">
+				<select id="IdSelectActividad" class="form-control select" onchange="cambiarActividadId()">
 					@foreach($actividades as $actividad)
 						<option value="{{$actividad->id}}">{{$actividad->ActiName}}</option>
 					@endforeach
@@ -919,7 +913,7 @@ Procesos
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<select id="IdSelectSalida" class="form-control" onchange="cambiarSalidaId()">
+				<select id="IdSelectSalida" class="form-control select" onchange="cambiarSalidaId()">
 					@foreach($salidas as $salida)
 						<option value="{{$salida->id}}">{{$salida->OutputName}}</option>
 					@endforeach
@@ -953,7 +947,7 @@ Procesos
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<select id="IdSelectCliente" class="form-control" onchange="cambiarClienteId()">
+				<select id="IdSelectCliente" class="form-control select" onchange="cambiarClienteId()">
 					@foreach($clientes as $cliente)
 					<option value="{{$cliente->id}}">{{$cliente->CliName}}</option>
 					@endforeach
@@ -994,7 +988,7 @@ Procesos
 	         	@method('DELETE')
 				@csrf
 				<div class="form-group">
-					<select id="SelectEliminarProveedores" class="form-control" onchange="eliminarProveedor()">
+					<select id="SelectEliminarProveedores" class="form-control select" onchange="eliminarProveedor()">
 						<option value="0" selected>Seleccionar proveedor a Eliminar</option>
 						@foreach($proveedoresDrop as $proveedorDrop)
 						<option value="{{$proveedorDrop->id}}">{{$proveedorDrop->ProvName}}
@@ -1027,7 +1021,7 @@ Procesos
 	         	@method('DELETE')
 				@csrf
 				<div class="form-group">
-					<select id="SelectEliminarRecursos" class="form-control" onchange="eliminarRecurso()">
+					<select id="SelectEliminarRecursos" class="form-control select" onchange="eliminarRecurso()">
 						<option value="0" selected>Seleccionar recurso a Eliminar</option>
 						@foreach($recursosDrop as $recursoDrop)
 						<option value="{{$recursoDrop->id}}">{{$recursoDrop->RecName}}
@@ -1068,7 +1062,7 @@ Procesos
 	         	@method('DELETE')
 				@csrf
 				<div class="form-group">
-					<select id="SelectEliminarGsegu" class="form-control" onchange="eliminarGseguridad()">
+					<select id="SelectEliminarGsegu" class="form-control select" onchange="eliminarGseguridad()">
 						<option value="0" selected>Seleccionar Gestión de SST a Eliminar</option>
 						@foreach($gseguridadesDrop as $gseguridadDrop)
 						<option value="{{$gseguridadDrop->id}}">{{$gseguridadDrop->SeguName}} -
@@ -1112,7 +1106,7 @@ Procesos
 	         	@method('DELETE')
 				@csrf
 				<div class="form-group">
-					<select id="SelectEliminarGambi" class="form-control" onchange="eliminarGambiental()">
+					<select id="SelectEliminarGambi" class="form-control select" onchange="eliminarGambiental()">
 						<option value="0" selected>Seleccionar Gestión Ambiental a Eliminar</option>
 						@foreach($gambientalesDrop as $gambientalDrop)
 						<option value="{{$gambientalDrop->id}}">{{$gambientalDrop->GesName}} -
@@ -1156,7 +1150,7 @@ Procesos
 	         	@method('DELETE')
 				@csrf
 				<div class="form-group">
-					<select id="SelectEliminarSalidas" class="form-control" onchange="eliminarSalida()">
+					<select id="SelectEliminarSalidas" class="form-control select" onchange="eliminarSalida()">
 						<option value="0" selected>Seleccionar salida a Eliminar</option>
 						@foreach($salidasDrop as $salidaDrop)
 						<option value="{{$salidaDrop->id}}">{{$salidaDrop->OutputName}}</option>
@@ -1188,7 +1182,7 @@ Procesos
 	         	@method('DELETE')
 				@csrf
 				<div class="form-group">
-					<select id="SelectEliminarEntradas" class="form-control" onchange="eliminarEntrada()">
+					<select id="SelectEliminarEntradas" class="form-control select" onchange="eliminarEntrada()">
 						<option value="0" selected>Seleccionar entrada a Eliminar</option>
 						@foreach($entradasDrop as $entradaDrop)
 						<option value="{{$entradaDrop->id}}">{{$entradaDrop->InputName}}</option>
@@ -1220,7 +1214,7 @@ Procesos
 				@method('DELETE')
 				@csrf
 				<div class="form-group">
-					<select id="SelectEliminarActividad" class="form-control" onchange="eliminarActividad()">
+					<select id="SelectEliminarActividad" class="form-control select" onchange="eliminarActividad()">
 						<option value="0" selected>Seleccionar actividad a Eliminar</option>
 						@foreach($actividadesDrop as $actividadDrop)
 						<option value="{{$actividadDrop->id}}">{{$actividadDrop->ActiName}}</option>
@@ -1252,7 +1246,7 @@ Procesos
 	         	@method('DELETE')
 				@csrf
 				<div class="form-group">
-					<select id="SelectEliminarClientes" class="form-control" onchange="eliminarCliente()">
+					<select id="SelectEliminarClientes" class="form-control select" onchange="eliminarCliente()">
 						<option value="0" selected>Seleccionar cliente a Eliminar</option>
 						@foreach($clientesDrop as $clienteDrop)
 						<option value="{{$clienteDrop->id}}">{{$clienteDrop->CliName}}</option>
@@ -1271,16 +1265,21 @@ Procesos
 
 {{-- librerias adicionales para el funcionmiento de la vista --}}
 @push('js')
-	{{-- <script src="{{ asset('js') }}/datatable-depen.js"></script>
-	<script src="{{ asset('js') }}/datatable-plugins.js"></script> --}}
+	<script src="{{ asset('js') }}/select2.js"></script>
 @endpush
 
 {{-- scripts adicionales para el funcionmiento de la vista --}}
 @push('scripts')
 <script>
 
-	{{-- Parte de los script de actualizar --}}
+	/*script para activar el select 2*/
+	$(document).ready(function() {
+		$('select').select2({
+			placeholder: 'Selecciona...',
+		});
+	});
 
+	//Parte de los script de actualizar
 	function cambiarClienteId(){
 		var id = $('#IdSelectCliente').val();
 		var inputoculto = $('#idocultoCli');

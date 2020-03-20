@@ -45,6 +45,7 @@
         "laravel-echo": "^1.6.1",
         "npm": "^6.13.6",
         "pusher-js": "^5.0.3",
+        "select2": "^4.0.13",
         "slider-pro": "^1.5.0"
     }
 }
