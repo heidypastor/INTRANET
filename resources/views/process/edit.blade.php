@@ -174,15 +174,15 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcResponsable">Responsable del Proceso</label>
-							<select id="ProcResponsable" required class="form-control" name="ProcResponsable" placeholder="seleccione" multiple>
-								@foreach($roles as $rol)
-								<option value="{{$rol->name}}"
+							<select id="ProcResponsable" required class="form-control" name="ProcResponsable[]" placeholder="seleccione" multiple>
+								@foreach($cargos as $cargo)
+									<option 
 									@foreach ($proceso->ProcResponsable as $responsable)
-										@if ($responsable == $rol->name)
+										@if ($responsable == $cargo->CargoName)
 											selected
 										@endif
 									@endforeach
-									>{{$rol->name}}</option>
+									value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
 							</select>
 						</div>
@@ -192,12 +192,12 @@ Procesos
 						<div class="form-group">
 							<label class="input-label" for="ProcAutoridad">Autoridad del Proceso</label>
 							<select id="ProcAutoridad" required class="form-control" name="ProcAutoridad" placeholder="seleccione">
-								@foreach($roles as $rol)
-								<option value="{{$rol->name}}"
-									@if ($proceso->ProcAutoridad == $rol->id)
-										selected
-									@endif
-									>{{$rol->name}}</option>
+								@foreach($cargos as $cargo)
+									<option 
+										@if ($proceso->ProcAutoridad == $cargo->CargoName)
+											selected
+										@endif
+									value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
 							</select>
 						</div>
@@ -238,12 +238,12 @@ Procesos
 						<div class="form-group">
 							<label class="input-label" for="ProcElaboro">Elaborado Por</label>
 							<select id="ProcElaboro" required class="form-control" name="ProcElaboro" placeholder="seleccione">
-								@foreach($roles as $rol)
-								<option value="{{$rol->name}}"
-									@if($rol->name == $proceso->ProcElaboro)
-										selected  
+								@foreach($cargos as $cargo)
+									<option 
+									@if ($proceso->ProcElaboro == $cargo->CargoName)
+										selected
 									@endif
-									>{{$rol->name}}</option>
+									value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
 							</select>
 						</div>
@@ -255,12 +255,12 @@ Procesos
 						<div class="form-group">
 							<label class="input-label" for="ProcReviso">Revisado Por</label>
 							<select id="ProcReviso" required class="form-control" name="ProcReviso" placeholder="seleccione">
-								@foreach($roles as $rol)
-								<option value="{{$rol->name}}"
-									@if($rol->name == $proceso->ProcReviso)
-										selected  
+								@foreach($cargos as $cargo)
+									<option 
+									@if ($proceso->ProcReviso == $cargo->CargoName)
+										selected
 									@endif
-									>{{$rol->name}}</option>
+									value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
 							</select>
 						</div>
@@ -270,12 +270,12 @@ Procesos
 						<div class="form-group">
 							<label class="input-label" for="ProcAprobo">Aprobado Por</label>
 							<select id="ProcAprobo" required class="form-control" name="ProcAprobo" placeholder="seleccione">
-								@foreach($roles as $rol)
-								<option value="{{$rol->name}}"
-									@if($rol->name == $proceso->ProcAprobo)
-										selected  
+								@foreach($cargos as $cargo)
+									<option 
+									@if ($proceso->ProcAprobo == $cargo->CargoName)
+										selected
 									@endif
-									>{{$rol->name}}</option>
+									value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
 							</select>
 						</div>
