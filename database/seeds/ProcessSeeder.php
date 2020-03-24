@@ -37,5 +37,6 @@ class ProcessesSeeder extends Seeder
         $process->clientes()->sync(['1', '2', '3', '4']);
         $process->gambientals()->sync(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']);
         $process->gseguridads()->sync(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']);
+        $process->actividades()->sync(['4', '5', '6', '7', '8', '9']);
     }
 }

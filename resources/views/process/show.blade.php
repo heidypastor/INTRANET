@@ -303,24 +303,27 @@ Proceso de {{$proceso->ProcName}}
 			<div class="col-md-4 margen">
 				<h4 class="text-center">PELIGROS</h4>
 				@foreach($proceso->gseguridads as $gseguridad)
-					@if($gambiental->GesType == 0)
+					@if($gambiental->SeguType == 0)
 						<li>{{$gseguridad->SeguName}}</li>
+					@else
 					@endif
 				@endforeach
 			</div>
 			<div class="col-md-4 margen">
 				<h4 class="text-center">RIESGOS</h4>
 				@foreach($proceso->gseguridads as $gseguridad)
-					@if($gambiental->GesType == 1)
+					@if($gambiental->SeguType == 1)
 						<li>{{$gseguridad->SeguName}}</li>
+					@else
 					@endif
 				@endforeach
 			</div>
 			<div class="col-md-4 margen">
 				<h5 class="text-center">CONTROLES OPERACIONALES</h5>
 				@foreach($proceso->gseguridads as $gseguridad)
-					@if($gambiental->GesType == 2)
+					@if($gambiental->SeguType == 2)
 						<li>{{$gseguridad->SeguName}}</li>
+					@else
 					@endif
 				@endforeach
 			</div>
