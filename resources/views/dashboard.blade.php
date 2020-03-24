@@ -97,6 +97,19 @@ Home
                 </p>
               </a>
             </div>
+            <!-- Slide 8 -->
+            <div class="sp-slide">
+              <img class="sp-image" style="border-radius: 5px !important;" src="white/img/requisito.png" alt="Six slide">
+                <a href="requisitos/{{$requisito->id}}"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;" data-position="centerCenter" data-show-transition="left" data-show-delay="500" data-vertical="-50" data-hide-transition="left" data-show-duration="750">
+                Nuevo Requisito y documento legal
+                </p>
+              </a>
+              
+              <a href="requisitos/{{$requisito->id}}"><p class="sp-layer sp-white sp-rounded sp-padding hide-small-screen specialshadow2 specialshadow2hover specialshadow2click" data-position="centerCenter" data-show-transition="right" data-show-delay="500" data-vertical="50" data-hide-transition="right" data-show-duration="750">
+                {{$requisito->ReqName}}
+                </p>
+              </a>
+            </div>
           </div>
           <div class="sp-thumbnails">
             <!-- thumbnail 1 -->

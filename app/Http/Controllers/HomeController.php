@@ -6,6 +6,7 @@ use App\Indicators;
 use App\Documents;
 use App\Releases;
 use App\Requisitos;
+use App\Process;
 
 class HomeController extends Controller
 {
@@ -34,7 +35,8 @@ class HomeController extends Controller
         $comitesCarousel = Comites::orderBy('updated_at', 'DESC')->get()->first();
         $comites = Comites::all('id', 'ComiName');
         $requisito = Requisitos::orderBy('created_at', 'DESC')->get()->first();
+        $proceso = Process::orderBy('updated_at', 'DESC')->get()->first();
         /*return $requisito;*/
-        return view('dashboard', compact('comites', 'indicator', 'comitesCarousel', 'document', 'release', 'requisito'));
+        return view('dashboard', compact('comites', 'indicator', 'comitesCarousel', 'document', 'release', 'requisito', 'proceso'));
     }
 }
