@@ -227,7 +227,13 @@ Proceso de {{$proceso->ProcName}}
 				<h4 class="text-center">LEGALES</h4><br>
 				@foreach($proceso->requisitos as $requisito)
 					@if($requisito->ReqType == 0)
-						<li>{{$requisito->ReqName}}</li>
+						<li>
+							@if($requisito->ReqLink == "N" || $requisito->ReqLink == "")
+								<a href="{{$requisito->ReqSrc}}">{{$requisito->ReqName}}</a>
+							@else
+								<a href="{{$requisito->ReqLink}}">{{$requisito->ReqName}}</a>
+							@endif
+						</li>
 					@endif
 				@endforeach
 			</div>
@@ -235,7 +241,13 @@ Proceso de {{$proceso->ProcName}}
 				<h4 class="text-center">EMPRESARIALES</h4><br>
 				@foreach($proceso->requisitos as $requisito)
 					@if($requisito->ReqType == 1)
-						<li>{{$requisito->ReqName}}</li>
+						<li>
+							@if($requisito->ReqLink == "N" || $requisito->ReqLink == "")
+								<a href="{{$requisito->ReqSrc}}">{{$requisito->ReqName}}</a>
+							@else
+								<a href="{{$requisito->ReqLink}}">{{$requisito->ReqName}}</a>
+							@endif
+						</li>
 					@endif
 				@endforeach
 			</div>
@@ -243,7 +255,13 @@ Proceso de {{$proceso->ProcName}}
 				<h4 class="text-center">OTRAS - CLIENTE</h4><br>
 				@foreach($proceso->requisitos as $requisito)
 					@if($requisito->ReqType == 2)
-						<li>{{$requisito->ReqName}}</li>
+						<li>
+							@if($requisito->ReqLink == "N" || $requisito->ReqLink == "")
+								<a href="{{$requisito->ReqSrc}}">{{$requisito->ReqName}}</a>
+							@else
+								<a href="{{$requisito->ReqLink}}">{{$requisito->ReqName}}</a>
+							@endif
+						</li>
 					@endif
 				@endforeach
 			</div>
@@ -303,7 +321,7 @@ Proceso de {{$proceso->ProcName}}
 			<div class="col-md-4 margen">
 				<h4 class="text-center">PELIGROS</h4>
 				@foreach($proceso->gseguridads as $gseguridad)
-					@if($gambiental->SeguType == 0)
+					@if($gseguridad->SeguType == 0)
 						<li>{{$gseguridad->SeguName}}</li>
 					@else
 					@endif
@@ -312,7 +330,7 @@ Proceso de {{$proceso->ProcName}}
 			<div class="col-md-4 margen">
 				<h4 class="text-center">RIESGOS</h4>
 				@foreach($proceso->gseguridads as $gseguridad)
-					@if($gambiental->SeguType == 1)
+					@if($gseguridad->SeguType == 1)
 						<li>{{$gseguridad->SeguName}}</li>
 					@else
 					@endif
@@ -321,7 +339,7 @@ Proceso de {{$proceso->ProcName}}
 			<div class="col-md-4 margen">
 				<h5 class="text-center">CONTROLES OPERACIONALES</h5>
 				@foreach($proceso->gseguridads as $gseguridad)
-					@if($gambiental->SeguType == 2)
+					@if($gseguridad->SeguType == 2)
 						<li>{{$gseguridad->SeguName}}</li>
 					@else
 					@endif
@@ -360,10 +378,10 @@ Proceso de {{$proceso->ProcName}}
 					@foreach($proceso->indicadores as $indicador)
 						@if($indicador->IndEfe == 0)
 							<div class="col-md-6">
-								<li>{{$indicador->IndName}}</li>
+								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndName}}</a></li>
 							</div>
 							<div class="col-md-6">
-								<li>{{$indicador->IndObjective}}</li><hr>
+								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndObjective}}</a></li><hr>
 							</div>
 						@endif
 					@endforeach
@@ -381,10 +399,10 @@ Proceso de {{$proceso->ProcName}}
 					@foreach($proceso->indicadores as $indicador)
 						@if($indicador->IndEfe == 1)
 							<div class="col-md-6">
-								<li>{{$indicador->IndName}}</li>
+								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndName}}</a></li>
 							</div><hr>
 							<div class="col-md-6">
-								<li>{{$indicador->IndObjective}}</li><hr>
+								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndObjective}}</a></li><hr>
 							</div>
 						@endif
 					@endforeach
@@ -402,10 +420,10 @@ Proceso de {{$proceso->ProcName}}
 					@foreach($proceso->indicadores as $indicador)
 						@if($indicador->IndEfe == 2)
 							<div class="col-md-6">
-								<li>{{$indicador->IndName}}</li>
+								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndName}}</a></li>
 							</div>
 							<div class="col-md-6">
-								<li>{{$indicador->IndObjective}}</li><hr>
+								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndObjective}}</a></li><hr>
 							</div>
 						@endif
 					@endforeach
@@ -431,10 +449,10 @@ Proceso de {{$proceso->ProcName}}
 					@foreach($proceso->documentos as $documento)
 						@if($documento->DocType == 'Manuales' || 'Procedimientos')
 							<div class="col-md-6">
-								<li>{{$documento->DocName}}</li><hr>
+								<li><a href="{{Storage::url($documento->DocSrc)}}">{{$documento->DocName}}</a></li><hr>
 							</div>
 							<div class="col-md-6">
-								<li>{{$documento->DocIdentification}}</li><hr>
+								<li><a href="{{Storage::url($documento->DocSrc)}}">{{$documento->DocIdentification}}</a></li><hr>
 							</div>
 						@endif
 					@endforeach
@@ -452,10 +470,10 @@ Proceso de {{$proceso->ProcName}}
 					@foreach($proceso->documentos as $documento)
 						@if($documento->DocType == 'Instructivos')
 							<div class="col-md-6">
-								<li>{{$documento->DocName}}</li><hr>
+								<li><a href="{{Storage::url($documento->DocSrc)}}">{{$documento->DocName}}</a></li><hr>
 							</div>
 							<div class="col-md-6">
-								<li>{{$documento->DocIdentification}}</li><hr>
+								<li><a href="{{Storage::url($documento->DocSrc)}}">{{$documento->DocIdentification}}</a></li><hr>
 							</div>
 						@endif
 					@endforeach
@@ -473,10 +491,10 @@ Proceso de {{$proceso->ProcName}}
 					@foreach($proceso->documentos as $documento)
 						@if($documento->DocType == 'Formatos')
 							<div class="col-md-6">
-								<li>{{$documento->DocName}}</li><hr>
+								<li><a href="{{Storage::url($documento->DocSrc)}}">{{$documento->DocName}}</a></li><hr>
 							</div>
 							<div class="col-md-6">
-								<li>{{$documento->DocIdentification}}</li><hr>
+								<li><a href="{{Storage::url($documento->DocSrc)}}">{{$documento->DocIdentification}}</a></li><hr>
 							</div>
 						@endif
 					@endforeach
