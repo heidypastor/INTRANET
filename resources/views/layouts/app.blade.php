@@ -10,13 +10,18 @@
         {{-- <title>{{ config('app.name', 'White Dashboard') }}</title> --}}
         <title>INTRANET - @yield('htmlheader_title', 'section header title here') </title>
         <!-- Favicon -->
+        
         <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('white') }}/img/apple-icon.png">
         <link rel="icon" type="image/png" href="{{ asset('white') }}@yield('htmlheader_titleicon', '/img/favicon.png')">
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+        @auth
+        <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet"/>
+        @endauth
 
         {{-- Link correspndiente a los nuevos tipos de letra --}}
-        <link href="https://fonts.googleapis.com/css?family=Inria+Serif:300,300i,400,400i,700,700i|Lora:400,400i,700,700i&display=swap" rel="stylesheet"> 
+        @auth
+        <link href="https://fonts.googleapis.com/css?family=Inria+Serif:300,300i,400,400i,700,700i|Lora:400,400i,700,700i&display=swap" rel="stylesheet">
+        @endauth 
 
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
         <!-- Icons -->
@@ -403,7 +408,7 @@
         });
         </script>        
         <script type="text/javascript">
-            $(document).ready(function(){
+            /*$(document).ready(function(){
                 $("#searchallmodelinput").change(function(e){
                     id=$("#searchallmodelinput").val();
                     e.preventDefault();
@@ -445,8 +450,8 @@
                         }
                     })
                 });
-            });
-            </script>
+            });*/
+        </script>
         <script type="text/javascript">
             window.onload =function(){
                 $('#my-slider').resize();
