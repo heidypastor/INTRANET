@@ -22,14 +22,15 @@
         @auth
         <link href="https://fonts.googleapis.com/css?family=Inria+Serif:300,300i,400,400i,700,700i|Lora:400,400i,700,700i&display=swap" rel="stylesheet">
         @endauth 
-
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
         <!-- Icons -->
         <link href="{{ asset('white') }}/css/nucleo-icons.css" rel="stylesheet"/>
         <!-- CSS -->
         <link href="{{ asset('white') }}/css/white-dashboard.css?v=1.0.0" rel="stylesheet"/>
+        @auth
         <link href="{{ asset('white') }}/css/theme.css" rel="stylesheet"/>
         <link href="{{ asset('css') }}/all.css" rel="stylesheet"/>
+        @endauth
         
 
         {{-- stack de hojas de estilo css --}}
@@ -140,9 +141,11 @@
         </div>
         @endauth
         <script src="{{ asset('white') }}/js/core/jquery.min.js"></script>
+        @auth
         <script src="{{ asset('white') }}/js/core/popper.min.js"></script>
         <script src="{{ asset('white') }}/js/core/bootstrap.min.js"></script>
         <script src="{{ asset('white') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+
 
         {{-- <script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script> --}}
 
@@ -160,6 +163,7 @@
         {{-- incluido el secript de app.js para el codigo de laravel echo --}}
         <script src="{{ asset('js') }}/app.js"></script>
         <script src="{{ asset('js') }}/all.js"></script>
+        @endauth
 
         @stack('js')
 
@@ -452,6 +456,7 @@
                 });
             });*/
         </script>
+        @auth
         <script type="text/javascript">
             window.onload =function(){
                 $('#my-slider').resize();
@@ -462,6 +467,8 @@
                 }, 2000);
             }
         </script>
+        @endauth
+        @auth
         <script type="text/javascript">
             $(document).ready(function() {
                 popover();
@@ -474,6 +481,7 @@
                 });
             }
         </script>
+        @endauth
 
         @stack('scripts')
     </body>

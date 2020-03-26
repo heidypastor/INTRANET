@@ -18,7 +18,7 @@ Inicio de sesión
                     <div class="card-header">
                         {{-- <img src="{{ asset('white') }}/img/card-primary.png" alt=""> --}}
                         <h1 id="font-type">{{ __('Intranet') }}</h1>
-                        <img id="logo-prosarc" src="white/img/Big_Logo_fondo_transparante.png" width="110px" height="110px">
+                        <img id="logo-prosarc" src="white/img/logo_nuevo.png" width="110px" height="110px">
                     </div>
                     <div class="card-body">
                         {{-- <p class="text-dark mb-2">Sign in with <strong>admin@white.com</strong> and the password <strong>secret</strong></p> --}}

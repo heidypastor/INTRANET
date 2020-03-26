@@ -284,7 +284,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Proveedores">Proveedores</label>
-							<select multiple id="Proveedores" required class="form-control" name="Proveedores[]" placeholder="seleccione">
+							<select multiple id="Proveedores" class="form-control" name="Proveedores[]" placeholder="seleccione">
 								@foreach($proveedores as $proveedor)
 								<option value="{{$proveedor->id}}"
 									@foreach($proceso->proveedores as $proveedorSelect)
@@ -371,7 +371,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Entradas">Entradas</label>
-							<select multiple id="Entradas" required class="form-control" name="Entradas[]" placeholder="seleccione">
+							<select multiple id="Entradas" class="form-control" name="Entradas[]" placeholder="seleccione">
 								@foreach($entradas as $entrada)
 								<option @foreach($proceso->entradas as $entradaSelect)
 									@if($entradaSelect->id == $entrada->id)
@@ -387,7 +387,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Actividades">Actividades</label>
-							<select multiple id="Actividades" required class="form-control" name="Actividades[]" placeholder="seleccione">
+							<select multiple id="Actividades" class="form-control" name="Actividades[]" placeholder="seleccione">
 								@foreach($actividades as $actividade)
 								<option @foreach($proceso->actividades as $actiSelect)
 									@if($actiSelect->id == $actividade->id)
@@ -405,7 +405,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Salidas">Salidas</label>
-							<select multiple id="Salidas" required class="form-control" name="Salidas[]" placeholder="seleccione">
+							<select multiple id="Salidas" class="form-control" name="Salidas[]" placeholder="seleccione">
 								@foreach($salidas as $salida)
 								<option @foreach($proceso->salidas as $salidaSelect)
 									@if($salidaSelect->id == $salida->id)
@@ -421,7 +421,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Clientes">Clientes</label>
-							<select multiple id="Clientes" required class="form-control" name="Clientes[]" placeholder="seleccione">
+							<select multiple id="Clientes" class="form-control" name="Clientes[]" placeholder="seleccione">
 								@foreach($clientes as $cliente)
 								<option @foreach($proceso->clientes as $clienteSelect)
 									@if($clienteSelect->id == $cliente->id)
@@ -439,7 +439,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Indicadores">Indicadores</label>
-							<select multiple id="Indicadores" required class="form-control" name="Indicadores[]" placeholder="seleccione">
+							<select multiple id="Indicadores" class="form-control" name="Indicadores[]" placeholder="seleccione">
 								@foreach($indicadores as $indicador)
 								<option @foreach($proceso->indicadores as $indiSelect)
 									@if($indiSelect->id == $indicador->id)
@@ -456,7 +456,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Soporte">Procesos de Soporte</label>
-							<select multiple id="Soporte" required class="form-control" name="Soporte[]" placeholder="seleccione">
+							<select multiple id="Soporte" class="form-control" name="Soporte[]" placeholder="seleccione">
 								@foreach($soportes as $soporte)
 								<option @foreach($proceso->procesosDeSoporte as $sopoSelect)
 									@if($sopoSelect->id == $soporte->id)
@@ -474,7 +474,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Docs">Documentación aplicable</label>
-							<select multiple id="Docs" required class="form-control" name="Docs[]" placeholder="seleccione">
+							<select multiple id="Docs" class="form-control" name="Docs[]" placeholder="seleccione">
 								@foreach($documentos as $documento)
 								<option @foreach($proceso->documentos as $docuSelect)
 									@if($docuSelect->id == $documento->id)
@@ -490,7 +490,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Areas">Areas Que participan</label>
-							<select multiple id="Areas" required class="form-control" name="Areas[]" placeholder="seleccione">
+							<select multiple id="Areas" class="form-control" name="Areas[]" placeholder="seleccione">
 								@foreach($areas as $area)
 								<option @foreach($proceso->areas as $areaSelect)
 									@if($areaSelect->id == $area->id)
@@ -530,7 +530,7 @@ Procesos
 						<div class="form-group">
 							<label class="input-label" for="ProcRiesgosinput0">Riesgos</label>
 							<div class="input-group">
-								<input type="text" required id="ProcRiesgosinput0" class="form-control" placeholder="Riesgos" aria-label="Riesgos" aria-describedby="button-addon2" name="ProcRiesgos[]" value="{{$riesgo}}">
+								<input type="text" id="ProcRiesgosinput0" class="form-control" placeholder="Riesgos" aria-label="Riesgos" aria-describedby="button-addon2" name="ProcRiesgos[]" value="{{$riesgo}}">
 								<div class="input-group-append eliminarpolitica">
 								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropRiesgo(0)">Borrar</button>
 								</div>
@@ -545,7 +545,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcRequsitos">Requisitos por cumplir</label>
-							<select multiple class="form-control" required name="ProcRequsitos[]" placeholder="seleccione"
+							<select multiple class="form-control" name="ProcRequsitos[]" placeholder="seleccione"
 								id="ProcRequsitos">
 								@foreach($requisitos as $requisito)
 								<option @foreach($proceso->requisitos as $requiSelect)
