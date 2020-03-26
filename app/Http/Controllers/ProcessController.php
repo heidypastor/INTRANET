@@ -244,7 +244,11 @@ class ProcessController extends Controller
      */
     public function update(Request $request, Process $proceso)
     {
-        $proceso->update($request->all());
+        /*$proceso->update($request->all());*/
+        $proceso->update($request->except(['ProcImage']));
+
+        $path = $request->file('ProcImage')->store('public/Procesos');
+        $proceso->update(['ProcImage' => $path]);
 
         $proceso->entradas()->sync($request->input('Entradas'));
         $proceso->salidas()->sync($request->input('Salidas'));

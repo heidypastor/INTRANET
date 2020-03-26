@@ -99,14 +99,14 @@ Home
             </div>
             <!-- Slide 8 -->
             <div class="sp-slide">
-              <img class="sp-image" style="border-radius: 5px !important;" src="white/img/requisito.png" alt="Six slide">
-                <a href="requisitos/{{$requisito->id}}"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;" data-position="centerCenter" data-show-transition="left" data-show-delay="500" data-vertical="-50" data-hide-transition="left" data-show-duration="750">
-                Nuevo Requisito y documento legal
+              <img class="sp-image" style="border-radius: 5px !important;" src="{{Storage::url($proceso->ProcImage)}}" alt="Six slide">
+                <a href="proceso/{{$proceso->id}}"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;" data-position="centerCenter" data-show-transition="left" data-show-delay="500" data-vertical="-50" data-hide-transition="left" data-show-duration="750">
+                Proceso Actualizado
                 </p>
               </a>
               
-              <a href="requisitos/{{$requisito->id}}"><p class="sp-layer sp-white sp-rounded sp-padding hide-small-screen specialshadow2 specialshadow2hover specialshadow2click" data-position="centerCenter" data-show-transition="right" data-show-delay="500" data-vertical="50" data-hide-transition="right" data-show-duration="750">
-                {{$requisito->ReqName}}
+              <a href="proceso/{{$proceso->id}}"><p class="sp-layer sp-white sp-rounded sp-padding hide-small-screen specialshadow2 specialshadow2hover specialshadow2click" data-position="centerCenter" data-show-transition="right" data-show-delay="500" data-vertical="50" data-hide-transition="right" data-show-duration="750">
+                {{$proceso->ProcName}}
                 </p>
               </a>
             </div>
@@ -124,34 +124,40 @@ Home
               <p class="sp-thumbnail-text">Numeros de Emergencia</p>
             </div>
 
-            <!-- thumbnail 2 -->
+            <!-- thumbnail 3 -->
             <div class="sp-thumbnail">
               <img class="sp-thumbnail-image" src="{{(Storage::url($indicator->IndGraphic) == '') || (Storage::url($indicator->IndGraphic) == Null) ? 'white/img/no_image.png' : Storage::url($indicator->IndGraphic)}}"/>
               <p class="sp-thumbnail-text">Indicador Actualizado</p>
             </div>
 
-            <!-- thumbnail 2 -->
+            <!-- thumbnail 4 -->
             <div class="sp-thumbnail">
               <img class="sp-thumbnail-image" src="{{(Storage::url($comitesCarousel->ComiImage) == '') || (Storage::url($comitesCarousel->ComiImage) == Null) ? 'white/img/no_image.png' : Storage::url($comitesCarousel->ComiImage)}}"/>
               <p class="sp-thumbnail-text">Comite Actualizado</p>
             </div>
 
-            <!-- thumbnail 2 -->
+            <!-- thumbnail 5 -->
             <div class="sp-thumbnail">
               <img class="sp-thumbnail-image" src="{{(Storage::url($release->RelSrc) == '') || (Storage::url($release->RelSrc) == Null) ? 'white/img/no_image.png' : Storage::url($release->RelSrc)}}"/>
               <p class="sp-thumbnail-text">¡¡{{ $release->RelType === 'Comunicado' ? "Nuevo" : "Nueva" }}{{$release->RelType}}!!</p>
             </div>
 
-            <!-- thumbnail 2 -->
+            <!-- thumbnail 6 -->
             <div class="sp-thumbnail">
               <img class="sp-thumbnail-image" src="white/img/docu.jpg"/>
               <p class="sp-thumbnail-text">Documento Actualizado</p>
             </div>
 
-            <!-- thumbnail 2 -->
+            <!-- thumbnail 7 -->
             <div class="sp-thumbnail">
               <img class="sp-thumbnail-image" src="white/img/requisito.png"/>
               <p class="sp-thumbnail-text">Nuevo Requisito/Documento Legal</p>
+            </div>
+
+            <!-- thumbnail 8 -->
+            <div class="sp-thumbnail">
+              <img class="sp-thumbnail-image" src="white/img/requisito.png"/>
+              <p class="sp-thumbnail-text">Proceso Actualizado</p>
             </div>
           </div>
         </div>

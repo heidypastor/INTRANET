@@ -72,7 +72,7 @@ Proceso de {{$proceso->ProcName}}
 
 		<div class="row">
 			<div class="col-md-3 margen">
-				<img src="https://picsum.photos/200/100">
+				<img src="{{Storage::url($proceso->ProcImage)}}">
 			</div>
 			<div class="col-md-5 text-center margen">
 				<br><h4>{{$proceso->ProcName}}</h4><br>
