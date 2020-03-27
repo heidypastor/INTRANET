@@ -2,8 +2,6 @@
 /public/hot
 /public/images
 /public/storage
-/public/css
-/public/js
 /public/webfonts
 /storage/*.key
 /vendor
