@@ -99,7 +99,13 @@ Home
             </div>
             <!-- Slide 8 -->
             <div class="sp-slide">
-              <img class="sp-image" style="border-radius: 5px !important;" src="{{Storage::url($proceso->ProcImage)}}" alt="Six slide">
+              <img class="sp-image" style="border-radius: 5px !important;"
+                @if($proceso->ProcImage === "")
+                  src="/white/img/no_image.png" 
+                @else
+                  src="{{Storage::url($proceso->ProcImage)}}"
+                @endif 
+                alt="Six slide">
                 <a href="proceso/{{$proceso->id}}"><p class="sp-layer sp-black sp-rounded sp-padding specialshadow1 specialshadow1hover specialshadow1click" style="color:white;" data-position="centerCenter" data-show-transition="left" data-show-delay="500" data-vertical="-50" data-hide-transition="left" data-show-duration="750">
                 Proceso Actualizado
                 </p>
