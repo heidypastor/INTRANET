@@ -54,9 +54,9 @@ Indicadores
 									<div class="col-md-9">
 										<div class="col-md-12">
 											@if($indicator->IndGraphic === "")
-											    <img src="/white/img/graficos1.jpg" class="responsive height-img-index">
+											    <img src="/white/img/graficos1.jpg" class="responsive">
 											@else
-											    <img src="{{Storage::url($indicator->IndGraphic)}}" class="responsive height-img-index">
+											    <img src="{{Storage::url($indicator->IndGraphic)}}" class="responsive">
 											@endif
 										</div>
 									</div>
