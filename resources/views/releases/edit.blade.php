@@ -35,18 +35,48 @@ Comunicados
 				<div class="form-group">
 				    <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tipo de anuncio</b>" data-content="Ingresar el tipo de anuncio al que pertenece, es decir, comunicado o noticia."><i class="far fa-question-circle"></i> Tipo de anuncio</label>
 					<select name="RelType" id="RelType" class="text-center form-control">
-						<option value="Comunicado">Comunicado</option>
-						<option value="Noticia">Noticia</option>
+						<option value="Comunicado"
+						@if ($release->RelType == "Comunicado")
+							selected
+						@endif
+						>Comunicado</option>
+						<option value="Noticia"
+						@if ($release->RelType == "Noticia")
+							selected
+						@endif
+						>Noticia</option>
 					</select>
 				</div>
 
 				<div class="form-group">
 				  <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Clasificación del anuncio</b>" data-content="Ingresar si el comunicado o anuncio es de tipo restringido o general."><i class="far fa-question-circle"></i> Clasificación del anuncio</label>
-				  <select name="RelGeneral" id="RelGeneral" class="text-center form-control" onchange="clasificacion()" >
-				  	<option value="0">General</option>
-				  	<option value="1">Restringido</option>
+				  <select name="RelGeneral" id="RelGeneral" class="text-center form-control" onchange="clasificacion()">
+				  	<option value="0"
+				  	@if ($release->RelGeneral == 0)
+				  		selected
+				  	@endif
+				  	>General</option>
+				  	<option value="1"
+				  	@if ($release->RelGeneral == 1)
+				  		selected
+				  	@endif
+				  	>Restringido</option>
 				  </select>
 				</div>
+				@if($release->RelGeneral == 1)
+					<div class="form-group">
+						<label class="form-control-label">Anuncio emitido para:</label>
+						<select multiple name="users[]" id="input-users" class="form-control form-control-alternative" placeholder="{{ __('Selecciona los usuarios a los cuales se les enviara el correo')}}" value="{{ old('users[]') }}"  required>
+							@foreach($users as $user)
+							<option value="{{$user->email}}"
+								@if ($release->RelGeneral == $user->email)
+									selected
+								@endif
+							>{{$user->name}}  -  {{$user->email}}</option>
+							@endforeach
+						</select>
+					</div>
+				@endif
 
 				<div class="col-md-12" id="div-contenedor">
 					

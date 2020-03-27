@@ -21,10 +21,10 @@ Alertas
 		</div>
 		<div class="col-md-12 row">
 			<div class="col-md-6 text-center">
-				<a href="{{ route('alerts.create') }}" class="fas fa-plus btn btn-sm btn-fill btn-success" style="margin: 0em 0em 0em 2em;"> Crear</a>
+				<a href="{{ route('alerts.create') }}" class="fas fa-plus btn btn-sm btn-fill btn-success" style="margin: 0em 0em 1em 2em;"> Crear</a>
 			</div>
 			<div class="col-md-6 text-center">
-				<a href="{{ route('alerts.calendario') }}" class="far fa-calendar-alt btn btn-sm btn-fill btn-success" style="margin: 0em 0em 0em 2em;"> Calendario</a>
+				<a href="{{ route('alerts.calendario') }}" class="far fa-calendar-alt btn btn-sm btn-fill btn-success" style="margin: 0em 0em 1em 2em;"> Calendario</a>
 			</div>
 		</div>
         @include('alerts.success')

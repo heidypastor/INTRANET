@@ -72,7 +72,12 @@ Proceso de {{$proceso->ProcName}}
 
 		<div class="row">
 			<div class="col-md-3 margen">
-				<img src="{{Storage::url($proceso->ProcImage)}}">
+				{{-- <img src="{{Storage::url($proceso->ProcImage)}}"> --}}
+				@if($proceso->ProcImage === "")
+				   <a href="/white/img/no_image.png"> <img src="/white/img/no_image.png" class="responsive"></a>
+				@else
+				   <a href="{{Storage::url($proceso->ProcImage)}}"> <img src="{{Storage::url($proceso->ProcImage)}}" class="responsive"></a>
+				@endif
 			</div>
 			<div class="col-md-5 text-center margen">
 				<br><h4>{{$proceso->ProcName}}</h4><br>

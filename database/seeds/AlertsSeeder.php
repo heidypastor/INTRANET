@@ -12,46 +12,7 @@ class AlertsSeeder extends Seeder
      */
     public function run()
     {
-         //  id = 01
-        $alert = new Alerts();
-        $alert->AlertDateEvent = '2020-02-28 00:00:00';
-        $alert->AlertName = 'Global';
-        $alert->AlertDescription = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua.';
-        $alert->AlertDateNotifi = '2020-02-19 00:00:00';
-        $alert->AlertNotification = 0;
-        $alert->AlertType = 'Global';
-        $alert->AlertPercentage = 100;
-        $alert->AlertRealizado = 0;
-        $alert->save();
-
-
-         // id = 02
-        $alert = new Alerts();
-        $alert->AlertDateEvent = '2020-02-28 00:00:00';
-        $alert->AlertName = 'Sede';
-        $alert->AlertDescription = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua.';
-        $alert->AlertDateNotifi = '2020-02-19 00:00:00';
-        $alert->AlertNotification = 0;
-        $alert->AlertType = 'Sede';
-        $alert->AlertPercentage = 100;
-        $alert->AlertRealizado = 0;
-        $alert->save();
-
-
-         // id = 03
-        $alert = new Alerts();
-        $alert->AlertDateEvent = '2020-02-28 00:00:00';
-        $alert->AlertName = 'Area';
-        $alert->AlertDescription = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua.';
-        $alert->AlertDateNotifi = '2020-02-19 00:00:00';
-        $alert->AlertNotification = 0;
-        $alert->AlertType = 'Area';
-        $alert->AlertPercentage = 100;
-        $alert->AlertRealizado = 0;
-        $alert->save();
-
-
-         // id = 04
+         // id = 01
         $alert = new Alerts();
         $alert->AlertDateEvent = '2020-02-28 00:00:00';
         $alert->AlertName = 'Personal';
@@ -63,50 +24,7 @@ class AlertsSeeder extends Seeder
         $alert->AlertRealizado = 0;
         $alert->save();
 
-
-         //  id = 05
-        $alert = new Alerts();
-        $alert->AlertDateEvent = '2020-02-28 00:00:00';
-        $alert->AlertName = 'Global';
-        $alert->AlertDescription = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua.';
-        $alert->AlertDateNotifi = '2020-02-19 00:00:00';
-        $alert->AlertNotification = 0;
-        $alert->AlertType = 'Global';
-        $alert->AlertPercentage = 100;
-        $alert->AlertRealizado = 0;
-        $alert->user_id = 2;
-        $alert->save();
-
-
-         // id = 06
-        $alert = new Alerts();
-        $alert->AlertDateEvent = '2020-02-28 00:00:00';
-        $alert->AlertName = 'Sede';
-        $alert->AlertDescription = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua.';
-        $alert->AlertDateNotifi = '2020-02-19 00:00:00';
-        $alert->AlertNotification = 0;
-        $alert->AlertType = 'Sede';
-        $alert->AlertPercentage = 100;
-        $alert->AlertRealizado = 0;
-        $alert->user_id = 2;
-        $alert->save();
-
-
-         // id = 07
-        $alert = new Alerts();
-        $alert->AlertDateEvent = '2020-02-28 00:00:00';
-        $alert->AlertName = 'Area';
-        $alert->AlertDescription = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua.';
-        $alert->AlertDateNotifi = '2020-02-19 00:00:00';
-        $alert->AlertNotification = 0;
-        $alert->AlertType = 'Area';
-        $alert->AlertPercentage = 100;
-        $alert->AlertRealizado = 0;
-        $alert->user_id = 2;
-        $alert->save();
-
-
-         // id = 08
+         // id = 02
         $alert = new Alerts();
         $alert->AlertDateEvent = '2020-02-28 00:00:00';
         $alert->AlertName = 'Personal';
