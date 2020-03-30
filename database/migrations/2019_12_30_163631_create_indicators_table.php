@@ -16,12 +16,12 @@ class CreateIndicatorsTable extends Migration
         Schema::create('indicators', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('IndName'); /*Nombre del indicador*/
-            $table->string('IndObjective'); /*Objetivo del indicador*/
-            $table->string('IndQueMide'); /*Que mide el indicador*/
-            $table->string('IndGraphic')->default('/white/img/grafica.jpg'); /*Imagen de la grafica del indicador*/
-            $table->string('IndTable')->default('/white/img/tabla.jpg'); /*Imagen de la tabla con los datos del indicador*/
-            $table->string('IndAnalysis'); /*Analisis mensual o por periodos*/
+            $table->string('IndName', 255); /*Nombre del indicador*/
+            $table->string('IndObjective', 1000); /*Objetivo del indicador*/
+            $table->string('IndQueMide', 1000); /*Que mide el indicador*/
+            $table->string('IndGraphic', 1000)->default('/white/img/grafica.jpg'); /*Imagen de la grafica del indicador*/
+            $table->string('IndTable', 1000)->default('/white/img/tabla.jpg'); /*Imagen de la tabla con los datos del indicador*/
+            $table->string('IndAnalysis', 1000); /*Analisis mensual o por periodos*/
             $table->date('IndDateFrom'); /*Desde cuando se tomaron los datos*/
             $table->date('IndDateUntil'); /*Hasta cuando se tomaron los datos*/
             $table->softDeletes(); 

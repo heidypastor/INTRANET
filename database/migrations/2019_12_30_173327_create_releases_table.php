@@ -16,12 +16,12 @@ class CreateReleasesTable extends Migration
         Schema::create('releases', function (Blueprint $table) {
             $table->bigIncrements('id'); /**/
             $table->timestamps();
-            $table->string('RelName'); /*Nombre del comunicado*/
-            $table->string('RelMessage'); /*Mensaje del comunicado*/
+            $table->string('RelName', 255); /*Nombre del comunicado*/
+            $table->string('RelMessage', 1000); /*Mensaje del comunicado*/
             $table->date('RelDate'); /*Fecha del comunicado*/
             $table->softDeletes(); 
-            $table->string('RelSrc'); /*Imagen del comunicado si se desea agregar*/
-            $table->string('RelType'); /*Tipo de comunicado: Noticia o comunicado*/
+            $table->string('RelSrc', 1000); /*Imagen del comunicado si se desea agregar*/
+            $table->string('RelType', 1000); /*Tipo de comunicado: Noticia o comunicado*/
             $table->boolean('RelGeneral');/*Documento en general o restringido. General = 0 Restringido = 1*/
             $table->unsignedBigInteger('user_id');  /*Relación con la tabla usuarios*/
             $table->foreign('user_id')->references('id')->on('users'); 
