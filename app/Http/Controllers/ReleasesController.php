@@ -12,6 +12,8 @@ use App\Mail\ReleaseStored;
 use App\Mail\ReleaseUpdate;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\storeUpdateReleasesRequest;
+use Illuminate\Validation\Rule;
 
 class ReleasesController extends Controller
 {
@@ -44,7 +46,7 @@ class ReleasesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(storeUpdateReleasesRequest $request)
     {
         $usuarios = $request->input('users');
         /*return $usuarios;*/
@@ -115,7 +117,7 @@ class ReleasesController extends Controller
      * @param  \App\Releases  $releases
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Releases $release)
+    public function update(storeUpdateReleasesRequest $request, Releases $release)
     {
 
 
