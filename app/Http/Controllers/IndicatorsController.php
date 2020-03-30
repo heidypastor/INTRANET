@@ -6,9 +6,12 @@ use App\Indicators;
 use App\Areas;
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\storeUpdateIndicatorsRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
+
 
 class IndicatorsController extends Controller
 {
@@ -65,7 +68,7 @@ class IndicatorsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(storeUpdateIndicatorsRequest $request)
     {
         /*$indicator->create($request->except(['IndGraphic', 'IndTable']));*/
         /*return $request;*/
@@ -84,6 +87,7 @@ class IndicatorsController extends Controller
         $indicator->IndDateFrom = $request->input('IndDateFrom');
         $indicator->IndDateUntil = $request->input('IndDateUntil');
         $indicator->IndType = $request->input('IndType');
+        $indicator->IndEfe = $request->input('IndEfe');
         $indicator->user_id =  Auth::user()->id;
         $indicator->save();
 
@@ -137,7 +141,7 @@ class IndicatorsController extends Controller
      * @param  \App\Indicators  $indicators
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Indicators $indicator)
+    public function update(storeUpdateIndicatorsRequest $request, Indicators $indicator)
     {
        /* return $request;*/
        /*if ($request->hasFile('Avatar')){
