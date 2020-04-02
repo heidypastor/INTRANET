@@ -1,6 +1,6 @@
 @component('mail::message')
 <div class="col-md-10 mx-auto">
-	<img src="{{asset('white/img/logo_nombre.png')}}">
+	<img src="http://nube.prosarc.com/index.php/s/VCgdN9HiaE8KedD/download" width="800" height="230">
 </div>
 
 <div class="col-md-12"><br><br></div>
