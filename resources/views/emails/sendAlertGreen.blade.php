@@ -1,6 +1,6 @@
-@component('mail::message')
+{{-- @component('mail::message') --}}
 <div class="col-md-10 mx-auto">
-	<img src="{{asset('white/img/alerta_verde.jpeg')}}">
+	<img src="http://nube.prosarc.com/index.php/s/TfpjS6ZTRF4MvF1/download" width="800" height="230">
 </div>
 <div class="col-md-12" style="background-color: rgba(206, 254, 161, .4); padding: 10px 10px 10px 10px;">
 	<br>
@@ -22,6 +22,6 @@
 </div>
 
 <div class="col-md-10 mx-auto">
-	<img src="{{asset('white/img/footer.png')}}">
+	<img src="http://nube.prosarc.com/index.php/s/YCjtqnXnzFk1tve/download">
 </div>
-@endcomponent
+{{-- @endcomponent --}}
