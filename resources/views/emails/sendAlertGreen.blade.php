@@ -1,17 +1,27 @@
-@component('mail::message')
+{{-- @component('mail::message') --}}
+<div class="col-md-10 mx-auto">
+	<img src="http://nube.prosarc.com/index.php/s/TfpjS6ZTRF4MvF1/download" width="800" height="230">
+</div>
+<div class="col-md-12" style="background-color: rgba(206, 254, 161, .4); padding: 10px 10px 10px 10px;">
+	<br>
+	<div class="col-md-12 text-center">
+		<h1 style="color: #000000;"><center>¡¡ALERTA VERDE!!</center></h1>
+		<h3 style="color: #000000;"><center>Aún tienes tiempo.</center></h3>
+	</div>
 
-<center><h2><font color="#42ff00">¡¡ALERTA VERDE!!</font></h2></center>
-<center><h3><font color="#42ff00">Aún tienes tiempo.</font></h3></center>
-<body>
-	<strong>Recuerda</strong> 
-	<br>Tienes una nueva alerta: <strong>{{$alert->AlertName}}</strong> 
-	<br> para el día {{date_format($alert->AlertDateEvent, 'd-m-Y')}}.
-	<br><h3>Descripción:</h3> {{$alert->AlertDescription}}.
+	<strong style="color: #000000;">Recuerda</strong> 
+	<br><font color="#000000">Tienes una nueva alerta:</font> <strong style="color: #000000;">{{$alert->AlertName}}</strong> 
+	<br><font color="#000000"> para el día {{date_format($alert->AlertDateEvent, 'd-m-Y')}}.</font>
+	<br><h3 style="color: #000000;">Descripción:</h3><font color="#000000" class="text-justify"> {{$alert->AlertDescription}}.</font>
+	<br><br>
+	<strong><center style="color: #000000;">¡¡¡NO OLVIDAR!!!</center></strong> 
 
 	@component('mail::button', ['url' => url('/alerts')])
 	Ver Alerta
 	@endcomponent
+</div>
 
-	<strong><center>¡¡¡NO OLVIDAR!!!</center></strong> 
-</body>
-@endcomponent
+<div class="col-md-10 mx-auto">
+	<img src="http://nube.prosarc.com/index.php/s/YCjtqnXnzFk1tve/download">
+</div>
+{{-- @endcomponent --}}
