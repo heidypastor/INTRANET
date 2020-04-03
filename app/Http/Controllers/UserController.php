@@ -22,7 +22,7 @@ class UserController extends Controller
     public function index(User $users)
     {
         $users = User::with('roles')->get();
-
+        /*return $users;*/
         return view('users.index', ['users' => $users]);
     }
 
