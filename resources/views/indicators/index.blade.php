@@ -21,7 +21,7 @@ Indicadores
 	<div class="col-md-12 row">
 		@foreach($Indicators as $indicator)
 			@if($indicator->IndType === 0)
-			<div class="col-md-5 col-sm-12 mx-auto text-center index-indicators-1">
+			<div class="col-md-5 col-sm-12 {{-- mx-auto --}} text-center index-indicators-1">
 				<div class="col-md-12 row">
 					<div class="col-md-12"><br><br></div>
 					<div class="col-md-3 text-center">
