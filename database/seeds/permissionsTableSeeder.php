@@ -75,7 +75,10 @@ class permissionsTableSeeder extends Seeder
             'updatePermissions',
             'createAreas', 
             'updateAreas',
-            'readAreas']);
+            'readAreas',
+            'createUser',
+            'updateUser',
+            'deleteUser',]);
 
 
         $role = Role::findByName('Director');

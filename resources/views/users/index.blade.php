@@ -22,9 +22,11 @@ Usuarios
                         <div class="col-6">
                             <h4 class="card-title">{{ __('Usuarios') }}</h4>
                         </div>
+                        @can('createUser')
                         <div class="col-6 text-right">
                             <a href="{{ route('user.create') }}" class="btn btn-sm btn-success fas fa-plus"> {{ __('Crear') }}</a>
                         </div>
+                        @endcan
                     </div>
                 </div>
                 <div class="card-body">
@@ -62,13 +64,14 @@ Usuarios
                                                 @endforeach  
                                             </ul>
                                         </td>
-                                        <td class="text-right">
+                                        {{-- <td class="text-right">
                                                 <div class="dropdown">
                                                     <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <i class="fas fa-ellipsis-v"></i>
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                                         @if (auth()->user()->id != $user->id)
+                                                            @can(['updateUser', 'deleteUser'])
                                                             <form action="{{ route('user.destroy', $user) }}" method="post">
                                                                 @csrf
                                                                 @method('delete')
@@ -78,12 +81,56 @@ Usuarios
                                                                             {{ __('Eliminar') }}
                                                                 </button>
                                                             </form>
+                                                            @endcan
                                                         @else
                                                             <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Editar') }}</a>
                                                         @endif
                                                     </div>
                                                 </div>
-                                        </td>
+                                        </td> --}}
+
+
+                                        @if (auth()->user()->id != $user->id)
+                                            @can(['updateUser', 'deleteUser'])
+                                                <td class="text-right">
+                                                    <div class="dropdown">
+                                                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class="fas fa-ellipsis-v"></i>
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                            <form action="{{ route('user.destroy', $user) }}" method="post">
+                                                                @csrf
+                                                                @method('delete')
+
+                                                                <a class="dropdown-item" href="{{ route('user.edit', $user) }}">{{ __('Editar') }}</a>
+                                                                <button type="button" class="dropdown-item" onclick="confirm('{{ __("Are you sure you want to delete this user?") }}') ? this.parentElement.submit() : ''">
+                                                                            {{ __('Eliminar') }}
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            @else
+                                                <td>
+                                                    <i class="fas fa-check"></i>
+                                                </td>
+                                            @endcan
+                                        @else
+                                            <td class="text-right">
+                                                <div class="dropdown">
+                                                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                            <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Editar') }}</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        @endif
+
+
+
+
                                     </tr>
                                 @endforeach
                             </tbody>
