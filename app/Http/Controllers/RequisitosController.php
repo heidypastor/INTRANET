@@ -28,11 +28,17 @@ class RequisitosController extends Controller
      */
     public function create()
     {
-        $areas = Areas::get();
-        $todasAreas = Areas::get(['id', 'AreaName']);
-        /*explode ( $delimitador , $string [, $limite ] )*/
-        /*return $todasAreas;*/
-        return view('requisitos.create', compact(['areas', 'todasAreas']));
+        if (auth()->user()->can('createRequisito')) {
+            $areas = Areas::get();
+            $todasAreas = Areas::get(['id', 'AreaName']);
+            /*explode ( $delimitador , $string [, $limite ] )*/
+            /*return $todasAreas;*/
+            return view('requisitos.create', compact(['areas', 'todasAreas']));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para crear requisitos');
+        }
+
+        
     }
 
     /**
@@ -102,12 +108,18 @@ class RequisitosController extends Controller
      */
     public function edit(Requisitos $requisito)
     {
-        $areas = Areas::get();
-        /*$todasAreas = Areas::get(['id', 'AreaName']);*/
-        /*$array = in_array($todasAreas);
-        return $array;*/
+        if (auth()->user()->can('updateRequisito')) {
+            $areas = Areas::get();
+            /*$todasAreas = Areas::get(['id', 'AreaName']);*/
+            /*$array = in_array($todasAreas);
+            return $array;*/
 
-        return view('requisitos.edit', compact('requisito', 'areas'));
+            return view('requisitos.edit', compact('requisito', 'areas'));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para editar requisitos');
+        }
+
+        
     }
 
     /**e
@@ -149,8 +161,12 @@ class RequisitosController extends Controller
      */
     public function destroy(Requisitos $requisito)
     {
-        $requisito->Areas()->detach();
-        $requisito->delete();
-        return redirect()->route('requisitos.index')->withStatus(__('Requisito y documento legal eliminado correctamente'));
+        if (auth()->user()->can('deleteRequisito')) {
+            $requisito->Areas()->detach();
+            $requisito->delete();
+            return redirect()->route('requisitos.index')->withStatus(__('Requisito y documento legal eliminado correctamente'));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para eliminar requisitos');
+        }
     }
 }

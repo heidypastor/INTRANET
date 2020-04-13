@@ -30,9 +30,14 @@ class RoleController extends Controller
      */
     public function create()
     {
-        $permissions = Permission::all();
-        /*return $role;*/
-        return view('roles.create', compact('permissions'));
+        if (auth()->user()->can('createRole')) {
+            $permissions = Permission::all();
+            /*return $role;*/
+            return view('roles.create', compact('permissions'));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para crear Roles');
+        }
+
     }
 
     /**
@@ -69,13 +74,17 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        if ($role->name == 'admin') {
-            return redirect()->route('roles.index');
+        if (auth()->user()->can('updateRole')) {
+            if ($role->name == 'admin') {
+                return redirect()->route('roles.index');
+            }
+
+            $permissions = Permission::all();
+
+            return view('roles.edit', compact(['role', 'permissions']));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para editar Roles');
         }
-
-        $permissions = Permission::all();
-
-        return view('roles.edit', compact(['role', 'permissions']));
     }
 
     /**
