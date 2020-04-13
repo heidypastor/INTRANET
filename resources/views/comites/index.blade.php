@@ -18,9 +18,11 @@ Comités
 		<div class="card-title text-center">
 			<h2>Cómites de Prosarc</h2>
 		</div>
+        @can('createComites')
 		<div class="float-right">
 			<a href="{{ route('comites.create') }}" class="fas fa-plus btn btn-sm btn-fill btn-success" style="margin: 0em 0em 0em 2em;"> Crear</a>
 		</div>
+        @endcan
         @include('alerts.success')
 		<div class="card-body">
 		  <div class="table-responsive table-upgrade">
