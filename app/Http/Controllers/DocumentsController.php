@@ -26,7 +26,7 @@ class DocumentsController extends Controller
        $publicadodocumentos = Documents::where('DocPublisher', 1)->get();/*Muestra los publicados*/
        /*return $borradordocumentos;*/
        /*return $Documents;*/
-       $user = User::where('id', [1, 2, 21])->first();
+       $user = User::where('id', [1, 2, 22])->first();
        $user->givePermissionTo('indexDocuments');
        /*$users = User::with('roles')->paginate(10);*/
 
@@ -45,7 +45,10 @@ class DocumentsController extends Controller
         // $array = (array) $permisos;
         // return $array;
 
-        if (auth()->user()->can('crearDocumentos')) {
+        $user = User::where('id', '22')->first();
+        $user->givePermissionTo('createDocuments');
+
+        if (auth()->user()->can('createDocuments')) {
             # code...
             $areas = Areas::get();
             /*$areas = Documents::with('areas')->get();*/
@@ -84,6 +87,7 @@ class DocumentsController extends Controller
         $document = new Documents();
         $document->DocName = $request->input('DocName');
         $document->DocVersion = $request->input('DocVersion');
+        $document->DocCodigo  = $request->input('DocCodigo ');
         $document->DocType = $request->input('DocType');
         $document->DocPublisher = $request->input('DocPublisher');
         $document->DocGeneral = $request->input('DocGeneral');
@@ -120,9 +124,16 @@ class DocumentsController extends Controller
      */
     public function edit(Documents $document)
     {
-        $areas = Areas::get();
-        /*return $document->areas;*/
-        return view('documents.edit', compact('document', 'areas'));
+        $user = User::where('id', '22')->first();
+        $user->givePermissionTo('updateDocuments');
+        if (auth()->user()->can('updateDocuments')) {
+            $areas = Areas::get();
+            /*return $document->areas;*/
+            return view('documents.edit', compact('document', 'areas'));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para crear documentos');
+        }
+        
     }
 
     /**
@@ -157,6 +168,7 @@ class DocumentsController extends Controller
                 'DocName' => $request->input('DocName'), 
                 'DocSrc' => $path, 
                 'DocVersion' => $request->input('DocVersion'), 
+                'DocCodigo' => $request->input('DocCodigo'), 
                 'DocType' => $request->input('DocType'), 
                 'DocMime' => $mime, 
                 'DocOriginalName' => $nombreorigi, 

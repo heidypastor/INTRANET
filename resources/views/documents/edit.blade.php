@@ -51,6 +51,16 @@ Documentos
 
 					<input name="DocVersion" type="text" placeholder="{{$document->DocVersion}}" id="DocVersion" class="text-center form-control" required="" value="{{$document->DocVersion}}">
 				</div>
+
+
+				<div class="form-group">
+
+					<label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Código</b>" data-content="Ingresar el código referencia al cual corresponde el documento."><i class="far fa-question-circle"></i> Código</label>
+
+					<input name="DocCodigo" type="text" placeholder="{{$document->DocCodigo}}" id="DocCodigo" class="text-center form-control" required="" value="{{$document->DocCodigo}}">
+				</div>
+
+
 				<div class="form-group">
 
 					<label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tipo de documento</b>" data-content="Ingresa la categoria a la cual pertenece dicho documento."><i class="far fa-question-circle"></i> Tipo de documento</label>

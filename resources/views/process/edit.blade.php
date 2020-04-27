@@ -702,6 +702,15 @@ Procesos
 				<label>Nombre del proveedor</label>	      
 				<input type="text" name="ProvName" class="text-center form-control" required="">
 			</div>
+			<div class="form-group">
+				<label>Tipo de proveedor</label>
+				<select name="ProvType" class="text-center form-control select">
+					<option value="Planear">Planear</option>
+					<option value="Hacer">Hacer</option>
+					<option value="Verificar">Verificar</option>
+					<option value="Actuar">Actuar</option>
+				</select>
+			</div>
 		@endslot
 	@endcomponent
 
@@ -721,6 +730,15 @@ Procesos
 			<div class="form-group">
 				<label>Nombre de la entrada</label>	      
 				<input type="text" name="InputName" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>Tipo de entrada</label>
+				<select name="InputType" class="text-center form-control select">
+					<option value="Planear">Planear</option>
+					<option value="Hacer">Hacer</option>
+					<option value="Verificar">Verificar</option>
+					<option value="Actuar">Actuar</option>
+				</select>
 			</div>
 		@endslot
 	@endcomponent
@@ -743,6 +761,15 @@ Procesos
 				<label>Nombre de la actividad</label>	      
 				<input type="text" name="ActiName" class="text-center form-control" required="">
 			</div>
+			<div class="form-group">
+				<label>Tipo de actividad</label>
+				<select name="ActiType" class="text-center form-control select">
+					<option value="Planear">Planear</option>
+					<option value="Hacer">Hacer</option>
+					<option value="Verificar">Verificar</option>
+					<option value="Actuar">Actuar</option>
+				</select>
+			</div>
 		@endslot
 	@endcomponent
 
@@ -764,6 +791,15 @@ Procesos
 				<label>Nombre de la salida</label>	      
 				<input type="text" name="OutputName" class="text-center form-control" required="">
 			</div>
+			<div class="form-group">
+				<label>Tipo de salida</label>
+				<select name="OutputType" class="text-center form-control select">
+					<option value="Planear">Planear</option>
+					<option value="Hacer">Hacer</option>
+					<option value="Verificar">Verificar</option>
+					<option value="Actuar">Actuar</option>
+				</select>
+			</div>
 		@endslot
 	@endcomponent
 
@@ -784,6 +820,15 @@ Procesos
 			<div class="form-group">
 				<label>Nombre del cliente</label>	      
 				<input type="text" name="CliName" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>Tipo de cliente</label>
+				<select name="CliType" class="text-center form-control select">
+					<option value="Planear">Planear</option>
+					<option value="Hacer">Hacer</option>
+					<option value="Verificar">Verificar</option>
+					<option value="Actuar">Actuar</option>
+				</select>
 			</div>
 		@endslot
 	@endcomponent
@@ -952,6 +997,15 @@ Procesos
 				<label>Nuevo Nombre</label>
 				<input type="text" name="ProvName" class="text-center form-control" required="">
 			</div>
+			<div class="form-group">
+				<label>Nuevo tipo de proveedor</label>
+				<select name="ProvType" class="text-center form-control select">
+					<option value="Planear">Planear</option>
+					<option value="Hacer">Hacer</option>
+					<option value="Verificar">Verificar</option>
+					<option value="Actuar">Actuar</option>
+				</select>
+			</div>
 		@endslot
 	@endcomponent
 
@@ -986,6 +1040,15 @@ Procesos
 			<div class="form-group">
 				<label>Nuevo Nombre</label>
 				<input type="text" name="InputName" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>Nuevo tipo de entrada</label>
+				<select name="InputType" class="text-center form-control select">
+					<option value="Planear">Planear</option>
+					<option value="Hacer">Hacer</option>
+					<option value="Verificar">Verificar</option>
+					<option value="Actuar">Actuar</option>
+				</select>
 			</div>
 		@endslot
 	@endcomponent
@@ -1022,6 +1085,15 @@ Procesos
 				<label>Nuevo Nombre</label>
 				<input type="text" name="ActiName" class="text-center form-control" required="">
 			</div>
+			<div class="form-group">
+				<label>Nuevo tipo de actividad</label>
+				<select name="ActiType" class="text-center form-control select">
+					<option value="Planear">Planear</option>
+					<option value="Hacer">Hacer</option>
+					<option value="Verificar">Verificar</option>
+					<option value="Actuar">Actuar</option>
+				</select>
+			</div>
 		@endslot
 	@endcomponent
 
@@ -1057,6 +1129,15 @@ Procesos
 				<label>Nuevo Nombre</label>
 				<input type="text" name="OutputName" class="text-center form-control" required="">
 			</div>
+			<div class="form-group">
+				<label>Nuevo tipo de salida</label>
+				<select name="ActiType" class="text-center form-control select">
+					<option value="Planear">Planear</option>
+					<option value="Hacer">Hacer</option>
+					<option value="Verificar">Verificar</option>
+					<option value="Actuar">Actuar</option>
+				</select>
+			</div>
 		@endslot
 	@endcomponent
 
@@ -1091,6 +1172,15 @@ Procesos
 			<div class="form-group">
 				<label>Nuevo Nombre</label>
 				<input type="text" name="CliName" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>Nuevo tipo de cliente</label>
+				<select name="CliType" class="text-center form-control select">
+					<option value="Planear">Planear</option>
+					<option value="Hacer">Hacer</option>
+					<option value="Verificar">Verificar</option>
+					<option value="Actuar">Actuar</option>
+				</select>
 			</div>
 		@endslot
 	@endcomponent
