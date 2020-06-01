@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Cargo;
+use App\Areas;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Auth;
 
 
 class UserController extends Controller
@@ -18,8 +22,8 @@ class UserController extends Controller
      */
     public function index(User $users)
     {
-        $users = User::with('roles')->paginate(10);
-        // return $users;
+        $users = User::with('roles')->get();
+        /*return $users;*/
         return view('users.index', ['users' => $users]);
     }
 
@@ -30,9 +34,17 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::where('name', '!=', 'admin')->get();
+        if (auth()->user()->can('createUser')) {
+            $roles = Role::where('name', '!=', 'Super Admin')->get();
+            $permisos = Permission::all();
+            $cargos = Cargo::all();
+            $areas = Areas::all();
 
-        return view('users.create', compact('roles'));
+            return view('users.create', compact(['roles', 'permisos', 'cargos', 'areas']));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para crear Usuarios');
+        }
+        
     }
 
     /**
@@ -42,11 +54,8 @@ class UserController extends Controller
      * @param  \App\User  $model
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(UserRequest $request, User $user)
+    public function store(UserRequest $request)
     {
-        /*return $request;*/
-        $roles = Role::whereIn('name', $request->input('roles'))->get();
-        // return $roles;
         $user = new User();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
@@ -56,9 +65,11 @@ class UserController extends Controller
         $user->Avatar= 'images/robot400x400.gif';
         $user->save();
 
-        // $user->create($request->merge(['password' => Hash::make($request->get('password'))])->except('roles'));
 
-        $user->assignRole($roles);
+        $user->cargos()->sync($request->input('Cargos'));
+        $user->syncRoles($request->input('roles'));
+        $user->syncPermissions($request->input('PermisosDirectos'));
+
 
         return redirect()->route('user.index')->withStatus(__('User successfully created.'));
     }
@@ -71,16 +82,13 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        if ($user->id == 1) {
-            return redirect()->route('user.index');
-        }
+       $roles = Role::where('name', '!=', 'Super Admin')->get();
+       $permisos = Permission::all();
+       $cargos = Cargo::all();
+       $areas = Areas::all();
 
-        $user->roles = $user->getRoleNames();
-
-        $roles = Role::where('name', '!=', 'admin')->get();
-        // $user->assignRole($roles);
-        // return $user;
-        return view('users.edit', compact(['user', 'roles']));
+       
+       return view('users.edit', compact(['user', 'roles', 'permisos', 'cargos', 'areas']));
     }
 
     /**
@@ -99,7 +107,9 @@ class UserController extends Controller
                 ->except([$hasPassword ? '' : 'password']
         ));
 
+        $user->cargos()->sync($request->input('Cargos'));
         $user->syncRoles($request->input('roles'));
+        $user->syncPermissions($request->input('PermisosDirectos'));
 
 
         return redirect()->route('user.index')->withStatus(__('User successfully updated.'));

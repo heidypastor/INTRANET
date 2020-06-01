@@ -59,7 +59,7 @@ estilo de imput para input personalizade del documentos.edit*/
 }
 
 #logo-prosarc {
-  margin: -2em 0em 0em 8em;
+  margin: -2em 0em 0em 6.5em;
 }
 
 #text-carousel {
@@ -185,7 +185,7 @@ estilo de imput para input personalizade del documentos.edit*/
 
 .responsive {
   width: auto;
-  height: 100%;
+  max-height: 100%;
 }
 
 .requi-legal {
@@ -450,4 +450,63 @@ estilo de imput para input personalizade del documentos.edit*/
     margin-top: 20%;
     margin-right: 15%;
   }
+}
+
+
+.margen {
+  border: solid 0.5px #555555;
+}
+
+.color {
+ /* background-color: rgba(74, 229, 37, .7);*/
+ background: linear-gradient(to bottom right, #3bbe78, #4bd28a, #5ee29c);
+}
+
+.color1 {
+  /*background-color: rgba(87, 192, 199, .7);*/
+  /*background: linear-gradient(to bottom right, #535fc9, #636fd9, #727de7);*/
+  background-color: #007eb7;
+
+}
+
+.color1-1 {
+  /*background-color: rgba(255, 127, 63, .7);*/
+  /*background: linear-gradient(to bottom right, #ff7f3f, #fd915b, #fda579);*/
+  background-color: #57c6ff;
+}
+
+.color1-2 {
+  /*background-color: rgba(255, 229, 63, .7);*/
+  /*background: linear-gradient(to bottom right, #ffe53f, #ffe95c, #ffed7a);*/
+  background-color: #49a7d7;
+}
+
+.color1-3 {
+  /*background-color: rgba(63, 197, 255, .7);*/
+  /*background: linear-gradient(to bottom right, #3fc5ff, #5acdff, #71d3fe);*/
+  background-color: #3a85ab;
+}
+
+.blanco {
+  background-image: #FFFFFF;
+}
+
+.degradado-procesos {
+  border-radius: 10px;
+  box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 
+  15px 15px 16px gray !important;
+  border: 1px solid #555555;
+  margin: 0em 0em 3em 0em;
+  padding: 3em 3em 3em 3em;
+}
+
+/*ajustes para el select2*/
+.select2-container .select2-selection--single{
+  height:38px;
+  padding-top:5px;
+}
+
+.select2-container .select2-selection--multiple{
+  /* height:38px; */
+  padding-top:2px;
 }

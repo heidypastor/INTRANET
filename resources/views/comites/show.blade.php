@@ -17,6 +17,7 @@ Comités
 					<h3 class="card-title text-center"><strong>Cómites</strong></h3>
 				</div>
 				<div class="row">
+					@can('deleteComites')
 					<div class="col-md-6 text-center">
 						<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$comite->id}}">
 						  Eliminar
@@ -37,9 +38,12 @@ Comités
 							@endslot
 						@endcomponent
 					</div>
+					@endcan
+					@can('updateComites')
 					<div class="col-md-6 text-center">
 						<a href="{{$comite->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a><br><br><br>
 					</div>
+					@endcan
 				</div>
 			</div>
 		</div>

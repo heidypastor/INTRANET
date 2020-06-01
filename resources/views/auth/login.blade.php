@@ -9,16 +9,14 @@ Inicio de sesión
 @endsection
 
 @section('content')
-    <div class="col-lg-3 col-md-6 ml-1s position-login">
-        <form class="form texto-carousel" method="post" action="{{ route('login') }}">
+    <div class="col-lg-3 col-md-6 ml-1s col-sm-8 position-login">
+        <form class="form texto-carousel" method="post" action="{{ route('login') }}" style="margin: -25px 25px 0px 0px;">
             @csrf
-            {{-- <div class="degradado">
-            </div> --}}
             <div class="card card-login card-white card-new" {{-- style="background-color: rgba(29, 245, 0, 0);" --}}>
                     <div class="card-header">
                         {{-- <img src="{{ asset('white') }}/img/card-primary.png" alt=""> --}}
                         <h1 id="font-type">{{ __('Intranet') }}</h1>
-                        <img id="logo-prosarc" src="white/img/Big_Logo_fondo_transparante.png" width="110px" height="110px">
+                        <img id="logo-prosarc" src="white/img/logo_nuevo.png" width="110px" height="110px">
                     </div>
                     <div class="card-body">
                         {{-- <p class="text-dark mb-2">Sign in with <strong>admin@white.com</strong> and the password <strong>secret</strong></p> --}}

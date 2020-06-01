@@ -11,428 +11,708 @@ Proceso de {{$proceso->ProcName}}
 <link href="{{ asset('css') }}/datatable-plugins.css" rel="stylesheet" /> --}}
 @endpush
 @section('content')
-<div class="card col-md-12">
-	<div class="card-header">
+	<div class="col-md-12 card degradado-procesos">
 		<div class="row">
-			@php
-			$userid = Auth::user()->id;
-			@endphp
-			<div class="col-md-8">
-				<h2>
-					<b>{{$proceso->ProcName}}</b>
-				</h2>
+			<div class="col-md-2">
+				<a href="{{$proceso->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a>
 			</div>
-			@can('updateProcess')
-				<div class="col-md-2">
-					<a href="{{$proceso->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a><br><br><br>
-				</div>
-				<div class="col-md-2">
-					<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$proceso->id}}">
-					  Eliminar
-					</button>
-					@component('layouts.partials.modal')
-						@slot('id')
-							{{$proceso->id}}
-						@endslot
-						@slot('textModal')
-							{{$proceso->ProcName}}
-						@endslot
-						@slot('botonModal')
-							<form action="{{ route('proceso.destroy', $proceso) }}" method="POST">
-							    @method('DELETE')
-							    @csrf 
-							    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
-							</form>
-						@endslot
-					@endcomponent
-				</div>
-			@endcan
+			<div class="col-md-8">
+			</div>
+			<div class="col-md-2">
+				<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$proceso->id}}">
+				  Eliminar
+				</button>
+				@component('layouts.partials.modal')
+					@slot('id')
+						{{$proceso->id}}
+					@endslot
+					@slot('textModal')
+						{{$proceso->ProcName}}
+					@endslot
+					@slot('botonModal')
+						<form action="{{ route('proceso.destroy', $proceso) }}" method="POST">
+						    @method('DELETE')
+						    @csrf 
+						    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
+						</form>
+					@endslot
+				@endcomponent
+			</div>
 		</div>
-	</div>
-	<div class="card-body">
-		{{-- div para la imagen y el objetivo --}}
-		<div class="row col-md-12">
-			@if($proceso->ProcImage == "")
-				<img src="https://picsum.photos/1024/768" class="col-md-3 col-xs-12 float-left" alt="...">
-			@else
-				<img src="{{Storage::url($proceso->ProcImage)}}" class="col-md-3 col-xs-12 float-left" alt="...">
-			@endif
-			<div class="col-md-9 col-xs-12 float-left">
-				<h4 class="mt-0"><b class="text-info">Objetivo</b></h4>
+		<div class="col-md-12">
+			<br><br>
+		</div>
+		<div class="row color">
+			<div class="col-md-3 margen" style="background-color:white;">
+			<img src="{{asset('white/img/logo_nombre.png')}}" class="py-5">
+			</div>
+			<div class="col-md-5 text-center margen">
+				<h4>CARACTERIZACIÓN DE PROCESO</h4><br>
+				<h4>SISTEMA DE GESTIÓN INTEGRAL - HSEQ</h4>
+			</div>
+			<div class="col-md-4 text-center margen">
+				<h4>FORMATO</h4><br>
+				<div class="row">
+					<div class="col-md-4 margen">
+						<h4>HSEQ-04</h4>
+					</div>
+					<div class="col-md-4 margen">
+						<h4>{{$proceso->ProcRevVersion}}</h4>
+					</div>
+					<div class="col-md-4 margen">
+						<h4>{{$proceso->ProcDate}}</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-12">
+			<br><br>
+		</div>
+
+		<div class="row">
+			<div class="col-md-3 margen">
+				{{-- <img src="{{Storage::url($proceso->ProcImage)}}"> --}}
+				@if($proceso->ProcImage === "")
+				   <a href="/white/img/no_image.png"> <img src="/white/img/no_image.png" class="responsive"></a>
+				@else
+				   <a href="{{Storage::url($proceso->ProcImage)}}"> <img src="{{Storage::url($proceso->ProcImage)}}" class="responsive"></a>
+				@endif
+			</div>
+			<div class="col-md-5 text-center margen">
+				<br><h4>{{$proceso->ProcName}}</h4><br>
+			</div>
+			<div class="col-md-4 text-center margen">
+				<br>
+				@foreach($proceso->areas as $area)
+					{{$area->AreaName}}<br>
+				@endforeach
+			</div>
+		</div>
+
+		<div class="col-md-12">
+			<br><br>
+		</div>
+		<div class="row text-center">
+			<div class="col-md-6 margen">
+				<h4>OBJETIVO</h4><br>
+				<p>{{$proceso->ProcObjetivo}}</p>
+			</div>
+			<div class="col-md-3 margen">
+				<h4>LIDER</h4><br>
+				<p>{{$proceso->ProcAutoridad}}</p>
+			</div>
+			<div class="col-md-3 margen">
+				<h4>RESPONSABLES</h4><br>
 				<p>
-					{{$proceso->ProcObjetivo}}
+					@foreach($proceso->ProcResponsable as $responsable)
+						<li>{{$responsable}}</li>
+					@endforeach
 				</p>
 			</div>
 		</div>
+		<div class="col-md-12">
+			<br><br>
+		</div>
+		<div class="row margen text-center">
+			<div class="col-md-12">
+				<h4>ALCANCE</h4><hr>
+				<p>{{$proceso->ProcAlcance}}</p>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<br><br>
+		</div>
 		<div class="row">
-			{{-- columna para entidades relacionadas --}}
-			<div class="col-md-6 col-xs-12">
-				<div class="card">
-					<div class="card-header">
-						<a role="button" data-toggle="collapse" href="#collapse1" aria-expanded="false">
-							<h4 class="text-info text-center">
-								<b>{{'Responsabilidad'}}</b>
-							</h4>
-							</h4>
-						</a>
-					</div>
-					<div id="collapse1" class="collapse show">
-						<div class="card-body">
-							<span>
-								<ul class="list-group">
-									@foreach ($proceso->ProcResponsable as $item)
-									<a href="#" class="list-group-item list-group-item-action">
-										{{$item}}
-									</a>
-									@endforeach
-								</ul>
-							</span>
-						</div>
-					</div>
+			<div class="col-md-3 text-center margen color">
+				<h4>PLANEAR</h4>
+			</div>
+			<div class="col-md-3 text-center margen color">
+				<h4>HACER</h4> 
+			</div>
+			<div class="col-md-3 text-center margen color">
+				<h4>VERIFICAR</h4> 
+			</div>
+			<div class="col-md-3 text-center margen color">
+				<h4>ACTUAR</h4> 
+			</div>
+		</div>
+
+
+
+
+		<div class="row">
+			<div class="col-md-12 margen text-center color1">
+				<h4>PROVEEDOR</h4>
+			</div>
+			{{-- <div class="col-md-12 row">
+				<div class="col-md-3 margen">
+					PLANEAR
 				</div>
-				<div class="card">
-					<div class="card-header">
-						<a role="button" data-toggle="collapse" href="#collapse2" aria-expanded="false">
-							<h4 class="text-info text-center">
-								<b>{{'Autoridad'}}</b>
-							</h4>
-						</a>
-					</div>
-					<div id="collapse2" class="collapse show">
-						<div class="card-body">
-							<ul class="list-group">
-								<a href="#" class="list-group-item list-group-item-action">
-									{{-- {{$proceso->ProcAutoridad}} --}}
-									{{-- @foreach($users as $user)
-										@if($proceso->ProcAutoridad == $user->id)
-											{{$user->name}}
-										@endif
-									@endforeach --}}
-									@switch($proceso->ProcAutoridad)
-										@case(1) 
-											Super Admin
-											@break
-										@case(2)
-											Gerente
-											@break
-										@case(3)
-											Director
-											@break
-										@case(4)
-											Jefe Área
-											@break
-										@case(5)
-											User
-											@break
-									@endswitch
-								</a>
-							</ul>
-						</div>
-					</div>
+				<div class="col-md-3 margen">
+					HACER
 				</div>
-				<div class="card">
-					<div class="card-header">
-						<a role="button" data-toggle="collapse" href="#collapse3" aria-expanded="false">
-							<h4 class="text-info text-center">
-								<b>{{'Requisitos por cumplir'}}</b>
-							</h4>
-						</a>
-					</div>
-					<div id="collapse3" class="collapse show">
-						<div class="card-body">
-							<ul class="list-group">
-								@foreach($proceso->requisitos as $requisito)
-									@if($requisito->ReqLink == 'N')
-										@if($requisito->ReqSrc == 'N')
-											<a href="#" class="list-group-item list-group-item-action"> 
-												{{$requisito->ReqName}}
-											</a>
-										@else
-											<a href="{{$requisito->ReqSrc}}" class="list-group-item list-group-item-action"> 
-												{{$requisito->ReqName}}
-											</a>
-										@endif
-									@else
-										@if($requisito->ReqSrc == 'N')
-											<a href="{{$requisito->ReqLink}}" class="list-group-item list-group-item-action">
-												{{$requisito->ReqName}}
-											</a>
-										@else
-											<a href="{{$requisito->ReqLink}}" class="list-group-item list-group-item-action">
-												{{$requisito->ReqName}}
-											</a>
-										@endif
-									@endif
-								@endforeach
-							</ul>
-						</div>
-					</div>
+				<div class="col-md-3 margen">
+					VERIFICAR
 				</div>
-				<div class="card">
-					<div class="card-header">
-						<a role="button" data-toggle="collapse" href="#collapse4" aria-expanded="false">
-							<h4 class="text-info text-center">
-								<b>{{'Procesos de Soporte'}}</b>
-							</h4>
-						</a>
-					</div>
-					<div id="collapse4" class="collapse show">
-						<div class="card-body">
-							<ul class="list-group">
-								@foreach($proceso->procesosDeSoporte as $proSopor)
-									<a href="{{ route('proceso.show', $proSopor) }}" class="list-group-item list-group-item-action">
-										{{$proSopor->ProcName}}
-									</a>
-								@endforeach
-							</ul>
-						</div>
-					</div>
+				<div class="col-md-3 margen">
+					ACTUAR
 				</div>
-				<div class="card">
-					<div class="card-header">
-						<a role="button" data-toggle="collapse" href="#collapse5" aria-expanded="false">
-							<h4 class="text-info text-center">
-								<b>{{'Recursos necesarios (físicos, humanos...)'}}</b>
-							</h4>
-						</a>
+			</div> --}}
+			<div class="col-md-3 margen">
+				<ul>
+					@foreach($proceso->proveedores as $proveedor)
+						@if($proveedor->ProvType == 'Planear')
+							<li>{{$proveedor->ProvName}}</li>
+						@endif
+					@endforeach
+				</ul>
+			</div>
+			<div class="col-md-3 margen">
+				<ul>
+					@foreach($proceso->proveedores as $proveedor)
+						@if($proveedor->ProvType == 'Hacer')
+							<li>{{$proveedor->ProvName}}</li>
+						@endif
+					@endforeach
+				</ul>
+			</div>
+			<div class="col-md-3 margen">
+				<ul>
+					@foreach($proceso->proveedores as $proveedor)
+						@if($proveedor->ProvType == 'Verificar')
+							<li>{{$proveedor->ProvName}}</li>
+						@endif
+					@endforeach
+				</ul>
+			</div>
+			<div class="col-md-3 margen">
+				<ul>
+					@foreach($proceso->proveedores as $proveedor)
+						@if($proveedor->ProvType == 'Actuar')
+							<li>{{$proveedor->ProvName}}</li>
+						@endif
+					@endforeach
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 margen text-center color1">
+				<h4>ENTRADA</h4>
+			</div>
+			<div class="col-md-3 margen">
+				<ul>
+					@foreach($proceso->entradas as $entrada)
+						@if($entrada->InputType == 'Planear')
+							<li>{{$entrada->InputName}}</li>
+						@endif
+					@endforeach
+				</ul>
+			</div>
+			<div class="col-md-3 margen">
+				<ul>
+					@foreach($proceso->entradas as $entrada)
+						@if($entrada->InputType == 'Hacer')
+							<li>{{$entrada->InputName}}</li>
+						@endif
+					@endforeach
+				</ul>
+			</div>
+			<div class="col-md-3 margen">
+				<ul>
+					@foreach($proceso->entradas as $entrada)
+						@if($entrada->InputType == 'Verificar')
+							<li>{{$entrada->InputName}}</li>
+						@endif
+					@endforeach
+				</ul>
+			</div>
+			<div class="col-md-3 margen">
+				<ul>
+					@foreach($proceso->entradas as $entrada)
+						@if($entrada->InputType == 'Actuar')
+							<li>{{$entrada->InputName}}</li>
+						@endif
+					@endforeach
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 margen text-center color1">
+				<h4>ACTIVIDAD / ETAPA</h4>
+			</div>
+			<div class="col-md-3 margen">
+				<ul>
+					@foreach($proceso->actividades as $actividad)
+						@if($actividad->ActiType == 'Planear')
+							<li>{{$actividad->ActiName}}
+						@endif
+					@endforeach
+				</ul>
+			</div>
+			<div class="col-md-3 margen">
+				<ul>
+					@foreach($proceso->actividades as $actividad)
+						@if($actividad->ActiType == 'Hacer')
+							<li>{{$actividad->ActiName}}
+						@endif
+					@endforeach
+				</ul>
+			</div>
+			<div class="col-md-3 margen">
+				<ul>
+					@foreach($proceso->actividades as $actividad)
+						@if($actividad->ActiType == 'Verificar')
+							<li>{{$actividad->ActiName}}
+						@endif
+					@endforeach
+				</ul>
+			</div>
+			<div class="col-md-3 margen">
+				<ul>
+					@foreach($proceso->actividades as $actividad)
+						@if($actividad->ActiType == 'Actuar')
+							<li>{{$actividad->ActiName}}
+						@endif
+					@endforeach
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 margen text-center color1">
+				<h4>RESULTADOS / SALIDAS</h4>
+			</div>
+			<div class="col-md-3 margen">
+				<ul>
+					@foreach($proceso->salidas as $salida)
+						@if($salida->OutputType == 'Planear')
+							<li>{{$salida->OutputName}}</li>
+						@endif
+					@endforeach
+				</ul>
+			</div>
+			<div class="col-md-3 margen">
+				<ul>
+					@foreach($proceso->salidas as $salida)
+						@if($salida->OutputType == 'Hacer')
+							<li>{{$salida->OutputName}}</li>
+						@endif
+					@endforeach
+				</ul>
+			</div>
+			<div class="col-md-3 margen">
+				<ul>
+					@foreach($proceso->salidas as $salida)
+						@if($salida->OutputType == 'Verificar')
+							<li>{{$salida->OutputName}}</li>
+						@endif
+					@endforeach
+				</ul>
+			</div>
+			<div class="col-md-3 margen">
+				<ul>
+					@foreach($proceso->salidas as $salida)
+						@if($salida->OutputType == 'Actuar')
+							<li>{{$salida->OutputName}}</li>
+						@endif
+					@endforeach
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 margen text-center color1">
+				<h4>CLIENTE</h4>
+			</div>
+			<div class="col-md-3 margen">
+				<ul>
+					@foreach($proceso->clientes as $cliente)
+						@if($cliente->CliType == 'Planear')
+							<li>{{$cliente->CliName}}</li>
+						@endif
+					@endforeach
+				</ul>
+			</div>
+			<div class="col-md-3 margen">
+				<ul>
+					@foreach($proceso->clientes as $cliente)
+						@if($cliente->CliType == 'Hacer')
+							<li>{{$cliente->CliName}}</li>
+						@endif
+					@endforeach
+				</ul>
+			</div>
+			<div class="col-md-3 margen">
+				<ul>
+					@foreach($proceso->clientes as $cliente)
+						@if($cliente->CliType == 'Verificar')
+							<li>{{$cliente->CliName}}</li>
+						@endif
+					@endforeach
+				</ul>
+			</div>
+			<div class="col-md-3 margen">
+				<ul>
+					@foreach($proceso->clientes as $cliente)
+						@if($cliente->CliType == 'Actuar')
+							<li>{{$cliente->CliName}}</li>
+						@endif
+					@endforeach
+				</ul>
+			</div>
+		</div>
+
+
+
+
+
+
+
+		<div class="col-md-12">
+			<br><br>
+		</div>
+		<div class="row margen">
+			<div class="col-md-9 text-center margen color">
+				<h4>RECURSOS</h4><br>
+			</div>
+			<div class="col-md-3 text-center margen color">
+				<h4>AMBIENTE DE TRABAJO</h4>
+			</div>
+			<div class="col-md-3 margen">
+				<h4 class="text-center">FISICO</h4><br>
+				@foreach($proceso->recursos as $recurso)
+					@if($recurso->RecType == 0)
+						<li>{{$recurso->RecName}}</li>
+					@endif
+				@endforeach
+			</div>
+			<div class="col-md-3 margen">
+				<h4 class="text-center">HUMANO</h4><br>
+				@foreach($proceso->recursos as $recurso)
+					@if($recurso->RecType == 1)
+						<li>{{$recurso->RecName}}</li>
+					@endif
+				@endforeach
+			</div>
+			<div class="col-md-3 margen">
+				<h4 class="text-center">FINANCIERO</h4><br>
+				@foreach($proceso->recursos as $recurso)
+					@if($recurso->RecType == 2)
+						<li>{{$recurso->RecName}}</li>
+					@endif
+				@endforeach
+			</div>
+			<div class="col-md-3 margen">
+				<p>{{$proceso->ProcAmbienTrabajo}}</p>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<br><br>
+		</div>
+		<div class="row">
+			<div class="col-md-12 text-center margen color1">
+				<h4>REQUISITOS Y REGULACIONES</h4>
+			</div>
+			<div class="col-md-4 margen">
+				<h4 class="text-center">LEGALES</h4><br>
+				@foreach($proceso->requisitos as $requisito)
+					@if($requisito->ReqType == 0)
+						<li>
+							@if($requisito->ReqLink == "N" || $requisito->ReqLink == "")
+								<a href="{{$requisito->ReqSrc}}">{{$requisito->ReqName}}</a>
+							@else
+								<a href="{{$requisito->ReqLink}}">{{$requisito->ReqName}}</a>
+							@endif
+						</li>
+					@endif
+				@endforeach
+			</div>
+			<div class="col-md-4 margen">
+				<h4 class="text-center">EMPRESARIALES</h4><br>
+				@foreach($proceso->requisitos as $requisito)
+					@if($requisito->ReqType == 1)
+						<li>
+							@if($requisito->ReqLink == "N" || $requisito->ReqLink == "")
+								<a href="{{$requisito->ReqSrc}}">{{$requisito->ReqName}}</a>
+							@else
+								<a href="{{$requisito->ReqLink}}">{{$requisito->ReqName}}</a>
+							@endif
+						</li>
+					@endif
+				@endforeach
+			</div>
+			<div class="col-md-4 margen">
+				<h4 class="text-center">OTRAS - CLIENTE</h4><br>
+				@foreach($proceso->requisitos as $requisito)
+					@if($requisito->ReqType == 2)
+						<li>
+							@if($requisito->ReqLink == "N" || $requisito->ReqLink == "")
+								<a href="{{$requisito->ReqSrc}}">{{$requisito->ReqName}}</a>
+							@else
+								<a href="{{$requisito->ReqLink}}">{{$requisito->ReqName}}</a>
+							@endif
+						</li>
+					@endif
+				@endforeach
+			</div>
+		</div>
+		<div class="col-md-12">
+			<br><br>
+		</div>
+		<div class="row">
+			<div class="col-md-12 text-center margen">
+				<h4>RIESGOS</h4><hr>
+				<p>
+					@foreach($proceso->ProcRiesgos as $riesgo)
+						<li>{{$riesgo}}</li>
+					@endforeach
+				</p>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<br><br>
+		</div>
+		<div class="row">
+			<div class="col-md-12 margen color">
+				<h4 class="text-center">GESTIÓN AMBIENTAL</h4>
+			</div>
+			<div class="col-md-4 margen">
+				<h4 class="text-center">ASPECTOS AMBIENTALES</h4>
+				@foreach($proceso->gambientals as $gambiental)
+					@if($gambiental->GesType == 0)
+						<li>{{$gambiental->GesName}}</li>
+					@endif
+				@endforeach
+			</div>
+			<div class="col-md-4 margen">
+				<h4 class="text-center">IMPACTOS AMBIENTALES</h4>
+				@foreach($proceso->gambientals as $gambiental)
+					@if($gambiental->GesType == 1)
+						<li>{{$gambiental->GesName}}</li>
+					@endif
+				@endforeach
+			</div>
+			<div class="col-md-4 margen">
+				<h4 class="text-center">CONTROLES OPERACIONALES</h4>
+				@foreach($proceso->gambientals as $gambiental)
+					@if($gambiental->GesType == 2)
+						<li>{{$gambiental->GesName}}</li>
+					@endif
+				@endforeach
+			</div>
+		</div>
+		<div class="col-md-12">
+			<br><br>
+		</div>
+		<div class="row">
+			<div class="col-md-12 margen color1">
+				<h4 class="text-center">GESTIÓN EN SEGURIDAD Y SALUD EN EL TRABAJO</h4>
+			</div>
+			<div class="col-md-4 margen">
+				<h4 class="text-center">PELIGROS</h4>
+				@foreach($proceso->gseguridads as $gseguridad)
+					@if($gseguridad->SeguType == 0)
+						<li>{{$gseguridad->SeguName}}</li>
+					@else
+					@endif
+				@endforeach
+			</div>
+			<div class="col-md-4 margen">
+				<h4 class="text-center">RIESGOS</h4>
+				@foreach($proceso->gseguridads as $gseguridad)
+					@if($gseguridad->SeguType == 1)
+						<li>{{$gseguridad->SeguName}}</li>
+					@else
+					@endif
+				@endforeach
+			</div>
+			<div class="col-md-4 margen">
+				<h5 class="text-center">CONTROLES OPERACIONALES</h5>
+				@foreach($proceso->gseguridads as $gseguridad)
+					@if($gseguridad->SeguType == 2)
+						<li>{{$gseguridad->SeguName}}</li>
+					@else
+					@endif
+				@endforeach
+			</div>
+		</div>
+		<div class="col-md-12">
+			<br><br>
+		</div>
+		<div class="row">
+			<div class="col-md-12 margen text-center">
+				<h4>POLITICA DE OPERACIÓN</h4><hr>
+				<p>
+					@foreach($proceso->ProcPolitOperacion  as $operacion)
+						<li>{{$operacion}}</li>
+					@endforeach
+				</p>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<br><br>
+		</div>
+		<div class="row">
+			<div class="col-md-12 margen color">
+				<h4 class="text-center">INDICADORES</h4>
+			</div>
+			<div class="col-md-4 margen">
+				<h4 class="text-center">Eficiencia</h4>
+				<div class="row">
+					<div class="col-md-6 margen text-center color1-1">
+						<h4>Indicador</h4>
 					</div>
-					<div id="collapse5" class="collapse show">
-						<div class="card-body">
-							<ul class="list-group">
-								<li class="list-group-item">
-									{{$proceso->ProcRecursos}}
-								</li>
-							</ul>
-						</div>
+					<div class="col-md-6 margen text-center color1-1">
+						<h4>Meta</h4>
 					</div>
-				</div>
-				<div class="card">
-					<div class="card-header">
-						<a role="button" data-toggle="collapse" href="#collapse6" aria-expanded="false">
-							<h4 class="text-info text-center">
-								<b>{{'Documentación Aplicable'}}</b>
-							</h4>
-						</a>
-					</div>
-					<div id="collapse6" class="collapse show">
-						<div class="card-body">
-							<ul class="list-group">
-								@foreach($proceso->documentos as $documento)
-									<a href="{{Storage::url($documento->DocSrc)}}" class="list-group-item list-group-item-action">
-										{{$documento->DocName}}
-									</a>
-								@endforeach
-							</ul>
-						</div>
-					</div>
+					@foreach($proceso->indicadores as $indicador)
+						@if($indicador->IndEfe == 0)
+							<div class="col-md-6">
+								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndName}}</a></li>
+							</div>
+							<div class="col-md-6">
+								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndObjective}}</a></li><hr>
+							</div>
+						@endif
+					@endforeach
 				</div>
 			</div>
-			{{-- div para ciclo del proceso --}}
-			<div class="col-md-6 col-xs-12">
-				<div class="card">
-					<div class="card-header">
-						<a role="button" data-toggle="collapse" href="#collapse7" aria-expanded="false">
-							<h4 class="text-info text-center">
-								<b>{{'Entradas'}}</b>
-							</h4>
-						</a>
+			<div class="col-md-4 margen">
+				<h4 class="text-center">Eficacia</h4>
+				<div class="row margen">
+					<div class="col-md-6 margen text-center color1-2">
+						<h4>Indicador</h4>
 					</div>
-					<div id="collapse7" class="collapse show">
-						<div class="card-body">
-							<ul class="list-group">
-								@foreach($proceso->entradas as $entrada)
-									<a href="#" class="list-group-item list-group-item-action ">
-										{{$entrada->InputName}}
-									</a>
-								@endforeach
-							</ul>
-						</div>
+					<div class="col-md-6 margen text-center color1-2">
+						<h4>Meta</h4>
 					</div>
+					@foreach($proceso->indicadores as $indicador)
+						@if($indicador->IndEfe == 1)
+							<div class="col-md-6">
+								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndName}}</a></li>
+							</div><hr>
+							<div class="col-md-6">
+								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndObjective}}</a></li><hr>
+							</div>
+						@endif
+					@endforeach
 				</div>
-				<div class="card">
-					<div class="card-header">
-						<a role="button" data-toggle="collapse" href="#collapse8" aria-expanded="false">
-							<h4 class="text-info text-center">
-								<b>{{'Actividades'}}</b>
-							</h4>
-						</a>
+			</div>	
+			<div class="col-md-4 margen">
+				<h4 class="text-center">Efectividad</h4>
+				<div class="row margen">
+					<div class="col-md-6 margen text-center color1-3">
+						<h4>Indicador</h4>
 					</div>
-					<div id="collapse8" class="collapse show">
-						<div class="card-body">
-							<ul class="list-group">
-								@foreach($proceso->actividades as $actividad)
-									<a href="#" class="list-group-item list-group-item-action ">
-										{{$actividad->ActiName}}
-									</a>
-								@endforeach
-							</ul>
-						</div>
+					<div class="col-md-6 margen text-center color1-3">
+						<h4>Meta</h4>
 					</div>
+					@foreach($proceso->indicadores as $indicador)
+						@if($indicador->IndEfe == 2)
+							<div class="col-md-6">
+								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndName}}</a></li>
+							</div>
+							<div class="col-md-6">
+								<li><a href="{{ route('indicators.show', $indicador) }}">{{$indicador->IndObjective}}</a></li><hr>
+							</div>
+						@endif
+					@endforeach
 				</div>
-				<div class="card">
-					<div class="card-header">
-						<a role="button" data-toggle="collapse" href="#collapse9" aria-expanded="false">
-							<h4 class="text-info text-center">
-								<b>{{'Salidas'}}</b>
-							</h4>
-						</a>
+			</div>		
+		</div>
+		<div class="col-md-12">
+			<br><br>
+		</div>
+		<div class="row">
+			<div class="col-md-12 margen color">
+				<h4 class="text-center">DOCUMENTOS APLICABLES</h4>
+			</div>
+			<div class="col-md-4 margen">
+				<h4 class="text-center">Manuales o Procedimientos</h4>
+				<div class="row">
+					<div class="col-md-6 margen text-center color1-1">
+						<h4>Nombre</h4>
 					</div>
-					<div id="collapse9" class="collapse show">
-						<div class="card-body">
-							<ul class="list-group">
-								@foreach($proceso->salidas as $salida)
-									<a href="#" class="list-group-item list-group-item-action ">
-										{{$salida->OutputName}}
-									</a>
-								@endforeach
-							</ul>
-						</div>
+					<div class="col-md-6 margen text-center color1-1">
+						<h4>Identificación</h4>
 					</div>
-				</div>
-				{{-- <div class="card">
-					<div class="card-header">
-						<a role="button" data-toggle="collapse" href="#collapse10" aria-expanded="false">
-							<h4 class="text-info text-center">
-								<b>{{'Seguimiento'}}</b>
-							</h4>
-						</a>
-					</div>
-					<div id="collapse10" class="collapse show">
-						<div class="card-body">
-							<ul class="list-group">
-								@foreach($proceso->seguimientos as $seguimiento)
-									<a href="#" class="list-group-item list-group-item-action ">
-										{{$seguimiento->SeguiName}}
-									</a>
-								@endforeach
-							</ul>
-						</div>
-					</div>
-				</div> --}}
-				<div class="card">
-					<div class="card-header">
-						<a role="button" data-toggle="collapse" href="#collapse1" aria-expanded="false">
-							<h4 class="text-info text-center">
-								<b>{{'Indicadores'}}</b>
-							</h4>
-						</a>
-					</div>
-					<div id="collapse1" class="collapse show">
-						<div class="card-body">
-							<ul class="list-group">
-								@foreach($proceso->indicadores as $indicador)
-									<a href="{{ route('indicators.show', $indicador) }}" class="list-group-item list-group-item-action ">
-										{{$indicador->IndName}}
-									</a>
-								@endforeach
-							</ul>
-						</div>
-					</div>
+					@foreach($proceso->documentos as $documento)
+						@if($documento->DocType == 'Manuales' || 'Procedimientos')
+							<div class="col-md-6">
+								<li><a href="{{Storage::url($documento->DocSrc)}}">{{$documento->DocName}}</a></li><hr>
+							</div>
+							<div class="col-md-6">
+								<li><a href="{{Storage::url($documento->DocSrc)}}">{{$documento->DocIdentification}}</a></li><hr>
+							</div>
+						@endif
+					@endforeach
 				</div>
 			</div>
-			
+			<div class="col-md-4 margen">
+				<h4 class="text-center">Instructivos</h4>
+				<div class="row margen">
+					<div class="col-md-6 margen text-center color1-2">
+						<h4>Nombre</h4>
+					</div>
+					<div class="col-md-6 margen text-center color1-2">
+						<h4>Identificación</h4>
+					</div>
+					@foreach($proceso->documentos as $documento)
+						@if($documento->DocType == 'Instructivos')
+							<div class="col-md-6">
+								<li><a href="{{Storage::url($documento->DocSrc)}}">{{$documento->DocName}}</a></li><hr>
+							</div>
+							<div class="col-md-6">
+								<li><a href="{{Storage::url($documento->DocSrc)}}">{{$documento->DocIdentification}}</a></li><hr>
+							</div>
+						@endif
+					@endforeach
+				</div>
+			</div>	
+			<div class="col-md-4 margen">
+				<h4 class="text-center">Formatos</h4>
+				<div class="row margen">
+					<div class="col-md-6 margen text-center color1-3">
+						<h4>Nombre</h4>
+					</div>
+					<div class="col-md-6 margen text-center color1-3">
+						<h4>Identificación</h4>
+					</div>
+					@foreach($proceso->documentos as $documento)
+						@if($documento->DocType == 'Formatos')
+							<div class="col-md-6">
+								<li><a href="{{Storage::url($documento->DocSrc)}}">{{$documento->DocName}}</a></li><hr>
+							</div>
+							<div class="col-md-6">
+								<li><a href="{{Storage::url($documento->DocSrc)}}">{{$documento->DocIdentification}}</a></li><hr>
+							</div>
+						@endif
+					@endforeach
+				</div>
+			</div>		
+		</div>
+		<div class="col-md-12">
+			<br><br><br>
+		</div>
+		<div class="row color">
+			<div class="col-md-4 margen text-center">
+				<h4>Elaborado por</h4><br>
+				{{$proceso->ProcElaboro}}
+			</div>
+			<div class="col-md-4 margen text-center">
+				<h4>Revisado Por</h4><br>
+				{{$proceso->ProcReviso}}
+			</div>
+			<div class="col-md-4 margen text-center">
+				<h4>Aprobado Por</h4><br>
+				{{$proceso->ProcAprobo}}
+			</div>
+		</div>
+		<div class="col-md-12">
+			<br><br><br>
 		</div>
 	</div>
-	
-	<div class="card-footer table-responsive">
-			<table class="w-100 wtable wtable-bordered">
-				<thead class="thead-dark">
-					<tr>
-						<th class="text-center" style="color:lightsteelblue !important;">Fecha</th>
-						<th class="text-center" style="color:lightsteelblue !important;">Rev N°</th>
-						<th class="text-center" style="color:lightsteelblue !important;">Descripción de modificación</th>
-						<th class="text-center" style="color:lightsteelblue !important;">Elaboró</th>
-						<th class="text-center" style="color:lightsteelblue !important;">Revisó</th>
-						<th class="text-center" style="color:lightsteelblue !important;">Aprobó</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td class="text-center">{{$proceso->ProcDate}}</td>
-						<td class="text-center">{{$proceso->ProcRevVersion}}</td>
-						<td class="text-center">{{$proceso->ProcChangesDescription}}</td>
-						<td class="text-center">
-							{{-- {{$proceso->ProcElaboro}} --}}
-							{{-- @foreach($users as $user)
-								@if($proceso->ProcElaboro == $user->id)
-									{{$user->name}}
-								@endif
-							@endforeach --}}
-							@switch($proceso->ProcElaboro)
-								@case(1) 
-									Super Admin
-									@break
-								@case(2)
-									Gerente
-									@break
-								@case(3)
-									Director
-									@break
-								@case(4)
-									Jefe Área
-									@break
-								@case(5)
-									User
-									@break
-							@endswitch
-						</td>
-						<td class="text-center">
-							{{-- {{$proceso->ProcRevis}} --}}
-							{{-- @foreach($users as $user)
-								@if($proceso->ProcReviso == $user->id)
-									{{$user->name}}
-								@endif
-							@endforeach --}}
-							@switch($proceso->ProcReviso)
-								@case(1) 
-									Super Admin
-									@break
-								@case(2)
-									Gerente
-									@break
-								@case(3)
-									Director
-									@break
-								@case(4)
-									Jefe Área
-									@break
-								@case(5)
-									User
-									@break
-							@endswitch
-						</td>
-						<td class="text-center">
-							{{-- {{$proceso->ProcAprobo}} --}}
-							{{-- @foreach($users as $user)
-								@if($proceso->ProcAprobo == $user->id)
-									{{$user->name}}
-								@endif
-							@endforeach --}}
-							@switch($proceso->ProcAprobo)
-								@case(1) 
-									Super Admin
-									@break
-								@case(2)
-									Gerente
-									@break
-								@case(3)
-									Director
-									@break
-								@case(4)
-									Jefe Área
-									@break
-								@case(5)
-									User
-									@break
-							@endswitch
-						</td>
-					</tr>
-				</tbody>
-			</table>
-	</div>
-</div>
 @endsection
-{{-- librerias adicionales para el funcionmiento de la vista --}}
+{{-- librerias adicionales para el funcionamiento de la vista --}}
 @push('js')
 {{-- <script src="{{ asset('js') }}/datatable-depen.js"></script>
 <script src="{{ asset('js') }}/datatable-plugins.js"></script> --}}

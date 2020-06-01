@@ -17,6 +17,7 @@ use App\Proveedor;
 use App\Recursos;
 use App\Gambiental;
 use App\Gseguridad;
+use App\Cargo;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,14 +31,9 @@ class ProcessController extends Controller
      */
     public function index()
     {
-        /*$procesos = Process::all();*/
-        $procesos = Process::with('requisitos')->paginate(10);
-
-        /*$requisitos = Requisitos::all(['id', 'ReqName']);*/
-
+        $procesos = Process::all();
         // return $procesos;
-
-        return view('process.index', compact('procesos'/*, 'requisitos'*/));
+        return view('process.index', compact('procesos'));
     }
 
     /**
@@ -71,6 +67,7 @@ class ProcessController extends Controller
             $recursos = Recursos::all(['id', 'RecName', 'RecType']);
             $gambientales = Gambiental::all(['id', 'GesName', 'GesType']);
             $gseguridades = Gseguridad::all(['id', 'SeguName', 'SeguType']);
+            $cargos = Cargo::orderBy('CargoName')->get(['id', 'CargoName']);
 
             /* variables para los formularios de destroy */
             $salidasDrop = Output::doesntHave('procesos')->get();
@@ -86,8 +83,8 @@ class ProcessController extends Controller
             $usuario = Auth::user()->id;
 
 
-            /*return $actividades;*/
-            return view('process.create', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'usuario', 'recursos', 'recursosDrop', 'gambientales', 'gambientalesDrop', 'gseguridades', 'gseguridadesDrop']));
+            // return $actividades;
+            return view('process.create', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'usuario', 'recursos', 'recursosDrop', 'gambientales', 'gambientalesDrop', 'gseguridades', 'gseguridadesDrop', 'cargos']));
         }else{
             abort(403, 'El usuario no se encuentra autorizado para crear Procesos');
         }
@@ -102,25 +99,33 @@ class ProcessController extends Controller
     public function store(Request $request)
     {
 
-        return $request;
+        /*return $request;*/
         $path = $request->file('ProcImage')->store('public/Procesos');
 
         // se crea el registro del documento en la base de datos
         $process = new Process();
         $process->ProcName = $request->input('ProcName');
         $process->ProcRevVersion = $request->input('ProcRevVersion');
-        $process->ProcChangesDescription = $request->input('ProcChangesDescription');
+        /*$process->ProcChangesDescription = $request->input('ProcChangesDescription');*/
         $process->ProcObjetivo = $request->input('ProcObjetivo');
         $process->ProcAlcance = $request->input('ProcAlcance');
         $process->ProcAmbienTrabajo = $request->input('ProcAmbienTrabajo');
         $process->ProcResponsable = $request->input('ProcResponsable');
         $process->ProcAutoridad = $request->input('ProcAutoridad');
-        $process->ProcRecursos = $request->input('ProcRecursos');
+        // $process->ProcRecursos = 'ninguno';
         $process->ProcElaboro = $request->input('ProcElaboro');
+
+        $process->ProcPolitOperacion = $request->input('ProcPolitOperacion');
+        $process->ProcRiesgos = $request->input('ProcRiesgos'); 
+
         $process->ProcReviso = $request->input('ProcReviso');
         $process->ProcAprobo = $request->input('ProcAprobo');
         $process->ProcImage = $path;
         $process->ProcDate = $request->input('ProcDate');
+        $process->ProcAlcance = $request->input('ProcAlcance');
+        $process->ProcAmbienTrabajo = $request->input('ProcAmbienTrabajo');
+        $process->ProcPolitOperacion = $request->input('ProcPolitOperacion');
+        $process->ProcChangesDescription = 'creado el '.now();
         $process->save();
 
         $process->entradas()->attach($request->input('Entradas'));
@@ -133,6 +138,9 @@ class ProcessController extends Controller
         $process->indicadores()->attach($request->input('Indicadores'));
         $process->procesosDeSoporte()->attach($request->input('Soporte'));
         $process->requisitos()->attach($request->input('ProcRequsitos'));
+        $process->recursos()->attach($request->input('ProcRecursos'));
+        $process->gambientals()->attach($request->input('Gambiental'));
+        $process->gseguridads()->attach($request->input('Gseguridad'));
         // $process->seguimientos()->attach($request->input('Seguimientos'));
         /*$document->assignAreas($areas);*/
 
@@ -159,9 +167,17 @@ class ProcessController extends Controller
         // $proceso['seguimientos'] = $proceso->seguimientos()->get();
         $proceso['clientes'] = $proceso->clientes()->get();
         $proceso['proveedores'] = $proceso->proveedores()->get();
+        $proceso['recursos'] = $proceso->recursos()->get();
+        $proceso['gambientals'] = $proceso->gambientals()->get();
+        $proceso['gseguridads'] = $proceso->gseguridads()->get();
+
+        /*return $proceso->proveedores;*/
+
+        $roles = Role::all(['id', 'name']);
+
 
         $usuario = Auth::user()->id;
-        return view('process.show', compact('proceso', 'usuario'));
+        return view('process.show', compact('proceso', 'usuario', 'roles'));
     }
 
     /**
@@ -173,7 +189,7 @@ class ProcessController extends Controller
     public function edit(Process $proceso)
     {
         if (auth()->user()->can('updateProcess')) {
-
+            // return $proceso;
             /* se añade validacion para excluir el rol Super Admin */
             if (auth()->user()->hasRole(['Super Admin'])) {
                 $roles = Role::all(['id', 'name']);
@@ -195,6 +211,8 @@ class ProcessController extends Controller
             $recursos = Recursos::all(['id', 'RecName', 'RecType']);
             $gambientales = Gambiental::all(['id', 'GesName', 'GesType']);
             $gseguridades = Gseguridad::all(['id', 'SeguName', 'SeguType']);
+            $cargos = Cargo::orderBy('CargoName')->get(['id', 'CargoName']);
+
 
             /* variables para los formularios de destroy */
             $salidasDrop = Output::doesntHave('procesos')->get();
@@ -208,7 +226,7 @@ class ProcessController extends Controller
             $gseguridadesDrop = Gseguridad::doesntHave('procesos')->get();
 
             /*return $proceso->entradas;*/
-            return view('process.edit', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'usuario', 'proceso', 'recursos', 'gambientales', 'gseguridades', 'recursosDrop', 'gambientalesDrop', 'gseguridadesDrop']));
+            return view('process.edit', compact(['proveedoresDrop', 'clientesDrop', 'proveedores', 'clientes', 'roles', 'requisitos', 'documentos', 'entradas', 'salidas', 'actividades', 'indicadores', 'soportes', 'areas', 'salidasDrop', 'entradasDrop', 'actividadesDrop', 'usuario', 'proceso', 'recursos', 'gambientales', 'gseguridades', 'recursosDrop', 'gambientalesDrop', 'gseguridadesDrop', 'cargos']));
 
         }else{
             abort(403, 'El usuario no se encuentra autorizado para editar Procesos');
@@ -226,7 +244,25 @@ class ProcessController extends Controller
      */
     public function update(Request $request, Process $proceso)
     {
-        $proceso->update($request->all());
+        /*$proceso->update($request->all());*/
+        $proceso->update($request->except(['ProcImage']));
+
+        $path = $request->file('ProcImage')->store('public/Procesos');
+        $proceso->update(['ProcImage' => $path]);
+
+        $proceso->entradas()->sync($request->input('Entradas'));
+        $proceso->salidas()->sync($request->input('Salidas'));
+        $proceso->actividades()->sync($request->input('Actividades'));
+        $proceso->clientes()->sync($request->input('Clientes'));
+        $proceso->proveedores()->sync($request->input('Provedores'));
+        $proceso->documentos()->sync($request->input('Docs'));
+        $proceso->areas()->sync($request->input('Areas'));
+        $proceso->indicadores()->sync($request->input('Indicadores'));
+        $proceso->procesosDeSoporte()->sync($request->input('Soporte'));
+        $proceso->requisitos()->sync($request->input('ProcRequsitos'));
+        $proceso->recursos()->sync($request->input('ProcRecursos'));
+
+
         return redirect()->route('proceso.index')->withStatus(__('Proceso actualizado correctamente'));
     }
 

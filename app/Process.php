@@ -24,10 +24,14 @@ class Process extends Model
 	    'ProcObjetivo',
 	    'ProcResponsable',
 	    'ProcAutoridad',
-	    'ProcRecursos',
 	    'ProcElaboro',
 	    'ProcReviso',
-	    'ProcAprobo'
+        'ProcAprobo',
+        'ProcDate',
+        'ProcAlcance',
+        'ProcAmbienTrabajo',
+        'ProcPolitOperacion',
+        'ProcRiesgos'
 	];
 
 	/**
@@ -146,6 +150,8 @@ class Process extends Model
 	 */
 	protected $casts = [
 	    'ProcResponsable' => 'array',
+        'ProcPolitOperacion' => 'array',
+	    'ProcRiesgos' => 'array'
     ];
     
     protected $dates = ['deleted_at', 'updated_at', 'created_at'];

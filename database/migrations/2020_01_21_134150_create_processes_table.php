@@ -17,12 +17,12 @@ class CreateProcessesTable extends Migration
             $table->bigIncrements('id');
             $table->string('ProcName'); /*Nombre del proceso*/
             $table->string('ProcRevVersion'); /*numero de revision del proceso*/
-            $table->string('ProcChangesDescription'); /*descripcion del ultimo cambio en el proceso*/
+            $table->string('ProcChangesDescription')->default('Cambio Default'); /*descripcion del ultimo cambio en el proceso*/
             $table->string('ProcImage');/*Imagen de referencia para identificar el proceso*/
             $table->text('ProcObjetivo'); /*objetivo del proceso*/
             $table->json('ProcResponsable'); /*responsables del proceso*/
             $table->string('ProcAutoridad'); /*Autoridad del proceso*/
-            $table->string('ProcRecursos'); /*recursos necesarios para la ejecucion del proceso*/
+            // $table->string('ProcRecursos')->default('Recursos Default'); /*recursos necesarios para la ejecucion del proceso*/
             // $table->string('ProcRequsitos'); /*requisitos que se deben cumplir con el proceso*/
             $table->string('ProcElaboro'); /*rol del usuario que elaboro el proceso*/
             $table->string('ProcReviso'); /*rol del usuario que reviso el proceso*/

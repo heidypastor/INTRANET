@@ -10,118 +10,105 @@ Procesos
 
 @push('css')
         {{-- <link href="{{ asset('css') }}/datatable-depen.css" rel="stylesheet"/>
-        <link href="{{ asset('css') }}/datatable-plugins.css" rel="stylesheet"/> --}}
+		<link href="{{ asset('css') }}/datatable-plugins.css" rel="stylesheet"/> --}}
+        <link href="{{ asset('css') }}/select2.css" rel="stylesheet"/>
 @endpush
 
 @section('content')
 	{{-- contenido de la pagina --}}
 	<div class="card">
-		<div class="card-header">
-			<div class="row">
-				<div class="col-md-2">
+		<div class="card-header px-4">
+			<div class="row justify-content-between">
+				<div>
 					<h2>
 						<b>{{'Nuevo Proceso'}}</b>
 					</h2>
 				</div>
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Proveedores
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateProveedores">Nuevo</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditProveedores">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteProveedores">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Entradas
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateEntradas">Nueva</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditEntradas">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteEntradas">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Actividades
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateActividades">Nueva</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditActividades">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteActividad">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Salidas
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateSalidas">Nueva</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditSalidas">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteSalidas">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Clientes
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateClientes">Nuevo</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditClientes">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteClientes">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Recursos
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateRecursos">Nuevo</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditRecursos">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteRecursos">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-
-				<div class="col-md-3 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Gestión Ambiental
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateGambiental">Nuevo</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditGambiental">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteGambiental">Eliminar</a>
-					  </div>
-					</div>
-				</div>
-
-				<div class="col-md-2 float-right">
-					<div class="dropdown">
-					  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Gestión de SST
-					  </button>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalCreateGseguridad">Nuevo</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalEditGseguridad">Actualizar</a>
-					    <a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteGseguridad">Eliminar</a>
-					  </div>
+				<div>
+					 <div class="btn-group">
+						<a type="button" id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class=" btn btn-info dropdown-toggle">Modificar Elementos</a>
+						<ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow dropdown-menu-left">
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Recursos</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateRecursos">Nuevo</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditRecursos">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteRecursos">Eliminar</a>
+								</ul>
+							</li>
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Gestión de SST</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateGseguridad">Nuevo</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditGseguridad">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteGseguridad">Eliminar</a>
+								</ul>
+							</li>
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Proveedores</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateProveedores">Nuevo</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditProveedores">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteProveedores">Eliminar</a>
+								</ul>
+							</li>
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Entradas</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateEntradas">Nueva</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditEntradas">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteEntradas">Eliminar</a>
+								</ul>
+							</li>
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Actividades</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateActividades">Nueva</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditActividades">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteActividad">Eliminar</a>
+								</ul>
+							</li>
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Salidas</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateSalidas">Nueva</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditSalidas">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteSalidas">Eliminar</a>
+								</ul>
+							</li>
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Gestión Ambiental</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateGambiental">Nuevo</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditGambiental">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteGambiental">Eliminar</a>
+								</ul>
+							</li>
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Clientes</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalCreateClientes">Nuevo</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalEditClientes">Actualizar</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#modalDeleteClientes">Eliminar</a>
+								</ul>
+							</li>
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Politicas</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<button class="dropdown-item" id="addpoliticbutton" onclick="addPolitica()">
+									Añadir politica
+									</button>
+								</ul>
+							</li>
+							<li class="dropdown-submenu dropleft">
+								<a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Riesgos</a>
+								<ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+									<button class="dropdown-item" id="addriesgobutton" onclick="addRiesgo()">
+									Añadir riesgo
+									</button>
+								</ul>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -145,17 +132,6 @@ Procesos
 						</div>
 					</div>
 				</div>
-				
-				<div class="form-row">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcAmbienTrabajo">Ambiente de Trabajo</label>
-							<textarea class="form-control" id="ProcAmbienTrabajo" name="ProcAmbienTrabajo">
-								Ambiente de Trabajo de ejemplo maximo 500 caracteres
-							</textarea> 
-						</div>
-					</div>
-				</div>
 
 				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
@@ -168,9 +144,9 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcResponsable">Responsable del Proceso</label>
-							<select id="ProcResponsable" class="form-control" name="ProcResponsable[]" placeholder="seleccione" multiple>
-								@foreach($roles as $rol)
-									<option value="{{$rol->name}}">{{$rol->name}}</option>
+							<select id="ProcResponsable" class="form-control selectmultiple" name="ProcResponsable[]" placeholder="seleccione" multiple>
+								@foreach($cargos as $cargo)
+								<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
 							</select>
 						</div>
@@ -181,29 +157,45 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcAutoridad">Autoridad del Proceso</label>
-							<select id="ProcAutoridad" class="form-control" name="ProcAutoridad" placeholder="seleccione">
-								@foreach($roles as $rol)
-									<option value="{{$rol->id}}">{{$rol->name}}</option>
+							<select id="ProcAutoridad" class="form-control select" name="ProcAutoridad" placeholder="seleccione">
+								@foreach($cargos as $cargo)
+									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
 							</select>
 						</div>
 					</div>
 
-					{{-- <div class="col-md-6 col-xs-12">
+					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcRecursos">Recursos Necesarios</label>
-							<input type="text" required class="form-control" id="ProcRecursos" placeholder="Vehiculo; Computador; Celular; Papel carta; etc..." name="ProcRecursos">
+							<label class="input-label" for="ProcRecursos">Recursos</label>
+							  <select multiple id="ProcRecursos" class="form-control select" name="ProcRecursos[]" placeholder="seleccione">
+								@foreach($recursos as $recurso)
+									<option value="{{$recurso->id}}">{{$recurso->RecName}} - 
+										@switch($recurso->RecType)
+											@case(0)
+												Fisico
+												@break
+											@case(1)	
+												Humano
+												@break
+											@case(2)
+												Financiero
+												@break
+										@endswitch
+									</option>
+								@endforeach
+							</select>
 						</div>
-					</div> --}}
+					</div>
 				</div>
 					
 				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcElaboro">Elaborado Por</label>
-							<select id="ProcElaboro" class="form-control" name="ProcElaboro" placeholder="seleccione">
-								@foreach($roles as $rol)
-									<option value="{{$rol->id}}">{{$rol->name}}</option>
+							<select id="ProcElaboro" class="form-control select" name="ProcElaboro" placeholder="seleccione">
+								@foreach($cargos as $cargo)
+									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
 								{{-- @foreach($users as $user)
 									<option value="{{$user->id}}">{{$user->name}}</option>
@@ -215,9 +207,9 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcReviso">Revisado Por</label>
-							<select id="ProcReviso" class="form-control" name="ProcReviso" placeholder="seleccione">
-								@foreach($roles as $rol)
-									<option value="{{$rol->id}}">{{$rol->name}}</option>
+							<select id="ProcReviso" class="form-control select" name="ProcReviso" placeholder="seleccione">
+								@foreach($cargos as $cargo)
+									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
 								{{-- @foreach($users as $user)
 									<option value="{{$user->id}}">{{$user->name}}</option>
@@ -231,9 +223,9 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcAprobo">Aprobado Por</label>
-							<select id="ProcAprobo" class="form-control" name="ProcAprobo" placeholder="seleccione">
-								@foreach($roles as $rol)
-									<option value="{{$rol->id}}">{{$rol->name}}</option>
+							<select id="ProcAprobo" class="form-control select" name="ProcAprobo" placeholder="seleccione">
+								@foreach($cargos as $cargo)
+									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
 							</select>
 						</div>
@@ -243,7 +235,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Clientes">Clientes</label>
-							<select multiple id="Clientes" class="form-control" name="Clientes[]" placeholder="seleccione">
+							<select multiple id="Clientes" class="form-control selectmultiple" name="Clientes[]" placeholder="seleccione">
 								@foreach($clientes as $cliente)
 									<option value="{{$cliente->id}}">{{$cliente->CliName}}</option>
 								@endforeach
@@ -256,7 +248,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Entradas">Entradas</label>
-							<select multiple id="Entradas" class="form-control" name="Entradas[]" placeholder="seleccione">
+							<select multiple id="Entradas" class="form-control selectmultiple" name="Entradas[]" placeholder="seleccione">
 								@foreach($entradas as $entrada)
 									<option value="{{$entrada->id}}">{{$entrada->InputName}}</option>
 								@endforeach
@@ -267,7 +259,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Actividades">Actividades</label>
-							<select multiple id="Actividades" class="form-control" name="Actividades[]" placeholder="seleccione">
+							<select multiple id="Actividades" class="form-control selectmultiple" name="Actividades[]" placeholder="seleccione">
 								@foreach($actividades as $actividad)
 									<option value="{{$actividad->id}}">{{$actividad->ActiName}}</option>
 								@endforeach
@@ -280,11 +272,17 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Salidas">Salidas</label>
-							<select multiple id="Salidas" class="form-control" name="Salidas[]" placeholder="seleccione">
+							<select multiple id="Salidas" class="form-control selectmultiple" name="Salidas[]" placeholder="seleccione">
 								@foreach($salidas as $salida)
 									<option value="{{$salida->id}}">{{$salida->OutputName}}</option>
 								@endforeach
 							</select>
+						</div>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcObjetivo">Objetivo del Proceso</label>
+							   <input class="form-control" id="ProcObjetivo" name="ProcObjetivo">
 						</div>
 					</div>
 				</div>
@@ -293,7 +291,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Indicadores">Indicadores</label>
-							<select multiple id="Indicadores" class="form-control" name="Indicadores[]" placeholder="seleccione">
+							<select multiple id="Indicadores" class="form-control selectmultiple" name="Indicadores[]" placeholder="seleccione">
 								@foreach($indicadores as $indicador)
 									<option value="{{$indicador->id}}">{{$indicador->IndName}}</option>
 								@endforeach
@@ -305,7 +303,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Soporte">Procesos de Soporte</label>
-							<select multiple id="Soporte" class="form-control" name="Soporte[]" placeholder="seleccione">
+							<select multiple id="Soporte" class="form-control selectmultiple" name="Soporte[]" placeholder="seleccione">
 								@foreach($soportes as $soporte)
 									<option value="{{$soporte->id}}">{{$soporte->ProcName}}</option>
 								@endforeach
@@ -318,7 +316,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Docs">Documentación aplicable</label>
-							<select multiple id="Docs" class="form-control" name="Docs[]" placeholder="seleccione">
+							<select multiple id="Docs" class="form-control selectmultiple" name="Docs[]" placeholder="seleccione">
 								@foreach($documentos as $documento)
 									<option value="{{$documento->id}}">{{$documento->DocName}}</option>
 								@endforeach
@@ -329,7 +327,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Areas">Areas Que participan</label>
-							<select multiple id="Areas" class="form-control" name="Areas[]" placeholder="seleccione">
+							<select multiple id="Areas" class="form-control selectmultiple" name="Areas[]" placeholder="seleccione">
 								@foreach($areas as $area)
 									<option value="{{$area->id}}">{{$area->AreaName}}</option>
 								@endforeach
@@ -338,96 +336,49 @@ Procesos
 					</div>
 				</div>
 					
-				<div class="form-row">
+				<div class="form-row" id="containerDeRiesgos">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcRequsitos">Requisitos por cumplir</label>
-							<select multiple class="form-control" name="ProcRequsitos[]" placeholder="seleccione" id="ProcRequsitos">
-								@foreach($requisitos as $requisito)
-									<option value="{{$requisito->id}}">{{$requisito->ReqName}}</option>
-								@endforeach
-							</select>
+							<label class="input-label" for="ProcAlcance">Alcance del Proceso</label>
+							<input max="500" class="form-control" id="ProcAlcance" name="ProcAlcance">
 						</div>
 					</div>
 
-					<div class="col-md-6 col-xs-12">
+					<div class="col-md-6 col-xs-12" id="riesgos0">
 						<div class="form-group">
-							<label class="input-label" for="ProcRequsitos">Fecha</label>
-							<input type="date" name="ProcDate" class="form-control">
-						</div>
-					</div>
-				</div>
-					
-				<div class="form-row">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcObjetivo">Alcance del Proceso</label>
-							<textarea class="form-control" id="ProcObjetivo" name="ProcObjetivo">
-							Objetivo de ejemplo para el proceso de compras
-							</textarea> 
+							<label class="input-label" for="ProcRiesgosinput0">Riesgos</label>
+							<div class="input-group">
+								<input type="text" required id="ProcRiesgosinput0" class="form-control" placeholder="Riesgos" aria-label="Riesgos" aria-describedby="button-addon2" name="ProcRiesgos[]">
+								<div class="input-group-append eliminarpolitica">
+								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropRiesgo(0)">Borrar</button>
+								</div>
+							</div>
 						</div>
 					</div>
 					
-					{{-- <div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcAlcance">Alcance del Proceso</label>
-							<input type="text" required class="form-control" id="ProcAlcance" placeholder="Compras" name="ProcAlcance" max="500">
-						</div>
-					</div> --}}
 				</div>
 					
 				<div class="form-row" id="containerDePoliticas">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcAmbienTrabajo">Ambiente de trabajo</label>
-							<input type="text" required class="form-control" id="ProcAmbienTrabajo" placeholder="Compras" name="ProcAmbienTrabajo" max="500">
-						</div>
-					</div>
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcPolitOperacion[]">Politica de Operación</label>
-							<div class="input-group">
-								<input type="text" required id="ProcPolitOperacion[]" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2">
-								<div class="input-group-append eliminarpolitica">
-								<button class="btn btn-danger" type="button" id="button-addon2">Borrar</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="form-row">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
 							<label class="input-label" for="Provedores">Provedores</label>
-							  <select multiple id="Provedores" class="form-control" name="Provedores[]" placeholder="seleccione">
+							  <select multiple id="Provedores" class="form-control selectmultiple" name="Provedores[]" placeholder="seleccione">
 								@foreach($proveedores as $proveedor)
 									<option value="{{$proveedor->id}}">{{$proveedor->ProvName}}</option>
 								@endforeach
 							</select>
 						</div>
 					</div>
-	
-					<div class="col-md-6 col-xs-12">
+					
+					<div class="col-md-6 col-xs-12" id="politicaOperacion0">
 						<div class="form-group">
-							<label class="input-label" for="Recursos">Recursos</label>
-							  <select multiple id="Recursos" class="form-control" name="Recursos[]" placeholder="seleccione">
-								@foreach($recursos as $recurso)
-									<option value="{{$recurso->id}}">{{$recurso->RecName}} - 
-										@switch($recurso->RecType)
-											@case(0)
-												Fisico
-												@break
-											@case(1)
-												Humano
-												@break
-											@case(2)
-												Financiero
-												@break
-										@endswitch
-									</option>
-								@endforeach
-							</select>
+							<label class="input-label" for="ProcPolitOperacioninput0">Politica de Operación</label>
+							<div class="input-group">
+								<input type="text" required id="ProcPolitOperacioninput0" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2" name="ProcPolitOperacion[]">
+								<div class="input-group-append eliminarpolitica">
+								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropPolitica(0)">Borrar</button>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -436,7 +387,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Gambiental">Gestión Ambiental</label>
-							  <select multiple id="Gambiental" class="form-control" name="Gambiental[]" placeholder="seleccione">
+							  <select multiple id="Gambiental" class="form-control selectmultiple" name="Gambiental[]" placeholder="seleccione">
 								@foreach($gambientales as $gambiental)
 									<option value="{{$gambiental->id}}">{{$gambiental->GesName}} - 
 										@switch($gambiental->GesType)
@@ -458,7 +409,7 @@ Procesos
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Gseguridad">Gestión de Seguridad y Salud en el Trabajo</label>
-							  <select multiple id="Gseguridad" class="form-control" name="Gseguridad[]" placeholder="seleccione">
+							  <select multiple id="Gseguridad" class="form-control selectmultiple" name="Gseguridad[]" placeholder="seleccione">
 								@foreach($gseguridades as $gseguridad)
 									<option value="{{$gseguridad->id}}">{{$gseguridad->SeguName}} - 
 										@switch($gseguridad->SeguType)
@@ -479,36 +430,30 @@ Procesos
 					</div>
 				</div>
 
-	    
-
 				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
+							<label class="input-label" for="ProcAmbienTrabajo">Ambiente de Trabajo</label>
+							<input class="form-control" id="ProcAmbienTrabajo" name="ProcAmbienTrabajo">
+						</div>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
 							<label class="input-label" for="ProcRequsitos">Requisitos por cumplir</label>
-							  <select multiple class="form-control" name="ProcRequsitos[]" placeholder="seleccione" id="ProcRequsitos">
+							  <select multiple class="form-control" name="ProcRequsitos[] selectmultiple" placeholder="seleccione" id="ProcRequsitos">
 								@foreach($requisitos as $requisito)
 									<option value="{{$requisito->id}}">{{$requisito->ReqName}}</option>
 								@endforeach
 							</select>
 						</div>
 					</div>
-	
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcRequsitos">Fecha</label>
-							  <input type="date" name="ProcDate" class="form-control">
-						</div>
-					</div>
 				</div>
-            	
 
 				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcObjetivo">Objetivo del Proceso</label>
-							   <textarea class="form-control" id="ProcObjetivo" name="ProcObjetivo">
-							  Objetivo de ejemplo para el proceso de compras
-							  </textarea> 
+							<label class="input-label" for="ProcRequsitos">Fecha</label>
+							  <input type="date" name="ProcDate" class="form-control">
 						</div>
 					</div>
 				</div>
@@ -544,7 +489,7 @@ Procesos
 			</div>
 			<div class="form-group">
 				<label>Tipo de Gestión SST</label>
-				<select name="SeguType" class="text-center form-control" required="">
+				<select name="SeguType" class="text-center form-control select" required="">
 					<option value="0">Peligros</option>
 					<option value="1">Riesgos</option>
 					<option value="2">Controles Operacionales</option>
@@ -573,7 +518,7 @@ Procesos
 			</div>
 			<div class="form-group">
 				<label>Tipo de Gestión Ambiental</label>
-				<select name="GesType" class="text-center form-control" required="">
+				<select name="GesType" class="text-center form-control select" required="">
 					<option value="0">Aspectos Ambientales</option>
 					<option value="1">Impactos Ambientales</option>
 					<option value="2">Controles Operacionales</option>
@@ -602,7 +547,7 @@ Procesos
 			</div>
 			<div class="form-group">
 				<label>Tipo de Recurso</label>	      
-				<select name="RecType" class="text-center form-control" required="">
+				<select name="RecType" class="text-center form-control select" required="">
 					<option value="0">Fisico</option>
 					<option value="1">Humano</option>
 					<option value="2">Financiero</option>
@@ -630,13 +575,22 @@ Procesos
 				<input type="text" name="ProvName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
+<<<<<<< HEAD
 				<label>Fase</label>	   
 				<select name="ProvType" class="form-control">
+=======
+				<label>Tipo de proveedor</label>
+				<select name="ProvType" class="text-center form-control select">
+>>>>>>> master
 					<option value="Planear">Planear</option>
 					<option value="Hacer">Hacer</option>
 					<option value="Verificar">Verificar</option>
 					<option value="Actuar">Actuar</option>
+<<<<<<< HEAD
 				</select>   
+=======
+				</select>
+>>>>>>> master
 			</div>
 		@endslot
 	@endcomponent
@@ -659,13 +613,22 @@ Procesos
 				<input type="text" name="InputName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
+<<<<<<< HEAD
 				<label>Fase</label>	   
 				<select name="InputType" class="form-control">
+=======
+				<label>Tipo de entrada</label>
+				<select name="InputType" class="text-center form-control select">
+>>>>>>> master
 					<option value="Planear">Planear</option>
 					<option value="Hacer">Hacer</option>
 					<option value="Verificar">Verificar</option>
 					<option value="Actuar">Actuar</option>
+<<<<<<< HEAD
 				</select>   
+=======
+				</select>
+>>>>>>> master
 			</div>
 		@endslot
 	@endcomponent
@@ -689,13 +652,22 @@ Procesos
 				<input type="text" name="ActiName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
+<<<<<<< HEAD
 				<label>Fase</label>	   
 				<select name="ActiType" class="form-control">
+=======
+				<label>Tipo de actividad</label>
+				<select name="ActiType" class="text-center form-control select">
+>>>>>>> master
 					<option value="Planear">Planear</option>
 					<option value="Hacer">Hacer</option>
 					<option value="Verificar">Verificar</option>
 					<option value="Actuar">Actuar</option>
+<<<<<<< HEAD
 				</select>   
+=======
+				</select>
+>>>>>>> master
 			</div>
 		@endslot
 	@endcomponent
@@ -719,13 +691,22 @@ Procesos
 				<input type="text" name="OutputName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
+<<<<<<< HEAD
 				<label>Fase</label>	   
 				<select name="OutputType" class="form-control">
+=======
+				<label>Tipo de salida</label>
+				<select name="OutputType" class="text-center form-control select">
+>>>>>>> master
 					<option value="Planear">Planear</option>
 					<option value="Hacer">Hacer</option>
 					<option value="Verificar">Verificar</option>
 					<option value="Actuar">Actuar</option>
+<<<<<<< HEAD
 				</select>   
+=======
+				</select>
+>>>>>>> master
 			</div>
 		@endslot
 	@endcomponent
@@ -749,19 +730,28 @@ Procesos
 				<input type="text" name="CliName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
+<<<<<<< HEAD
 				<label>Fase</label>	   
 				<select name="CliType" class="form-control">
+=======
+				<label>Tipo de cliente</label>
+				<select name="CliType" class="text-center form-control select">
+>>>>>>> master
 					<option value="Planear">Planear</option>
 					<option value="Hacer">Hacer</option>
 					<option value="Verificar">Verificar</option>
 					<option value="Actuar">Actuar</option>
+<<<<<<< HEAD
 				</select>   
+=======
+				</select>
+>>>>>>> master
 			</div>
 		@endslot
 	@endcomponent
 
 
-	{{-- Parte del documento donde se encuentran los modales de EDIT --}}
+	{{-- Parte del documento donde se encuentran los modales del EDIT --}}
 
 
 
@@ -779,7 +769,7 @@ Procesos
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<select id="IdSelectGseguridad" class="form-control" onchange="cambiarGseguridadId()">
+				<select id="IdSelectGseguridad" class="form-control select" onchange="cambiarGseguridadId()">
 					@foreach($gseguridades as $gseguridad)
 						<option value="{{$gseguridad->id}}">{{$gseguridad->SeguName}}</option>
 					@endforeach
@@ -798,7 +788,7 @@ Procesos
 			</div>
 			<div class="form-group">
 				<label>Nuevo Tipo</label>
-				<select name="SeguType" class="text-center form-control" required="">
+				<select name="SeguType" class="text-center form-control select" required="">
 					<option value="0">Peligros</option>
 					<option value="1">Riesgos</option>
 					<option value="2">Controles Operacionales</option>
@@ -822,7 +812,7 @@ Procesos
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<select id="IdSelectGambiental" class="form-control" onchange="cambiarGambientalId()">
+				<select id="IdSelectGambiental" class="form-control select" onchange="cambiarGambientalId()">
 					@foreach($gambientales as $gambiental)
 						<option value="{{$gambiental->id}}">{{$gambiental->GesName}}</option>
 					@endforeach
@@ -841,7 +831,7 @@ Procesos
 			</div>
 			<div class="form-group">
 				<label>Nuevo Tipo</label>
-				<select name="GesType" class="text-center form-control" required="">
+				<select name="GesType" class="text-center form-control select" required="">
 					<option value="0">Aspectos Ambientales</option>
 					<option value="1">Impactos Ambientales</option>
 					<option value="2">Controles Operacionales</option>
@@ -865,7 +855,7 @@ Procesos
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<select id="IdSelectRecurso" class="form-control" onchange="cambiarRecursoId()">
+				<select id="IdSelectRecurso" class="form-control select" onchange="cambiarRecursoId()">
 					@foreach($recursos as $recurso)
 					<option value="{{$recurso->id}}">{{$recurso->RecName}}</option>
 					@endforeach
@@ -884,7 +874,7 @@ Procesos
 			</div>
 			<div class="form-group">
 				<label>Nuevo Tipo</label>
-				<select name="RecType" class="text-center form-control" required="">
+				<select name="RecType" class="text-center form-control select" required="">
 					<option value="0">Fisico</option>
 					<option value="1">Humano</option>
 					<option value="2">Financiero</option>
@@ -908,7 +898,7 @@ Procesos
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<select id="IdSelectProveedor" class="form-control" onchange="cambiarProveedorId()">
+				<select id="IdSelectProveedor" class="form-control select" onchange="cambiarProveedorId()">
 					@foreach($proveedores as $proveedor)
 					<option value="{{$proveedor->id}}">{{$proveedor->ProvName." - ".$proveedor->ProvType}}</option>
 					@endforeach
@@ -926,15 +916,25 @@ Procesos
 				<input type="text" name="ProvName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
+<<<<<<< HEAD
 				<label>Fase</label>	   
 				<select id="edit-prov" name="ProvType" class="form-control">
+=======
+				<label>Nuevo tipo de proveedor</label>
+				<select name="ProvType" class="text-center form-control select">
+>>>>>>> master
 					<option value="Planear">Planear</option>
 					<option value="Hacer">Hacer</option>
 					<option value="Verificar">Verificar</option>
 					<option value="Actuar">Actuar</option>
+<<<<<<< HEAD
 				</select>   
 			</div>
 			
+=======
+				</select>
+			</div>
+>>>>>>> master
 		@endslot
 	@endcomponent
 
@@ -953,7 +953,7 @@ Procesos
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<select id="IdSelectEntrada" class="form-control" onchange="cambiarEntradaId()">
+				<select id="IdSelectEntrada" class="form-control select" onchange="cambiarEntradaId()">
 					@foreach($entradas as $entrada)
 					<option value="{{$entrada->id}}">{{$entrada->InputName." - ".$entrada->InputType}}</option>
 					@endforeach
@@ -971,13 +971,22 @@ Procesos
 				<input type="text" name="InputName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
+<<<<<<< HEAD
 				<label>Fase</label>	   
 				<select id="edit-input" name="InputType" class="form-control">
+=======
+				<label>Nuevo tipo de entrada</label>
+				<select name="InputType" class="text-center form-control select">
+>>>>>>> master
 					<option value="Planear">Planear</option>
 					<option value="Hacer">Hacer</option>
 					<option value="Verificar">Verificar</option>
 					<option value="Actuar">Actuar</option>
+<<<<<<< HEAD
 				</select>   
+=======
+				</select>
+>>>>>>> master
 			</div>
 		@endslot
 	@endcomponent
@@ -997,7 +1006,7 @@ Procesos
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<select id="IdSelectActividad" class="form-control" onchange="cambiarActividadId()">
+				<select id="IdSelectActividad" class="form-control select" onchange="cambiarActividadId()">
 					@foreach($actividades as $actividad)
 						<option value="{{$actividad->id}}">{{$actividad->ActiName." - ".$actividad->ActiType}}</option>
 					@endforeach
@@ -1015,13 +1024,22 @@ Procesos
 				<input type="text" name="ActiName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
+<<<<<<< HEAD
 				<label>Fase</label>	   
 				<select id="edit-Acti" name="ActiType" class="form-control">
+=======
+				<label>Nuevo tipo de actividad</label>
+				<select name="ActiType" class="text-center form-control select">
+>>>>>>> master
 					<option value="Planear">Planear</option>
 					<option value="Hacer">Hacer</option>
 					<option value="Verificar">Verificar</option>
 					<option value="Actuar">Actuar</option>
+<<<<<<< HEAD
 				</select>   
+=======
+				</select>
+>>>>>>> master
 			</div>
 		@endslot
 	@endcomponent
@@ -1041,7 +1059,7 @@ Procesos
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<select id="IdSelectSalida" class="form-control" onchange="cambiarSalidaId()">
+				<select id="IdSelectSalida" class="form-control select" onchange="cambiarSalidaId()">
 					@foreach($salidas as $salida)
 						<option value="{{$salida->id}}">{{$salida->OutputName." - ".$salida->OutputType}}</option>
 					@endforeach
@@ -1059,13 +1077,22 @@ Procesos
 				<input type="text" name="OutputName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
+<<<<<<< HEAD
 				<label>Fase</label>	   
 				<select id="edit-Output" name="OutputType" class="form-control">
+=======
+				<label>Nuevo tipo de salida</label>
+				<select name="ActiType" class="text-center form-control select">
+>>>>>>> master
 					<option value="Planear">Planear</option>
 					<option value="Hacer">Hacer</option>
 					<option value="Verificar">Verificar</option>
 					<option value="Actuar">Actuar</option>
+<<<<<<< HEAD
 				</select>   
+=======
+				</select>
+>>>>>>> master
 			</div>
 		@endslot
 	@endcomponent
@@ -1084,7 +1111,7 @@ Procesos
 		@slot('form')
 			@csrf
 			<div class="form-group">
-				<select id="IdSelectCliente" class="form-control" onchange="cambiarClienteId()">
+				<select id="IdSelectCliente" class="form-control select" onchange="cambiarClienteId()">
 					@foreach($clientes as $cliente)
 					<option value="{{$cliente->id}}">{{$cliente->CliName." - ".$cliente->CliType}}</option>
 					@endforeach
@@ -1102,13 +1129,22 @@ Procesos
 				<input type="text" name="CliName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
+<<<<<<< HEAD
 				<label>Fase</label>	   
 				<select id="edit-cli" name="CliType" class="form-control">
+=======
+				<label>Nuevo tipo de cliente</label>
+				<select name="CliType" class="text-center form-control select">
+>>>>>>> master
 					<option value="Planear">Planear</option>
 					<option value="Hacer">Hacer</option>
 					<option value="Verificar">Verificar</option>
 					<option value="Actuar">Actuar</option>
+<<<<<<< HEAD
 				</select>   
+=======
+				</select>
+>>>>>>> master
 			</div>
 		@endslot
 	@endcomponent
@@ -1134,7 +1170,7 @@ Procesos
 	         	@method('DELETE')
 				@csrf
 				<div class="form-group">
-					<select id="SelectEliminarProveedores" class="form-control" onchange="eliminarProveedor()">
+					<select id="SelectEliminarProveedores" class="form-control select" onchange="eliminarProveedor()">
 						<option value="0" selected>Seleccionar proveedor a Eliminar</option>
 						@foreach($proveedoresDrop as $proveedorDrop)
 						<option value="{{$proveedorDrop->id}}">{{$proveedorDrop->ProvName}}
@@ -1167,7 +1203,7 @@ Procesos
 	         	@method('DELETE')
 				@csrf
 				<div class="form-group">
-					<select id="SelectEliminarRecursos" class="form-control" onchange="eliminarRecurso()">
+					<select id="SelectEliminarRecursos" class="form-control select" onchange="eliminarRecurso()">
 						<option value="0" selected>Seleccionar recurso a Eliminar</option>
 						@foreach($recursosDrop as $recursoDrop)
 						<option value="{{$recursoDrop->id}}">{{$recursoDrop->RecName}}
@@ -1208,7 +1244,7 @@ Procesos
 	         	@method('DELETE')
 				@csrf
 				<div class="form-group">
-					<select id="SelectEliminarGsegu" class="form-control" onchange="eliminarGseguridad()">
+					<select id="SelectEliminarGsegu" class="form-control select" onchange="eliminarGseguridad()">
 						<option value="0" selected>Seleccionar Gestión de SST a Eliminar</option>
 						@foreach($gseguridadesDrop as $gseguridadDrop)
 						<option value="{{$gseguridadDrop->id}}">{{$gseguridadDrop->SeguName}} -
@@ -1252,7 +1288,7 @@ Procesos
 	         	@method('DELETE')
 				@csrf
 				<div class="form-group">
-					<select id="SelectEliminarGambi" class="form-control" onchange="eliminarGambiental()">
+					<select id="SelectEliminarGambi" class="form-control select" onchange="eliminarGambiental()">
 						<option value="0" selected>Seleccionar Gestión Ambiental a Eliminar</option>
 						@foreach($gambientalesDrop as $gambientalDrop)
 						<option value="{{$gambientalDrop->id}}">{{$gambientalDrop->GesName}} -
@@ -1296,7 +1332,7 @@ Procesos
 	         	@method('DELETE')
 				@csrf
 				<div class="form-group">
-					<select id="SelectEliminarSalidas" class="form-control" onchange="eliminarSalida()">
+					<select id="SelectEliminarSalidas" class="form-control select" onchange="eliminarSalida()">
 						<option value="0" selected>Seleccionar salida a Eliminar</option>
 						@foreach($salidasDrop as $salidaDrop)
 						<option value="{{$salidaDrop->id}}">{{$salidaDrop->OutputName}}</option>
@@ -1328,7 +1364,7 @@ Procesos
 	         	@method('DELETE')
 				@csrf
 				<div class="form-group">
-					<select id="SelectEliminarEntradas" class="form-control" onchange="eliminarEntrada()">
+					<select id="SelectEliminarEntradas" class="form-control select" onchange="eliminarEntrada()">
 						<option value="0" selected>Seleccionar entrada a Eliminar</option>
 						@foreach($entradasDrop as $entradaDrop)
 						<option value="{{$entradaDrop->id}}">{{$entradaDrop->InputName}}</option>
@@ -1360,7 +1396,7 @@ Procesos
 				@method('DELETE')
 				@csrf
 				<div class="form-group">
-					<select id="SelectEliminarActividad" class="form-control" onchange="eliminarActividad()">
+					<select id="SelectEliminarActividad" class="form-control select" onchange="eliminarActividad()">
 						<option value="0" selected>Seleccionar actividad a Eliminar</option>
 						@foreach($actividadesDrop as $actividadDrop)
 						<option value="{{$actividadDrop->id}}">{{$actividadDrop->ActiName}}</option>
@@ -1392,7 +1428,7 @@ Procesos
 	         	@method('DELETE')
 				@csrf
 				<div class="form-group">
-					<select id="SelectEliminarClientes" class="form-control" onchange="eliminarCliente()">
+					<select id="SelectEliminarClientes" class="form-control select" onchange="eliminarCliente()">
 						<option value="0" selected>Seleccionar cliente a Eliminar</option>
 						@foreach($clientesDrop as $clienteDrop)
 						<option value="{{$clienteDrop->id}}">{{$clienteDrop->CliName}}</option>
@@ -1411,16 +1447,21 @@ Procesos
 
 {{-- librerias adicionales para el funcionmiento de la vista --}}
 @push('js')
-	{{-- <script src="{{ asset('js') }}/datatable-depen.js"></script>
-	<script src="{{ asset('js') }}/datatable-plugins.js"></script> --}}
+	<script src="{{ asset('js') }}/select2.js"></script>
 @endpush
 
 {{-- scripts adicionales para el funcionmiento de la vista --}}
 @push('scripts')
 <script>
 
-	{{-- Parte de los script de actualizar --}}
+	/*script para activar el select 2*/
+	$(document).ready(function() {
+		$('select').select2({
+			placeholder: 'Selecciona...',
+		});
+	});
 
+	//Parte de los script de actualizar
 	function cambiarClienteId(){
 		var id = $('#IdSelectCliente').val();
 		var inputoculto = $('#idocultoCli');
@@ -1623,19 +1664,78 @@ Procesos
 
 	var contadorPoliticas = 0;
 	function addPolitica(){
-		var id = $('#IdSelectSalida').val();
-		var inputoculto = $('#idocultoSali');
-			inputoculto.attr('value', id);
-			console.log(id);
+		contadorPoliticas++
+		container = $('#containerDePoliticas')
+		container.append(`<div class="col-md-6 col-xs-12" id="politicaOperacion`+contadorPoliticas+`">
+						<div class="form-group">
+							<label class="input-label" for="ProcPolitOperacion`+contadorPoliticas+`">Politica de Operación</label>
+							<div class="input-group">
+								<input type="text" required id="ProcPolitOperacioninput`+contadorPoliticas+`" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2" name="ProcPolitOperacion[]">
+								<div class="input-group-append eliminarpolitica">
+								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropPolitica(`+contadorPoliticas+`)">Borrar</button>
+								</div>
+							</div>
+						</div>
+					</div>`)
 	};
 
-	function dropPolitica(){
-		var id = $('#IdSelectSalida').val();
-		var inputoculto = $('#idocultoSali');
-			inputoculto.attr('value', id);
-			console.log(id);
+	function dropPolitica(id){
+		var id = $('#politicaOperacion'+id).remove();
 	};
 
+	
+</script>
 
+
+
+
+<script type="text/javascript">
+	var contadorRiesgos = 0;
+	function addRiesgo(){
+		contadorRiesgos++
+		container = $('#containerDeRiesgos')
+		container.append(`<div class="col-md-6 col-xs-12" id="riesgos`+contadorRiesgos+`">
+						<div class="form-group">
+							<label class="input-label" for="ProcRiesgos`+contadorRiesgos+`">Riesgos</label>
+							<div class="input-group">
+								<input type="text" required id="ProcRiesgosinput`+contadorRiesgos+`" class="form-control" placeholder="Riesgos" aria-label="Riesgos" aria-describedby="button-addon2" name="ProcRiesgos[]">
+								<div class="input-group-append eliminarpolitica">
+								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropRiesgo(`+contadorRiesgos+`)">Borrar</button>
+								</div>
+							</div>
+						</div>
+					</div>`)
+	};
+
+	function dropRiesgo(id){
+		var id = $('#riesgos'+id).remove();
+	};
+</script>
+
+
+
+
+
+<script>
+$(function() {
+  // ------------------------------------------------------- //
+  // Multi Level dropdowns
+  // ------------------------------------------------------ //
+  $("ul.dropdown-menu [data-toggle='dropdown']").on("click", function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    $(this).siblings().toggleClass("show");
+
+
+    if (!$(this).next().hasClass('show')) {
+      $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+    }
+    $(this).parents('div.dropdown.show').on('hidden.bs.dropdown', function(e) {
+      $('.dropdown-submenu .show').removeClass("show");
+    });
+
+  });
+});
 </script>
 @endpush
