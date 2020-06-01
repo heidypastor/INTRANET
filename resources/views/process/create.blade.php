@@ -629,10 +629,19 @@ Procesos
 				<label>Nombre del proveedor</label>	      
 				<input type="text" name="ProvName" class="text-center form-control" required="">
 			</div>
+			<div class="form-group">
+				<label>Fase</label>	   
+				<select name="ProvType" class="form-control">
+					<option value="Planear">Planear</option>
+					<option value="Hacer">Hacer</option>
+					<option value="Verificar">Verificar</option>
+					<option value="Actuar">Actuar</option>
+				</select>   
+			</div>
 		@endslot
 	@endcomponent
 
-	{{-- Este modal corresponde a los seguimientos --}}
+	{{-- Este modal corresponde a las Entradas --}}
 	@component('layouts.partials.modalCreate')
 		@slot('idModal')
 			modalCreateEntradas
@@ -648,6 +657,15 @@ Procesos
 			<div class="form-group">
 				<label>Nombre de la entrada</label>	      
 				<input type="text" name="InputName" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>Fase</label>	   
+				<select name="InputType" class="form-control">
+					<option value="Planear">Planear</option>
+					<option value="Hacer">Hacer</option>
+					<option value="Verificar">Verificar</option>
+					<option value="Actuar">Actuar</option>
+				</select>   
 			</div>
 		@endslot
 	@endcomponent
@@ -670,6 +688,15 @@ Procesos
 				<label>Nombre de la actividad</label>	      
 				<input type="text" name="ActiName" class="text-center form-control" required="">
 			</div>
+			<div class="form-group">
+				<label>Fase</label>	   
+				<select name="ActiType" class="form-control">
+					<option value="Planear">Planear</option>
+					<option value="Hacer">Hacer</option>
+					<option value="Verificar">Verificar</option>
+					<option value="Actuar">Actuar</option>
+				</select>   
+			</div>
 		@endslot
 	@endcomponent
 
@@ -691,6 +718,15 @@ Procesos
 				<label>Nombre de la salida</label>	      
 				<input type="text" name="OutputName" class="text-center form-control" required="">
 			</div>
+			<div class="form-group">
+				<label>Fase</label>	   
+				<select name="OutputType" class="form-control">
+					<option value="Planear">Planear</option>
+					<option value="Hacer">Hacer</option>
+					<option value="Verificar">Verificar</option>
+					<option value="Actuar">Actuar</option>
+				</select>   
+			</div>
 		@endslot
 	@endcomponent
 
@@ -711,6 +747,15 @@ Procesos
 			<div class="form-group">
 				<label>Nombre del cliente</label>	      
 				<input type="text" name="CliName" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>Fase</label>	   
+				<select name="CliType" class="form-control">
+					<option value="Planear">Planear</option>
+					<option value="Hacer">Hacer</option>
+					<option value="Verificar">Verificar</option>
+					<option value="Actuar">Actuar</option>
+				</select>   
 			</div>
 		@endslot
 	@endcomponent
@@ -865,7 +910,7 @@ Procesos
 			<div class="form-group">
 				<select id="IdSelectProveedor" class="form-control" onchange="cambiarProveedorId()">
 					@foreach($proveedores as $proveedor)
-					<option value="{{$proveedor->id}}">{{$proveedor->ProvName}}</option>
+					<option value="{{$proveedor->id}}">{{$proveedor->ProvName." - ".$proveedor->ProvType}}</option>
 					@endforeach
 				</select>
 			</div>
@@ -880,6 +925,16 @@ Procesos
 				<label>Nuevo Nombre</label>
 				<input type="text" name="ProvName" class="text-center form-control" required="">
 			</div>
+			<div class="form-group">
+				<label>Fase</label>	   
+				<select id="edit-prov" name="ProvType" class="form-control">
+					<option value="Planear">Planear</option>
+					<option value="Hacer">Hacer</option>
+					<option value="Verificar">Verificar</option>
+					<option value="Actuar">Actuar</option>
+				</select>   
+			</div>
+			
 		@endslot
 	@endcomponent
 
@@ -900,7 +955,7 @@ Procesos
 			<div class="form-group">
 				<select id="IdSelectEntrada" class="form-control" onchange="cambiarEntradaId()">
 					@foreach($entradas as $entrada)
-					<option value="{{$entrada->id}}">{{$entrada->InputName}}</option>
+					<option value="{{$entrada->id}}">{{$entrada->InputName." - ".$entrada->InputType}}</option>
 					@endforeach
 				</select>
 			</div>
@@ -914,6 +969,15 @@ Procesos
 			<div class="form-group">
 				<label>Nuevo Nombre</label>
 				<input type="text" name="InputName" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>Fase</label>	   
+				<select id="edit-input" name="InputType" class="form-control">
+					<option value="Planear">Planear</option>
+					<option value="Hacer">Hacer</option>
+					<option value="Verificar">Verificar</option>
+					<option value="Actuar">Actuar</option>
+				</select>   
 			</div>
 		@endslot
 	@endcomponent
@@ -935,7 +999,7 @@ Procesos
 			<div class="form-group">
 				<select id="IdSelectActividad" class="form-control" onchange="cambiarActividadId()">
 					@foreach($actividades as $actividad)
-						<option value="{{$actividad->id}}">{{$actividad->ActiName}}</option>
+						<option value="{{$actividad->id}}">{{$actividad->ActiName." - ".$actividad->ActiType}}</option>
 					@endforeach
 				</select>
 			</div>
@@ -949,6 +1013,15 @@ Procesos
 			<div class="form-group">
 				<label>Nuevo Nombre</label>
 				<input type="text" name="ActiName" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>Fase</label>	   
+				<select id="edit-Acti" name="ActiType" class="form-control">
+					<option value="Planear">Planear</option>
+					<option value="Hacer">Hacer</option>
+					<option value="Verificar">Verificar</option>
+					<option value="Actuar">Actuar</option>
+				</select>   
 			</div>
 		@endslot
 	@endcomponent
@@ -970,7 +1043,7 @@ Procesos
 			<div class="form-group">
 				<select id="IdSelectSalida" class="form-control" onchange="cambiarSalidaId()">
 					@foreach($salidas as $salida)
-						<option value="{{$salida->id}}">{{$salida->OutputName}}</option>
+						<option value="{{$salida->id}}">{{$salida->OutputName." - ".$salida->OutputType}}</option>
 					@endforeach
 				</select>
 			</div>
@@ -984,6 +1057,15 @@ Procesos
 			<div class="form-group">
 				<label>Nuevo Nombre</label>
 				<input type="text" name="OutputName" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>Fase</label>	   
+				<select id="edit-Output" name="OutputType" class="form-control">
+					<option value="Planear">Planear</option>
+					<option value="Hacer">Hacer</option>
+					<option value="Verificar">Verificar</option>
+					<option value="Actuar">Actuar</option>
+				</select>   
 			</div>
 		@endslot
 	@endcomponent
@@ -1004,7 +1086,7 @@ Procesos
 			<div class="form-group">
 				<select id="IdSelectCliente" class="form-control" onchange="cambiarClienteId()">
 					@foreach($clientes as $cliente)
-					<option value="{{$cliente->id}}">{{$cliente->CliName}}</option>
+					<option value="{{$cliente->id}}">{{$cliente->CliName." - ".$cliente->CliType}}</option>
 					@endforeach
 				</select>
 			</div>
@@ -1018,6 +1100,15 @@ Procesos
 			<div class="form-group">
 				<label>Nuevo Nombre</label>
 				<input type="text" name="CliName" class="text-center form-control" required="">
+			</div>
+			<div class="form-group">
+				<label>Fase</label>	   
+				<select id="edit-cli" name="CliType" class="form-control">
+					<option value="Planear">Planear</option>
+					<option value="Hacer">Hacer</option>
+					<option value="Verificar">Verificar</option>
+					<option value="Actuar">Actuar</option>
+				</select>   
 			</div>
 		@endslot
 	@endcomponent
@@ -1334,14 +1425,47 @@ Procesos
 		var id = $('#IdSelectCliente').val();
 		var inputoculto = $('#idocultoCli');
 		inputoculto.attr('value', id);
-		// console.log(id);
+		console.log(id);
+		var clientes = {!! json_encode($clientes->toArray()) !!};
+		clientes.forEach(client => {
+			if (client.id == id) {
+				console.log(client.CliType)
+				$('#edit-cli').val(client.CliType);
+			}
+		});
 	};
 
 	function cambiarProveedorId(){
 		var id = $('#IdSelectProveedor').val();
 		var inputoculto = $('#idocultoProv');
 		inputoculto.attr('value', id);
-		// console.log(id);
+		var proveedores = {!! json_encode($proveedores->toArray()) !!};
+		proveedores.forEach(proveedor => {
+			if (proveedor.id == id) {
+				switch (proveedor.ProvType) {
+					case 'Planear':
+					$('#edit-prov').val('Planear');
+						break;
+
+					case 'Hacer':
+					$('#edit-prov').val('Hacer');
+						break;
+
+					case 'Verificar':
+					$('#edit-prov').val('Verificar');
+						break;
+
+					case 'Actuar':
+					$('#edit-prov').val('Actuar');
+						break;		
+				
+					default:
+					console.log("proveedor no valido");
+						break;
+				}
+			}
+		});
+		// console.log(proveedores);
 	};
 
 	function cambiarRecursoId(){

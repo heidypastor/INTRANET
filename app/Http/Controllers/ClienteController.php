@@ -37,6 +37,7 @@ class ClienteController extends Controller
     {
         $cliente = new Cliente();
         $cliente->CliName = $request->input('CliName');
+        $cliente->CliType = $request->input('CliType');
         $cliente->save();
         
         return redirect()->route('proceso.create')->withStatus(__('Cliente creado correctamente'));
@@ -70,6 +71,7 @@ class ClienteController extends Controller
         // return $request;
         $cliente = Cliente::find($request->input('idocultoCli'));
         $cliente->CliName = $request->input('CliName');
+        $cliente->CliType = $request->input('CliType');
         $cliente->save();
 
         return redirect()->route('proceso.create')->withStatus(__('Cliente actualizado correctamente'));
