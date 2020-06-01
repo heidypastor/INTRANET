@@ -82,18 +82,13 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        if ((auth()->user()->can('editUser'))) {
-           $roles = Role::where('name', '!=', 'Super Admin')->get();
-           $permisos = Permission::all();
-           $cargos = Cargo::all();
-           $areas = Areas::all();
+       $roles = Role::where('name', '!=', 'Super Admin')->get();
+       $permisos = Permission::all();
+       $cargos = Cargo::all();
+       $areas = Areas::all();
 
-           
-           return view('users.edit', compact(['user', 'roles', 'permisos', 'cargos', 'areas']));
-        }else{
-            abort(403, 'El usuario no se encuentra autorizado para editar Usuarios');
-        }
-        
+       
+       return view('users.edit', compact(['user', 'roles', 'permisos', 'cargos', 'areas']));
     }
 
     /**

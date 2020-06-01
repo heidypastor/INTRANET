@@ -16,12 +16,14 @@ Documentos
 @section('content')
 	<div class="card">
 		<div class="card-header pull-left">
-		  <h4 class="card-title"><strong>Documentos</strong>
+		    <h4 class="card-title"><strong>Documentos</strong>
 
-		  @hasrole('Super Admin')
-		  	  <a href="{{ route('documents.create') }}" class="fas fa-plus btn btn-sm btn-fill btn-success pull-right"> Crear</a>
-		  @else
-		  @endhasrole
+            @can('createDocuments')
+    		    {{-- @hasrole('Super Admin') --}}
+    		  	   <a href="{{ route('documents.create') }}" class="fas fa-plus btn btn-sm btn-fill btn-success pull-right"> Crear</a>
+    		    {{-- @else
+    		    @endhasrole --}}
+            @endcan
 		  </h4>
 		</div>
         @include('alerts.success')
@@ -32,14 +34,15 @@ Documentos
     			    <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Archivo</b>" data-content="Listado de archivos.">Archivo</th>
     			    <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Versión</b>" data-content="Versión correspondiente a cada documento.">Versión</th>
     			    {{-- <th class="text-center">Tamaño Archivo</th> --}}
-    			    <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Publicado</b>" data-content="Informa si el documento se encuentra publicado (general) o en restringido.">Publicado</th>
+                    @can('indexDocuments')
+    			     <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Publicado</b>" data-content="Informa si el documento se encuentra publicado (general) o en restringido.">Publicado</th>
+                    @endcan
     			    <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tipo de documento</b>" data-content="Categoria a la cual pertenece el documento">Tipo de documento</th>
     			    <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Áreas</b>" data-content="Áreas a las cuales pertenece el documento.">Áreas</th>
-    			    @hasrole('Super Admin')
+                    <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Código</b>" data-content="Código referencia a dicho documento.">Código</th>
+    			    @can('updateDocuments')
     			    	<th class="text-center">Editar</th>
-    			    @else
-    			    	
-    			    @endhasrole
+    			    @endcan
                 </thead>
                     @can('indexDocuments')
                         <tbody>
@@ -55,7 +58,9 @@ Documentos
                                 </td>
             		        	<td class="text-center">{{$Document->DocVersion}}</td>
             		        	{{-- <td class="text-center">{{$Document->DocSize}}</td> --}}
+                                @can('indexDocuments')
             		        	<td class="text-center">{{ $Document->DocPublisher === 0 ? "No Publicado" : "Publicado" }}</td>
+                                @endcan
             		        	<td class="text-center">{{$Document->DocType}}</td>
             		        	<td class="text-center">
             		        		<ul class="list-group list-group-flush">
@@ -64,11 +69,12 @@ Documentos
             		        		    @endforeach  
             		        		</ul>
             		        	</td>
-            		        	@hasrole('Super Admin')
+                                <td class="text-center">
+                                    {{$Document->DocCodigo}}
+                                </td>
+            		        	@can('updateDocuments')
             		        		<td class="text-center"><a href="documents/{{$Document->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a></td>
-            		        	@else
-            		        		
-            		        	@endhasrole
+            		        	@endcan
                             </tr>
                             @endforeach
                         </tbody>
@@ -86,7 +92,9 @@ Documentos
                                 </td>
                                 <td class="text-center">{{$publicadodocumento->DocVersion}}</td>
                                 {{-- <td class="text-center">{{$Document->DocSize}}</td> --}}
+                                @can('indexDocuments')
                                 <td class="text-center">{{ $publicadodocumento->DocPublisher === 0 ? "No Publicado" : "Publicado" }}</td>
+                                @endcan
                                 <td class="text-center">{{$publicadodocumento->DocType}}</td>
                                 <td class="text-center">
                                     <ul class="list-group list-group-flush">
@@ -95,11 +103,12 @@ Documentos
                                         @endforeach  
                                     </ul>
                                 </td>
-                                @hasrole('Super Admin')
+                                <td class="text-center">
+                                    {{$publicadodocumento->DocCodigo}}
+                                </td>
+                                @can('updateDocuments')
                                     <td class="text-center"><a href="documents/{{$Document->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a></td>
-                                @else
-                                    
-                                @endhasrole
+                                @endcan
                             </tr>
                             @endforeach
                         </tbody>

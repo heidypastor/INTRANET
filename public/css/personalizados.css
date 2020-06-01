@@ -464,23 +464,27 @@ estilo de imput para input personalizade del documentos.edit*/
 
 .color1 {
   /*background-color: rgba(87, 192, 199, .7);*/
-  background: linear-gradient(to bottom right, #535fc9, #636fd9, #727de7);
+  /*background: linear-gradient(to bottom right, #535fc9, #636fd9, #727de7);*/
+  background-color: #007eb7;
 
 }
 
 .color1-1 {
   /*background-color: rgba(255, 127, 63, .7);*/
-  background: linear-gradient(to bottom right, #ff7f3f, #fd915b, #fda579);
+  /*background: linear-gradient(to bottom right, #ff7f3f, #fd915b, #fda579);*/
+  background-color: #57c6ff;
 }
 
 .color1-2 {
   /*background-color: rgba(255, 229, 63, .7);*/
-  background: linear-gradient(to bottom right, #ffe53f, #ffe95c, #ffed7a);
+  /*background: linear-gradient(to bottom right, #ffe53f, #ffe95c, #ffed7a);*/
+  background-color: #49a7d7;
 }
 
 .color1-3 {
   /*background-color: rgba(63, 197, 255, .7);*/
-  background: linear-gradient(to bottom right, #3fc5ff, #5acdff, #71d3fe);
+  /*background: linear-gradient(to bottom right, #3fc5ff, #5acdff, #71d3fe);*/
+  background-color: #3a85ab;
 }
 
 .blanco {

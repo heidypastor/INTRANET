@@ -34,6 +34,14 @@ Documentos
 				    <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Versión</b>" data-content="Ingresar la versión a la cual corresponde el documento."><i class="far fa-question-circle"></i> Versión</label>
 					<input name="DocVersion" type="text" placeholder="" id="DocVersion" class="text-center form-control" required="">
 				</div>
+
+
+				<div class="form-group">
+				    <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Código</b>" data-content="Ingresar el código referencia la cual corresponde el documento."><i class="far fa-question-circle"></i> Código</label>
+					<input name="DocCodigo" type="text" placeholder="" id="DocCodigo" class="text-center form-control" required="">
+				</div>
+
+
 				<div class="form-group">
 				    <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tipo de documento</b>" data-content="Ingresa la categoria a la cual pertenece dicho documento."><i class="far fa-question-circle"></i> Tipo de documento</label>
 					<select class="text-center form-control" required="" name="DocType" id="DocType">
