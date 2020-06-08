@@ -39,7 +39,7 @@ Indicadores
                 @include('alerts.feedback', ['field' => 'IndGraphic'])
               </div>
               <div class="custom-input-file {{ $errors->has('IndTable') ? ' has-danger' : '' }}">
-                <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tabla (Archivo)</b>" data-content="Adjuntar el archivo correspondiente a la gráfica. Este archivo debe estar en PDF."><i class="far fa-question-circle"></i> Tabla (Archivo)</label>
+                <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tabla (Archivo)</b>" data-content="Adjuntar el archivo correspondiente a la gráfica. Este archivo debe estar en formato PDF, TXT, Word, Excel, PowerPoint"><i class="far fa-question-circle"></i> Tabla (Archivo)</label>
                 <input name="IndTable" type="file" class="form-control form-control-alternative{{ $errors->has('IndTable') ? ' is-invalid' : '' }}">
                 @include('alerts.feedback', ['field' => 'IndTable'])
               </div>

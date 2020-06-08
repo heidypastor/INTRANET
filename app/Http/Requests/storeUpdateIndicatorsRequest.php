@@ -31,7 +31,7 @@ class storeUpdateIndicatorsRequest extends FormRequest
             'IndObjective'   =>  'max:512|min:1',
             'IndQueMide'     =>  'max:512|min:1',
             'IndGraphic'     =>  'max:512|min:1|mimes:jpeg,jpg,png',
-            'IndTable'       =>  'max:512|min:1|mimes:pdf,txt,doc,docx,xls,ppt',
+            'IndTable'       =>  'max:512|min:1|mimes:pdf,txt,doc,docx,xls,ppt,xlsx,pptx',
             'IndAnalysis'    =>  'max:512|min:1',
             'IndEfe'         =>  'max:512|min:1',
             'IndDateFrom'    =>  'max:512|min:1',
