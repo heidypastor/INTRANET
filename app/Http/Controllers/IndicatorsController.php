@@ -81,11 +81,13 @@ class IndicatorsController extends Controller
         $indicator->IndName = $request->input('IndName');
         $indicator->IndObjective = $request->input('IndObjective');
         $indicator->IndQueMide = $request->input('IndQueMide');
+        $indicator->IndFrecuencia = $request->input('IndFrecuencia');
+        $indicator->IndMeta = $request->input('IndMeta');
         $indicator->IndGraphic = $path;
         $indicator->IndTable = $pathimg;
         $indicator->IndAnalysis = $request->input('IndAnalysis');
-        $indicator->IndDateFrom = $request->input('IndDateFrom');
-        $indicator->IndDateUntil = $request->input('IndDateUntil');
+        // $indicator->IndDateFrom = $request->input('IndDateFrom');
+        // $indicator->IndDateUntil = $request->input('IndDateUntil');
         $indicator->IndType = $request->input('IndType');
         $indicator->IndEfe = $request->input('IndEfe');
         $indicator->user_id =  Auth::user()->id;

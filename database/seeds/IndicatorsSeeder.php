@@ -18,10 +18,12 @@ class IndicatorsSeeder extends Seeder
         $indicator->IndQueMide = 'Productividad';
         $indicator->IndGraphic = '';
         $indicator->IndTable = '';
+        $indicator->IndFrecuencia = 'mensual';
         $indicator->IndAnalysis = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
-        $indicator->IndDateFrom = '2019/12/29';
-        $indicator->IndDateUntil = '2020/01/29';
+        // $indicator->IndDateFrom = '2019/12/29';
+        // $indicator->IndDateUntil = '2020/01/29';
         $indicator->IndType = 0;
+        $indicator->IndMeta = '95%';
         $indicator->save();
 
 
@@ -31,10 +33,12 @@ class IndicatorsSeeder extends Seeder
         $indicator->IndQueMide = 'Productividad';
         $indicator->IndGraphic = '';
         $indicator->IndTable = '';
+        $indicator->IndFrecuencia = 'mensual';
         $indicator->IndAnalysis = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
-        $indicator->IndDateFrom = '2019/12/29';
-        $indicator->IndDateUntil = '2020/01/29';
+        // $indicator->IndDateFrom = '2019/12/29';
+        // $indicator->IndDateUntil = '2020/01/29';
         $indicator->IndType = 1;
+        $indicator->IndMeta = '95%';
         $indicator->save();
     }
 }

@@ -24,7 +24,7 @@ class ProcessesSeeder extends Seeder
         $process->ProcAmbienTrabajo = 'Condiciones ergonómicas adecuadas en las oficinas y seguras - Condiciones de elementos de protección y seguridad para la planta';
         $process->ProcAlcance = 'Inicia con el análisis situacional de PROSARC S.A. ESP, continúa con la definición de lineamientos estratégicos, su despliegue, ejecución y termina con el seguimiento, evaluación, retroalimentación y acciones de mejora.';
         $process->ProcAutoridad = 'Gerente General';
-        $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
+        // $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
         $process->ProcReviso = 'Asesor HSEQ';
         $process->ProcAprobo = 'Gerente General';
         $process->ProcPolitOperacion = ['Atendiendo los parámetros establecidos en la legislación y normatividad en materia en ambiental y Empresarial, la Gerencia elaborará los lineamientos estratégicos que orienten la formulación, implementación y evaluación de los instrumentos de planeación de la Empresa para garantizar el cumplimiento de la Misión y la Visión de PROSARC S.A. ESP.', 'Se debe garantizar que en la formulación de los instrumentos de planeación de PROSARC S.A. ESP, se tengan en cuenta de manera expresa, los lineamientos Estratégicos emitidos por la Junta Directiva y el Gerente General', 'Para la formulación de los instrumentos de Planeación de PROSARC S.A. ESP, se deberá verificar la vigencia y validez de los “normagramas” de los diferentes procesos y realizar un sondeo normativo que garantice la vigencia de la base legal del instrumento adoptado'];
@@ -47,7 +47,7 @@ class ProcessesSeeder extends Seeder
         $process->ProcAmbienTrabajo = 'Ambiente de Trabajo de ejemplo maximo 500 caracteres';
         $process->ProcAlcance = 'Alcance de Trabajo de ejemplo maximo 500 caracteres';
         $process->ProcAutoridad = 'Gerente General';
-        $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
+        // $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
         $process->ProcPolitOperacion = json_encode(["oficina", "Computador", "Tlf", "Fax", "Vehiculo"]);
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
         $process->ProcReviso = 'Gerente General';
@@ -66,7 +66,7 @@ class ProcessesSeeder extends Seeder
         $process->ProcAmbienTrabajo = 'Ambiente de Trabajo de ejemplo maximo 500 caracteres';
         $process->ProcAlcance = 'Alcance de Trabajo de ejemplo maximo 500 caracteres';
         $process->ProcAutoridad = 'Gerente General';
-        $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
+        // $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
         $process->ProcPolitOperacion = json_encode(["oficina", "Computador", "Tlf", "Fax", "Vehiculo"]);
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
         $process->ProcReviso = 'Gerente General';
@@ -86,7 +86,7 @@ class ProcessesSeeder extends Seeder
         $process->ProcAmbienTrabajo = 'Ambiente de Trabajo de ejemplo maximo 500 caracteres';
         $process->ProcAlcance = 'Alcance de Trabajo de ejemplo maximo 500 caracteres';
         $process->ProcAutoridad = 'Gerente General';
-        $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
+        // $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
         $process->ProcPolitOperacion = json_encode(["oficina", "Computador", "Tlf", "Fax", "Vehiculo"]);
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
         $process->ProcReviso = 'Gerente General';

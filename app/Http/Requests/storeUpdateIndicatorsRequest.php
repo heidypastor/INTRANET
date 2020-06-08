@@ -34,8 +34,8 @@ class storeUpdateIndicatorsRequest extends FormRequest
             'IndTable'       =>  'max:2048|min:1|mimes:pdf,txt,doc,docx,xls,ppt,xlsx,pptx',
             'IndAnalysis'    =>  'max:512|min:1',
             'IndEfe'         =>  'max:512|min:1',
-            'IndDateFrom'    =>  'max:512|min:1',
-            'IndDateUntil'   =>  'max:512|min:1',
+            // 'IndDateFrom'    =>  'max:512|min:1',
+            // 'IndDateUntil'   =>  'max:512|min:1',
         ];
     }
 
