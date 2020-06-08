@@ -130,7 +130,7 @@ class IndicatorsController extends Controller
      */
     public function edit(Indicators $indicator)
     {
-        /*return $indicator;*/
+        // return $indicator;
         return view('indicators.edit', compact('indicator'));
     }
 

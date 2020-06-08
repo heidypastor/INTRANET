@@ -14,7 +14,7 @@ class IndicatorsSeeder extends Seeder
     {
         $indicator = new Indicators();
         $indicator->IndName = 'Indicador Sistemas';
-        $indicator->IndObjective = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+        $indicator->IndObjective = '1';
         $indicator->IndQueMide = 'Productividad';
         $indicator->IndGraphic = '';
         $indicator->IndTable = '';
@@ -27,7 +27,7 @@ class IndicatorsSeeder extends Seeder
 
         $indicator = new Indicators();
         $indicator->IndName = 'Indicador Logistica';
-        $indicator->IndObjective = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+        $indicator->IndObjective = '1';
         $indicator->IndQueMide = 'Productividad';
         $indicator->IndGraphic = '';
         $indicator->IndTable = '';

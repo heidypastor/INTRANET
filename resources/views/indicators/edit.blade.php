@@ -23,9 +23,22 @@ Indicadores
                 <input name="IndName" type="text" value="{{$indicator->IndName}}" class="text-center form-control form-control-alternative{{ $errors->has('IndName') ? ' is-invalid' : '' }}">
                 @include('alerts.feedback', ['field' => 'IndName'])
               </div>
-              <div class="form-group{{ $errors->has('IndObjective') ? ' has-danger' : '' }}">
+              {{-- <div class="form-group{{ $errors->has('IndObjective') ? ' has-danger' : '' }}">
                 <label>Objetivo del Indicador</label>
                 <input name="IndObjective" type="text" value="{{$indicator->IndObjective}}" class="text-center form-control form-control-alternative{{ $errors->has('IndObjective') ? ' is-invalid' : '' }}">
+                @include('alerts.feedback', ['field' => 'IndObjective'])
+              </div> --}}
+              <div class="form-group{{ $errors->has('IndObjective') ? ' has-danger' : '' }}">
+                <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Objetivo del Indicador</b>" data-content="Seleccione el objetivo del indicador de acuerdo a los objetivos presentados en la sección de Nosotros  <ul>
+                  <li>Objetivo 1 - Pólitica de Seguridad y Salud en el Trabajo</li>
+                  <li>Objetivo 2 - Pólitica de Calidad</li>
+                  <li>Objetivo 3 - Pólitica Ambiental</li>
+                </ul>"><i class="far fa-question-circle"></i> Objetivo del Indicador</label>
+                <select class="text-center form-control form-control-alternative{{ $errors->has('IndEfe') ? ' is-invalid' : '' }}" required="" name="IndObjective" id="IndObjective">
+                  <option {{ $indicator->IndObjective == "1" ? "selected" : "" }} value="1">Objetivo 1 -> Implementar actividades de promoción y prevención en salud, dirigidas a nuestros trabajadores y de seguridad para nuestros colaboradores, contratistas y visitantes con el fin de prevenir accidentes y enfermedades laborales. </option>
+                  <option {{ $indicator->IndObjective == "2" ? "selected" : "" }} value="2">Objetivo 2 -> Garantizar que los servicios de recolección, transporte, manejo, tratamiento, incineración y destrucción de toda clase de desechos y residuos sean oportunos, adecuados y seguro, previniendo la contaminación y la disminuyendo los impactos que se puedan generar a los recursos naturales </option>
+                  <option {{ $indicator->IndObjective == "3" ? "selected" : "" }} value="3">Objetivo 3 -> Cumplir con los estándares de calidad en la prestación del servicio a nuestros clientes, optimizando y mejorando continuamente en los procesos y procedimientos establecidos en la Empresa, llegando a los estándares de eficiencia, eficacia, efectividad, cumpliendo siempre con la legislación Ambiental Colombiana y los requerimientos de nuestros Clientes. </option>
+                </select>
                 @include('alerts.feedback', ['field' => 'IndObjective'])
               </div>
               <div class="form-group{{ $errors->has('IndQueMide') ? ' has-danger' : '' }}">
