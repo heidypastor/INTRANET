@@ -36,7 +36,7 @@ Indicadores
 							</div>
 						</div>
 						@else
-							@if(auth()->user()->can('editIndicator') && $indicator->user_id === $userid)
+							@if(auth()->user()->can('updateIndicators') && $indicator->user_id === $userid)
 								<div class="row">
 									<div class="col-md-6 col-sm-12 text-center">
 										<form action="{{ route('indicators.destroy', $indicator) }}" method="POST">
