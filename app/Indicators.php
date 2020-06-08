@@ -19,7 +19,7 @@ class Indicators extends Model
      * @var array
      */
     protected $fillable = [
-        'IndName', 'IndObjective', 'IndQueMide', 'IndGraphic', 'IndTable', 'IndDateFrom', 'IndDateUntil', 
+        'IndName', 'IndObjective', 'IndQueMide', 'IndGraphic', 'IndTable', 'IndDateFrom', 'IndDateUntil', 'IndFrecuencia', 'IndMeta'
     ];
 
     public function areas()
