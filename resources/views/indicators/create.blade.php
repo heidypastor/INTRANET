@@ -30,6 +30,7 @@ Indicadores
               <div class="form-group{{ $errors->has('IndFrecuencia') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Frecuencia del Indicador</b>" data-content="Seleccione la frecuencia del indicador"><i class="far fa-question-circle"></i> Frecuencia del Indicador</label>
                 <select class="text-center form-control form-control-alternative{{ $errors->has('IndFrecuencia') ? ' is-invalid' : '' }}" required="" name="IndFrecuencia" id="IndFrecuencia">
+                  <option value="">Seleccione la frecuencia con la que se mide el indicador</option>
                   <option value="mensual">Mensual</option>
                   <option value="trimestral">Trimestral</option>
                   <option value="semestral">Semestral</option> </select>
@@ -42,6 +43,7 @@ Indicadores
                   <li>Objetivo 3 - Pólitica Ambiental</li>
                 </ul>"><i class="far fa-question-circle"></i> Objetivo del Indicador</label>
                 <select class="text-center form-control form-control-alternative{{ $errors->has('IndEfe') ? ' is-invalid' : '' }}" required="" name="IndObjective" id="IndObjective">
+                  <option value="">Seleccione el objetivo relacionado con el indicador</option>
                   <option value="1">Objetivo 1 -> Implementar actividades de promoción y prevención en salud, dirigidas a nuestros trabajadores y de seguridad para nuestros colaboradores, contratistas y visitantes con el fin de prevenir accidentes y enfermedades laborales. </option>
                   <option value="2">Objetivo 2 -> Garantizar que los servicios de recolección, transporte, manejo, tratamiento, incineración y destrucción de toda clase de desechos y residuos sean oportunos, adecuados y seguro, previniendo la contaminación y la disminuyendo los impactos que se puedan generar a los recursos naturales </option>
                   <option value="3">Objetivo 3 -> Cumplir con los estándares de calidad en la prestación del servicio a nuestros clientes, optimizando y mejorando continuamente en los procesos y procedimientos establecidos en la Empresa, llegando a los estándares de eficiencia, eficacia, efectividad, cumpliendo siempre con la legislación Ambiental Colombiana y los requerimientos de nuestros Clientes. </option>
@@ -50,7 +52,7 @@ Indicadores
               </div>
               <div class="form-group{{ $errors->has('IndMeta') ? ' has-danger' : '' }}">
                 <label>Meta del Indicador</label>
-                <input name="IndMeta" type="text" class="text-center form-control form-control-alternative{{ $errors->has('IndMeta') ? ' is-invalid' : '' }}">
+                <input placeholder="100%" name="IndMeta" type="text" class="text-center form-control form-control-alternative{{ $errors->has('IndMeta') ? ' is-invalid' : '' }}">
                 @include('alerts.feedback', ['field' => 'IndMeta'])
               </div>
               <div class="form-group{{ $errors->has('IndQueMide') ? ' has-danger' : '' }}">
@@ -68,9 +70,9 @@ Indicadores
                 <input name="IndTable" type="file" class="form-control form-control-alternative{{ $errors->has('IndTable') ? ' is-invalid' : '' }}" required>
                 @include('alerts.feedback', ['field' => 'IndTable'])
               </div>
-              <div class="form-group{{ $errors->has('IndAnalysis') ? ' has-danger' : '' }}">
-                <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Analisis</b>" data-content="Ingresar el analisis realizado al indicador con respecto a su objetivo. Máximo 512 caracteres."><i class="far fa-question-circle"></i> Analisis</label>
-                <input name="IndAnalysis" type="text" class="text-center form-control form-control-alternative{{ $errors->has('IndAnalysis') ? ' is-invalid' : '' }}" required>
+              <div class="custom-input-file {{ $errors->has('IndAnalysis') ? ' has-danger' : '' }}">
+                <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Análisis (imagen)</b>" data-content="Ingresar el análisis realizado al indicador con respecto a su objetivo. Este archivo debe ser de tipo: jpg, jpeg, png."><i class="far fa-question-circle"></i> Análisis (imagen)</label>
+                <input name="IndAnalysis" type="file" class="form-control form-control-alternative{{ $errors->has('IndAnalysis') ? ' is-invalid' : '' }}" required>
                 @include('alerts.feedback', ['field' => 'IndAnalysis'])
               </div>
               {{-- <div class="form-group{{ $errors->has('IndDateFrom') ? ' has-danger' : '' }}">

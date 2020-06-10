@@ -74,6 +74,7 @@ class IndicatorsController extends Controller
         /*return $request;*/
         $path = $request->file('IndGraphic')->store('public/Graphic');
         $pathimg = $request->file('IndTable')->store('public/Archivos');
+        $pathAnalisis = $request->file('IndAnalysis')->store('public/Graphic');
         /*$indicator->update(['IndGraphic' => $path]);
         $indicator->update(['IndTable' => $pathimg]);*/
 
@@ -85,7 +86,7 @@ class IndicatorsController extends Controller
         $indicator->IndMeta = $request->input('IndMeta');
         $indicator->IndGraphic = $path;
         $indicator->IndTable = $pathimg;
-        $indicator->IndAnalysis = $request->input('IndAnalysis');
+        $indicator->IndAnalysis = $pathAnalisis;
         // $indicator->IndDateFrom = $request->input('IndDateFrom');
         // $indicator->IndDateUntil = $request->input('IndDateUntil');
         $indicator->IndType = $request->input('IndType');
@@ -154,7 +155,7 @@ class IndicatorsController extends Controller
        auth()->user()->update(['Avatar' => '/images/'.$name]);
 
        }*/
-        $indicator->update($request->except(['IndGraphic', 'IndTable']));
+        $indicator->update($request->except(['IndGraphic', 'IndTable', 'IndAnalysis']));
         if ($request->hasFile('IndGraphic')){
             $path = $request->file('IndGraphic')->store('public/Graphic');
             $indicator->update(['IndGraphic' => $path]);
@@ -164,6 +165,12 @@ class IndicatorsController extends Controller
         if ($request->hasFile('IndTable')){
             $pathimg = $request->file('IndTable')->store('public/Archivos');
             $indicator->update(['IndTable' => $pathimg]);
+        }else{
+        }
+        
+        if ($request->hasFile('IndAnalysis')){
+            $pathAnalisis = $request->file('IndAnalysis')->store('public/Graphic');
+            $indicator->update(['IndAnalysis' => $pathAnalisis]);
         }else{
         }
         /*$path = $request->file('IndGraphic')->store('public/Graphic');*/

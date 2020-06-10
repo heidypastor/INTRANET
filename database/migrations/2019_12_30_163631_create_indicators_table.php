@@ -21,7 +21,7 @@ class CreateIndicatorsTable extends Migration
             $table->string('IndQueMide', 1000); /*Que mide el indicador*/
             $table->string('IndGraphic', 1000)->default('/white/img/grafica.jpg'); /*Imagen de la grafica del indicador*/
             $table->string('IndTable', 1000)->default('/white/img/tabla.jpg'); /*Imagen de la tabla con los datos del indicador*/
-            $table->string('IndAnalysis', 1000); /*Analisis mensual o por periodos*/
+            $table->string('IndAnalysis', 1000)->default('/white/img/grafica.jpg'); /*grafica del Analisis mensual o por periodos*/
             $table->date('IndDateFrom')->nullable(); /*Desde cuando se tomaron los datos*/
             $table->date('IndDateUntil')->nullable(); /*Hasta cuando se tomaron los datos*/
             $table->softDeletes(); 

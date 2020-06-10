@@ -19,43 +19,6 @@ Indicadores Estrategicos
 		@include('alerts.success')
 	</div>
 	<div class="col-md-12 row">
-		{{-- @foreach($Indicators as $indicator)
-			@if($indicator->IndType === 0)
-			<div class="col-md-5 col-sm-12 text-center index-indicators-1">
-				<div class="col-md-12 row">
-					<div class="col-md-12"><br><br></div>
-					<div class="col-md-3 text-center">
-						<strong>Nombre</strong>
-					</div>
-					<div class="col-md-9">
-						<strong>{{$indicator->IndName}}</strong>
-					</div>
-				</div>
-				<div class="col-md-12 row">
-					<div class="col-md-12"><br><br></div>
-					<div class="col-md-3 text-center">
-						<strong>Gráfica</strong>
-					</div>
-					<div class="col-md-9">
-						<div class="col-md-12">
-							@if($indicator->IndGraphic === "")
-							    <img src="/white/img/graficos1.jpg" class="responsive">
-							@else
-							    <img src="{{Storage::url($indicator->IndGraphic)}}" class="responsive">
-							@endif
-						</div>
-					</div>
-				</div>
-				<div class="col-md-12 row">
-					<div class="col-md-12"><br><br></div>
-					<div class="col-md-12" style="bottom: 0;">
-						<a method='GET' href="indicators/{{$indicator->id}}" class="btn btn-secondary tim-icons icon-double-right"> Ver Más.</a>
-					</div>
-					<div class="col-md-12"><br></div>
-				</div>
-			</div>
-			@endif
-		@endforeach --}}
 		@foreach($Indicators as $indicator)
 			@if($indicator->IndType === 0)
 			<div class="card bg-transparent text-white col-md-5 col-sm-12 text-center index-indicators-1">
