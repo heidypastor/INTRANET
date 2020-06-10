@@ -129,7 +129,7 @@ class AlertsController extends Controller
         /*$diferencia = $FechaNotification->diff($fechaEvento);*/
         /*$date = $alert->AlertDateEvent->diffInDays($alert->AlertDateNotifi);*/
 
-        /*return $date;*/
+        // return $alert;
         return view('alertas.edit', compact('alert'));
     }
 

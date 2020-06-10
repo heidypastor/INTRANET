@@ -15,9 +15,11 @@ Requisitos y Documentos Legales
 			<br>
 			<h1>Requisitos y Documentos Legales</h1>
 		</div>
+		@can('createRequisitos')
 		<div class="pull-left">
 			<a href="{{ route('requisitos.create') }}" class="fas fa-plus btn btn-sm btn-fill btn-success"> Crear</a>
 		</div>
+		@endcan
 		@include('alerts.success')
 		<div class="card-body">
 			<div class="row">
@@ -114,9 +116,12 @@ Requisitos y Documentos Legales
 					      	<div class="col-md-12"><br></div>
 					      	<div class="row">
 					      	      <div class="col-md-12">
+					      	      	@can('updateRequisto')
 					      	            <a href="requisitos/{{$requisito->id}}/edit" class="btn btn-fill btn-warning far fa-edit"></a>
+					      	        @endcan
 					      	      {{-- </div>
 					      	      <div class="col-md-6"> --}}
+					      	      	@can('deleteRequisito')
 					      	            <button type="button" class="btn btn-danger fas fa-trash pull-right" data-toggle="modal" data-target="#eliminar{{$requisito->id}}">
 					      	            </button>
 					      	            @component('layouts.partials.modal')
@@ -134,6 +139,7 @@ Requisitos y Documentos Legales
 					      	                        </form>
 					      	                  @endslot
 					      	            @endcomponent
+					      	        @endcan
 					      	      </div>
 					      	</div>
 						</div>

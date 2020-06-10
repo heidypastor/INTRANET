@@ -37,6 +37,7 @@ class ActivityController extends Controller
     {
         $actividad = new Activity();
         $actividad->ActiName = $request->input('ActiName');
+        $actividad->ActiType = $request->input('ActiType');
         $actividad->save();
 
         return redirect()->route('proceso.create')->withStatus(__('Actividad creada correctamente'));
@@ -79,6 +80,7 @@ class ActivityController extends Controller
         // return $request;
         $actividad = Activity::find($request->input('idocultoActi'));
         $actividad->ActiName = $request->input('ActiName');
+        $actividad->ActiType = $request->input('ActiType');
         $actividad->save();
 
         return redirect()->route('proceso.create')->withStatus(__('Actividad actualizada correctamente'));

@@ -60,6 +60,17 @@ class permissionsTableSeeder extends Seeder
         Permission::create(['guard_name' => 'web', 'name' => 'updatePermissions']);
         Permission::create(['guard_name' => 'web', 'name' => 'deletePermissions']);
 
+
+        Permission::create(['guard_name' => 'web', 'name' => 'readRole']);
+        Permission::create(['guard_name' => 'web', 'name' => 'createRole']);
+        Permission::create(['guard_name' => 'web', 'name' => 'updateRole']);
+        Permission::create(['guard_name' => 'web', 'name' => 'deleteRole']);
+
+        Permission::create(['guard_name' => 'web', 'name' => 'readRequisito']);
+        Permission::create(['guard_name' => 'web', 'name' => 'createRequisito']);
+        Permission::create(['guard_name' => 'web', 'name' => 'updateRequisito']);
+        Permission::create(['guard_name' => 'web', 'name' => 'deleteRequisito']);
+
         Permission::create(['guard_name' => 'web', 'name' => 'indexDocuments']);
 
 
@@ -78,7 +89,21 @@ class permissionsTableSeeder extends Seeder
             'readAreas',
             'createUser',
             'updateUser',
-            'deleteUser',]);
+            'deleteUser',
+            'readRole',
+            'createRole',
+            'updateRole',
+            'deleteRole',
+            'createComites',
+            'updateComites',
+            'deleteComites',
+            'readRequisito',
+            'createRequisito',
+            'updateRequisito',
+            'deleteRequisito',
+            'createComites',
+            'updateComites',
+            'deleteComites']);
 
 
         $role = Role::findByName('Director');
@@ -101,7 +126,14 @@ class permissionsTableSeeder extends Seeder
             'readUser',
             'readProcess',
             'updateProcess',
-            'createProcess']);
+            'createProcess',
+            'readRequisito',
+            'createRequisito',
+            'updateRequisito',
+            'deleteRequisito',
+            'createComites',
+            'updateComites',
+            'deleteComites']);
 
 
         $role = Role::findByName('User');

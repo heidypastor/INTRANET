@@ -37,6 +37,7 @@ class ProveedorController extends Controller
     {
         $proveedor = new Proveedor();
         $proveedor->ProvName = $request->input('ProvName');
+        $proveedor->ProvType = $request->input('ProvType');
         $proveedor->save();
         
         return redirect()->route('proceso.create')->withStatus(__('Proveedor creado correctamente'));
@@ -71,6 +72,7 @@ class ProveedorController extends Controller
         // return $request;
         $proveedor = Proveedor::find($request->input('idocultoProv'));
         $proveedor->ProvName = $request->input('ProvName');
+        $proveedor->ProvType = $request->input('ProvType');
         $proveedor->save();
 
         return redirect()->route('proceso.create')->withStatus(__('Proveedor actualizado correctamente'));

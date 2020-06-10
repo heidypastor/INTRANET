@@ -37,6 +37,7 @@ class OutputController extends Controller
     {
         $salida = new Output();
         $salida->OutputName = $request->input('OutputName');
+        $salida->OutputType = $request->input('OutputType');
         $salida->save();
 
         return redirect()->route('proceso.create')->withStatus(__('Salida creada correctamente'));
@@ -78,6 +79,7 @@ class OutputController extends Controller
         // return $request;
         $salida = Output::find($request->input('idocultoSali'));
         $salida->OutputName = $request->input('OutputName');
+        $salida->OutputType = $request->input('OutputType');
         $salida->save();
 
         return redirect()->route('proceso.create')->withStatus(__('Salida actualizada correctamente'));

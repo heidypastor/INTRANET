@@ -44,6 +44,7 @@ class InputController extends Controller
     {
         $entrada = new Input();
         $entrada->InputName = $request->input('InputName');
+        $entrada->InputType = $request->input('InputType');
         $entrada->save();
 
         return redirect()->route('proceso.create')->withStatus(__('Entrada creada correctamente'));
@@ -84,6 +85,7 @@ class InputController extends Controller
         // return $request;
         $entrada = Input::find($request->input('idoculto'));
         $entrada->InputName = $request->input('InputName');
+        $entrada->InputType = $request->input('InputType');
         $entrada->save();
 
         return redirect()->route('proceso.create')->withStatus(__('Entrada actualizada correctamente'));

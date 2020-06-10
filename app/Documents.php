@@ -19,7 +19,7 @@ class Documents extends Model
      * @var array
      */
     protected $fillable = [
-        'DocName', 'DocSrc', 'DocVersion', 'DocType', 'DocMime', 'DocOriginalName', 'DocSize', 'DocGeneral', 'DocPublisher',  
+        'DocName', 'DocSrc', 'DocVersion', 'DocType', 'DocMime', 'DocOriginalName', 'DocSize', 'DocGeneral', 'DocPublisher', 'DocCodigo'
     ];
 
     public function areas()

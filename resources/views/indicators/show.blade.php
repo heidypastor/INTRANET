@@ -22,42 +22,30 @@ Indicadores
 						$userid = Auth::user()->id;
 						@endphp
 
-						@if(auth()->user()->can('editIndicator') && $indicator->user_id === $userid)
-							<div class="row">
-								<div class="col-md-6 col-sm-12 text-center">
-									<button type="button" class="btn btn-danger fas fa-trash" data-toggle="modal" data-target="#eliminar{{$indicator->id}}">
-									  Eliminar
-									</button>
-									@component('layouts.partials.modal')
-										@slot('id')
-											{{$indicator->id}}
-										@endslot
-										@slot('textModal')
-											{{$indicator->IndName}}
-										@endslot
-										@slot('botonModal')
-											<form action="{{ route('indicators.destroy', $indicator) }}" method="POST">
-											    @method('DELETE')
-											    @csrf 
-											    <button type="submit" class="btn btn-danger fas fa-trash"> Eliminar</button>
-											</form>
-										@endslot
-									@endcomponent
-								</div>
-								<div class="col-md-6 col-sm-12 text-center">
-									<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a><br><br><br>
-								</div>
+						@hasrole('Super Admin')
+						<div class="row">
+							<div class="col-md-6 col-sm-12 text-center">
+								<form action="{{ route('indicators.destroy', $indicator) }}" method="POST">
+									@method('DELETE')
+									@csrf 
+									<button type="submit" class="fas fa-backspace btn btn-danger"> Eliminar</button>
+								</form>
 							</div>
+							<div class="col-md-6 col-sm-12 text-center">
+								<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a><br><br><br>
+							</div>
+						</div>
 						@else
-							@hasrole('Super Admin')
+							@if(auth()->user()->can('updateIndicators') && $indicator->user_id === $userid)
 								<div class="row">
 									<div class="col-md-6 col-sm-12 text-center">
 										<form action="{{ route('indicators.destroy', $indicator) }}" method="POST">
-										    @method('DELETE')
-										    @csrf 
-										    <button type="submit" class="fas fa-backspace btn btn-danger"> Eliminar</button>
+											@method('DELETE')
+											@csrf 
+											<button type="submit" class="btn btn-default sw-btn-prev disabled"> Eliminar</button>
 										</form>
 									</div>
+									
 									<div class="col-md-6 col-sm-12 text-center">
 										<a href="{{$indicator->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a><br><br><br>
 									</div>
@@ -65,18 +53,19 @@ Indicadores
 							@else
 								<div class="row">
 									<div class="col-md-6 col-sm-12 text-center">
-									  	<form action="{{ route('indicators.destroy', $indicator) }}" method="POST">
-									    	@method('DELETE')
-									    	@csrf 
-									    	<button type="submit" class="btn btn-default sw-btn-prev disabled"> Eliminar</button>
+										<form action="{{ route('indicators.destroy', $indicator) }}" method="POST">
+										@method('DELETE')
+										@csrf 
+										<button type="submit" class="btn btn-default sw-btn-prev disabled"> Eliminar</button>
 										</form>
 									</div>
 									<div class="col-md-6 col-sm-12 text-center">
 										<button class="btn btn-default sw-btn-prev disabled" type="button">Editar</button><br><br><br>
 									</div>
 								</div>
-							@endhasrole
-						@endif
+							@endif
+						@endhasrole
+						
 					</div>
 				</div>
 			</div>
@@ -108,7 +97,38 @@ Indicadores
 						<h4 class="text-center negrilla">Objetivo</h4>
 					</div>
 					<div class="col-md-8 recuadro-2 mx-auto text-justify">
-						<p>{{$indicator->IndObjective}}</p>
+						@switch($indicator->IndObjective)
+							@case(1)
+							<p>Implementar actividades de promoción y prevención en salud, dirigidas a nuestros trabajadores y de seguridad para nuestros colaboradores, contratistas y visitantes con el fin de prevenir accidentes y enfermedades laborales. </p>
+								@break
+							@case(2)
+							<p>Garantizar que los servicios de recolección, transporte, manejo, tratamiento, incineración y destrucción de toda clase de desechos y residuos sean oportunos, adecuados y seguro, previniendo la contaminación y la disminuyendo los impactos que se puedan generar a los recursos naturales </p>
+								@break
+							@case(3)
+							<p>Cumplir con los estándares de calidad en la prestación del servicio a nuestros clientes, optimizando y mejorando continuamente en los procesos y procedimientos establecidos en la Empresa, llegando a los estándares de eficiencia, eficacia, efectividad, cumpliendo siempre con la legislación Ambiental Colombiana y los requerimientos de nuestros Clientes. </p>
+								@break
+							@default
+						@endswitch
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="row mx-auto">
+					<div class="col-md-3 recuadro mx-auto">
+						<h4 class="text-center negrilla">Frecuencia del Indicador</h4>
+					</div>
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
+						<p>{{$indicator->IndFrecuencia}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="row mx-auto">
+					<div class="col-md-3 recuadro mx-auto">
+						<h4 class="text-center negrilla">Meta del Indicador</h4>
+					</div>
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
+						<p>{{$indicator->IndMeta}}</p>
 					</div>
 				</div>
 			</div>
@@ -122,7 +142,7 @@ Indicadores
 					</div>
 				</div>
 			</div>
-			<div class="col-md-12">
+			{{-- <div class="col-md-12">
 				<div class="row mx-auto">
 					<div class="col-md-3 recuadro mx-auto">
 						<h4 class="text-center negrilla">Fecha de Evaluación</h4>
@@ -131,7 +151,7 @@ Indicadores
 						<p><strong>Desde</strong> {{$indicator->IndDateFrom}}</p>  <p><strong>Hasta</strong> {{$indicator->IndDateUntil}} </p>
 					</div>
 				</div>
-			</div>
+			</div> --}}
 			<div class="col-md-12">
 				<div class="row mx-auto">
 					<div class="col-md-3 recuadro mx-auto">

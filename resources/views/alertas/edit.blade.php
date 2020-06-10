@@ -59,10 +59,10 @@ Alertas
 				<div class="form-group">
 				    <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tipo de alerta</b>" data-content="Ingresar el tipo de alerta, puede ser de tipo: <br><ul><li> Global <li>Sede <li>Área <li>Personal <ul>"><i class="far fa-question-circle"></i> Tipo de alerta</label>
 					<select class="text-center form-control" required="" name="AlertType" id="AlertType">
-						<option value="Global">Global</option>
-						<option value="Sede">Sede</option>
-						<option value="Area">Área</option>
-						<option value="Personal">Personal</option>
+						<option {{ $alert->AlertType === "Global" ? "selected" : "" }} value="Global">Global</option>
+						<option {{ $alert->AlertType === "Sede" ? "selected" : "" }} value="Sede">Sede</option>
+						<option {{ $alert->AlertType === "Area" ? "selected" : "" }} value="Area">Área</option>
+						<option {{ $alert->AlertType === "Personal" ? "selected" : "" }} value="Personal">Personal</option>
 					</select>
 				</div>
 				<div class="form-group">

@@ -32,7 +32,12 @@ class ComitesController extends Controller
      */
     public function create()
     {
-        return view('comites.create');
+        if (auth()->user()->can('createComites')) {
+            return view('comites.create');
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para crear comites');
+        }
+        
     }
 
     /**
@@ -87,7 +92,12 @@ class ComitesController extends Controller
      */
     public function edit(Comites $comite)
     {
-        return view('comites.edit', compact('comite'));
+        if (auth()->user()->can('updateComites')) {
+            return view('comites.edit', compact('comite'));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para editar comites');
+        }
+        
     }
 
     /**
@@ -130,13 +140,18 @@ class ComitesController extends Controller
      */
     public function destroy(Comites $comite)
     {
-        $srcActual = $comite->ComiSrc;
-        Storage::disk('local')->delete($srcActual);
-        $imageActual = $comite->ComiImage;
-        Storage::disk('local')->delete($imageActual);
-        $comite->delete();
+        if (auth()->user()->can('deleteComites')) {
+            $srcActual = $comite->ComiSrc;
+            Storage::disk('local')->delete($srcActual);
+            $imageActual = $comite->ComiImage;
+            Storage::disk('local')->delete($imageActual);
+            $comite->delete();
 
-        return redirect()->route('comites.index')->withStatus(__('Comite eliminado correctamente'));
+            return redirect()->route('comites.index')->withStatus(__('Comite eliminado correctamente'));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para eliminar comites');
+        }
+        
 
     }
 }

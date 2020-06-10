@@ -9,6 +9,7 @@ use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Auth;
 
 
 class UserController extends Controller
@@ -33,12 +34,17 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::where('name', '!=', 'Super Admin')->get();
-        $permisos = Permission::all();
-        $cargos = Cargo::all();
-        $areas = Areas::all();
+        if (auth()->user()->can('createUser')) {
+            $roles = Role::where('name', '!=', 'Super Admin')->get();
+            $permisos = Permission::all();
+            $cargos = Cargo::all();
+            $areas = Areas::all();
 
-        return view('users.create', compact(['roles', 'permisos', 'cargos', 'areas']));
+            return view('users.create', compact(['roles', 'permisos', 'cargos', 'areas']));
+        }else{
+            abort(403, 'El usuario no se encuentra autorizado para crear Usuarios');
+        }
+        
     }
 
     /**
@@ -76,14 +82,13 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $roles = Role::where('name', '!=', 'Super Admin')->get();
-        $permisos = Permission::all();
-        $cargos = Cargo::all();
-        $areas = Areas::all();
+       $roles = Role::where('name', '!=', 'Super Admin')->get();
+       $permisos = Permission::all();
+       $cargos = Cargo::all();
+       $areas = Areas::all();
 
-        
-        return view('users.edit', compact(['user', 'roles', 'permisos', 'cargos', 'areas']));
-        
+       
+       return view('users.edit', compact(['user', 'roles', 'permisos', 'cargos', 'areas']));
     }
 
     /**
