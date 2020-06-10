@@ -84,7 +84,10 @@ Indicadores
                 @include('alerts.feedback', ['field' => 'IndDateUntil'])
               </div> --}}
               <div class="form-group{{ $errors->has('IndType') ? ' has-danger' : '' }}">
-                <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tipo de Indicador</b>" data-content="Ingresar el tipo de indicador si es de tipo estrategico o general."><i class="far fa-question-circle"></i> Tipo de Indicador</label>
+                <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tipo de Indicador</b>" data-content="Ingresar el tipo de indicador si es de tipo estrategico o general. <br><br><ul>
+                <li>Estrategico: Corresponde a los indicadores que se mostraran directamente a la gerencia general</li>
+                <li>Generales: Son los indicadores de uso interno en cada area y no se necesitan para la gestion estrategica de la empresa</li>
+              </ul>"><i class="far fa-question-circle"></i> Tipo de Indicador</label>
                 <select class="text-center form-control form-control-alternative{{ $errors->has('IndType') ? ' is-invalid' : '' }}" required="" name="IndType" id="IndType">
                   <option value="0">Estrategico</option>
                   <option value="1">General</option>

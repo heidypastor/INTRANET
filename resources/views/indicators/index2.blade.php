@@ -5,7 +5,7 @@
 @endsection
 
 @section('htmlheader_title')
-Indicadores
+Indicadores Generales
 @endsection
 
 @push('css')
@@ -17,7 +17,7 @@ Indicadores
 
 	<div class="card">
 		<div class="card-header text-center">
-		  <h3 class="card-title"><strong>INDICADORES</strong></h3>
+		  <h3 class="card-title"><strong>Indicadores Generales</strong></h3>
 		</div>
 		<div class="col-md-12">
 			<a href="{{ route('indicators.create') }}" class="float-right fas fa-plus btn btn-sm btn-fill btn-success b-create"> Crear</a>
