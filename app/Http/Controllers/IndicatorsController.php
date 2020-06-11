@@ -26,7 +26,7 @@ class IndicatorsController extends Controller
         /*$users = User::with('areas')->get();*/
         /*return $indicators;*/
 
-        $Indicators = Indicators::with('user')->get();
+        $Indicators = Indicators::with('user')->orderBy('updated_at', 'desc')->get();
         /*return $Indicators;*/
 
         // $indicadorconarea = $Indicators->map(function ($item){

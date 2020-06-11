@@ -67,7 +67,7 @@ Indicadores
                 @if($indicator->IndGraphic === "")
                   <a href="#"><img id="IndGraphicOutput" src="#" alt="imagen no valida" width="200px" class="d-none"/></a>
                 @else
-                  <a href="{{Storage::url($indicator->IndGraphic)}}"> <img id="IndGraphicOutput" src="{{Storage::url($indicator->IndGraphic)}}" alt="imagen no valida" width="200px" class="d-block"/></a>
+                  <a href="{{Storage::url($indicator->IndGraphic)}}" target="_blank"> <img id="IndGraphicOutput" src="{{Storage::url($indicator->IndGraphic)}}" alt="imagen no valida" width="200px" class="d-block"/></a>
                 @endif
               </div>
               <div class="custom-input-file {{ $errors->has('IndTable') ? ' has-danger' : '' }}">
@@ -82,7 +82,7 @@ Indicadores
                  @if($indicator->IndAnalysis === "")
                   <a href="#"><img id="IndAnalysisOutput" src="#" alt="imagen no valida" width="200px" class="d-none"/></a>
                 @else
-                  <a href="{{Storage::url($indicator->IndAnalysis)}}"> <img id="IndAnalysisOutput" src="{{Storage::url($indicator->IndAnalysis)}}" alt="imagen no valida" width="200px" class="d-block"/></a>
+                  <a href="{{Storage::url($indicator->IndAnalysis)}}" target="_blank"> <img id="IndAnalysisOutput" src="{{Storage::url($indicator->IndAnalysis)}}" alt="imagen no valida" width="200px" class="d-block"/></a>
                 @endif
               </div>
               {{-- <div class="form-group{{ $errors->has('IndDateFrom') ? ' has-danger' : '' }}">

@@ -10,19 +10,23 @@ Indicadores Estrategicos
 
 @section('content')
 	<div class="row">
-		<div class="col-md-12 text-center">
-			<h3><strong>Indicadores Estrategicos</strong></h3>
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8 text-center">
+			<h3 class="mb-0">Indicadores Estrategicos</h3>
+		</div>
+		<div class="col-md-2 mb-2">
+			<a href="{{ route('indicators.create') }}" class="fas fa-plus btn btn-success"> Crear</a>
 		</div>
 		<div class="col-md-12">
-			<a href="{{ route('indicators.create') }}" class="float-right fas fa-plus btn btn-sm btn-fill btn-success b-create"> Crear</a>
+			@include('alerts.success')
 		</div>
-		@include('alerts.success')
 	</div>
 	<div class="row">
 		@foreach($Indicators as $indicator)
 			@if($indicator->IndType === 0)
 			<div class="col-md-6 col-sm-12">
-				<div class="card bg-transparent text-white text-center index-indicators-1">
+				<div class="card bg-transparent text-white text-center">
 					@if($indicator->IndGraphic === "")
 						<img src="/white/img/graficos1.jpg" class="card-img" alt="Imagen no disponible">
 					@else
