@@ -32,7 +32,14 @@ class Process extends Model
         'ProcAmbienTrabajo',
         'ProcPolitOperacion',
         'ProcRiesgos'
-	];
+    ];
+    
+    /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['recursos', 'gseguridads', 'gambientals', 'requisitos', 'procesosDeSoporte', 'indicadores', 'clientes', 'proveedores', 'entradas', 'salidas', 'documentos', 'actividades', 'documentos', 'areas', ];
 
 	/**
 	 * The attributes that should be cast to native types.

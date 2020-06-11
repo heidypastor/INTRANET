@@ -477,7 +477,7 @@ Proceso de {{$proceso->ProcName}}
 			</div>
 			<div class="col-md-4 margen">
 				<h4 class="text-center">ASPECTOS AMBIENTALES</h4>
-				@foreach($proceso->gambientals as $gambiental)
+				@foreach($proceso->ambientales as $gambiental)
 					@if($gambiental->GesType == 0)
 						<li>{{$gambiental->GesName}}</li>
 					@endif
@@ -485,7 +485,7 @@ Proceso de {{$proceso->ProcName}}
 			</div>
 			<div class="col-md-4 margen">
 				<h4 class="text-center">IMPACTOS AMBIENTALES</h4>
-				@foreach($proceso->gambientals as $gambiental)
+				@foreach($proceso->ambientales as $gambiental)
 					@if($gambiental->GesType == 1)
 						<li>{{$gambiental->GesName}}</li>
 					@endif
@@ -493,7 +493,7 @@ Proceso de {{$proceso->ProcName}}
 			</div>
 			<div class="col-md-4 margen">
 				<h4 class="text-center">CONTROLES OPERACIONALES</h4>
-				@foreach($proceso->gambientals as $gambiental)
+				@foreach($proceso->ambientales as $gambiental)
 					@if($gambiental->GesType == 2)
 						<li>{{$gambiental->GesName}}</li>
 					@endif
@@ -512,6 +512,7 @@ Proceso de {{$proceso->ProcName}}
 				@foreach($proceso->gseguridads as $gseguridad)
 					@if($gseguridad->SeguType == 0)
 						<li>{{$gseguridad->SeguName}}</li>
+					@else
 					@endif
 				@endforeach
 			</div>
@@ -520,6 +521,7 @@ Proceso de {{$proceso->ProcName}}
 				@foreach($proceso->gseguridads as $gseguridad)
 					@if($gseguridad->SeguType == 1)
 						<li>{{$gseguridad->SeguName}}</li>
+					@else
 					@endif
 				@endforeach
 			</div>
@@ -528,6 +530,7 @@ Proceso de {{$proceso->ProcName}}
 				@foreach($proceso->gseguridads as $gseguridad)
 					@if($gseguridad->SeguType == 2)
 						<li>{{$gseguridad->SeguName}}</li>
+					@else
 					@endif
 				@endforeach
 			</div>

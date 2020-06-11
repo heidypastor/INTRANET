@@ -156,25 +156,9 @@ class ProcessController extends Controller
      */
     public function show(Process $proceso)
     {
-        $proceso['entradas'] = $proceso->entradas()->get();
-        $proceso['salidas'] = $proceso->salidas()->get();
-        $proceso['actividades'] = $proceso->actividades()->get();
-        $proceso['documentos'] = $proceso->documentos()->get();
-        $proceso['areas'] = $proceso->areas()->get();
-        $proceso['indicadores'] = $proceso->indicadores()->get();
-        $proceso['procesosDeSoporte'] = $proceso->procesosDeSoporte()->get();
-        $proceso['requisitos'] = $proceso->requisitos()->get();
-        // $proceso['seguimientos'] = $proceso->seguimientos()->get();
-        $proceso['clientes'] = $proceso->clientes()->get();
-        $proceso['proveedores'] = $proceso->proveedores()->get();
-        $proceso['recursos'] = $proceso->recursos()->get();
-        $proceso['gambientals'] = $proceso->gambientals()->get();
-        $proceso['gseguridads'] = $proceso->gseguridads()->get();
-
-        /*return $proceso->proveedores;*/
-
         $roles = Role::all(['id', 'name']);
 
+        // return $proceso->ProcRiesgos;
 
         $usuario = Auth::user()->id;
         return view('process.show', compact('proceso', 'usuario', 'roles'));

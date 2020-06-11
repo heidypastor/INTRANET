@@ -48,7 +48,7 @@ class ProcessesSeeder extends Seeder
         $process->ProcAlcance = 'Alcance de Trabajo de ejemplo maximo 500 caracteres';
         $process->ProcAutoridad = 'Gerente General';
         // $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
-        $process->ProcPolitOperacion = json_encode(["oficina", "Computador", "Tlf", "Fax", "Vehiculo"]);
+        $process->ProcPolitOperacion = ["oficina", "Computador", "Tlf", "Fax", "Vehiculo"];
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
         $process->ProcReviso = 'Gerente General';
         $process->ProcAprobo = 'Presidencia';
@@ -67,7 +67,7 @@ class ProcessesSeeder extends Seeder
         $process->ProcAlcance = 'Alcance de Trabajo de ejemplo maximo 500 caracteres';
         $process->ProcAutoridad = 'Gerente General';
         // $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
-        $process->ProcPolitOperacion = json_encode(["oficina", "Computador", "Tlf", "Fax", "Vehiculo"]);
+        $process->ProcPolitOperacion = ["oficina", "Computador", "Tlf", "Fax", "Vehiculo"];
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
         $process->ProcReviso = 'Gerente General';
         $process->ProcAprobo = 'Presidencia';
@@ -87,7 +87,7 @@ class ProcessesSeeder extends Seeder
         $process->ProcAlcance = 'Alcance de Trabajo de ejemplo maximo 500 caracteres';
         $process->ProcAutoridad = 'Gerente General';
         // $process->ProcRecursos = 'oficina, Computador, Tlf, Fax, Vehiculo';
-        $process->ProcPolitOperacion = json_encode(["oficina", "Computador", "Tlf", "Fax", "Vehiculo"]);
+        $process->ProcPolitOperacion = ["oficina", "Computador", "Tlf", "Fax", "Vehiculo"];
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
         $process->ProcReviso = 'Gerente General';
         $process->ProcAprobo = 'Presidencia';
