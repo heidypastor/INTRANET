@@ -11,11 +11,104 @@ Indicadores
 @section('content')
 	<div class="card">
 		<div class="container">
-			<div class="col-md-12">
+			<div class="row mt-4">
 				<div class="col-md-12">
-					<br><br>
-					<h3 class="card-title text-center"><strong>INDICADORES</strong></h3>
+					<h3 class="text-center negrilla">{{$indicator->IndName}}</h3>
 				</div>
+			</div>
+			<div class="row my-3 justify-content-center">
+					@if($indicator->IndGraphic === "")
+						<a href="/white/img/graficos1.jpg"> <img src="/white/img/graficos1.jpg" class="responsive"></a>
+					@else
+						<a href="{{Storage::url($indicator->IndGraphic)}}"> <img src="{{Storage::url($indicator->IndGraphic)}}" class="responsive"></a>
+					@endif
+			</div>
+			<div class="row my-3 justify-content-center">
+					@if($indicator->IndAnalysis === "")
+						<a href="/white/img/graficos1.jpg"> <img src="/white/img/graficos1.jpg" class="responsive"></a>
+					@else
+						<a href="{{Storage::url($indicator->IndAnalysis)}}"> <img src="{{Storage::url($indicator->IndAnalysis)}}" class="responsive"></a>
+					@endif
+			</div>
+				<div class="row mx-auto">
+					<div class="col-md-3 recuadro mx-auto">
+						<h4 class="text-center negrilla">Área</h4>
+					</div>
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
+						<li class="list-group-item"  style="background: #d2ffce;">
+		      	  			{{$area->AreaName}}
+		      	  		</li>
+					</div>
+				</div>
+				<div class="row mx-auto">
+					<div class="col-md-3 recuadro mx-auto">
+						<h4 class="text-center negrilla">Objetivo</h4>
+					</div>
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
+						@switch($indicator->IndObjective)
+							@case(1)
+							<p>Implementar actividades de promoción y prevención en salud, dirigidas a nuestros trabajadores y de seguridad para nuestros colaboradores, contratistas y visitantes con el fin de prevenir accidentes y enfermedades laborales. </p>
+								@break
+							@case(2)
+							<p>Garantizar que los servicios de recolección, transporte, manejo, tratamiento, incineración y destrucción de toda clase de desechos y residuos sean oportunos, adecuados y seguro, previniendo la contaminación y la disminuyendo los impactos que se puedan generar a los recursos naturales </p>
+								@break
+							@case(3)
+							<p>Cumplir con los estándares de calidad en la prestación del servicio a nuestros clientes, optimizando y mejorando continuamente en los procesos y procedimientos establecidos en la Empresa, llegando a los estándares de eficiencia, eficacia, efectividad, cumpliendo siempre con la legislación Ambiental Colombiana y los requerimientos de nuestros Clientes. </p>
+								@break
+							@default
+						@endswitch
+					</div>
+				</div>
+				<div class="row mx-auto">
+					<div class="col-md-3 recuadro mx-auto">
+						<h4 class="text-center negrilla">Frecuencia</h4>
+					</div>
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
+						<p>{{$indicator->IndFrecuencia}}</p>
+					</div>
+				</div>
+				<div class="row mx-auto">
+					<div class="col-md-3 recuadro mx-auto">
+						<h4 class="text-center negrilla">Meta</h4>
+					</div>
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
+						<p>{{$indicator->IndMeta}}</p>
+					</div>
+				</div>
+				<div class="row mx-auto">
+					<div class="col-md-3 recuadro mx-auto">
+						<h4 class="text-center negrilla">¿Que Mide?</h4>
+					</div>
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
+						<p>{{$indicator->IndQueMide}}</p>
+					</div>
+				</div>
+			{{-- <div class="col-md-12">
+				<div class="row mx-auto">
+					<div class="col-md-3 recuadro mx-auto">
+						<h4 class="text-center negrilla">Fecha de Evaluación</h4>
+					</div>
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
+						<p><strong>Desde</strong> {{$indicator->IndDateFrom}}</p>  <p><strong>Hasta</strong> {{$indicator->IndDateUntil}} </p>
+					</div>
+				</div>
+			</div> --}}
+				<div class="row mx-auto">
+					<div class="col-md-3 recuadro mx-auto">
+						<h4 class="text-center negrilla" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tabla</b>" data-content="Archivo que contiene la información correspondiente a la grafica."><i class="far fa-question-circle"></i> Tabla</h4>
+					</div>
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
+						@if($indicator->IndTable === "")
+						    <p><a href="/white/img/test.pdf"><strong>Archivo</strong></a></p>
+						@else
+							<p><a href="{{Storage::url($indicator->IndTable)}}"><strong>Archivo</strong></a></p>
+						@endif
+					</div>
+				</div>
+			<br>
+		</div>
+		<div class="container">
+			<div class="col-md-12">
 				<div class="row">
 					<div class="col-md-12 text-center">
 						@php
@@ -69,128 +162,6 @@ Indicadores
 					</div>
 				</div>
 			</div>
-		</div>
-
-		<div class="container">
-			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-12">
-						<h3 class="text-center negrilla">{{$indicator->IndName}}</h3>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-12">
-				<div class="row mx-auto">
-					<div class="col-md-3 recuadro mx-auto">
-						<h4 class="text-center negrilla">Área a la cual pertenece</h4>
-					</div>
-					<div class="col-md-8 recuadro-2 mx-auto text-justify">
-						<li class="list-group-item"  style="background: #d2ffce;">
-		      	  			{{$area->AreaName}}
-		      	  		</li>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-12">
-				<div class="row mx-auto">
-					<div class="col-md-3 recuadro mx-auto">
-						<h4 class="text-center negrilla">Objetivo</h4>
-					</div>
-					<div class="col-md-8 recuadro-2 mx-auto text-justify">
-						@switch($indicator->IndObjective)
-							@case(1)
-							<p>Implementar actividades de promoción y prevención en salud, dirigidas a nuestros trabajadores y de seguridad para nuestros colaboradores, contratistas y visitantes con el fin de prevenir accidentes y enfermedades laborales. </p>
-								@break
-							@case(2)
-							<p>Garantizar que los servicios de recolección, transporte, manejo, tratamiento, incineración y destrucción de toda clase de desechos y residuos sean oportunos, adecuados y seguro, previniendo la contaminación y la disminuyendo los impactos que se puedan generar a los recursos naturales </p>
-								@break
-							@case(3)
-							<p>Cumplir con los estándares de calidad en la prestación del servicio a nuestros clientes, optimizando y mejorando continuamente en los procesos y procedimientos establecidos en la Empresa, llegando a los estándares de eficiencia, eficacia, efectividad, cumpliendo siempre con la legislación Ambiental Colombiana y los requerimientos de nuestros Clientes. </p>
-								@break
-							@default
-						@endswitch
-					</div>
-				</div>
-			</div>
-			<div class="col-md-12">
-				<div class="row mx-auto">
-					<div class="col-md-3 recuadro mx-auto">
-						<h4 class="text-center negrilla">Frecuencia del Indicador</h4>
-					</div>
-					<div class="col-md-8 recuadro-2 mx-auto text-justify">
-						<p>{{$indicator->IndFrecuencia}}</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-12">
-				<div class="row mx-auto">
-					<div class="col-md-3 recuadro mx-auto">
-						<h4 class="text-center negrilla">Meta del Indicador</h4>
-					</div>
-					<div class="col-md-8 recuadro-2 mx-auto text-justify">
-						<p>{{$indicator->IndMeta}}</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-12">
-				<div class="row mx-auto">
-					<div class="col-md-3 recuadro mx-auto">
-						<h4 class="text-center negrilla">¿Que Mide?</h4>
-					</div>
-					<div class="col-md-8 recuadro-2 mx-auto text-justify">
-						<p>{{$indicator->IndQueMide}}</p>
-					</div>
-				</div>
-			</div>
-			{{-- <div class="col-md-12">
-				<div class="row mx-auto">
-					<div class="col-md-3 recuadro mx-auto">
-						<h4 class="text-center negrilla">Fecha de Evaluación</h4>
-					</div>
-					<div class="col-md-8 recuadro-2 mx-auto text-justify">
-						<p><strong>Desde</strong> {{$indicator->IndDateFrom}}</p>  <p><strong>Hasta</strong> {{$indicator->IndDateUntil}} </p>
-					</div>
-				</div>
-			</div> --}}
-			<div class="col-md-12">
-				<div class="row mx-auto">
-					<div class="col-md-3 recuadro mx-auto">
-						<h4 class="text-center negrilla">Gráfica</h4>
-					</div>
-					<div class="col-md-8 recuadro-2 mx-auto text-justify">
-						@if($indicator->IndGraphic === "")
-						   <a href="/white/img/graficos1.jpg"> <img src="/white/img/graficos1.jpg" class="responsive"></a>
-						@else
-						   <a href="{{Storage::url($indicator->IndGraphic)}}"> <img src="{{Storage::url($indicator->IndGraphic)}}" class="responsive"></a>
-						@endif
-					</div>
-				</div>
-			</div>
-			<div class="col-md-12">
-				<div class="row mx-auto">
-					<div class="col-md-3 recuadro mx-auto">
-						<h4 class="text-center negrilla" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tabla</b>" data-content="Archivo que contiene la información correspondiente a la grafica."><i class="far fa-question-circle"></i> Tabla</h4>
-					</div>
-					<div class="col-md-8 recuadro-2 mx-auto text-justify">
-						@if($indicator->IndTable === "")
-						    <p><a href="/white/img/test.pdf"><strong>Archivo</strong></a></p>
-						@else
-							<p><a href="{{Storage::url($indicator->IndTable)}}"><strong>Archivo</strong></a></p>
-						@endif
-					</div>
-				</div>
-			</div>
-			<div class="col-md-12">
-				<div class="row mx-auto">
-					<div class="col-md-3 recuadro mx-auto">
-						<h4 class="text-center negrilla">Analisis</h4>
-					</div>
-					<div class="col-md-8 recuadro-2 mx-auto text-justify">
-						<p>{{$indicator->IndAnalysis}}</p>
-					</div>
-				</div>
-			</div>
-			<br>
 		</div>
 	</div>
 @endsection

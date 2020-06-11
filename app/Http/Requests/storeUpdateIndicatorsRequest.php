@@ -32,7 +32,7 @@ class storeUpdateIndicatorsRequest extends FormRequest
             'IndQueMide'     =>  'max:512|min:1',
             'IndGraphic'     =>  'max:2048|min:1|mimes:jpeg,jpg,png',
             'IndTable'       =>  'max:2048|min:1|mimes:pdf,txt,doc,docx,xls,ppt,xlsx,pptx',
-            'IndAnalysis'    =>  'max:512|min:1',
+            'IndAnalysis'    =>  'max:2048|min:1|mimes:jpeg,jpg,png',
             'IndEfe'         =>  'max:512|min:1',
             // 'IndDateFrom'    =>  'max:512|min:1',
             // 'IndDateUntil'   =>  'max:512|min:1',
@@ -50,8 +50,7 @@ class storeUpdateIndicatorsRequest extends FormRequest
             'IndQueMide.min'   => 'El campo Que Mide no debe contener menos de 1 caracter',
             'IndGraphic.mimes' => 'El Archivo debe ser de tipo: jpeg,jpg,png',
             'IndTable.mimes'   => 'El Archivo debe ser de tipo: pdf,txt,doc,docx,xls,ppt,xlsx,pptx',
-            'IndAnalysis.max'  => 'El campo Analisis no debe contener más de 512 caracteres',
-            'IndAnalysis.min'  => 'El campo Analisis no debe contener menos de 1 caracter',
+            'IndAnalysis.mimes' => 'El Archivo debe ser de tipo: jpeg,jpg,png',
             'IndEfe.max'       => 'El campo Analisis no debe contener más de 512 caracteres', 
             'IndEfe.min'       => 'El campo Analisis no debe contener menos de 1 caracter', 
         ];
