@@ -14,7 +14,7 @@ class AddColumnaComiintegrantesToComitesTable extends Migration
     public function up()
     {
         Schema::table('comites', function (Blueprint $table) {
-            $table->string('ComiIntegrantes');
+            $table->string('ComiIntegrantes')->nullable();
         });
     }
 

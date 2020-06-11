@@ -121,7 +121,7 @@ Comités
 					</div>
 				</div>
 			</div>
-			<div class="col-md-12">
+			{{-- <div class="col-md-12">
 				<div class="row mx-auto">
 					<div class="col-md-3 mx-auto recuadro">
 						<h4 class="text-center negrilla">Integrantes</h4>
@@ -130,7 +130,7 @@ Comités
 						<p>{{$comite->ComiIntegrantes}}</p>
 					</div>
 				</div>
-			</div>
+			</div> --}}
 			<div class="col-md-12">
 				<div class="row mx-auto">
 					<div class="col-md-3 mx-auto recuadro">
