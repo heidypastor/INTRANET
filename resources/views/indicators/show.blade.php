@@ -77,7 +77,7 @@ Indicadores
 				</div>
 				<div class="row mx-auto">
 					<div class="col-md-3 recuadro mx-auto">
-						<h4 class="text-center negrilla">¿Que Mide?</h4>
+						<h4 class="text-center negrilla">N° de ficha</h4>
 					</div>
 					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						<p>{{$indicator->IndQueMide}}</p>
@@ -95,7 +95,7 @@ Indicadores
 			</div> --}}
 				<div class="row mx-auto">
 					<div class="col-md-3 recuadro mx-auto">
-						<h4 class="text-center negrilla" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tabla</b>" data-content="Archivo que contiene la información correspondiente a la grafica."><i class="far fa-question-circle"></i> Tabla</h4>
+						<h4 class="text-center negrilla" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tabla</b>" data-content="Archivo que contiene la información correspondiente a la grafica."><i class="far fa-question-circle"></i> Archivo</h4>
 					</div>
 					<div class="col-md-8 recuadro-2 mx-auto text-justify">
 						@if($indicator->IndTable === "")

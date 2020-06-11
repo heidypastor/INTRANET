@@ -56,7 +56,7 @@ Indicadores
                 @include('alerts.feedback', ['field' => 'IndMeta'])
               </div>
               <div class="form-group{{ $errors->has('IndQueMide') ? ' has-danger' : '' }}">
-                <label>¿Qué mide?</label>
+                <label>N° de ficha</label>
                 <input name="IndQueMide" type="text" class="text-center form-control form-control-alternative{{ $errors->has('IndQueMide') ? ' is-invalid' : '' }}" required>
                 @include('alerts.feedback', ['field' => 'IndQueMide'])
               </div>		
@@ -66,16 +66,16 @@ Indicadores
                 @include('alerts.feedback', ['field' => 'IndGraphic'])
                 <img id="IndGraphiOutput" src="#" alt="imagen no valida" width="200px" class="d-none"/>
               </div>
-              <div class="custom-input-file {{ $errors->has('IndTable') ? ' has-danger' : '' }}">
-                <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tabla (Archivo)</b>" data-content="Adjuntar el archivo correspondiente a la gráfica. Este archivo debe estar en formato PDF, TXT, Word, Excel, PowerPoint"><i class="far fa-question-circle"></i> Tabla (Archivo)</label>
-                <input name="IndTable" type="file" class="form-control form-control-alternative{{ $errors->has('IndTable') ? ' is-invalid' : '' }}" required>
-                @include('alerts.feedback', ['field' => 'IndTable'])
-              </div>
               <div class="custom-input-file {{ $errors->has('IndAnalysis') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Análisis (imagen)</b>" data-content="Ingresar el análisis realizado al indicador con respecto a su objetivo. Este archivo debe ser de tipo: jpg, jpeg, png."><i class="far fa-question-circle"></i> Análisis (imagen)</label>
                 <input id="IndAnalysis" name="IndAnalysis" type="file" class="form-control form-control-alternative{{ $errors->has('IndAnalysis') ? ' is-invalid' : '' }}" required>
                 @include('alerts.feedback', ['field' => 'IndAnalysis'])
                 <img id="IndAnalysisOutput" src="#" alt="imagen no valida" width="200px" class="d-none"/>
+              </div>
+              <div class="custom-input-file {{ $errors->has('IndTable') ? ' has-danger' : '' }}">
+                <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tabla (Archivo)</b>" data-content="Adjuntar el archivo correspondiente a la gráfica. Este archivo debe estar en formato PDF, TXT, Word, Excel, PowerPoint"><i class="far fa-question-circle"></i> Archivo</label>
+                <input name="IndTable" type="file" class="form-control form-control-alternative{{ $errors->has('IndTable') ? ' is-invalid' : '' }}" required>
+                @include('alerts.feedback', ['field' => 'IndTable'])
               </div>
               {{-- <div class="form-group{{ $errors->has('IndDateFrom') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Fecha Inicio</b>" data-content="Fecha de inicio de toma de datos para el desarrollo del indicador."><i class="far fa-question-circle"></i> Fecha Inicio</label>
