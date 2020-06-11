@@ -18,16 +18,16 @@ Indicadores
 			</div>
 			<div class="row my-3 justify-content-center">
 					@if($indicator->IndGraphic === "")
-						<a href="/white/img/graficos1.jpg"> <img src="/white/img/graficos1.jpg" class="responsive"></a>
+						<a target="_blank" href="/white/img/graficos1.jpg"> <img src="/white/img/graficos1.jpg" class="responsive"></a>
 					@else
-						<a href="{{Storage::url($indicator->IndGraphic)}}"> <img src="{{Storage::url($indicator->IndGraphic)}}" class="responsive"></a>
+						<a target="_blank" href="{{Storage::url($indicator->IndGraphic)}}"> <img src="{{Storage::url($indicator->IndGraphic)}}" class="responsive"></a>
 					@endif
 			</div>
 			<div class="row my-3 justify-content-center">
 					@if($indicator->IndAnalysis === "")
-						<a href="/white/img/graficos1.jpg"> <img src="/white/img/graficos1.jpg" class="responsive"></a>
+						<a target="_blank" href="/white/img/graficos1.jpg"> <img src="/white/img/graficos1.jpg" class="responsive"></a>
 					@else
-						<a href="{{Storage::url($indicator->IndAnalysis)}}"> <img src="{{Storage::url($indicator->IndAnalysis)}}" class="responsive"></a>
+						<a target="_blank" href="{{Storage::url($indicator->IndAnalysis)}}"> <img src="{{Storage::url($indicator->IndAnalysis)}}" class="responsive"></a>
 					@endif
 			</div>
 				<div class="row mx-auto">
