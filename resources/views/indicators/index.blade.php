@@ -26,7 +26,7 @@ Indicadores Estrategicos
 		<div class="d-inline-flex w-100 m-2 flex-column">
 			@foreach($Indicators as $indicator)
 				@if($indicator->IndType === 0)
-					@if ($loop->even)
+					@if ($loop->odd)
 						
 						<div class="card bg-transparent text-white text-center">
 							@if($indicator->IndGraphic === "")
@@ -49,7 +49,7 @@ Indicadores Estrategicos
 		<div class="d-inline-flex w-100 m-2 flex-column">
 			@foreach($Indicators as $indicator)
 				@if($indicator->IndType === 0)
-					@if ($loop->odd)
+					@if ($loop->even)
 						
 						<div class="card bg-transparent text-white text-center">
 							@if($indicator->IndGraphic === "")

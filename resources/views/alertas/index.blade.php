@@ -35,70 +35,72 @@ Alertas
 		        <th class="text-center">Fecha Evento</th>
 		        <th class="text-center">Nombre</th>
 		        <th class="text-center">Descripción</th>
+		        <th class="text-center">Creada por:</th>
 		        <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Fecha de Notificación</b>" data-content="Fecha en la cual se iniciaran las notificaciones de alerta.">Fecha Notificación</th>
                 <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Notificado</b>" data-content="Informa en que estado de notificación se encuentra la alerta.">Notificado</th>
 		        <th class="text-center" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Realizado</b>" data-content="Permite marcar la notificación como <i>Realizada</i>, de este modo no se recibiran más notificaciones de dicha alerta.">Realizado</th>
 		        <th class="text-center">Editar</th>
-		      </thead>
-		      <tbody>
-		      	@foreach($alerts as $alert)
-		      		@if($alert->user_id === Auth::user()->id)
-			          <tr>
-			            <td class="text-center">{{date_format($alert->AlertDateEvent, 'Y-m-d')}}</td>
-			            <td class="text-center">{{$alert->AlertName}}</td>
-			            <td class="text-center">{{$alert->AlertDescription}}</td>
-                        <td class="text-center">{{date_format($alert->AlertDateNotifi, 'Y-m-d')}}
-                        </td>
-			            <td class="text-center">
-			            	@switch($alert->AlertNotification)
-                                @case(0)
+			</thead>
+			<tbody>
+				@foreach($alerts as $alert)
+				<tr>
+					<td class="text-center">{{date_format($alert->AlertDateEvent, 'Y-m-d')}}</td>
+					<td class="text-center">{{$alert->AlertName}}</td>
+					<td class="text-center">{{$alert->AlertDescription}}</td>
+					<td class="text-center">{{$alert->user->email}}</td>
+					<td class="text-center">{{date_format($alert->AlertDateNotifi, 'Y-m-d')}}
+					</td>
+					<td class="text-center">
+						@switch($alert->AlertNotification)
+							@case(0)
                                     Sin Notificar
                                     @break
-
+									
                                 @case(1)
-                                    <font color="#ff0000">Alerta Roja</font>
-                                    @break
-
+								<font color="#ff0000">Alerta Roja</font>
+								@break
+								
                                 @case(2)
                                     <font color="#ffd100">Alerta Amarilla</font>
                                     @break
-
-                                @case(3)
+									
+									@case(3)
                                    <font color="#42ff00"> Alerta Verde</font>
-                                    @break
-
-                                @case(4)
+								   @break
+								   
+								   @case(4)
                                    <font color="#00a2ff"> Realizado</font>
                                     @break
-
-                                @case(5)
+									
+									@case(5)
                                    <font color="#525f7f">NO Realizado</font>
                                     @break
-
+									
                                 @default
-                                    Por notificar...
-                            @endswitch
-			            </td>
-			            <td class="text-center" id="Boton-alert-{{$alert->id}}">
-                            @if($alert->AlertNotification === 5)
+								Por notificar...
+								@endswitch
+							</td>
+							<td class="text-center" id="Boton-alert-{{$alert->id}}">
+								@if($alert->AlertNotification === 5)
                                 <i><strong>NO Realizado</strong>
-                            @else
-                                @if($alert->AlertRealizado === 0)
+									@else
+									@if($alert->AlertRealizado === 0)
                                     <button class="btn-success" onclick="editBoton({{$alert->id}})">Realizado</button>
-                                @else
+									@else
                                     <i><strong>Realizado</strong></i>
-                                @endif
-                            @endif
-                        </td>
-			            <td class="text-center"><a href="alerts/{{$alert->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a></td>
-			          </tr>
-			        @endif
-		        @endforeach
-		      </tbody>
-		    </table>
-		  </div>
+									@endif
+									@endif
+								</td>
+								@if($alert->user_id === Auth::user()->id)
+									<td class="text-center"><a href="alerts/{{$alert->id}}/edit" class="btn btn-fill btn-warning far fa-edit"> Editar</a></td>
+								@endif
+							</tr>
+							@endforeach
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
-	</div>
 @endsection
 
 @push('js')

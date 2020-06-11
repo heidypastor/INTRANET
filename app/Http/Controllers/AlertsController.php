@@ -27,7 +27,7 @@ class AlertsController extends Controller
         /*$alerts = DB::table('alerts')->get();*/
         $alerts = Alerts::with('user')->get();
         /*$alerts = Alerts::with('user')->where('AlertDateNotifi', today())->get();*/ /*Consulta que retorna las alertas del dia presente con su respectivo usuario*/
-        /*return $alerts;*/
+        // return $alerts;
         return view('alertas.index', compact('alerts'));
     }
 
