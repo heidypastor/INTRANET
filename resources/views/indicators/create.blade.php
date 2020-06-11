@@ -62,8 +62,9 @@ Indicadores
               </div>		
               <div class="custom-input-file {{ $errors->has('IndGraphic') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Gráfica</b>" data-content="Ingresar la imagen correspondiente a la Gráfica. Este archivo debe ser de tipo: jpg, jpeg, png"><i class="far fa-question-circle"></i> Gráfica</label>
-                <input name="IndGraphic" type="file" class="form-control form-control-alternative{{ $errors->has('IndGraphic') ? ' is-invalid' : '' }}" required="">
+                <input id="IndGraphi" name="IndGraphic" type="file" class="form-control form-control-alternative{{ $errors->has('IndGraphic') ? ' is-invalid' : '' }}" required="">
                 @include('alerts.feedback', ['field' => 'IndGraphic'])
+                <img id="IndGraphiOutput" src="#" alt="imagen no valida" width="200px" class="d-none"/>
               </div>
               <div class="custom-input-file {{ $errors->has('IndTable') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tabla (Archivo)</b>" data-content="Adjuntar el archivo correspondiente a la gráfica. Este archivo debe estar en formato PDF, TXT, Word, Excel, PowerPoint"><i class="far fa-question-circle"></i> Tabla (Archivo)</label>
@@ -72,8 +73,9 @@ Indicadores
               </div>
               <div class="custom-input-file {{ $errors->has('IndAnalysis') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Análisis (imagen)</b>" data-content="Ingresar el análisis realizado al indicador con respecto a su objetivo. Este archivo debe ser de tipo: jpg, jpeg, png."><i class="far fa-question-circle"></i> Análisis (imagen)</label>
-                <input name="IndAnalysis" type="file" class="form-control form-control-alternative{{ $errors->has('IndAnalysis') ? ' is-invalid' : '' }}" required>
+                <input id="IndAnalysis" name="IndAnalysis" type="file" class="form-control form-control-alternative{{ $errors->has('IndAnalysis') ? ' is-invalid' : '' }}" required>
                 @include('alerts.feedback', ['field' => 'IndAnalysis'])
+                <img id="IndAnalysisOutput" src="#" alt="imagen no valida" width="200px" class="d-none"/>
               </div>
               {{-- <div class="form-group{{ $errors->has('IndDateFrom') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Fecha Inicio</b>" data-content="Fecha de inicio de toma de datos para el desarrollo del indicador."><i class="far fa-question-circle"></i> Fecha Inicio</label>
@@ -110,3 +112,25 @@ Indicadores
       </div>
   </div>
 @endsection
+@push('scripts')
+<script type="text/javascript">
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        var output = $('#'+input.id+'Output');
+        output.attr('src', e.target.result);
+        output.attr('class', 'd-block');
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $('input[type="file"]').change(function(){
+    readURL(this);
+  });
+</script>
+@endpush

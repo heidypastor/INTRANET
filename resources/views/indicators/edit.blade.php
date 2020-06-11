@@ -62,18 +62,28 @@ Indicadores
               </div>		
               <div class="custom-input-file {{ $errors->has('IndGraphic') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Gráfica</b>" data-content="Ingresar la imagen correspondiente a la Gráfica. Este archivo debe ser de tipo: jpg, jpeg, png"><i class="far fa-question-circle"></i> Gráfica</label>
-                <input name="IndGraphic" type="file" class="form-control form-control-alternative{{ $errors->has('IndGraphic') ? ' is-invalid' : '' }}">
+                <input id="IndGraphic" name="IndGraphic" type="file" class="form-control form-control-alternative{{ $errors->has('IndGraphic') ? ' is-invalid' : '' }}">
                 @include('alerts.feedback', ['field' => 'IndGraphic'])
+                @if($indicator->IndGraphic === "")
+                  <a href="#"><img id="IndGraphicOutput" src="#" alt="imagen no valida" width="200px" class="d-none"/></a>
+                @else
+                  <a href="{{Storage::url($indicator->IndGraphic)}}"> <img id="IndGraphicOutput" src="{{Storage::url($indicator->IndGraphic)}}" alt="imagen no valida" width="200px" class="d-block"/></a>
+                @endif
               </div>
               <div class="custom-input-file {{ $errors->has('IndTable') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tabla (Archivo)</b>" data-content="Adjuntar el archivo correspondiente a la gráfica. Este archivo debe estar en formato PDF, TXT, Word, Excel, PowerPoint"><i class="far fa-question-circle"></i> Tabla (Archivo)</label>
                 <input name="IndTable" type="file" class="form-control form-control-alternative{{ $errors->has('IndTable') ? ' is-invalid' : '' }}">
                 @include('alerts.feedback', ['field' => 'IndTable'])
               </div>
-              <div class="form-group{{ $errors->has('IndAnalysis') ? ' has-danger' : '' }}">
-                <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Analisis</b>" data-content="Ingresar el analisis realizado al indicador con respecto a su objetivo. Máximo 512 caracteres."><i class="far fa-question-circle"></i> Analisis</label>
-                <input name="IndAnalysis" type="text" value="{{$indicator->IndAnalysis}}" class="text-center form-control form-control-alternative{{ $errors->has('IndAnalysis') ? ' is-invalid' : '' }}">
+              <div class="custom-input-file {{ $errors->has('IndAnalysis') ? ' has-danger' : '' }}">
+                <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Análisis (imagen)</b>" data-content="Ingresar el análisis realizado al indicador con respecto a su objetivo. Este archivo debe ser de tipo: jpg, jpeg, png."><i class="far fa-question-circle"></i> Análisis (imagen)</label>
+                <input id="IndAnalysis" name="IndAnalysis" type="file" class="form-control form-control-alternative{{ $errors->has('IndAnalysis') ? ' is-invalid' : '' }}" required>
                 @include('alerts.feedback', ['field' => 'IndAnalysis'])
+                 @if($indicator->IndAnalysis === "")
+                  <a href="#"><img id="IndAnalysisOutput" src="#" alt="imagen no valida" width="200px" class="d-none"/></a>
+                @else
+                  <a href="{{Storage::url($indicator->IndAnalysis)}}"> <img id="IndAnalysisOutput" src="{{Storage::url($indicator->IndAnalysis)}}" alt="imagen no valida" width="200px" class="d-block"/></a>
+                @endif
               </div>
               {{-- <div class="form-group{{ $errors->has('IndDateFrom') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Fecha Inicio</b>" data-content="Fecha de inicio de toma de datos para el desarrollo del indicador."><i class="far fa-question-circle"></i> Fecha Inicio</label>
@@ -107,3 +117,25 @@ Indicadores
       </div>
   </div>
 @endsection
+@push('scripts')
+<script type="text/javascript">
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        var output = $('#'+input.id+'Output');
+        output.attr('src', e.target.result);
+        output.attr('class', 'd-block');
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $('input[type="file"]').change(function(){
+    readURL(this);
+  });
+</script>
+@endpush
