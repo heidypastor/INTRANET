@@ -42,7 +42,7 @@ Indicadores Generales
 				  		<font color="#525f7f">{{$area->AreaName}}</font>
 				  		@endforeach
 				  	</td>
-				  	<td class="text-center"><a method='GET' href="indicators/{{$indicator->id}}" class="btn btn-secondary tim-icons icon-double-right"> Ver Más.</a></td>
+				  	<td class="text-center"><a target="_blank" method='GET' href="indicators/{{$indicator->id}}" class="btn btn-secondary tim-icons icon-double-right"> Ver Más.</a></td>
 				  </tbody>
 				@else
 				@endif
