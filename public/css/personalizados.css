@@ -19,6 +19,16 @@ estilo de imput para input personalizade del documentos.edit*/
   font-family:'Helvetica','Verdana','Monaco',sans-serif;
   font-style:italic;
 }
+
+.texto-login {
+  color: #ffffff !important;
+  text-shadow:  1px 1px 3px #ffffff;
+  /* -webkit-text-stroke: 0.5px white; */
+  font-weight: bold;
+  font-family:'Helvetica','Verdana','Monaco',sans-serif;
+  font-style:italic;
+}
+
 .table{
   position: relative !important;
   width: 100% !important;
@@ -34,6 +44,8 @@ estilo de imput para input personalizade del documentos.edit*/
   /*border: solid 1px;
   border-radius: 15%;
   width:100%*/;
+  color: #fff !important;
+  
 }
 
 .input-big {
@@ -54,7 +66,7 @@ estilo de imput para input personalizade del documentos.edit*/
 }
 
 .color-placeholder::placeholder {
-  color: #a1aec7 !important; 
+  color: #fff !important; 
   font-weight: bold; 
 }
 
