@@ -146,16 +146,8 @@ class IndicatorsController extends Controller
      */
     public function update(storeUpdateIndicatorsRequest $request, Indicators $indicator)
     {
-       /* return $request;*/
-       /*if ($request->hasFile('Avatar')){
-       $file = $request->file('Avatar');
-       $name = time().$file->getClientOriginalName();
-       $file->move(public_path().'/images/', $name);
-       
-       auth()->user()->update(['Avatar' => '/images/'.$name]);
-
-       }*/
         $indicator->update($request->except(['IndGraphic', 'IndTable', 'IndAnalysis']));
+        
         if ($request->hasFile('IndGraphic')){
             $path = $request->file('IndGraphic')->store('public/Graphic');
             $indicator->update(['IndGraphic' => $path]);
@@ -173,12 +165,6 @@ class IndicatorsController extends Controller
             $indicator->update(['IndAnalysis' => $pathAnalisis]);
         }else{
         }
-        /*$path = $request->file('IndGraphic')->store('public/Graphic');*/
-        /*$pathimg = $request->file('IndTable')->store('public/Archivos');*/
-
-
-        // $indicator->update(['IndGraphic' => $path]);
-        // $indicator->update(['IndTable' => $pathimg]);
 
         if ($indicator->IndType === 0) {
             return redirect()->route('indicators.index')->withStatus(__('Indicador actualizado correctamente'));

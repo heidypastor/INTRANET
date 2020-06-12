@@ -20,7 +20,7 @@ Indicadores
               @csrf
               <div class="form-group{{ $errors->has('IndName') ? ' has-danger' : '' }}">
                 <label>Nombre del Indicador</label>
-                <input name="IndName" type="text" value="{{$indicator->IndName}}" class="text-center form-control form-control-alternative{{ $errors->has('IndName') ? ' is-invalid' : '' }}">
+                <input name="IndName" type="text" value="{{ old('IndName') ? old('IndName') : $indicator->IndName}}" class="text-center form-control form-control-alternative{{ $errors->has('IndName') ? ' is-invalid' : '' }}">
                 @include('alerts.feedback', ['field' => 'IndName'])
               </div>
               {{-- <div class="form-group{{ $errors->has('IndObjective') ? ' has-danger' : '' }}">
@@ -31,9 +31,9 @@ Indicadores
               <div class="form-group{{ $errors->has('IndFrecuencia') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Frecuencia del Indicador</b>" data-content="Seleccione la frecuencia del indicador"><i class="far fa-question-circle"></i> Frecuencia del Indicador</label>
                 <select class="text-center form-control form-control-alternative{{ $errors->has('IndFrecuencia') ? ' is-invalid' : '' }}" required="" name="IndFrecuencia" id="IndFrecuencia">
-                  <option {{ $indicator->IndFrecuencia == "mensual" ? "selected" : "" }} value="mensual">Mensual</option>
-                  <option {{ $indicator->IndFrecuencia == "trimestral" ? "selected" : "" }} value="trimestral">Trimestral</option>
-                  <option {{ $indicator->IndFrecuencia == "semestral" ? "selected" : "" }} value="semestral">Semestral</option>
+                  <option {{ old('IndFrecuencia') == "mensual" ? "selected" : ($indicator->IndFrecuencia == "mensual" && !old('IndFrecuencia') ? "selected" : "") }} value="mensual">Mensual</option>
+                  <option {{ old('IndFrecuencia') == "trimestral" ? "selected" : ($indicator->IndFrecuencia == "trimestral" && !old('IndFrecuencia') ? "selected" : "") }} value="trimestral">Trimestral</option>
+                  <option {{ old('IndFrecuencia') == "semestral" ? "selected" : ($indicator->IndFrecuencia == "semestral" && !old('IndFrecuencia') ? "selected" : "") }} value="semestral">Semestral</option>
                 </select>
                 @include('alerts.feedback', ['field' => 'IndFrecuencia'])
               </div>
@@ -44,20 +44,20 @@ Indicadores
                   <li>Objetivo 3 - Pólitica Ambiental</li>
                 </ul>"><i class="far fa-question-circle"></i> Objetivo del Indicador</label>
                 <select class="text-center form-control form-control-alternative{{ $errors->has('IndEfe') ? ' is-invalid' : '' }}" required="" name="IndObjective" id="IndObjective">
-                  <option {{ $indicator->IndObjective == "1" ? "selected" : "" }} value="1">Objetivo 1 -> Implementar actividades de promoción y prevención en salud, dirigidas a nuestros trabajadores y de seguridad para nuestros colaboradores, contratistas y visitantes con el fin de prevenir accidentes y enfermedades laborales. </option>
-                  <option {{ $indicator->IndObjective == "2" ? "selected" : "" }} value="2">Objetivo 2 -> Garantizar que los servicios de recolección, transporte, manejo, tratamiento, incineración y destrucción de toda clase de desechos y residuos sean oportunos, adecuados y seguro, previniendo la contaminación y la disminuyendo los impactos que se puedan generar a los recursos naturales </option>
-                  <option {{ $indicator->IndObjective == "3" ? "selected" : "" }} value="3">Objetivo 3 -> Cumplir con los estándares de calidad en la prestación del servicio a nuestros clientes, optimizando y mejorando continuamente en los procesos y procedimientos establecidos en la Empresa, llegando a los estándares de eficiencia, eficacia, efectividad, cumpliendo siempre con la legislación Ambiental Colombiana y los requerimientos de nuestros Clientes. </option>
+                  <option {{ old('IndObjective') == "1" ? "selected" : ($indicator->IndObjective == "1" && !old('IndObjective') ? "selected" : "") }} value="1">Objetivo 1 -> Implementar actividades de promoción y prevención en salud, dirigidas a nuestros trabajadores y de seguridad para nuestros colaboradores, contratistas y visitantes con el fin de prevenir accidentes y enfermedades laborales. </option>
+                  <option {{ old('IndObjective') == "2" ? "selected" : ($indicator->IndObjective == "2" && !old('IndObjective') ? "selected" : "") }} value="2">Objetivo 2 -> Garantizar que los servicios de recolección, transporte, manejo, tratamiento, incineración y destrucción de toda clase de desechos y residuos sean oportunos, adecuados y seguro, previniendo la contaminación y la disminuyendo los impactos que se puedan generar a los recursos naturales </option>
+                  <option {{ old('IndObjective') == "3" ? "selected" : ($indicator->IndObjective == "3" && !old('IndObjective') ? "selected" : "") }} value="3">Objetivo 3 -> Cumplir con los estándares de calidad en la prestación del servicio a nuestros clientes, optimizando y mejorando continuamente en los procesos y procedimientos establecidos en la Empresa, llegando a los estándares de eficiencia, eficacia, efectividad, cumpliendo siempre con la legislación Ambiental Colombiana y los requerimientos de nuestros Clientes. </option>
                 </select>
                 @include('alerts.feedback', ['field' => 'IndObjective'])
               </div>
               <div class="form-group{{ $errors->has('IndMeta') ? ' has-danger' : '' }}">
                 <label>Meta del Indicador</label>
-                <input name="IndMeta" type="text" value="{{$indicator->IndMeta}}" class="text-center form-control form-control-alternative{{ $errors->has('IndMeta') ? ' is-invalid' : '' }}">
+                <input name="IndMeta" type="text" value="{{ old('IndMeta') ? old('IndMeta') : $indicator->IndMeta}}" class="text-center form-control form-control-alternative{{ $errors->has('IndMeta') ? ' is-invalid' : '' }}">
                 @include('alerts.feedback', ['field' => 'IndMeta'])
               </div>
               <div class="form-group{{ $errors->has('IndQueMide') ? ' has-danger' : '' }}">
                 <label>N° de ficha</label>
-                <input name="IndQueMide" type="text" value="{{$indicator->IndQueMide}}" class="text-center form-control form-control-alternative{{ $errors->has('IndQueMide') ? ' is-invalid' : '' }}">
+                <input name="IndQueMide" type="text" value="{{ old('IndQueMide') ? old('IndQueMide') : $indicator->IndQueMide}}" class="text-center form-control form-control-alternative{{ $errors->has('IndQueMide') ? ' is-invalid' : '' }}">
                 @include('alerts.feedback', ['field' => 'IndQueMide'])
               </div>		
               <div class="custom-input-file {{ $errors->has('IndGraphic') ? ' has-danger' : '' }}">
@@ -72,7 +72,7 @@ Indicadores
               </div>
               <div class="custom-input-file {{ $errors->has('IndAnalysis') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Análisis (imagen)</b>" data-content="Ingresar el análisis realizado al indicador con respecto a su objetivo. Este archivo debe ser de tipo: jpg, jpeg, png."><i class="far fa-question-circle"></i> Análisis (imagen)</label>
-                <input id="IndAnalysis" name="IndAnalysis" type="file" class="form-control form-control-alternative{{ $errors->has('IndAnalysis') ? ' is-invalid' : '' }}" required>
+                <input id="IndAnalysis" name="IndAnalysis" type="file" class="form-control form-control-alternative{{ $errors->has('IndAnalysis') ? ' is-invalid' : '' }}">
                 @include('alerts.feedback', ['field' => 'IndAnalysis'])
                  @if($indicator->IndAnalysis === "")
                   <a href="#"><img id="IndAnalysisOutput" src="#" alt="imagen no valida" width="200px" class="d-none"/></a>
@@ -98,17 +98,17 @@ Indicadores
               <div class="form-group{{ $errors->has('IndType') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tipo de Indicador</b>" data-content="Ingresar el tipo de indicador si es de tipo estrategico o general."><i class="far fa-question-circle"></i> Tipo de Indicador</label>
                 <select class="text-center form-control form-control-alternative{{ $errors->has('IndType') ? ' is-invalid' : '' }}" required="" name="IndType" id="IndType">
-                  <option value="0">Estrategico</option>
-                  <option value="1">General</option>
+                  <option {{ old('IndType') == "0" ? "selected" : ($indicator->IndType == "0" && !old('IndType') ? "selected" : "") }} value="0">Estrategico</option>
+                  <option {{ old('IndType') == "1" ? "selected" : ($indicator->IndType == "1" && !old('IndType') ? "selected" : "") }} value="1">General</option>
                 </select>
                 @include('alerts.feedback', ['field' => 'IndType'])
               </div>
               <div class="form-group{{ $errors->has('IndEfe') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Indicador de:</b>" data-content="Seleccione el tipo de indicador:<li>Eficiencia</li><li>Eficacia</li><li>Efectividad</li>"><i class="far fa-question-circle"></i> Indicador de:</label>
                 <select class="text-center form-control form-control-alternative{{ $errors->has('IndEfe') ? ' is-invalid' : '' }}" required="" name="IndEfe" id="IndEfe">
-                  <option value="0">Eficiencia</option>
-                  <option value="1">Eficacia</option>
-                  <option value="2">Efectividad</option>
+                  <option {{ old('IndEfe') == "0" ? "selected" : ($indicator->IndEfe == "0" && !old('IndEfe') ? "selected" : "") }} value="0">Eficiencia</option>
+                  <option {{ old('IndEfe') == "1" ? "selected" : ($indicator->IndEfe == "1" && !old('IndEfe') ? "selected" : "") }} value="1">Eficacia</option>
+                  <option {{ old('IndEfe') == "2" ? "selected" : ($indicator->IndEfe == "2" && !old('IndEfe') ? "selected" : "") }} value="2">Efectividad</option>
                 </select>
                 @include('alerts.feedback', ['field' => 'IndEfe'])
               </div>
