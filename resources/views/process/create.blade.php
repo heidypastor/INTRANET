@@ -456,6 +456,16 @@ Procesos
 							  <input type="date" name="ProcDate" class="form-control">
 						</div>
 					</div>
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcParticipantes">Participantes</label>
+							<select multiple id="ProcTipo" class="form-control selectmultiple" name="ProcTipo" placeholder="seleccione">
+								<option value="1">De Apoyo</option>
+								<option value="2">Básico</option>
+								<option value="3">Estratégico</option>
+							</select>
+						</div>
+					</div>
 				</div>
 			</div>
 		</form> 
@@ -1367,6 +1377,7 @@ Procesos
 		$('select').select2({
 			placeholder: 'Selecciona...',
 		});
+		$('.select2-container').width('100%');
 	});
 
 	//Parte de los script de actualizar
