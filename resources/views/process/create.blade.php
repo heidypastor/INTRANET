@@ -138,6 +138,7 @@ Procesos
 						<div class="custom-input-file">
 							<label class="input-label" for="ProcImage">Imagen de referencia</label>
 							<input type="file" required class="form-control" id="ProcImage" placeholder="Imagen de Referencia" name="ProcImage">
+							<img id="ProcImageOutput" src="#" alt="imagen no valida" width="200px" class="d-none"/>
 						</div>
 					</div>
 
@@ -458,7 +459,7 @@ Procesos
 					</div>
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcParticipantes">Participantes</label>
+							<label class="input-label" for="ProcTipo">Tipo de Proceso</label>
 							<select multiple id="ProcTipo" class="form-control selectmultiple" name="ProcTipo" placeholder="seleccione">
 								<option value="1">De Apoyo</option>
 								<option value="2">Básico</option>
@@ -1656,5 +1657,25 @@ $(function() {
 
   });
 });
+</script>
+<script type="text/javascript">
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        var output = $('#'+input.id+'Output');
+        output.attr('src', e.target.result);
+        output.attr('class', 'd-block');
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $('input[type="file"]').change(function(){
+    readURL(this);
+  });
 </script>
 @endpush
