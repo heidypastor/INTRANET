@@ -52,6 +52,8 @@ class ProcessesSeeder extends Seeder
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
         $process->ProcReviso = 'Gerente General';
         $process->ProcAprobo = 'Presidencia';
+        $process->ProcRiesgos = ['Instrumentos de planeación formulados a partir de normatividad no vigente', 'Instrumentos de planeación formulados sin tener en cuenta los lineamientos estratégicos de PROSARC S.A. ESP'];
+
         $process->save();
 
         // id = 03
@@ -71,6 +73,8 @@ class ProcessesSeeder extends Seeder
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
         $process->ProcReviso = 'Gerente General';
         $process->ProcAprobo = 'Presidencia';
+        $process->ProcRiesgos = ['Instrumentos de planeación formulados a partir de normatividad no vigente', 'Instrumentos de planeación formulados sin tener en cuenta los lineamientos estratégicos de PROSARC S.A. ESP'];
+
         $process->save();
 
 
@@ -91,6 +95,8 @@ class ProcessesSeeder extends Seeder
         // $process->ProcRequsitos = 'Norma NTC-Iso 9001, Norma NTC-Iso 14001, Norma NTC-Iso 18001';
         $process->ProcReviso = 'Gerente General';
         $process->ProcAprobo = 'Presidencia';
+        $process->ProcRiesgos = ['Instrumentos de planeación formulados a partir de normatividad no vigente', 'Instrumentos de planeación formulados sin tener en cuenta los lineamientos estratégicos de PROSARC S.A. ESP'];
+
         $process->save();
         $process->salidas()->sync(['3', '4', '5', '6', '7', '8', '9', '10']);
         $process->entradas()->sync(['4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17']);

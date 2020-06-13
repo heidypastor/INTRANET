@@ -36,8 +36,6 @@ Indicadores Estrategicos
 							@endif
 							<div class="card-img-overlay">
 								<h5 class="card-title"><strong><a method='GET' href="indicators/{{$indicator->id}}" class="btn btn-sm btn-secondary"> {{$indicator->IndName}}</a></strong></h5>
-								{{-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<p class="card-text">Last updated 3 mins ago</p> --}}
 							</div>
 						</div>
 					@else
@@ -59,8 +57,6 @@ Indicadores Estrategicos
 							@endif
 							<div class="card-img-overlay">
 								<h5 class="card-title"><strong><a method='GET' href="indicators/{{$indicator->id}}" class="btn btn-sm btn-secondary"> {{$indicator->IndName}}</a></strong></h5>
-								{{-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<p class="card-text">Last updated 3 mins ago</p> --}}
 							</div>
 						</div>
 					
