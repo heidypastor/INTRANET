@@ -21,9 +21,7 @@ class CreateProcessesTable extends Migration
             $table->string('ProcImage');/*Imagen de referencia para identificar el proceso*/
             $table->text('ProcObjetivo'); /*objetivo del proceso*/
             $table->json('ProcResponsable'); /*responsables del proceso*/
-            $table->string('ProcAutoridad'); /*Autoridad del proceso*/
-            // $table->string('ProcRecursos')->default('Recursos Default'); /*recursos necesarios para la ejecucion del proceso*/
-            // $table->string('ProcRequsitos'); /*requisitos que se deben cumplir con el proceso*/
+            $table->json('ProcParticipantes'); /*Autoridad del proceso*/
             $table->string('ProcElaboro'); /*rol del usuario que elaboro el proceso*/
             $table->string('ProcReviso'); /*rol del usuario que reviso el proceso*/
             $table->string('ProcAprobo'); /*rol del usuario que aprobo el proceso*/

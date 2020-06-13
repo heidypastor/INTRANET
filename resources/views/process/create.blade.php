@@ -143,7 +143,7 @@ Procesos
 
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcResponsable">Responsable del Proceso</label>
+							<label class="input-label" for="ProcResponsable">Responsable</label>
 							<select id="ProcResponsable" class="form-control selectmultiple" name="ProcResponsable[]" placeholder="seleccione" multiple>
 								@foreach($cargos as $cargo)
 								<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
@@ -156,8 +156,8 @@ Procesos
 				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcAutoridad">Autoridad del Proceso</label>
-							<select id="ProcAutoridad" class="form-control select" name="ProcAutoridad" placeholder="seleccione">
+							<label class="input-label" for="ProcParticipantes">Participantes</label>
+							<select multiple id="ProcParticipantes" class="form-control selectmultiple" name="ProcParticipantes" placeholder="seleccione">
 								@foreach($cargos as $cargo)
 									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
 								@endforeach
@@ -575,22 +575,13 @@ Procesos
 				<input type="text" name="ProvName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
-<<<<<<< HEAD
-				<label>Fase</label>	   
-				<select name="ProvType" class="form-control">
-=======
 				<label>Tipo de proveedor</label>
 				<select name="ProvType" class="text-center form-control select">
->>>>>>> master
 					<option value="Planear">Planear</option>
 					<option value="Hacer">Hacer</option>
 					<option value="Verificar">Verificar</option>
 					<option value="Actuar">Actuar</option>
-<<<<<<< HEAD
-				</select>   
-=======
 				</select>
->>>>>>> master
 			</div>
 		@endslot
 	@endcomponent
@@ -613,22 +604,13 @@ Procesos
 				<input type="text" name="InputName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
-<<<<<<< HEAD
-				<label>Fase</label>	   
-				<select name="InputType" class="form-control">
-=======
 				<label>Tipo de entrada</label>
 				<select name="InputType" class="text-center form-control select">
->>>>>>> master
 					<option value="Planear">Planear</option>
 					<option value="Hacer">Hacer</option>
 					<option value="Verificar">Verificar</option>
 					<option value="Actuar">Actuar</option>
-<<<<<<< HEAD
-				</select>   
-=======
 				</select>
->>>>>>> master
 			</div>
 		@endslot
 	@endcomponent
@@ -652,22 +634,13 @@ Procesos
 				<input type="text" name="ActiName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
-<<<<<<< HEAD
-				<label>Fase</label>	   
-				<select name="ActiType" class="form-control">
-=======
 				<label>Tipo de actividad</label>
 				<select name="ActiType" class="text-center form-control select">
->>>>>>> master
 					<option value="Planear">Planear</option>
 					<option value="Hacer">Hacer</option>
 					<option value="Verificar">Verificar</option>
 					<option value="Actuar">Actuar</option>
-<<<<<<< HEAD
-				</select>   
-=======
 				</select>
->>>>>>> master
 			</div>
 		@endslot
 	@endcomponent
@@ -691,22 +664,13 @@ Procesos
 				<input type="text" name="OutputName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
-<<<<<<< HEAD
-				<label>Fase</label>	   
-				<select name="OutputType" class="form-control">
-=======
 				<label>Tipo de salida</label>
 				<select name="OutputType" class="text-center form-control select">
->>>>>>> master
 					<option value="Planear">Planear</option>
 					<option value="Hacer">Hacer</option>
 					<option value="Verificar">Verificar</option>
 					<option value="Actuar">Actuar</option>
-<<<<<<< HEAD
-				</select>   
-=======
 				</select>
->>>>>>> master
 			</div>
 		@endslot
 	@endcomponent
@@ -730,22 +694,13 @@ Procesos
 				<input type="text" name="CliName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
-<<<<<<< HEAD
-				<label>Fase</label>	   
-				<select name="CliType" class="form-control">
-=======
 				<label>Tipo de cliente</label>
 				<select name="CliType" class="text-center form-control select">
->>>>>>> master
 					<option value="Planear">Planear</option>
 					<option value="Hacer">Hacer</option>
 					<option value="Verificar">Verificar</option>
 					<option value="Actuar">Actuar</option>
-<<<<<<< HEAD
-				</select>   
-=======
 				</select>
->>>>>>> master
 			</div>
 		@endslot
 	@endcomponent
@@ -916,25 +871,14 @@ Procesos
 				<input type="text" name="ProvName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
-<<<<<<< HEAD
-				<label>Fase</label>	   
-				<select id="edit-prov" name="ProvType" class="form-control">
-=======
 				<label>Nuevo tipo de proveedor</label>
 				<select name="ProvType" class="text-center form-control select">
->>>>>>> master
 					<option value="Planear">Planear</option>
 					<option value="Hacer">Hacer</option>
 					<option value="Verificar">Verificar</option>
 					<option value="Actuar">Actuar</option>
-<<<<<<< HEAD
-				</select>   
-			</div>
-			
-=======
 				</select>
 			</div>
->>>>>>> master
 		@endslot
 	@endcomponent
 
@@ -971,22 +915,13 @@ Procesos
 				<input type="text" name="InputName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
-<<<<<<< HEAD
-				<label>Fase</label>	   
-				<select id="edit-input" name="InputType" class="form-control">
-=======
 				<label>Nuevo tipo de entrada</label>
 				<select name="InputType" class="text-center form-control select">
->>>>>>> master
 					<option value="Planear">Planear</option>
 					<option value="Hacer">Hacer</option>
 					<option value="Verificar">Verificar</option>
 					<option value="Actuar">Actuar</option>
-<<<<<<< HEAD
-				</select>   
-=======
 				</select>
->>>>>>> master
 			</div>
 		@endslot
 	@endcomponent
@@ -1024,22 +959,13 @@ Procesos
 				<input type="text" name="ActiName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
-<<<<<<< HEAD
-				<label>Fase</label>	   
-				<select id="edit-Acti" name="ActiType" class="form-control">
-=======
 				<label>Nuevo tipo de actividad</label>
 				<select name="ActiType" class="text-center form-control select">
->>>>>>> master
 					<option value="Planear">Planear</option>
 					<option value="Hacer">Hacer</option>
 					<option value="Verificar">Verificar</option>
 					<option value="Actuar">Actuar</option>
-<<<<<<< HEAD
-				</select>   
-=======
 				</select>
->>>>>>> master
 			</div>
 		@endslot
 	@endcomponent
@@ -1077,22 +1003,13 @@ Procesos
 				<input type="text" name="OutputName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
-<<<<<<< HEAD
-				<label>Fase</label>	   
-				<select id="edit-Output" name="OutputType" class="form-control">
-=======
 				<label>Nuevo tipo de salida</label>
 				<select name="ActiType" class="text-center form-control select">
->>>>>>> master
 					<option value="Planear">Planear</option>
 					<option value="Hacer">Hacer</option>
 					<option value="Verificar">Verificar</option>
 					<option value="Actuar">Actuar</option>
-<<<<<<< HEAD
-				</select>   
-=======
 				</select>
->>>>>>> master
 			</div>
 		@endslot
 	@endcomponent
@@ -1129,22 +1046,13 @@ Procesos
 				<input type="text" name="CliName" class="text-center form-control" required="">
 			</div>
 			<div class="form-group">
-<<<<<<< HEAD
-				<label>Fase</label>	   
-				<select id="edit-cli" name="CliType" class="form-control">
-=======
 				<label>Nuevo tipo de cliente</label>
 				<select name="CliType" class="text-center form-control select">
->>>>>>> master
 					<option value="Planear">Planear</option>
 					<option value="Hacer">Hacer</option>
 					<option value="Verificar">Verificar</option>
 					<option value="Actuar">Actuar</option>
-<<<<<<< HEAD
-				</select>   
-=======
 				</select>
->>>>>>> master
 			</div>
 		@endslot
 	@endcomponent

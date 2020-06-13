@@ -23,7 +23,7 @@ class Process extends Model
 	    'ProcImage',
 	    'ProcObjetivo',
 	    'ProcResponsable',
-	    'ProcAutoridad',
+	    'ProcParticipantes',
 	    'ProcElaboro',
 	    'ProcReviso',
         'ProcAprobo',
