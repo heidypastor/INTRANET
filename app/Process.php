@@ -158,7 +158,8 @@ class Process extends Model
 	protected $casts = [
 	    'ProcResponsable' => 'array',
         'ProcPolitOperacion' => 'array',
-	    'ProcRiesgos' => 'array'
+        'ProcRiesgos' => 'array',
+        'ProcParticipantes' => 'array'
     ];
     
     protected $dates = ['deleted_at', 'updated_at', 'created_at'];
