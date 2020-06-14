@@ -144,6 +144,34 @@ Procesos
 
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
+							<label class="input-label" for="ProcObjetivo">Objetivo del Proceso</label>
+							   <input class="form-control" id="ProcObjetivo" name="ProcObjetivo">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcAlcance">Alcance del Proceso</label>
+							<input max="500" class="form-control" id="ProcAlcance" name="ProcAlcance">
+						</div>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcTipo">Tipo de Proceso</label>
+							<select multiple id="ProcTipo" class="form-control selectmultiple" name="ProcTipo" placeholder="seleccione">
+								<option value="1">De Apoyo</option>
+								<option value="2">Básico</option>
+								<option value="3">Estratégico</option>
+							</select>
+						</div>
+					</div>
+				</div>
+					
+				<div class="form-row">
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
 							<label class="input-label" for="ProcResponsable">Responsable</label>
 							<select id="ProcResponsable" class="form-control selectmultiple" name="ProcResponsable[]" placeholder="seleccione" multiple>
 								@foreach($cargos as $cargo)
@@ -152,9 +180,6 @@ Procesos
 							</select>
 						</div>
 					</div>
-				</div>
-
-				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcParticipantes">Participantes</label>
@@ -165,7 +190,64 @@ Procesos
 							</select>
 						</div>
 					</div>
+				</div>
 
+				<div class="form-row">
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="Provedores">Provedores</label>
+							  <select multiple id="Provedores" class="form-control selectmultiple" name="Provedores[]" placeholder="seleccione">
+								@foreach($proveedores as $proveedor)
+									<option value="{{$proveedor->id}}">{{$proveedor->ProvName}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="Entradas">Entradas</label>
+							<select multiple id="Entradas" class="form-control selectmultiple" name="Entradas[]" placeholder="seleccione">
+								@foreach($entradas as $entrada)
+									<option value="{{$entrada->id}}">{{$entrada->InputName}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="Actividades">Actividades</label>
+							<select multiple id="Actividades" class="form-control selectmultiple" name="Actividades[]" placeholder="seleccione">
+								@foreach($actividades as $actividad)
+									<option value="{{$actividad->id}}">{{$actividad->ActiName}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="Salidas">Salidas</label>
+							<select multiple id="Salidas" class="form-control selectmultiple" name="Salidas[]" placeholder="seleccione">
+								@foreach($salidas as $salida)
+									<option value="{{$salida->id}}">{{$salida->OutputName}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
+				</div>
+					
+				<div class="form-row">
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="Clientes">Clientes</label>
+							<select multiple id="Clientes" class="form-control selectmultiple" name="Clientes[]" placeholder="seleccione">
+								@foreach($clientes as $cliente)
+									<option value="{{$cliente->id}}">{{$cliente->CliName}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcRecursos">Recursos</label>
@@ -193,144 +275,16 @@ Procesos
 				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcElaboro">Elaborado Por</label>
-							<select id="ProcElaboro" class="form-control select" name="ProcElaboro" placeholder="seleccione">
-								@foreach($cargos as $cargo)
-									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
-								@endforeach
-								{{-- @foreach($users as $user)
-									<option value="{{$user->id}}">{{$user->name}}</option>
-								@endforeach --}}
-							</select>
-						</div>
-					</div>
-					
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcReviso">Revisado Por</label>
-							<select id="ProcReviso" class="form-control select" name="ProcReviso" placeholder="seleccione">
-								@foreach($cargos as $cargo)
-									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
-								@endforeach
-								{{-- @foreach($users as $user)
-									<option value="{{$user->id}}">{{$user->name}}</option>
-								@endforeach --}}
-							</select>
-						</div>
-					</div>
-				</div>
-
-				<div class="form-row">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcAprobo">Aprobado Por</label>
-							<select id="ProcAprobo" class="form-control select" name="ProcAprobo" placeholder="seleccione">
-								@foreach($cargos as $cargo)
-									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-
-					
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="Clientes">Clientes</label>
-							<select multiple id="Clientes" class="form-control selectmultiple" name="Clientes[]" placeholder="seleccione">
-								@foreach($clientes as $cliente)
-									<option value="{{$cliente->id}}">{{$cliente->CliName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-				</div>
-					
-				<div class="form-row">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="Entradas">Entradas</label>
-							<select multiple id="Entradas" class="form-control selectmultiple" name="Entradas[]" placeholder="seleccione">
-								@foreach($entradas as $entrada)
-									<option value="{{$entrada->id}}">{{$entrada->InputName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="Actividades">Actividades</label>
-							<select multiple id="Actividades" class="form-control selectmultiple" name="Actividades[]" placeholder="seleccione">
-								@foreach($actividades as $actividad)
-									<option value="{{$actividad->id}}">{{$actividad->ActiName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-				</div>
-					
-				<div class="form-row">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="Salidas">Salidas</label>
-							<select multiple id="Salidas" class="form-control selectmultiple" name="Salidas[]" placeholder="seleccione">
-								@foreach($salidas as $salida)
-									<option value="{{$salida->id}}">{{$salida->OutputName}}</option>
-								@endforeach
-							</select>
+							<label class="input-label" for="ProcAmbienTrabajo">Ambiente de Trabajo</label>
+							<input class="form-control" id="ProcAmbienTrabajo" name="ProcAmbienTrabajo">
 						</div>
 					</div>
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcObjetivo">Objetivo del Proceso</label>
-							   <input class="form-control" id="ProcObjetivo" name="ProcObjetivo">
-						</div>
-					</div>
-				</div>
-					
-				<div class="form-row">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="Indicadores">Indicadores</label>
-							<select multiple id="Indicadores" class="form-control selectmultiple" name="Indicadores[]" placeholder="seleccione">
-								@foreach($indicadores as $indicador)
-									<option value="{{$indicador->id}}">{{$indicador->IndName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-
-
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="Soporte">Procesos de Soporte</label>
-							<select multiple id="Soporte" class="form-control selectmultiple" name="Soporte[]" placeholder="seleccione">
-								@foreach($soportes as $soporte)
-									<option value="{{$soporte->id}}">{{$soporte->ProcName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-				</div>
-					
-				<div class="form-row">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="Docs">Documentación aplicable</label>
-							<select multiple id="Docs" class="form-control selectmultiple" name="Docs[]" placeholder="seleccione">
-								@foreach($documentos as $documento)
-									<option value="{{$documento->id}}">{{$documento->DocName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="Areas">Areas Que participan</label>
-							<select multiple id="Areas" class="form-control selectmultiple" name="Areas[]" placeholder="seleccione">
-								@foreach($areas as $area)
-									<option value="{{$area->id}}">{{$area->AreaName}}</option>
+							<label class="input-label" for="ProcRequsitos">Requisitos por cumplir</label>
+							  <select multiple class="form-control" name="ProcRequsitos[] selectmultiple" placeholder="seleccione" id="ProcRequsitos">
+								@foreach($requisitos as $requisito)
+									<option value="{{$requisito->id}}">{{$requisito->ReqName}}</option>
 								@endforeach
 							</select>
 						</div>
@@ -338,13 +292,6 @@ Procesos
 				</div>
 					
 				<div class="form-row" id="containerDeRiesgos">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="ProcAlcance">Alcance del Proceso</label>
-							<input max="500" class="form-control" id="ProcAlcance" name="ProcAlcance">
-						</div>
-					</div>
-
 					<div class="col-md-6 col-xs-12" id="riesgos0">
 						<div class="form-group">
 							<label class="input-label" for="ProcRiesgosinput0">Riesgos</label>
@@ -356,35 +303,6 @@ Procesos
 							</div>
 						</div>
 					</div>
-					
-				</div>
-					
-				<div class="form-row" id="containerDePoliticas">
-					<div class="col-md-6 col-xs-12">
-						<div class="form-group">
-							<label class="input-label" for="Provedores">Provedores</label>
-							  <select multiple id="Provedores" class="form-control selectmultiple" name="Provedores[]" placeholder="seleccione">
-								@foreach($proveedores as $proveedor)
-									<option value="{{$proveedor->id}}">{{$proveedor->ProvName}}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>
-					
-					<div class="col-md-6 col-xs-12" id="politicaOperacion0">
-						<div class="form-group">
-							<label class="input-label" for="ProcPolitOperacioninput0">Politica de Operación</label>
-							<div class="input-group">
-								<input type="text" required id="ProcPolitOperacioninput0" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2" name="ProcPolitOperacion[]">
-								<div class="input-group-append eliminarpolitica">
-								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropPolitica(0)">Borrar</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Gambiental">Gestión Ambiental</label>
@@ -407,6 +325,9 @@ Procesos
 							</select>
 						</div>
 					</div>
+				</div>
+					
+				<div class="form-row" id="containerDePoliticas">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="Gseguridad">Gestión de Seguridad y Salud en el Trabajo</label>
@@ -429,45 +350,110 @@ Procesos
 							</select>
 						</div>
 					</div>
+					<div class="col-md-6 col-xs-12" id="politicaOperacion0">
+						<div class="form-group">
+							<label class="input-label" for="ProcPolitOperacioninput0">Politica de Operación</label>
+							<div class="input-group">
+								<input type="text" required id="ProcPolitOperacioninput0" class="form-control" placeholder="Politica de Operación" aria-label="Politica de Operación" aria-describedby="button-addon2" name="ProcPolitOperacion[]">
+								<div class="input-group-append eliminarpolitica">
+								<button class="btn btn-danger" type="button" id="button-addon2" onclick="dropPolitica(0)">Borrar</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-
-				<div class="form-row">
+					
+				<div class="form-row" >
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcAmbienTrabajo">Ambiente de Trabajo</label>
-							<input class="form-control" id="ProcAmbienTrabajo" name="ProcAmbienTrabajo">
+							<label class="input-label" for="Indicadores">Indicadores</label>
+							<select multiple id="Indicadores" class="form-control selectmultiple" name="Indicadores[]" placeholder="seleccione">
+								@foreach($indicadores as $indicador)
+									<option value="{{$indicador->id}}">{{$indicador->IndName}}</option>
+								@endforeach
+							</select>
 						</div>
 					</div>
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcRequsitos">Requisitos por cumplir</label>
-							  <select multiple class="form-control" name="ProcRequsitos[] selectmultiple" placeholder="seleccione" id="ProcRequsitos">
-								@foreach($requisitos as $requisito)
-									<option value="{{$requisito->id}}">{{$requisito->ReqName}}</option>
+							<label class="input-label" for="Docs">Documentación aplicable</label>
+							<select multiple id="Docs" class="form-control selectmultiple" name="Docs[]" placeholder="seleccione">
+								@foreach($documentos as $documento)
+									<option value="{{$documento->id}}">{{$documento->DocName}}</option>
 								@endforeach
 							</select>
 						</div>
 					</div>
 				</div>
-
+				
 				<div class="form-row">
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcElaboro">Elaborado Por</label>
+							<select id="ProcElaboro" class="form-control select" name="ProcElaboro" placeholder="seleccione">
+								@foreach($cargos as $cargo)
+									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
+								@endforeach
+								{{-- @foreach($users as $user)
+									<option value="{{$user->id}}">{{$user->name}}</option>
+								@endforeach --}}
+							</select>
+						</div>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcReviso">Revisado Por</label>
+							<select id="ProcReviso" class="form-control select" name="ProcReviso" placeholder="seleccione">
+								@foreach($cargos as $cargo)
+									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="ProcAprobo">Aprobado Por</label>
+							<select id="ProcAprobo" class="form-control select" name="ProcAprobo" placeholder="seleccione">
+								@foreach($cargos as $cargo)
+									<option value="{{$cargo->CargoName}}">{{$cargo->CargoName}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label class="input-label" for="ProcRequsitos">Fecha</label>
 							  <input type="date" name="ProcDate" class="form-control">
 						</div>
 					</div>
+				</div>
+
+				{{-- <div class="form-row">
 					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
-							<label class="input-label" for="ProcTipo">Tipo de Proceso</label>
-							<select multiple id="ProcTipo" class="form-control selectmultiple" name="ProcTipo" placeholder="seleccione">
-								<option value="1">De Apoyo</option>
-								<option value="2">Básico</option>
-								<option value="3">Estratégico</option>
+							<label class="input-label" for="Soporte">Procesos de Soporte</label>
+							<select multiple id="Soporte" class="form-control selectmultiple" name="Soporte[]" placeholder="seleccione">
+								@foreach($soportes as $soporte)
+									<option value="{{$soporte->id}}">{{$soporte->ProcName}}</option>
+								@endforeach
 							</select>
 						</div>
 					</div>
-				</div>
+					
+
+					<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+							<label class="input-label" for="Areas">Areas Que participan</label>
+							<select multiple id="Areas" class="form-control selectmultiple" name="Areas[]" placeholder="seleccione">
+								@foreach($areas as $area)
+									<option value="{{$area->id}}">{{$area->AreaName}}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
+				</div> --}}
 			</div>
 		</form> 
 		<div class="card-footer">

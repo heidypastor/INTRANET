@@ -16,6 +16,7 @@ class AddSomeColumsToIndicatorsTable extends Migration
         Schema::table('indicators', function (Blueprint $table) {
             $table->string('IndFrecuencia', 24);/*->se espera('mensual/trimestral/semestral')*/
             $table->string('IndMeta', 512);/*->se espera('valor o porcentaje')*/
+            $table->string('IndFormula', 255)->nullable();
         });
     }
 
@@ -29,6 +30,7 @@ class AddSomeColumsToIndicatorsTable extends Migration
         Schema::table('indicators', function (Blueprint $table) {
             $table->dropColumn('IndFrecuencia');
             $table->dropColumn('IndMeta');
+            $table->dropColumn('IndFormula');
         });
     }
 }

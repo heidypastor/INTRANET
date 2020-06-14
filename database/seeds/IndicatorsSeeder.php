@@ -13,15 +13,14 @@ class IndicatorsSeeder extends Seeder
     public function run()
     {
         $indicator = new Indicators();
-        $indicator->IndName = 'Indicador Sistemas';
+        $indicator->IndName = 'Cumplimiento del Plan de Capacitación';
+        $indicator->IndDescripcion = 'El indicador nos permite establecer el cumplimiento de las actividades de capacitación programadas en un periodo establecido';
         $indicator->IndObjective = '1';
-        $indicator->IndQueMide = 'Productividad';
+        $indicator->IndFormula = '(No. De capacitación de realizadas/No. Total de Capacitaciones programadas) *100	';
         $indicator->IndGraphic = '';
         $indicator->IndTable = '';
         $indicator->IndFrecuencia = 'mensual';
         $indicator->IndAnalysis = '';
-        // $indicator->IndDateFrom = '2019/12/29';
-        // $indicator->IndDateUntil = '2020/01/29';
         $indicator->IndType = 0;
         $indicator->IndMeta = '95%';
         $indicator->save();
@@ -35,8 +34,6 @@ class IndicatorsSeeder extends Seeder
         $indicator->IndTable = '';
         $indicator->IndFrecuencia = 'mensual';
         $indicator->IndAnalysis = '';
-        // $indicator->IndDateFrom = '2019/12/29';
-        // $indicator->IndDateUntil = '2020/01/29';
         $indicator->IndType = 1;
         $indicator->IndMeta = '95%';
         $indicator->save();
