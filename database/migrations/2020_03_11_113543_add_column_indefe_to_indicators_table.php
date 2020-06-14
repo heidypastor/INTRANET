@@ -15,8 +15,8 @@ class AddColumnIndefeToIndicatorsTable extends Migration
     {
         Schema::table('indicators', function (Blueprint $table) {
             $table->string('IndEfe', 24)->default('0');  /*Este campo corresponde a la clasificación de la caracterización de proceso es decir
-                0 = Eficiencia
-                1 = Eficacia
+                0 = Eficacia
+                1 = Eficiencia
                 2 = Efectividad  */
         });
     }

@@ -13,7 +13,20 @@ Indicadores
 		<div class="container">
 			<div class="row mt-4">
 				<div class="col-md-12">
-					<h3 class="text-center negrilla">{{$indicator->IndName}}</h3>
+				<h3 class="text-center negrilla">{{$indicator->IndName}} - 
+					@switch($indicator->IndEfe)
+						@case('0')
+							{{'Eficacia'}}
+							@break
+						@case('1')
+							{{'Eficiencia'}}
+							@break
+						@case('2')
+							{{'Efectividad'}}
+							@break
+						@default
+					@endswitch
+				</h3>
 				</div>
 			</div>
 			<div class="row my-3 justify-content-center">
@@ -61,6 +74,14 @@ Indicadores
 				</div>
 				<div class="row mx-auto">
 					<div class="col-md-3 recuadro mx-auto">
+						<h4 class="text-center negrilla">Descripción</h4>
+					</div>
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
+						<p>{{$indicator->IndDescripcion}}</p>
+					</div>
+				</div>
+				<div class="row mx-auto">
+					<div class="col-md-3 recuadro mx-auto">
 						<h4 class="text-center negrilla">Frecuencia</h4>
 					</div>
 					<div class="col-md-8 recuadro-2 mx-auto text-justify">
@@ -77,22 +98,20 @@ Indicadores
 				</div>
 				<div class="row mx-auto">
 					<div class="col-md-3 recuadro mx-auto">
+						<h4 class="text-center negrilla">Formula</h4>
+					</div>
+					<div class="col-md-8 recuadro-2 mx-auto text-justify">
+						<p>{{$indicator->IndFormula}}</p>
+					</div>
+				</div>
+				<div class="row mx-auto">
+					<div class="col-md-3 recuadro mx-auto">
 						<h4 class="text-center negrilla">N° de ficha</h4>
 					</div>
 					<div class="col-md-8 recuadro-2 mx-auto text-justify">
-						<p>{{$indicator->IndQueMide}}</p>
+						<p>{{$indicator->IndFicha}}</p>
 					</div>
 				</div>
-			{{-- <div class="col-md-12">
-				<div class="row mx-auto">
-					<div class="col-md-3 recuadro mx-auto">
-						<h4 class="text-center negrilla">Fecha de Evaluación</h4>
-					</div>
-					<div class="col-md-8 recuadro-2 mx-auto text-justify">
-						<p><strong>Desde</strong> {{$indicator->IndDateFrom}}</p>  <p><strong>Hasta</strong> {{$indicator->IndDateUntil}} </p>
-					</div>
-				</div>
-			</div> --}}
 				<div class="row mx-auto">
 					<div class="col-md-3 recuadro mx-auto">
 						<h4 class="text-center negrilla" data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Tabla</b>" data-content="Archivo que contiene la información correspondiente a la grafica."><i class="far fa-question-circle"></i> Archivo</h4>

@@ -18,9 +18,19 @@ Indicadores
           <form role="form" method="POST" action="{{ route('indicators.store') }}" enctype="multipart/form-data">
             	@csrf
               <div class="form-group{{ $errors->has('IndName') ? ' has-danger' : '' }}">
-                <label>Nombre del Indicador</label>
-                <input value="{{ old('IndName') }}" name="IndName" type="text" class="text-center form-control form-control-alternative{{ $errors->has('IndName') ? ' is-invalid' : '' }}" required>
+                <label>Nombre</label>
+                <input placeholder="Ausentismo e impuntualidad" maxlength="200" value="{{ old('IndName') }}" name="IndName" type="text" class="text-center form-control form-control-alternative{{ $errors->has('IndName') ? ' is-invalid' : '' }}" required>
                 @include('alerts.feedback', ['field' => 'IndName'])
+              </div>
+              <div class="form-group{{ $errors->has('IndDescripcion') ? ' has-danger' : '' }}">
+                <label>Descripción</label>
+                <input placeholder="% de Ausencias de los trabajadores por faltas, permisos o retrasos en cada area de trabajo. Este indicador nos conduce a la motivación de los trabajadores y su compromiso con la Empresa." maxlength="800" value="{{ old('IndDescripcion') }}" name="IndDescripcion" type="text" class="text-center form-control form-control-alternative{{ $errors->has('IndDescripcion') ? ' is-invalid' : '' }}">
+                @include('alerts.feedback', ['field' => 'IndDescripcion'])
+              </div>
+              <div class="form-group{{ $errors->has('IndFormula') ? ' has-danger' : '' }}">
+                <label>Formula</label>
+                <input placeholder="(Horas de ausentismo del mes / Horas laborados del mes)* 100" maxlength="200" value="{{ old('IndFormula') }}" name="IndFormula" type="text" class="text-center form-control form-control-alternative{{ $errors->has('IndFormula') ? ' is-invalid' : '' }}">
+                @include('alerts.feedback', ['field' => 'IndFormula'])
               </div>
               <div class="form-group{{ $errors->has('IndFrecuencia') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Frecuencia del Indicador</b>" data-content="Seleccione la frecuencia del indicador"><i class="far fa-question-circle"></i> Frecuencia del Indicador</label>
@@ -44,13 +54,13 @@ Indicadores
               </div>
               <div class="form-group{{ $errors->has('IndMeta') ? ' has-danger' : '' }}">
                 <label>Meta del Indicador</label>
-                <input value="{{ old('IndMeta') }}" placeholder="100%" name="IndMeta" type="text" class="text-center form-control form-control-alternative{{ $errors->has('IndMeta') ? ' is-invalid' : '' }}">
+                <input maxlength="12" value="{{ old('IndMeta') }}" placeholder=">90%" name="IndMeta" type="text" class="text-center form-control form-control-alternative{{ $errors->has('IndMeta') ? ' is-invalid' : '' }}">
                 @include('alerts.feedback', ['field' => 'IndMeta'])
               </div>
-              <div class="form-group{{ $errors->has('IndQueMide') ? ' has-danger' : '' }}">
+              <div class="form-group{{ $errors->has('IndFicha') ? ' has-danger' : '' }}">
                 <label>N° de ficha</label>
-                <input value="{{ old('IndQueMide') }}" name="IndQueMide" type="text" class="text-center form-control form-control-alternative{{ $errors->has('IndQueMide') ? ' is-invalid' : '' }}" required>
-                @include('alerts.feedback', ['field' => 'IndQueMide'])
+                <input maxlength="24" placeholder="HSEQ-04 REV.1 ene-20" value="{{ old('IndFicha') }}" name="IndFicha" type="text" class="text-center form-control form-control-alternative{{ $errors->has('IndFicha') ? ' is-invalid' : '' }}">
+                @include('alerts.feedback', ['field' => 'IndFicha'])
               </div>		
               <div class="custom-input-file {{ $errors->has('IndGraphic') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Gráfica</b>" data-content="Ingresar la imagen correspondiente a la Gráfica. Este archivo debe ser de tipo: jpg, jpeg, png"><i class="far fa-question-circle"></i> Gráfica</label>
@@ -80,8 +90,8 @@ Indicadores
               <div class="form-group{{ $errors->has('IndEfe') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Indicador de:</b>" data-content="Seleccione el tipo de indicador:<li>Eficiencia</li><li>Eficacia</li><li>Efectividad</li>"><i class="far fa-question-circle"></i> Indicador de:</label>
                 <select class="text-center form-control form-control-alternative{{ $errors->has('IndEfe') ? ' is-invalid' : '' }}" required="" name="IndEfe" id="IndEfe">
-                  <option {{ old('IndEfe') == '0' ? 'selected' : ''}} value="0">Eficiencia</option>
-                  <option {{ old('IndEfe') == '1' ? 'selected' : ''}} value="1">Eficacia</option>
+                  <option {{ old('IndEfe') == '0' ? 'selected' : ''}} value="0">Eficacia</option>
+                  <option {{ old('IndEfe') == '1' ? 'selected' : ''}} value="1">Eficiencia</option>
                   <option {{ old('IndEfe') == '2' ? 'selected' : ''}} value="2">Efectividad</option>
                 </select>
                 @include('alerts.feedback', ['field' => 'IndEfe'])

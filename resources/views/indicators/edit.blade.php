@@ -19,9 +19,19 @@ Indicadores
             	@method('PUT')
               @csrf
               <div class="form-group{{ $errors->has('IndName') ? ' has-danger' : '' }}">
-                <label>Nombre del Indicador</label>
-                <input name="IndName" type="text" value="{{ old('IndName') ? old('IndName') : $indicator->IndName}}" class="text-center form-control form-control-alternative{{ $errors->has('IndName') ? ' is-invalid' : '' }}">
+                <label>Nombre</label>
+                <input maxlength="200" name="IndName" type="text" value="{{ old('IndName') ? old('IndName') : $indicator->IndName}}" class="text-center form-control form-control-alternative{{ $errors->has('IndName') ? ' is-invalid' : '' }}">
                 @include('alerts.feedback', ['field' => 'IndName'])
+              </div>
+              <div class="form-group{{ $errors->has('IndDescripcion') ? ' has-danger' : '' }}">
+                <label>Descripción</label>
+                <input maxlength="800" name="IndDescripcion" type="text" value="{{ old('IndDescripcion') ? old('IndDescripcion') : $indicator->IndDescripcion}}" class="text-center form-control form-control-alternative{{ $errors->has('IndDescripcion') ? ' is-invalid' : '' }}">
+                @include('alerts.feedback', ['field' => 'IndDescripcion'])
+              </div>
+              <div class="form-group{{ $errors->has('IndFormula') ? ' has-danger' : '' }}">
+                <label>Descripción</label>
+                <input maxlength="200" name="IndFormula" type="text" value="{{ old('IndFormula') ? old('IndFormula') : $indicator->IndFormula}}" class="text-center form-control form-control-alternative{{ $errors->has('IndFormula') ? ' is-invalid' : '' }}">
+                @include('alerts.feedback', ['field' => 'IndFormula'])
               </div>
               <div class="form-group{{ $errors->has('IndFrecuencia') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Frecuencia del Indicador</b>" data-content="Seleccione la frecuencia del indicador"><i class="far fa-question-circle"></i> Frecuencia del Indicador</label>
@@ -43,13 +53,13 @@ Indicadores
               </div>
               <div class="form-group{{ $errors->has('IndMeta') ? ' has-danger' : '' }}">
                 <label>Meta del Indicador</label>
-                <input name="IndMeta" type="text" value="{{ old('IndMeta') ? old('IndMeta') : $indicator->IndMeta}}" class="text-center form-control form-control-alternative{{ $errors->has('IndMeta') ? ' is-invalid' : '' }}">
+                <input maxlength="12" name="IndMeta" type="text" value="{{ old('IndMeta') ? old('IndMeta') : $indicator->IndMeta}}" class="text-center form-control form-control-alternative{{ $errors->has('IndMeta') ? ' is-invalid' : '' }}">
                 @include('alerts.feedback', ['field' => 'IndMeta'])
               </div>
-              <div class="form-group{{ $errors->has('IndQueMide') ? ' has-danger' : '' }}">
+              <div class="form-group{{ $errors->has('IndFicha') ? ' has-danger' : '' }}">
                 <label>N° de ficha</label>
-                <input name="IndQueMide" type="text" value="{{ old('IndQueMide') ? old('IndQueMide') : $indicator->IndQueMide}}" class="text-center form-control form-control-alternative{{ $errors->has('IndQueMide') ? ' is-invalid' : '' }}">
-                @include('alerts.feedback', ['field' => 'IndQueMide'])
+                <input maxlength="24" name="IndFicha" type="text" value="{{ old('IndFicha') ? old('IndFicha') : $indicator->IndFicha}}" class="text-center form-control form-control-alternative{{ $errors->has('IndFicha') ? ' is-invalid' : '' }}">
+                @include('alerts.feedback', ['field' => 'IndFicha'])
               </div>		
               <div class="custom-input-file {{ $errors->has('IndGraphic') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Gráfica</b>" data-content="Ingresar la imagen correspondiente a la Gráfica. Este archivo debe ser de tipo: jpg, jpeg, png"><i class="far fa-question-circle"></i> Gráfica</label>
@@ -87,8 +97,8 @@ Indicadores
               <div class="form-group{{ $errors->has('IndEfe') ? ' has-danger' : '' }}">
                 <label data-placement="auto" data-trigger="hover" data-html="true" data-toggle="popover" title="<b>Indicador de:</b>" data-content="Seleccione el tipo de indicador:<li>Eficiencia</li><li>Eficacia</li><li>Efectividad</li>"><i class="far fa-question-circle"></i> Indicador de:</label>
                 <select class="text-center form-control form-control-alternative{{ $errors->has('IndEfe') ? ' is-invalid' : '' }}" required="" name="IndEfe" id="IndEfe">
-                  <option {{ old('IndEfe') == "0" ? "selected" : ($indicator->IndEfe == "0" && !old('IndEfe') ? "selected" : "") }} value="0">Eficiencia</option>
-                  <option {{ old('IndEfe') == "1" ? "selected" : ($indicator->IndEfe == "1" && !old('IndEfe') ? "selected" : "") }} value="1">Eficacia</option>
+                  <option {{ old('IndEfe') == "0" ? "selected" : ($indicator->IndEfe == "0" && !old('IndEfe') ? "selected" : "") }} value="0">Eficacia</option>
+                  <option {{ old('IndEfe') == "1" ? "selected" : ($indicator->IndEfe == "1" && !old('IndEfe') ? "selected" : "") }} value="1">Eficiencia</option>
                   <option {{ old('IndEfe') == "2" ? "selected" : ($indicator->IndEfe == "2" && !old('IndEfe') ? "selected" : "") }} value="2">Efectividad</option>
                 </select>
                 @include('alerts.feedback', ['field' => 'IndEfe'])

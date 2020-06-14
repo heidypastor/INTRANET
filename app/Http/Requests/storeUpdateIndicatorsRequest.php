@@ -33,6 +33,7 @@ class storeUpdateIndicatorsRequest extends FormRequest
             'IndGraphic'     =>  'max:2048|min:1|mimes:jpeg,jpg,png',
             'IndTable'       =>  'max:2048|min:1|mimes:pdf,txt,doc,docx,xls,ppt,xlsx,pptx',
             'IndAnalysis'    =>  'max:2048|min:1|mimes:jpeg,jpg,png',
+            'IndMeta'        =>  'max:20',
         ];
     }
 
@@ -51,6 +52,7 @@ class storeUpdateIndicatorsRequest extends FormRequest
             'IndGraphic.max'    => 'LA "Gráfica" debe pesar menos de 2 Mb',
             'IndTable.max'      => 'El "Archivo" debe pesar menos de 2 Mb',
             'IndAnalysis.max'   => 'El "Análisis (imagen)" debe pesar menos de 2 Mb',
+            'IndMeta.max'      => 'El campo Nombre no debe contener más de 20 caracteres',
         ];
     }
 }
