@@ -29,7 +29,7 @@ class IndicatorsSeeder extends Seeder
         $indicator = new Indicators();
         $indicator->IndName = 'Indicador Logistica';
         $indicator->IndObjective = '1';
-        $indicator->IndQueMide = 'Productividad';
+        $indicator->IndDescripcion = 'Productividad';
         $indicator->IndGraphic = '';
         $indicator->IndTable = '';
         $indicator->IndFrecuencia = 'mensual';
