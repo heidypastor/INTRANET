@@ -114,17 +114,8 @@ Proceso de {{$proceso->ProcName}}
 		<div class="col-md-12">
 			<br><br>
 		</div>
-		<div class="row margen text-center">
-			<div class="col-md-12">
-				<h4>ALCANCE</h4><hr>
-				<p>{{$proceso->ProcAlcance}}</p>
-			</div>
-		</div>
-		<div class="col-md-12">
-			<br><br>
-		</div>
 		
-		<div class="row d-flex justify-content-between flex-row">
+		{{-- <div class="row d-flex justify-content-between flex-row">
 			<div class="col-md-12 text-center margen color">
 				<h4>PLANEAR</h4>
 			</div>
@@ -152,6 +143,86 @@ Proceso de {{$proceso->ProcName}}
 			</div>
 			<div class="col-md-12 text-center margen color">
 				<h4>ACTUAR</h4> 
+			</div>
+		</div> --}}
+		<div class="row margen text-center">
+			<div class="col-md-12">
+				<h4>ALCANCE</h4><hr>
+				<p>{{$proceso->ProcAlcance}}</p>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<br><br>
+		</div>
+		<div class="row margen text-center">
+			<div class="col-md-12">
+				<h4>PLANEAR</h4>
+			</div>
+			<div class="col-md-2 margen">
+				<h5>PROVEEDOR</h5>
+			</div>
+			<div class="col-md-2 margen">
+				<h5>ENTRADA</h5>
+			</div>
+			<div class="col-md-2 margen">
+				<h5>ACTIVIDAD/ETAPA</h5>
+			</div>
+			<div class="col-md-2 margen">
+				<h5>RESULTADOS/SALIDAS</h5>
+			</div>
+			<div class="col-md-2 margen">
+				<h5>CLIENTE</h5>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2 margen text-center color1">
+				<h4>PLANEAR</h4>
+			</div>
+			<div class="col-md-10 margen">
+				<div class="row">
+					di.col
+				</div>
+				<ul>
+					@foreach($proceso->proveedores as $proveedor)
+						<li>{{$proveedor->ProvName}}</li>
+					@endforeach
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2 margen text-center color1">
+				<h4>HACER</h4>
+			</div>
+			<div class="col-md-10 margen">
+				<ul>
+					@foreach($proceso->entradas as $entrada)
+						<li>{{$entrada->InputName}}</li>
+					@endforeach
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2 margen text-center color1">
+				<h4>VERIFICAR</h4>
+			</div>
+			<div class="col-md-10 margen">
+				<ul>
+					@foreach($proceso->actividades as $actividad)
+						<li>{{$actividad->ActiName}}
+					@endforeach
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2 margen text-center color1">
+				<h4>ACTUAR</h4>
+			</div>
+			<div class="col-md-10 margen">
+				<ul>
+					@foreach($proceso->clientes as $cliente)
+						<li>{{$cliente->CliName}}</li>
+					@endforeach
+				</ul>
 			</div>
 		</div>
 

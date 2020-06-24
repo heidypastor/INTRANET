@@ -13,7 +13,7 @@ Indicadores
 		<div class="container">
 			<div class="row mt-4">
 				<div class="col-md-12">
-				<h3 class="text-center negrilla">{{$indicator->IndName}} - 
+				<p class="text-center hd responsive negrilla">{{$indicator->IndName}} - 
 					@switch($indicator->IndEfe)
 						@case('0')
 							{{'Eficacia'}}
@@ -26,7 +26,7 @@ Indicadores
 							@break
 						@default
 					@endswitch
-				</h3>
+				</p>
 				</div>
 			</div>
 			<div class="row my-3 justify-content-center">
