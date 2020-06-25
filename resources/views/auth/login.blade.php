@@ -10,7 +10,7 @@ Inicio de sesión
 
 @section('content')
     <div class="col-lg-3 col-md-6 ml-1s col-sm-8 position-login">
-        <form class="form texto-carousel" method="post" action="{{ route('login') }}" style="margin: -25px 25px 0px 0px;">
+        <form class="form texto-login" method="post" action="{{ route('login') }}" style="margin: -25px 25px 0px 0px;">
             @csrf
             <div class="card card-login card-white card-new" {{-- style="background-color: rgba(29, 245, 0, 0);" --}}>
                     <div class="card-header">

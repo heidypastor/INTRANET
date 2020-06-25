@@ -111,7 +111,7 @@ class ProcessController extends Controller
         $process->ProcAlcance = $request->input('ProcAlcance');
         $process->ProcAmbienTrabajo = $request->input('ProcAmbienTrabajo');
         $process->ProcResponsable = $request->input('ProcResponsable');
-        $process->ProcAutoridad = $request->input('ProcAutoridad');
+        $process->ProcParticipantes = $request->input('ProcParticipantes');
         // $process->ProcRecursos = 'ninguno';
         $process->ProcElaboro = $request->input('ProcElaboro');
 
@@ -161,7 +161,7 @@ class ProcessController extends Controller
         // return $proceso->ProcRiesgos;
 
         $usuario = Auth::user()->id;
-        return view('process.show', compact('proceso', 'usuario', 'roles'));
+        return view('process.iframe', compact('proceso', 'usuario', 'roles'));
     }
 
     /**

@@ -2133,7 +2133,7 @@ textarea.form-control {
   width: 100%;
   margin-top: 0.25rem;
   font-size: 80%;
-  color: #ffde72;
+  color: #f5365c;
 }
 
 .invalid-tooltip {
@@ -2155,14 +2155,14 @@ textarea.form-control {
 .form-control.is-invalid,
 .was-validated .custom-select:invalid,
 .custom-select.is-invalid {
-  border-color: #ffde72;
+  border-color: #f5365c;
 }
 
 .was-validated .form-control:invalid:focus,
 .form-control.is-invalid:focus,
 .was-validated .custom-select:invalid:focus,
 .custom-select.is-invalid:focus {
-  border-color: #ffde72;
+  border-color: #f5365c;
   box-shadow: 0 0 0 0 rgba(255, 141, 114, 0.25);
 }
 
@@ -2186,7 +2186,7 @@ textarea.form-control {
 
 .was-validated .form-check-input:invalid~.form-check-label,
 .form-check-input.is-invalid~.form-check-label {
-  color: #ffde72;
+  color: #f5365c;
 }
 
 .was-validated .form-check-input:invalid~.invalid-feedback,
@@ -2198,7 +2198,7 @@ textarea.form-control {
 
 .was-validated .custom-control-input:invalid~.custom-control-label,
 .custom-control-input.is-invalid~.custom-control-label {
-  color: #ffde72;
+  color: #f5365c;
 }
 
 .was-validated .custom-control-input:invalid~.custom-control-label::before,
@@ -2225,7 +2225,7 @@ textarea.form-control {
 
 .was-validated .custom-file-input:invalid~.custom-file-label,
 .custom-file-input.is-invalid~.custom-file-label {
-  border-color: #ffde72;
+  border-color: #f5365c;
 }
 
 .was-validated .custom-file-input:invalid~.custom-file-label::after,

@@ -71,7 +71,7 @@ class IndicatorsController extends Controller
     public function store(storeUpdateIndicatorsRequest $request)
     {
         /*$indicator->create($request->except(['IndGraphic', 'IndTable']));*/
-        /*return $request;*/
+        // return $request;
         $path = $request->file('IndGraphic')->store('public/Graphic');
         $pathimg = $request->file('IndTable')->store('public/Archivos');
         $pathAnalisis = $request->file('IndAnalysis')->store('public/Graphic');
@@ -81,9 +81,29 @@ class IndicatorsController extends Controller
         $indicator = new Indicators();
         $indicator->IndName = $request->input('IndName');
         $indicator->IndObjective = $request->input('IndObjective');
-        $indicator->IndQueMide = $request->input('IndQueMide');
+
+        if ($request->filled('IndDescripcion')) {
+            $indicator->IndDescripcion = $request->input('IndDescripcion');
+        }else{
+            $indicator->IndDescripcion = 'Sin definir';
+        }
+        if ($request->filled('IndFormula')) {
+            $indicator->IndFormula = $request->input('IndFormula');
+        }else{
+            $indicator->IndFormula = 'Sin definir';
+        }
+        if ($request->filled('IndFicha')) {
+            $indicator->IndFicha = $request->input('IndFicha');
+        }else{
+            $indicator->IndFicha = 'Sin definir';
+        }
+        if ($request->filled('IndMeta')) {
+            $indicator->IndMeta = $request->input('IndMeta');
+        }else{
+            $indicator->IndMeta = 'Sin definir';
+        }
+        
         $indicator->IndFrecuencia = $request->input('IndFrecuencia');
-        $indicator->IndMeta = $request->input('IndMeta');
         $indicator->IndGraphic = $path;
         $indicator->IndTable = $pathimg;
         $indicator->IndAnalysis = $pathAnalisis;
@@ -146,16 +166,30 @@ class IndicatorsController extends Controller
      */
     public function update(storeUpdateIndicatorsRequest $request, Indicators $indicator)
     {
-       /* return $request;*/
-       /*if ($request->hasFile('Avatar')){
-       $file = $request->file('Avatar');
-       $name = time().$file->getClientOriginalName();
-       $file->move(public_path().'/images/', $name);
-       
-       auth()->user()->update(['Avatar' => '/images/'.$name]);
+        $indicator->update($request->except(['IndGraphic', 'IndTable', 'IndAnalysis', 'IndDescripcion', 'IndFormula', 'IndFicha', 'IndMeta']));
 
-       }*/
-        $indicator->update($request->except(['IndGraphic', 'IndTable', 'IndAnalysis']));
+        
+        if ($request->filled('IndDescripcion')) {
+            $indicator->IndDescripcion = $request->input('IndDescripcion');
+        }else{
+            $indicator->IndDescripcion = 'Sin definir';
+        }
+        if ($request->filled('IndFormula')) {
+            $indicator->IndFormula = $request->input('IndFormula');
+        }else{
+            $indicator->IndFormula = 'Sin definir';
+        }
+        if ($request->filled('IndFicha')) {
+            $indicator->IndFicha = $request->input('IndFicha');
+        }else{
+            $indicator->IndFicha = 'Sin definir';
+        }
+        if ($request->filled('IndMeta')) {
+            $indicator->IndMeta = $request->input('IndMeta');
+        }else{
+            $indicator->IndMeta = 'Sin definir';
+        }
+
         if ($request->hasFile('IndGraphic')){
             $path = $request->file('IndGraphic')->store('public/Graphic');
             $indicator->update(['IndGraphic' => $path]);
@@ -173,12 +207,6 @@ class IndicatorsController extends Controller
             $indicator->update(['IndAnalysis' => $pathAnalisis]);
         }else{
         }
-        /*$path = $request->file('IndGraphic')->store('public/Graphic');*/
-        /*$pathimg = $request->file('IndTable')->store('public/Archivos');*/
-
-
-        // $indicator->update(['IndGraphic' => $path]);
-        // $indicator->update(['IndTable' => $pathimg]);
 
         if ($indicator->IndType === 0) {
             return redirect()->route('indicators.index')->withStatus(__('Indicador actualizado correctamente'));
