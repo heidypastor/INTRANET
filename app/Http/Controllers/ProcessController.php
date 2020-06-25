@@ -161,7 +161,7 @@ class ProcessController extends Controller
         // return $proceso->ProcRiesgos;
 
         $usuario = Auth::user()->id;
-        return view('process.showcopy', compact('proceso', 'usuario', 'roles'));
+        return view('process.iframe', compact('proceso', 'usuario', 'roles'));
     }
 
     /**
