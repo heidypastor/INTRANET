@@ -522,3 +522,18 @@ estilo de imput para input personalizade del documentos.edit*/
   /* height:38px; */
   padding-top:2px;
 }
+/* responsive font */
+.text-responsive { font-size: 1rem; }
+
+@media (min-width: 576px) {
+    .text-responsive { font-size: 1rem; }
+}
+@media (min-width: 768px) {
+    .text-responsive { font-size: 1.3rem; }
+}
+@media (min-width: 992px) {
+    .text-responsive { font-size: 1.4rem; }
+}
+@media (min-width: 1200px) {
+    .text-responsive { font-size: 1.5rem; }
+}

@@ -12,8 +12,8 @@ Indicadores
 	<div class="card">
 		<div class="container">
 			<div class="row mt-4">
-				<div class="col-md-12">
-				<p class="text-center hd responsive negrilla">{{$indicator->IndName}} - 
+				<div class="col-md-12 text-responsive">
+				<p class="text-center negrilla">{{$indicator->IndName}} - 
 					@switch($indicator->IndEfe)
 						@case('0')
 							{{'Eficacia'}}
